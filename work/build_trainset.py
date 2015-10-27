@@ -6,7 +6,6 @@ import work.no_default_customer_feature_analysis as no_default
 import work.default_customer_feature_analysis as Default
 import random
 
-
 class BuildingTrainSet:
     def __init__(self):
         self.trainSet_base = []
@@ -16,6 +15,7 @@ class BuildingTrainSet:
     def building_no_default_trainset_base(self):
         nodefault = no_default.FIRSTDATA()
         nodefault.get_data()
+        print nodefault.inhbitancy_status
         for i in range(0, len(nodefault.loanAmount)):
             trainSet_base_one = []
             trainSet_base_one.append(0)
@@ -44,6 +44,7 @@ class BuildingTrainSet:
     def building_default_trainset_base(self):
         default = Default.FEATURE_ANALYSIS()
         default.get_data()
+
         for i in range(0, len(default.loanAccount)):
             default_train_set_base_one = []
             default_train_set_base_one.append(1)
@@ -52,6 +53,7 @@ class BuildingTrainSet:
             default_train_set_base_one.append(default.guaranteeMethod[i])
             default_train_set_base_one.append(default.genderCd[i])
             default_train_set_base_one.append(default.marriageCd[i])
+            default_train_set_base_one.append(default.degereeCd[i])
             default_train_set_base_one.append(default.maintainPersonNum[i])
             default_train_set_base_one.append(default.companyType[i])
             default_train_set_base_one.append(default.inhbitancy_status[i])
@@ -70,8 +72,8 @@ class BuildingTrainSet:
 
     def write_txt(self):
         fl = open("C:\\Users\\\Thinkpad\\Desktop\\test.txt", 'a')
-        name = "IsDefault" + "\t" + "repaymentMethod" + "\t" + "guaranteeMethod" + "\t" + "genderCd" + "\t"\
-               + "marriageCd" + "\t" + "maintainPersonNum" + "\t" + "companyType" + "\t"\
+        name = "IsDefault" + "\t" + "code" + "\t" + "repaymentMethod" + "\t" + "guaranteeMethod" + "\t" + "genderCd" + "\t"\
+               + "marriageCd" + "\t" + "degereeCd" + "\t" + "maintainPersonNum" + "\t" + "companyType" + "\t"\
                + "inhbitancy_status" + "\t" + "employmentType" + "\t" + "loanAccount" + "\t" \
                + "mortgageObject" + "\t" + "familyTatalAsset" + "\t" + "overdueDays" + "\t" + "overdueAccount"
         fl.write(str(name))
