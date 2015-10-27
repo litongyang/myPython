@@ -1,3 +1,4 @@
 /.idea/*
-/work/*.pyc
-build
+*.pyc
+.DS_Store
+__init__.pyc
