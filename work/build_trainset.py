@@ -6,6 +6,7 @@ import work.no_default_customer_feature_analysis as no_default
 import work.default_customer_feature_analysis as Default
 import random
 
+
 class BuildingTrainSet:
     def __init__(self):
         self.trainSet_base = []
@@ -15,7 +16,7 @@ class BuildingTrainSet:
     def building_no_default_trainset_base(self):
         nodefault = no_default.FIRSTDATA()
         nodefault.get_data()
-        print nodefault.inhbitancy_status
+        # print nodefault.inhbitancy_status
         for i in range(0, len(nodefault.loanAmount)):
             trainSet_base_one = []
             trainSet_base_one.append(0)
@@ -66,7 +67,7 @@ class BuildingTrainSet:
             default_train_set_base_one.append(default.overdueAccount[i])
             self.default_trainSet_base.append(default_train_set_base_one)
         self.trainSet_base.append(self.default_trainSet_base)
-        print self.default_trainSet_base
+        # print self.default_trainSet_base
         # print len(self.trainSet_base)
         # print self.trainSet_base[0]
 
@@ -94,4 +95,4 @@ if __name__ == '__main__':
     buildingTrainSet = BuildingTrainSet()
     buildingTrainSet.building_no_default_trainset_base()
     buildingTrainSet.building_default_trainset_base()
-    buildingTrainSet.write_txt()
+    # buildingTrainSet.write_txt()

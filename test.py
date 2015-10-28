@@ -22,13 +22,18 @@ from tabulate import tabulate
 # clf.fit(X, Y)
 
 import numpy as np
-import random
-import matplotlib.pylab as plt
+# import random
+# import matplotlib.pylab as plt
+#
+# x = [1, 2, 3, 6, 101, 100]
+# n = int(float(len(x))*0.5)
+# print n
+# y = random.sample(x, n)
+# print y
+# plt.hist(y)
+# plt.show()
 
-x = [1, 2, 3, 6, 101, 100]
-n = int(float(len(x))*0.5)
-print n
-y = random.sample(x, n)
-print y
-plt.hist(y)
-plt.show()
+# list 转置
+a = [ [1,2,3], [4,5,6], [7,8,9]]
+print a
+print map(list, zip(*a))

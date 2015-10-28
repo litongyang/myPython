@@ -9,8 +9,6 @@ import numpy as np
 import work.no_default_customer_feature_analysis as nodefault
 import work.default_customer_feature_analysis as default
 
-
-
 class ContrastiveAnalysis:
     def __init__(self):
         self.overdueDays = []
