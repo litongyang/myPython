@@ -34,6 +34,23 @@ import numpy as np
 # plt.show()
 
 # list 转置
-a = [ [1,2,3], [4,5,6], [7,8,9]]
-print a
-print map(list, zip(*a))
+# a = [ [1,2,3], [4,5,6], [7,8,9]]
+# print a
+# print map(list, zip(*a))
+
+
+
+
+# import scipy
+# import sklearn
+
+#
+from sklearn import datasets
+from sklearn import decomposition
+import matplotlib.pyplot as plt
+iris = datasets.load_iris()
+print iris.data
+pca = decomposition.PCA(n_components=2)
+pca_result = pca.fit_transform(iris.data)
+print pca_result
+plt.show()
