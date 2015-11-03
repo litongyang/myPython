@@ -40,6 +40,8 @@ class IndustryDataMean:
 		self.Asset_growth_rate_mean_ratio_industry = {}  # 净资产增长率(行业每年均值)
 		self.Net_profit_growth_rate_mean_ratio_industry = {}  # 净利润增长率(行业每年均值)
 
+		self.parameters_dictionary = {}  # 参数字典
+
 	def parameters_mean_ratio(self, string, parameters_mean_ratio_year, year):
 		industry = industryData.IndustryData()
 		industry.divided_group_industry()
@@ -49,50 +51,82 @@ class IndustryDataMean:
 			cur = conn.cursor()
 			cur.execute('set names \'utf8\'')
 			for key, value in industry.company_industry.items():
-				if key == '白酒':
-					print value
-					for j in range(3, 13):
-						print year
-						string_mean_ratio_year = 0  # 某参数全行业某年的加权均值
-						for i in range(0, len(value)):
-							stock_name = 'parameters_' + value[i]
+				string_mean_ratio = []  # 某参数全行业的包含每个年份的加权平均值
+				year = 2014
+				for j in range(3, 13):
+					# print year
+					string_mean_ratio_year = 0  # 某参数全行业某年的加权均值
+					for i in range(0, len(value)):
+						stock_name = 'parameters_' + value[i]
+						try:
+							count = cur.execute(
+								"SELECT industry_ratio FROM %s " % self.company_industry_ratio_fileName +
+								"WHERE company_code=" + '\'' + value[i] + '\'' + "and year=" + '\'' + str(
+									year) + '\'')
+							results = cur.fetchmany(count)
 							try:
-								count = cur.execute(
-									"SELECT industry_ratio FROM %s " % self.company_industry_ratio_fileName +
-									"WHERE company_code=" + '\'' + value[i] + '\'' + "and year=" + '\'' + str(
-										year) + '\'')
-								results = cur.fetchmany(count)
-								try:
-									count1 = cur.execute(
-										"SELECT * FROM %s " % stock_name + "WHERE Parameters=" + '\'' + string + '\'')
-									results1 = cur.fetchmany(count1)
-									# print len(results1)
-									if len(results1) == 0:
-										pass
-									else:
-										# print "key,code,year,ratio,string::", key, value[i], year, results[0][0], \
-										# 	results1[0][j]
-										string_mean_ratio_year += results[0][0] * results1[0][j]
-								except Exception, e:
+								count1 = cur.execute(
+									"SELECT * FROM %s " % stock_name + "WHERE Parameters=" + '\'' + string + '\'')
+								results1 = cur.fetchmany(count1)
+								# print len(results1)
+								if len(results1) == 0:
 									pass
-								# print Exception,":",e
+								else:
+									# print "key,code,year,ratio,string::", key, value[i], year, results[0][0], \
+									# 	results1[0][j]
+									string_mean_ratio_year += results[0][0] * results1[0][j]
 							except Exception, e:
 								pass
 							# print Exception,":",e
-						parameters_mean_ratio_year[key] = string_mean_ratio_year
-						print string, key, string_mean_ratio_year
-						year -= 1
+						except Exception, e:
+							pass
+						# print Exception,":",e
+					string_mean_ratio.append(string_mean_ratio_year)
+					year -= 1
+				parameters_mean_ratio_year[key] = string_mean_ratio
+				print string, key, string_mean_ratio
+
 		except Exception, e:
 			pass
 		# print Exception,":",e
 
+	# 构建参数字典
+	def create_parameters_dictionary(self):
+		self.parameters_dictionary["销售毛利率(%)"] = self.gross_margin_mean_ratio_industry
+		self.parameters_dictionary["净资产收益率(%)"] = self.ROE_mean_ratio_industry
+		self.parameters_dictionary["销售净利率(%)"] = self.Sales_net_profit_rate_mean_ratio_industry
+		self.parameters_dictionary["总资产回报率(%)"] = self.Rate_of_return_on_total_assets_mean_ratio_industry
+		self.parameters_dictionary["资产报酬率(%)"] = self.Rate_of_return_on_assets_mean_ratio_industry
+		self.parameters_dictionary["主营业务利润率(%)"] = self.Main_business_profit_rate_mean_ratio_industry
+		self.parameters_dictionary["存货周转天数(天)"] = self.Inventory_turnover_days_mean_ratio_industry
+		self.parameters_dictionary["总资产周转天数(天)"] = self.Total_assets_turnover_days_mean_ratio_industry
+		self.parameters_dictionary["应收账款周转天数(天)"] = self.Accounts_receivable_turnover_days_mean_ratio_industry
+		self.parameters_dictionary["营业周期(天)"] = self.Business_cycle_mean_ratio_industry
+		self.parameters_dictionary["速动比率(%)"] = self.Quick_ratio_mean_ratio_industry
+		self.parameters_dictionary["现金比率(%)"] = self.Cash_ratio_mean_ratio_industry
+		self.parameters_dictionary["现金负债总额比(%)"] = self.Rate_of_assets_and_liabilities_mean_ratio_industry
+		self.parameters_dictionary["资产负债率(%)"] = self.Quick_ratio_mean_ratio_industry
+		self.parameters_dictionary["产权比率(%)"] = self.Equity_ratio_mean_ratio_industry
+		self.parameters_dictionary["有形净值债务率(%)"] = self.Debt_to_tangible_assets_ratio_mean_ratio_industry
+		self.parameters_dictionary["营业利润比率(%)"] = self.Operating_profit_ratio_mean_ratio_industry
+		self.parameters_dictionary["销售收入增长率(%)"] = self.Sales_revenue_growth_rate_mean_ratio_industry
+		self.parameters_dictionary["税前利润增长率(%)"] = self.Pre_tax_profit_growth_rate_mean_ratio_industry
+		self.parameters_dictionary["总资产增长率(%)"] = self.Total_assets_growth_rate_mean_ratio_industry
+		self.parameters_dictionary["净资产增长率(%)"] = self.Asset_growth_rate_mean_ratio_industry
+		self.parameters_dictionary["净利润增长率(%)"] = self.Net_profit_growth_rate_mean_ratio_industry
+		# for key, value in self.paramters_dictionary.items():
+		# 	print key,value
 
 if __name__ == '__main__':
 	industryDataMean = IndustryDataMean()
-	industryDataMean.parameters_mean_ratio("销售毛利率(%)", industryDataMean.gross_margin_mean_ratio_industry, industryDataMean.year)
-	industryDataMean.parameters_mean_ratio("净资产收益率(%)", industryDataMean.ROE_mean_ratio_industry, industryDataMean.year)
-	industryDataMean.parameters_mean_ratio("销售净利率(%)", industryDataMean.Sales_net_profit_rate_mean_ratio_industry, industryDataMean.year)
-	industryDataMean.parameters_mean_ratio("总资产回报率(%)",industryDataMean.Rate_of_return_on_total_assets_mean_ratio_industry,industryDataMean.year)
+	industryDataMean.create_parameters_dictionary()
+	for key, value in industryDataMean.parameters_dictionary.items():
+		if key == "销售毛利率(%)":
+			industryDataMean.parameters_mean_ratio(key,value, industryDataMean.year)
+	# industryDataMean.parameters_mean_ratio("销售毛利率(%)", industryDataMean.gross_margin_mean_ratio_industry, industryDataMean.year)
+	# industryDataMean.parameters_mean_ratio("净资产收益率(%)", industryDataMean.ROE_mean_ratio_industry, industryDataMean.year)
+	# industryDataMean.parameters_mean_ratio("销售净利率(%)", industryDataMean.Sales_net_profit_rate_mean_ratio_industry, industryDataMean.year)
+	# industryDataMean.parameters_mean_ratio("总资产回报率(%)", industryDataMean.Rate_of_return_on_total_assets_mean_ratio_industry,industryDataMean.year)
 	# industryDataMean.parameters_mean_ratio("资产报酬率(%)", industryDataMean.Rate_of_return_on_assets_mean_ratio_industry, industryDataMean.year)
 	# industryDataMean.parameters_mean_ratio("主营业务利润率(%)", industryDataMean.Main_business_profit_rate_mean_ratio_industry, industryDataMean.year)
 	# industryDataMean.parameters_mean_ratio("存货周转天数(天)", industryDataMean.Inventory_turnover_days_mean_ratio_industry, industryDataMean.year)

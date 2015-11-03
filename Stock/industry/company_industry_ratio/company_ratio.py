@@ -8,7 +8,7 @@ import MySQLdb
 import Stock.industry.Industry_Data.industryData as industryData
 
 
-class CompanyRatio():
+class CompanyRatio:
     def __init__(self):
         self.db_name = 'STOCK_INFO_2014'  # 数据库名,如果与现有数据库冲突，可改为其他名字
         self.db_host = 'localhost'  # 主机名

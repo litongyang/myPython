@@ -34,7 +34,8 @@ class IndustryData:
         self.remainder_sum_industry = {}  # 每个行业存货总和(key:string,行业名字；value:list,每年对应的行业存货总和)
         self.total_liabilities_sum_industry = {}  # 每个行业负债合计总和(key:string,行业名字；value:list,每年对应的行业负债合计总和)
 
-        self.net_profit_growth_rate_industry = {}  # 每个行业净利润增长率(key:string,行业名字；value:list,每年对应的行业净利润增长率)
+        self.parameters_dictionary = {}
+        # self.net_profit_growth_rate_industry = {}  # 每个行业净利润增长率(key:string,行业名字；value:list,每年对应的行业净利润增长率)
 
     # 根据行业将上市
     # 公司进行划分
@@ -63,6 +64,19 @@ class IndustryData:
         except Exception, e:
             print Exception, ":", e
 
+    def create_parameters_dictionary(self):
+        self.parameters_dictionary["利润总额"] = self.total_profit_sum_industry
+        self.parameters_dictionary["净利润"] = self.net_profit_sum_industry
+        self.parameters_dictionary["股东权益合计"] = self.shareholders_equity_sum_industry
+        self.parameters_dictionary["营业总收入"] = self.business_income_sum_industry
+        self.parameters_dictionary["营业总成本"] = self.cost_in_business_sum_industry
+        self.parameters_dictionary["资产总计"] = self.total_assets_sum_industry
+        self.parameters_dictionary["货币资金"] = self.cash_sum_industry
+        self.parameters_dictionary["应收账款"] = self.accounts_receivable_sum_industry
+        self.parameters_dictionary["预付账款"] = self.advance_payment_sum_industry
+        self.parameters_dictionary["存货"] = self.remainder_sum_industry
+        self.parameters_dictionary["负债合计"] = self.total_liabilities_sum_industry
+
     #  求和参数的通用函数
     def parameters_sum(self, string, parameters_sum_year):
         try:
@@ -82,14 +96,16 @@ class IndustryData:
                             results = cur.fetchmany(count)
                             industry_year_net_profit_sum += results[0][j]
                         except Exception, e:
-                            print Exception, ":", e
+                            pass
+                            # print Exception, ":", e
                     industry_net_profit_sum_info.append(industry_year_net_profit_sum)
                 # self.net_profit_sum_industry[key] = industry_net_profit_sum_info
                 parameters_sum_year[key] = industry_net_profit_sum_info
-            # print key, ':', industry_net_profit_sum_info
-            print parameters_sum_year['白酒']
+                print string,key, ':', industry_net_profit_sum_info
+            # print parameters_sum_year['白酒']
         except Exception, e:
-            print Exception, ":", e
+            pass
+            # print Exception, ":", e
 
     #  净利润增长率
     # def net_profit_growth_rate(self, string):
@@ -134,12 +150,15 @@ class IndustryData:
 if __name__ == '__main__':
     Industry = IndustryData()
     Industry.divided_group_industry()
+    Industry.create_parameters_dictionary()
+    for key, value in Industry.parameters_dictionary.items():
+        Industry.parameters_sum(key, value)
     # Industry.industry_net_profit()
     # Industry.parameters_sum("利润总额", Industry.total_profit_sum_industry)
     # Industry.parameters_sum("净利润", Industry.net_profit_sum_industry)
     # Industry.parameters_sum("股东权益合计", Industry.shareholders_equity_sum_industry)
     # Industry.parameters_sum("营业总收入", Industry.business_income_sum_industry)
-    # Industry.parameters_sum("营业总成本", Industry.total_assets_sum_industry)
+    # Industry.parameters_sum("营业总成本", Industry.cost_in_business_sum_industry)
     # Industry.parameters_sum("资产总计", Industry.total_assets_sum_industry)
     # Industry.parameters_sum("货币资金", Industry.cash_sum_industry)
     # Industry.parameters_sum("应收账款", Industry.accounts_receivable_sum_industry)
