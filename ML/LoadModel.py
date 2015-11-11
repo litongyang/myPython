@@ -2,7 +2,6 @@
 # -*- coding: utf-8 -*-
 
 from sklearn.externals import joblib
-from sklearn.svm import SVC
 from sklearn import datasets
 
 # Test data
