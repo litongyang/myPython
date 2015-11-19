@@ -1,7 +1,7 @@
 # __author__ = 'litongyang'
 # -*- coding: utf-8 -*
 
-# 降为算法：PCA、LDA、NMF
+# 降维算法：PCA、LDA、NMF
 
 from sklearn import datasets
 from sklearn.decomposition import PCA

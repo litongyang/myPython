@@ -1,4 +1,4 @@
-#__author__ = 'litongyang'
+# __author__ = 'litongyang'
 # -*- coding: utf-8 -*-
 
 print(__doc__)
@@ -9,8 +9,7 @@ from sklearn import datasets, linear_model
 
 # Load the diabetes dataset
 diabetes = datasets.load_diabetes()
-
-
+ 
 # Use only one feature
 diabetes_X = diabetes.data[:, np.newaxis]
 diabetes_X_temp = diabetes_X[:, :, 2]
@@ -29,10 +28,10 @@ diabetes_y_test = diabetes.target[-20:]
 regr = linear_model.LinearRegression()
 
 # Train the model using the training sets
-regr.fit(diabetes_X_train, diabetes_y_train)#拟合
+regr.fit(diabetes_X_train, diabetes_y_train)  # 拟合
 
 # The coefficients
-print('Coefficients:', regr.coef_)#系数θ1
+print('Coefficients:', regr.coef_)  # 系数θ1
 
 # The mean square error
 print("Residual sum of squares: %.2f"
