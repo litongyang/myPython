@@ -14,7 +14,7 @@ y = np.ones(10)
 ###############################################################################
 # Compute paths
 
-n_alphas = 200
+n_alphas = 200  
 alphas = np.logspace(-10, -2, n_alphas)  # logspace: 指定开始值、终值（包括）、元素个数的等比数列
 clf = linear_model.Ridge(fit_intercept=False)
 

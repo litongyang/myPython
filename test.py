@@ -55,114 +55,95 @@ from tabulate import tabulate
 # print pca_result
 # plt.show()
 
-import numpy as np
-import matplotlib.pyplot as plt
-x = [1,2]
-y = [(1,2,3),(2,3,4)]
-plt.plot(x,y)
-# ax = plt.gca()
-# ax.plot(x,y)
-plt.show()
+# import sys
+# reload(sys)
+# sys.setdefaultencoding( "utf-8" )
+# import json
+# import re
+# import urllib2
+# import requests
+# import types
+# import urllib
+# from urllib import urlencode
+# from urllib import quote
+# fl = open("C:\\Users\\\Thinkpad\\Desktop\\test.txt", 'w')
+# # url = "http://data.stats.gov.cn/easyquery.htm?cn=A01"
+# url = "http://data.stats.gov.cn/easyquery.htm?cn=B01"
+# response = urllib2.urlopen(url)
+# print response
+# # html = response.read()
+# html = requests.get(url)
+#
+# data = html.text
+# # print data
+# link_list = re.findall(r"(?<=href=\").+?(?=\")|(?<=href=\').+?(?=\')", data)
+# for url1 in link_list:
+#     print url1
+# # match = re.match(r'<li><a href="/search.htm?s=农村居民家庭人均纯收入">农村居民家庭人均纯收入</a></li>', data)
+# # print match.group(0)
+# # print type(html)
+# # print html
+# fl.write(data)
 
 
-# print(__doc__)
-#
-# import time
-#
-# import numpy as np
-# import matplotlib.pyplot as plt
-#
-# from sklearn import cluster, datasets
-# from sklearn.neighbors import kneighbors_graph
-# from sklearn.preprocessing import StandardScaler
-#
-# np.random.seed(0)
-#
-# # Generate datasets. We choose the size big enough to see the scalability
-# # of the algorithms, but not too big to avoid too long running times
-# n_samples = 1500
-# noisy_circles = datasets.make_circles(n_samples=n_samples, factor=.5,
-#                                       noise=.05)
-# noisy_moons = datasets.make_moons(n_samples=n_samples, noise=.05)
-# blobs = datasets.make_blobs(n_samples=n_samples, random_state=8)
-# no_structure = np.random.rand(n_samples, 2), None
-#
-# colors = np.array([x for x in 'bgrcmykbgrcmykbgrcmykbgrcmyk'])
-# colors = np.hstack([colors] * 20)
-#
-# clustering_names = [
-#     'MiniBatchKMeans', 'AffinityPropagation', 'MeanShift',
-#     'SpectralClustering', 'Ward', 'AgglomerativeClustering',
-#     'DBSCAN', 'Birch']
-#
-# plt.figure(figsize=(len(clustering_names) * 2 + 3, 9.5))
-# plt.subplots_adjust(left=.02, right=.98, bottom=.001, top=.96, wspace=.05,
-#                     hspace=.01)
-#
-# plot_num = 1
-#
-# datasets = [noisy_circles, noisy_moons, blobs, no_structure]
-# for i_dataset, dataset in enumerate(datasets):
-#     X, y = dataset
-#     # normalize dataset for easier parameter selection
-#     X = StandardScaler().fit_transform(X)
-#
-#     # estimate bandwidth for mean shift
-#     bandwidth = cluster.estimate_bandwidth(X, quantile=0.3)
-#
-#     # connectivity matrix for structured Ward
-#     connectivity = kneighbors_graph(X, n_neighbors=10, include_self=False)
-#     # make connectivity symmetric
-#     connectivity = 0.5 * (connectivity + connectivity.T)
-#
-#     # create clustering estimators
-#     ms = cluster.MeanShift(bandwidth=bandwidth, bin_seeding=True)
-#     two_means = cluster.MiniBatchKMeans(n_clusters=2)
-#     ward = cluster.AgglomerativeClustering(n_clusters=2, linkage='ward',
-#                                            connectivity=connectivity)
-#     spectral = cluster.SpectralClustering(n_clusters=2,
-#                                           eigen_solver='arpack',
-#                                           affinity="nearest_neighbors")
-#     dbscan = cluster.DBSCAN(eps=.2)
-#     affinity_propagation = cluster.AffinityPropagation(damping=.9,
-#                                                        preference=-200)
-#
-#     average_linkage = cluster.AgglomerativeClustering(
-#         linkage="average", affinity="cityblock", n_clusters=2,
-#         connectivity=connectivity)
-#
-#     birch = cluster.Birch(n_clusters=2)
-#     clustering_algorithms = [
-#         two_means, affinity_propagation, ms, spectral, ward, average_linkage,
-#         dbscan, birch]
-#
-#     for name, algorithm in zip(clustering_names, clustering_algorithms):
-#         # predict cluster memberships
-#         t0 = time.time()
-#         algorithm.fit(X)
-#         t1 = time.time()
-#         if hasattr(algorithm, 'labels_'):
-#             y_pred = algorithm.labels_.astype(np.int)
-#         else:
-#             y_pred = algorithm.predict(X)
-#
-#         # plot
-#         plt.subplot(4, len(clustering_algorithms), plot_num)
-#         if i_dataset == 0:
-#             plt.title(name, size=18)
-#         plt.scatter(X[:, 0], X[:, 1], color=colors[y_pred].tolist(), s=10)
-#
-#         if hasattr(algorithm, 'cluster_centers_'):
-#             centers = algorithm.cluster_centers_
-#             center_colors = colors[:len(centers)]
-#             plt.scatter(centers[:, 0], centers[:, 1], s=100, c=center_colors)
-#         plt.xlim(-2, 2)
-#         plt.ylim(-2, 2)
-#         plt.xticks(())
-#         plt.yticks(())
-#         plt.text(.99, .01, ('%.2fs' % (t1 - t0)).lstrip('0'),
-#                  transform=plt.gca().transAxes, size=15,
-#                  horizontalalignment='right')
-#         plot_num += 1
-#
-# plt.show()
+
+# ! /usr/bin/env python
+# -*- coding=utf-8 -*-
+# @Author pythontab.comn
+# import sys
+# reload(sys)
+# sys.setdefaultencoding( "utf-8" )
+# import urllib2
+# fl = open("C:\\Users\\\Thinkpad\\Desktop\\test.txt", 'w')
+# url="http://data.stats.gov.cn/easyquery.htm?cn=A01"
+# req_header = {'User-Agent':'Mozilla/5.0 (Windows NT 6.1) AppleWebKit/537.11 (KHTML, like Gecko) Chrome/23.0.1271.64 Safari/537.11',
+# 'Accept':'text/html;q=0.9,*/*;q=0.8',
+# 'Accept-Charset':'ISO-8859-1,utf-8;q=0.7,*;q=0.3',
+# 'Accept-Encoding':'gzip',
+# 'Connection':'close',
+# 'Referer':None #注意如果依然不能抓取的话，这里可以设置抓取网站的host
+# }
+# req_timeout = 5
+# req = urllib2.Request(url,None,req_header)
+# resp = urllib2.urlopen(req,None,req_timeout)
+# html = resp.read()
+# print html
+# fl.write(html)
+
+import urllib2
+import chardet
+import json
+import requests
+import StringIO
+import gzip
+
+try:
+    print int(None)
+except:
+    print 2
+# url = "http://xueqiu.com/S/SZ000003"
+# req_header = {'User-Agent': 'Mozilla/5.0 (Windows NT 6.3; WOW64; rv:42.0) Gecko/20100101 Firefox/42.0',
+#                            'Accept': 'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8',
+#                            'Accept-Charset': 'ISO-8859-1,utf-8;q=0.7,*;q=0.3',
+#                            'Accept-Encoding': 'gzip, deflate',
+#                            'Accept-Language': 'zh-CN,zh;q=0.8,en-US;q=0.5,en;q=0.3',
+#                            'Connection': 'keep-alive',
+#                            'Cookie': 's=vnw12f2ga9; __utma=1.117406079.1444787307.1448854251.1448867323.98; __utmz=1.1448854251.97.2.utmcsr=baidu|utmccn=(organic)|utmcmd=organic; Hm_lvt_1db88642e346389874251b5a1eded6e3=1448602155,1448792074,1448850399,1448854252; bid=a6f34af86ba79e86c2f9b2f0ef1b8e54_ifq4xlp9; Hm_lpvt_1db88642e346389874251b5a1eded6e3=1448867332; __utmc=1; last_account=lty369963%40sina.com; xq_a_token=077324eba92f407349bb2ae35e87af7eb6c71cb9; xq_r_token=ac9129a23277d00eb85f86889f2a27ab65173144; u=1062948460; xq_token_expire=Fri%20Dec%2025%202015%2015%3A08%3A17%20GMT%2B0800%20(CST); xq_is_login=1; xqat=077324eba92f407349bb2ae35e87af7eb6c71cb9; __utmb=1.2.10.1448867323; __utmt=1',
+#                            'Host': 'xueqiu.com'}
+# req = urllib2.Request(url, headers=req_header)
+# resp = urllib2.urlopen(req)
+# html = resp.read()
+# compressedstream = StringIO.StringIO(html)
+# gziper = gzip.GzipFile(fileobj=compressedstream)
+# jsondata = gziper.read()
+# print jsondata
+
+# import StringIO, gzip
+# url = "http://www.sina.com.cn/"
+# req = urllib2.Request(url)
+# html = urllib2.urlopen(req).read()
+# compressedstream = StringIO.StringIO(html)
+# gziper = gzip.GzipFile(fileobj=compressedstream)
+# data = gziper.read()
+# print data
+
