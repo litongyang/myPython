@@ -120,13 +120,15 @@ import gzip
 # money_supply = [[0] * 131] * 1
 # print money_supply[0]
 # industry1 =[[]]*3
-industry1 = [[] for i in range(3)]
-for i in range(0,len(industry1)):
-    for j in range(0,2):
-        industry1[i].append(j)
-for k in range(0,len(industry1)):
-    print industry1[k]
-
+# industry1 = [[] for i in range(3)]
+# for i in range(0,len(industry1)):
+#     for j in range(0,2):
+#         industry1[i].append(j)
+# for k in range(0,len(industry1)):
+#     print industry1[k]
+import time
+year_now = time.strftime('%Y%m%d',time.localtime(time.time()))  # 当日
+print year_now
 # url = "http://xueqiu.com/S/SZ000003"
 # req_header = {'User-Agent': 'Mozilla/5.0 (Windows NT 6.3; WOW64; rv:42.0) Gecko/20100101 Firefox/42.0',
 #                            'Accept': 'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8',

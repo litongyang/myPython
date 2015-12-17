@@ -92,7 +92,7 @@ class DataInit:
         #  -----
         self.FAI8 = [[] for i in range(58)]  # 按登记注册类型分的固定资产投资情况
         self.FAI9 = [[] for i in range(6)]   # 固定资产投资住宅建设情况
-        self.FAIA = [[] for i in range(6)]   # 固定资产投资项目情况
+        self.FAIA = [[] for i in range(4)]   # 固定资产投资项目情况
         self.FAIB = [[] for i in range(4)]   # 固定资产投资项目计划总投资
         self.FAIC = [[] for i in range(8)]   # 民间固定资产投资
         self.FAID = [[] for i in range(60)]  # 按行业分民间固定资产投资
