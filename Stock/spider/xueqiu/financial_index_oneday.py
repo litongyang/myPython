@@ -6,14 +6,14 @@
 # ------------------------------------------------------------
 
 import urllib2
-import chardet
+import socket
 import json
-import requests
 import StringIO
 import gzip
 import MySQLdb
 
 
+# noinspection PyBroadException
 class XueQiu:
     def __init__(self):
         self.url_set = {}
@@ -35,6 +35,9 @@ class XueQiu:
         self.username = 'root'  # 用户名
         self.password = '123'  # 密码
         self.companyData_oneDay_fileName = 'company_data_oneday'
+
+        self.error_log = open("C:\\Users\\\Thinkpad\\Desktop\\error_log.txt", 'w')
+        self.try_cnt = 3  # 超时后尝试次数
         # self.price = 0
         # self.pe = 0
         # self.pb = 0
@@ -60,72 +63,85 @@ class XueQiu:
     # 记录所有存在的公司
     def get_data(self):
         for company_code, url in self.url_set.items():
-            try:
-                req = urllib2.Request(url, headers=self.req_header)
-                resp = urllib2.urlopen(req)
-                html = resp.read()
-                compressedstream = StringIO.StringIO(html)
-                gziper = gzip.GzipFile(fileobj=compressedstream)
-                jsondata = gziper.read()
-                data = json.loads(jsondata)
-                info_company = [-1] * 9
-                for key1, value1 in data.items():
-                    for key2, value2 in value1.items():
-                        for key, value in value2.items():
-                            if key == 'tradedate':  # 交易日期
-                                try:
-                                    info_company[0] = int(value)
-                                except:
-                                    info_company[0] = -1
-                                    # info_company.append(int(value))
-                            if key == 'tclose':  # 收盘价
-                                try:
-                                    info_company[1] = float(value)
-                                except:
-                                    info_company[1] = float(-1)
-                            if key == 'pettm':
-                                try:
-                                    info_company[2] = float(value)
-                                except:
-                                    info_company[3] = float(-1)
-                            if key == 'pb':
-                                try:
-                                    info_company[3] = float(value)
-                                except:
-                                    info_company[3] = float(-1)
-                            if key == 'pcttm':  # 市销率
-                                try:
-                                    info_company[4] = float(value)
-                                except:
-                                    info_company[4] = float(-1)
-                            if key == 'dy':  # 股息率
-                                try:
-                                    info_company[5] = float(value)
-                                except:
-                                    info_company[5] = float(-1)
-                            if key == 'totmktcap':  # 总市值
-                                try:
-                                    info_company[6] = float(value)
-                                except:
-                                    info_company[6] = float(-1)
-                            if key == 'negotiablemv':  # 流通市值
-                                try:
-                                    info_company[7] = float(value)
-                                except:
-                                    info_company[7] = float(-1)
-                            if key == 'lclose':  # 前一日收盘价
-                                try:
-                                    info_company[8] = float(value)
-                                except:
-                                    info_company[8] = float(-1)
-                self.companyCode_existence.append(company_code)  # 存在的公司
-                self.company_info_onday[company_code] = info_company
-                print company_code, self.company_info_onday[company_code]
-            except:
-                self.companyCode_nexistence.append(company_code)
-                print company_code + " " + "is not exit"
-                # for key,v in self.company_info_onday.items():
-                #     print key,v
+            # print "test:"+ company_code
+            while self.try_cnt > 0:
+                try:
+                    # if self.try_cnt > 1:
+                    req = urllib2.Request(url, headers=self.req_header)
+                    resp = urllib2.urlopen(req, timeout=10)
+                    html = resp.read()
+                    compressedstream = StringIO.StringIO(html)
+                    gziper = gzip.GzipFile(fileobj=compressedstream)
+                    jsondata = gziper.read()
+                    data = json.loads(jsondata)
+                    info_company = [-1] * 9
+                    for key1, value1 in data.items():
+                        for key2, value2 in value1.items():
+                            for key, value in value2.items():
+                                if key == 'tradedate':  # 交易日期
+                                    try:
+                                        info_company[0] = int(value)
+                                    except:
+                                        info_company[0] = -1
+                                        # info_company.append(int(value))
+                                if key == 'tclose':  # 收盘价
+                                    try:
+                                        info_company[1] = float(value)
+                                    except:
+                                        info_company[1] = float(-1)
+                                if key == 'pettm':
+                                    try:
+                                        info_company[2] = float(value)
+                                    except:
+                                        info_company[3] = float(-1)
+                                if key == 'pb':
+                                    try:
+                                        info_company[3] = float(value)
+                                    except:
+                                        info_company[3] = float(-1)
+                                if key == 'pcttm':  # 市销率
+                                    try:
+                                        info_company[4] = float(value)
+                                    except:
+                                        info_company[4] = float(-1)
+                                if key == 'dy':  # 股息率
+                                    try:
+                                        info_company[5] = float(value)
+                                    except:
+                                        info_company[5] = float(-1)
+                                if key == 'totmktcap':  # 总市值
+                                    try:
+                                        info_company[6] = float(value)
+                                    except:
+                                        info_company[6] = float(-1)
+                                if key == 'negotiablemv':  # 流通市值
+                                    try:
+                                        info_company[7] = float(value)
+                                    except:
+                                        info_company[7] = float(-1)
+                                if key == 'lclose':  # 前一日收盘价
+                                    try:
+                                        info_company[8] = float(value)
+                                    except:
+                                        info_company[8] = float(-1)
+                    self.companyCode_existence.append(company_code)  # 存在的公司
+                    self.company_info_onday[company_code] = info_company
+                    print company_code, self.company_info_onday[company_code]
+                    break
+                except socket.timeout,e:
+                    error_info = company_code,self.try_cnt,Exception,":",e
+                    print error_info
+                    self.error_log.write(str(error_info))
+                    self.error_log.write('\n')
+                    self.try_cnt -= 1
+                except AttributeError,atrr:
+                    error_info = company_code,Exception,":",atrr
+                    self.error_log.write(str(error_info))
+                    self.error_log.write('\n')
+                    self.companyCode_nexistence.append(company_code)
+                    print company_code + " " + "is not exit"
+                    break
+            self.try_cnt = 3
 
     # 创建公司每日数据表
     def create_table(self):
@@ -143,7 +159,6 @@ class XueQiu:
                     "CREATE TABLE IF NOT EXISTS %s "
                     "(datekey INT(8),"
                     "company_code VARCHAR(20),"
-                   # "company_name VARCHAR(255),"
                     "price DECIMAL(20,4),"
                     "pe DECIMAL(20,4), "
                     "pb DECIMAL(20,4),"
