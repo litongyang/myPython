@@ -39,6 +39,8 @@ class MacroData:
         self.password = '123'  # 密码
         self.macro_info_fileName = 'log_macro_economic_information'  # 宏观数据表
 
+        self.error_log = open("C:\\Users\\\Thinkpad\\Desktop\\error_log.txt", 'w')
+
     # 获取所以url
     def get_url(self):
         # for i in range(0, len(self.indexCode)):
@@ -58,7 +60,7 @@ class MacroData:
             try:
                 index_name = []
                 # if indexCode == "A010A":
-                # if indexCode == "A030A":
+                # if indexCode == "A0308":
                 req = urllib2.Request(url, headers=self.req_header)
                 resp = urllib2.urlopen(req)
                 jsondata = resp.read()
@@ -87,9 +89,20 @@ class MacroData:
                                 for key3,value3 in datanodes[0].items():
                                     if key3 == "nodes":
                                         for i in range(0, len(self.data_init_class.data_dict[indexCode])):
+                                            name = ""
+                                            unit = ""
                                             for key4, value4 in value3[i].items():
                                                 if key4 == "name":
-                                                    index_name.append(value4)
+                                                    name = value4
+                                                    # print name
+                                                elif key4 == "unit":
+                                                    unit = value4
+                                                    # print unit
+                                            if unit != "":
+                                                index_name.append(name + "(" + unit + ")")
+                                            else:
+                                                index_name.append(name)
+
                 # for i in range(0, len(index_name)):
                 #     print index_name[i]
                 for i in range(0, len(self.data_init_class.data_dict[indexCode])):
@@ -98,8 +111,8 @@ class MacroData:
                     self.data_init_class.data_dict[indexCode][i].insert(0, index_name[i])
                     # print self.data_init_class.data_dict[indexCode][i]
                 print "######################################"
-            except:
-                pass
+            except Exception,ex:
+                print Exception,":",ex
 
     # 创建宏观数据表
     def create_table(self):
@@ -117,8 +130,8 @@ class MacroData:
             cur.execute('set names \'utf8\'')
             try:
                 cur.execute("DROP TABLE IF EXISTS %s" % self.macro_info_fileName)
-            except:
-                pass
+            except Exception,ex:
+                print Exception,":",ex
             try:
                 col_name = ""
                 for i in range(0, len(month)):
@@ -128,15 +141,16 @@ class MacroData:
                 cur.execute(
                     "CREATE TABLE IF NOT EXISTS %s "
                     "(datekey INT(8),"
+                    "index_code VARCHAR(20),"
                     "index_name VARCHAR(200),"
                     "%s"
-                    "PRIMARY KEY (`datekey`,`index_name`) )ENGINE=MyISAM AUTO_INCREMENT=18 DEFAULT CHARSET=utf8"
+                    "PRIMARY KEY (`datekey`,`index_code`,`index_name`) )ENGINE=MyISAM AUTO_INCREMENT=18 DEFAULT CHARSET=utf8"
                     % (self.macro_info_fileName, col_name))
                 print self.macro_info_fileName + " is created successful"
-            except:
-                pass
-        except:
-            pass
+            except Exception,ex:
+                print Exception,":",ex
+        except Exception,ex:
+            print Exception,":",ex
 
     #  向数据表插入数据
     def insert_data(self):
@@ -146,12 +160,13 @@ class MacroData:
             cur = conn.cursor()
             cur.execute('set names \'utf8\'')
             for k, v in self.data_init_class.data_dict.items():
-                # if k == 'A030A':
+                # if k == 'A0308':
                 print k
                 for i in range(0, len(v)):
                     print len(v[i])
                     insert_info = ""
                     insert_info += '\'' + self.datekey + '\'' + ','
+                    insert_info += '\'' + str(k) + '\'' + ','
                     for j in range(0, len(v[i])):
                         insert_info += '\'' + v[i][j].encode('utf8') + '\'' + ','
                     insert_info = insert_info[0:len(insert_info) -1]
@@ -161,14 +176,17 @@ class MacroData:
                     try:
                         cur.execute(insert_sql)
                     except Exception,ex:
+                        error_info = k,Exception,":",ex
+                        self.error_log.write(str(error_info))
+                        self.error_log.write('\n')
                         print Exception,":",ex
-        except:
-            pass
+        except Exception,ex:
+            print Exception,":",ex
 
 
 if __name__ == '__main__':
     macroData = MacroData()
     macroData.get_url()
-    # macroData.get_data()
-    # macroData.create_table()
-    # macroData.insert_data()
+    macroData.get_data()
+    macroData.create_table()
+    macroData.insert_data()

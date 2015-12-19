@@ -42,7 +42,6 @@ class XueQiu:
     # 获取所有url
     def get_url(self):
         for code in range(1, 604000):
-        # for code in range(1, 10):
             url = "http://xueqiu.com/stock/f10/dailypriceextend.json?symbol="
             company_code = str("%06d" % code)
             if not (not (1100 <= code < 1600) and not (3000 < code <= 300000)) or (301000 < code <= 599999) or (
@@ -169,7 +168,7 @@ class XueQiu:
             cur = conn.cursor()
             cur.execute('set names \'utf8\'')
             for code,info in self.company_info_onday.items():
-                print "ss"+code,info
+                print code,info
                 insert_info = '\'' + str(info[0]) + '\'' + ',' + '\'' + code + '\'' + ',' + '\'' + str(info[1]) + '\'' + ',' \
                               + '\'' + str(info[2]) + '\''+ ',' + '\'' + str(info[3]) + '\''+ ','\
                               + '\'' + str(info[4]) + '\''+ ',' + '\'' + str(info[5]) + '\''+ ','\

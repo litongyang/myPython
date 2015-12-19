@@ -53,7 +53,7 @@ class DataInit:
         self.priceIdex8_8 = [[] for i in range(4)]  # 生产资料工业生产者出厂价格指数(上月=100)
         self.priceIdex8_9 = [[] for i in range(5)]  # 生活资料工业生产者出厂价格指数(上月=100)
         # 分行业工业生产者出厂价格指数(上年同月=100)(2007-2013)
-        self.priceIdex9 = [[] for i in range(42)]  # 分行业工业生产者出厂价格指数(上年同月=100)(2007-2013)
+        self.priceIdex9 = [[] for i in range(40)]  # 分行业工业生产者出厂价格指数(上年同月=100)(2007-2013)
         # 分行业工业生产者出厂价格指数(上年同月=100)(2014-至今)
         self.priceIdexA = [[] for i in range(42)]  # 分行业工业生产者出厂价格指数(上年同月=100)(2014-至今)
 
@@ -87,7 +87,7 @@ class DataInit:
         self.FAI6_3_2011 = [[] for i in range(62)]  # 制造业固定资产投资额
         # 分行业固定资产投资情况(2012-至今)
         self.FAI7_1_now = [[] for i in range(4)]  # 农林牧渔业固定资产投资额
-        self.FAI7_2_now = [[] for i in range(14)]  # 采矿业固定资产投资额
+        self.FAI7_2_now = [[] for i in range(12)]  # 采矿业固定资产投资额
         self.FAI7_3_now = [[] for i in range(62)]  # 制造业固定资产投资额
         #  -----
         self.FAI8 = [[] for i in range(58)]  # 按登记注册类型分的固定资产投资情况
