@@ -13,7 +13,6 @@ import gzip
 import MySQLdb
 
 
-# noinspection PyBroadException
 class XueQiu:
     def __init__(self):
         self.url_set = {}
