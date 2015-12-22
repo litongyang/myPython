@@ -60,6 +60,7 @@ class XueQiu:
 
     # 获取每个以存在的上市公司的当日数据
     # 记录所有存在的公司
+    # noinspection PyBroadException
     def get_data(self):
         for company_code, url in self.url_set.items():
             # print "test:"+ company_code
@@ -151,8 +152,9 @@ class XueQiu:
             cur.execute('set names \'utf8\'')
             try:
                 cur.execute("DROP TABLE IF EXISTS %s" % self.companyData_oneDay_fileName)
-            except:
-                pass
+            except Exception,e:
+                error_info = Exception,":",e
+                print error_info
             try:
                 cur.execute(
                     "CREATE TABLE IF NOT EXISTS %s "
@@ -169,10 +171,12 @@ class XueQiu:
                     "PRIMARY KEY (`datekey`,`company_code`) )ENGINE=MyISAM AUTO_INCREMENT=18 DEFAULT CHARSET=utf8"
                     % self.companyData_oneDay_fileName)
                 print self.companyData_oneDay_fileName + " is created successful"
-            except:
-                pass
-        except:
-            pass
+            except Exception,e:
+                error_info = Exception,":",e
+                print error_info
+        except Exception,e:
+            error_info = Exception,":",e
+            print error_info
 
     # 插入上市公司的当日数据
     def insert_data(self):
@@ -192,8 +196,9 @@ class XueQiu:
                 insert_sql = "insert into %s values(%s)" % (self.companyData_oneDay_fileName, insert_info)
                 print insert_sql
                 cur.execute(insert_sql)
-        except:
-            pass
+        except Exception,e:
+            error_info = Exception,":",e
+            print error_info
 
 if __name__ == '__main__':
     source = XueQiu()

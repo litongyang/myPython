@@ -55,60 +55,60 @@ from tabulate import tabulate
 # print pca_result
 # plt.show()
 
-# import sys
-# reload(sys)
-# sys.setdefaultencoding( "utf-8" )
-# import json
-# import re
-# import urllib2
-# import requests
-# import types
-# import urllib
-# from urllib import urlencode
-# from urllib import quote
-# fl = open("C:\\Users\\\Thinkpad\\Desktop\\test.txt", 'w')
-# # url = "http://data.stats.gov.cn/easyquery.htm?cn=A01"
-# url = "http://data.stats.gov.cn/easyquery.htm?cn=B01"
-# response = urllib2.urlopen(url)
-# print response
-# # html = response.read()
-# html = requests.get(url)
+# ----------多线程 ------------
+# import threading
+# from time import ctime,sleep
 #
-# data = html.text
-# # print data
-# link_list = re.findall(r"(?<=href=\").+?(?=\")|(?<=href=\').+?(?=\')", data)
-# for url1 in link_list:
-#     print url1
-# # match = re.match(r'<li><a href="/search.htm?s=农村居民家庭人均纯收入">农村居民家庭人均纯收入</a></li>', data)
-# # print match.group(0)
-# # print type(html)
-# # print html
-# fl.write(data)
+# class X:
+#     def A(x):
+#         print "A", x
+#
+#     def B(x):
+#         print "B",x
+#
+#     def C(self,b, e):
+#         for i in range(b, e):
+#             print i
+#
+#     def T(self, fun):
+#         threads = []
+#         t1 = threading.Thread(target=fun, args=(0,2))
+#         threads.append(t1)
+#         t2 = threading.Thread(target=fun, args=(2,10))
+#         threads.append(t2)
+#         for t in threads:
+#             # t.setDaemon(True)
+#             t.start()
+#         for t in threads:
+#             t.join()
+# if __name__ == '__main__':
+#     w = X()
+#     w.T(w.C)
+#     # threads = []
+#     # t1 = threading.Thread(target=w.C, args=(0,2))
+#     # threads.append(t1)
+#     # t2 = threading.Thread(target=w.C, args=(2,10))
+#     # threads.append(t2)
+#     # for t in threads:
+#     #     # t.setDaemon(True)
+#     #     t.start()
+#
+#     # print "all over %s" %ctime()
 
+import re
+html = "企业在日常活动中形成的、会导致所有者权益增加的、与所有者投入资本无关的经济利益的总流入称为（<h1>D</h1>）"
+html1 = html.split("(")
+print html1[0]
+s= "[单选]"
+# regex_t = ur"[(.*?)]<br>"
+# reobj_t = re.compile(regex_t)
+# match_t = reobj_t.search(html)
+# if match_t:
+#     data_t = match_t.group(0)
+#     print data_t
+# else:
+#     print "lty"
 
-
-# ! /usr/bin/env python
-# -*- coding=utf-8 -*-
-# @Author pythontab.comn
-# import sys
-# reload(sys)
-# sys.setdefaultencoding( "utf-8" )
-# import urllib2
-# fl = open("C:\\Users\\\Thinkpad\\Desktop\\test.txt", 'w')
-# url="http://data.stats.gov.cn/easyquery.htm?cn=A01"
-# req_header = {'User-Agent':'Mozilla/5.0 (Windows NT 6.1) AppleWebKit/537.11 (KHTML, like Gecko) Chrome/23.0.1271.64 Safari/537.11',
-# 'Accept':'text/html;q=0.9,*/*;q=0.8',
-# 'Accept-Charset':'ISO-8859-1,utf-8;q=0.7,*;q=0.3',
-# 'Accept-Encoding':'gzip',
-# 'Connection':'close',
-# 'Referer':None #注意如果依然不能抓取的话，这里可以设置抓取网站的host
-# }
-# req_timeout = 5
-# req = urllib2.Request(url,None,req_header)
-# resp = urllib2.urlopen(req,None,req_timeout)
-# html = resp.read()
-# print html
-# fl.write(html)
 
 import urllib2
 import re
@@ -127,48 +127,6 @@ import gzip
 #         industry1[i].append(j)
 # for k in range(0,len(industry1)):
 #     print industry1[k]
-url = "http://xueqiu.com/S/01988"
-req_header = {'User-Agent': 'Mozilla/5.0 (Windows NT 6.3; WOW64; rv:42.0) Gecko/20100101 Firefox/42.0',
-                           'Accept': 'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8',
-                           'Accept-Charset': 'ISO-8859-1,utf-8;q=0.7,*;q=0.3',
-                           'Accept-Encoding': 'gzip, deflate',
-                           'Accept-Language': 'zh-CN,zh;q=0.8,en-US;q=0.5,en;q=0.3',
-                           'Connection': 'keep-alive',
-                           'Cookie': 's=vnw12f2ga9; __utma=1.117406079.1444787307.1448854251.1448867323.98; __utmz=1.1448854251.97.2.utmcsr=baidu|utmccn=(organic)|utmcmd=organic; Hm_lvt_1db88642e346389874251b5a1eded6e3=1448602155,1448792074,1448850399,1448854252; bid=a6f34af86ba79e86c2f9b2f0ef1b8e54_ifq4xlp9; Hm_lpvt_1db88642e346389874251b5a1eded6e3=1448867332; __utmc=1; last_account=lty369963%40sina.com; xq_a_token=077324eba92f407349bb2ae35e87af7eb6c71cb9; xq_r_token=ac9129a23277d00eb85f86889f2a27ab65173144; u=1062948460; xq_token_expire=Fri%20Dec%2025%202015%2015%3A08%3A17%20GMT%2B0800%20(CST); xq_is_login=1; xqat=077324eba92f407349bb2ae35e87af7eb6c71cb9; __utmb=1.2.10.1448867323; __utmt=1',
-                           'Host': 'xueqiu.com'}
-req = urllib2.Request(url, headers=req_header)
-resp = urllib2.urlopen(req, timeout=10)
-html = resp.read()
-compressedstream = StringIO.StringIO(html)
-gziper = gzip.GzipFile(fileobj=compressedstream)
-jsondata = gziper.read()
-# print jsondata.find("SNB.data.quote")
-print type(jsondata)
-print jsondata
-# s = "SNB.data.quote ="
-# s1 = ";"
-# r = "%s.*?%s" %(s,s1)
-regex = ur"SNB.data.quote =(.*?);"
-# x = "<a>fasdfasd<a>"
-# regex = ur"<a>(.*?)<a>"
-reobj = re.compile(regex)
-match = reobj.search(jsondata)
-if match:
-    r = match.group(1)
-    print r
-else:
-    result = ""
-    print "w"
-# print regex
-# if re.match(regex, jsondata):
-#     print "1"
-# else:
-#     print "e"
-
-# match = re.match(r'^[s].*[;]$', jsondata)
-# print match
-# print match.group(0)
-# print str(jsondata)
 
 
 # url = "http://xueqiu.com/S/SZ000003"
@@ -196,4 +154,17 @@ else:
 # gziper = gzip.GzipFile(fileobj=compressedstream)
 # data = gziper.read()
 # print data
-
+# a = '13亿'
+# if a.find("亿") != -1:
+#     x = float(a.replace("亿","")) * 100000000
+#     print x
+# info =
+# print float(a)
+import re
+x = "<h3>第一部分  基础综合</h3><ul><li><a href='/subjects/content/358_1_1_0'>"
+i =1
+r= ur"<h3>(.*?)<a href=\'\/subjects\/content\/358_%s_1_0'>" % i
+reobj_book = re.compile(r)
+match_book = reobj_book.search(x)
+if match_book:
+    print "da"
