@@ -69,8 +69,6 @@ class ZuoTi51:
     # 数据处理
     def data_process_chapter(self):
         for bookid in self.book:
-            part = []
-            # subject_cnt = 0
             try:
                 url_chapter_list = "http://www.51zuoti.com/chapter_list.php?book=%s" % bookid
                 req_chapter_list = urllib2.Request(url_chapter_list, headers=self.req_header)
@@ -255,75 +253,82 @@ class ZuoTi51:
     # noinspection PyBroadException
     def get_data(self):
         for url_id, url in self.url_set.items():
-            if url_id == '140-0-12-2-69':
-                subject_info = {}
-                req = urllib2.Request(url, headers=self.req_header)
-                resp = urllib2.urlopen(req, timeout=10)
-                html = resp.read()
-                # print html
-                # 题型
-                temp = html.split("<br>")
-                question_type = temp[0]
-                subject_info['type'] = question_type
-                print question_type
-                # 答案
-                regex_a = ur"<h1>(.*?)</h1>"
-                reobj_a = re.compile(regex_a)
-                match_a = reobj_a.search(html)
-                if match_a:
-                    data_a = match_a.group(1)
-                    subject_info['answer'] = data_a
-                    print data_a
-                # 题目
-                regex_s_a = ur"<p>(.*?)</p>"
-                reobj_s_a = re.compile(regex_s_a)
-                match_s_a = reobj_s_a.search(html)
-                if match_s_a:
-                    data_s_a = match_s_a.group(1)
-                    if data_s_a.find(data_a):
-                        temp = "<h1>" + data_a + "</h1>"
-                        data_s = data_s_a.replace(temp, "")
-                        subject_info['theme'] = data_s
-                        print data_s
-                # 选项
-                alphabet_match = {
-                    '0': "A",
-                    '1': "B",
-                    '2': "C",
-                    '3': "D",
-                    '4': "E",
-                    '5': "F",
-                }
-                data_o = []
-                for i in range(0, 6):
-                    choice_one = ""
-                    regex_o = ur"<a href=\"javascript\:[A-Za-z]_select\(\'%s\'\)\">(.*?)</a>" % i
-                    # print regex_o
-                    reobj_o = re.compile(regex_o)
-                    match_o = reobj_o.search(html)
-                    if match_o:
-                        # print match_o.group(1)
-                        # print alphabet_match[str(i)]
-                        choice_one += alphabet_match[str(i)]
-                        choice_one += ":"
-                        choice_one += match_o.group(1)
-                        data_o.append(choice_one)
-                subject_info['chioce'] = data_o
-                print data_o
-                # 解析
-                regex_an = ur"<h2>(.*?)</h2>"
-                reobj_an = re.compile(regex_an)
-                match_an = reobj_an.search(html)
-                if match_an:
-                    data_an = match_an.group(1)
-                    subject_info['analysis'] = data_an
-                    print data_an
-                self.subject_info[url_id] = subject_info
+            if url_id == '140-0-5-0-7':
+                try_cnt = 3
+                while try_cnt > 0:
+                    try:
+                        subject_info = {}
+                        req = urllib2.Request(url, headers=self.req_header)
+                        resp = urllib2.urlopen(req, timeout=10)
+                        html = resp.read()
+                        # print html
+                        # 题型
+                        temp = html.split("<br>")
+                        question_type = temp[0]
+                        subject_info['type'] = question_type
+                        # print question_type
+                        # 答案
+                        regex_a = ur"<h1>(.*?)</h1>"
+                        reobj_a = re.compile(regex_a)
+                        match_a = reobj_a.search(html)
+                        if match_a:
+                            data_a = match_a.group(1)
+                            subject_info['answer'] = data_a
+                            # print data_a
+                        # 题目
+                        regex_s_a = ur"<p>(.*?)</p>"
+                        reobj_s_a = re.compile(regex_s_a)
+                        match_s_a = reobj_s_a.search(html)
+                        if match_s_a:
+                            data_s_a = match_s_a.group(1)
+                            if data_s_a.find(data_a):
+                                temp = "<h1>" + data_a + "</h1>"
+                                data_s = data_s_a.replace(temp, "")
+                                subject_info['theme'] = data_s
+                                # print data_s
+                        # 选项
+                        alphabet_match = {
+                            '0': "A",
+                            '1': "B",
+                            '2': "C",
+                            '3': "D",
+                            '4': "E",
+                            '5': "F",
+                        }
+                        data_o = []
+                        for i in range(0, 6):
+                            choice_one = ""
+                            regex_o = ur"<a href=\"javascript\:[A-Za-z]_select\(\'%s\'\)\">(.*?)</a>" % i
+                            # print regex_o
+                            reobj_o = re.compile(regex_o)
+                            match_o = reobj_o.search(html)
+                            if match_o:
+                                # print match_o.group(1)
+                                # print alphabet_match[str(i)]
+                                choice_one += alphabet_match[str(i)]
+                                choice_one += ":"
+                                choice_one += match_o.group(1)
+                                data_o.append(choice_one)
+                        subject_info['chioce'] = data_o
+                        # print data_o
+                        # 解析
+                        regex_an = ur"<h2>(.*?)</h2>"
+                        reobj_an = re.compile(regex_an)
+                        match_an = reobj_an.search(html)
+                        if match_an:
+                            data_an = match_an.group(1)
+                            subject_info['analysis'] = data_an
+                            # print data_an
+                        self.subject_info[url_id] = subject_info
 
-                print "***************************"
-                for k,v in self.subject_info.items():
-                    print k,v
-                print "******"
+                        print "***************************"
+                        for k,v in self.subject_info.items():
+                            print k,v
+                        print "******"
+                        break
+                    except urllib2.URLError,e:
+                        try_cnt -= 1
+                        print e
 
     # 创建公司每日数据表
     def create_table(self):
@@ -344,13 +349,14 @@ class ZuoTi51:
                     # "datekey INT(8),"
                     "subject_id VARCHAR(20),"
                     "bookid VARCHAR(20),"
-                    "part_name VARCHAR(20),"
-                    "chapter_name VARCHAR(20),"
+                    "part_name VARCHAR(100),"
+                    "chapter_name VARCHAR(100),"
+                    "section_name VARCHAR(100),"
                     "type VARCHAR(20),"
-                    "theme VARCHAR(20),"
-                    "chioce VARCHAR(20),"
-                    "answer VARCHAR(20),"
-                    "analysis VARCHAR(20),"
+                    "theme VARCHAR(255),"
+                    "chioce VARCHAR(255),"
+                    "answer VARCHAR(255),"
+                    "analysis VARCHAR(255),"
                     "PRIMARY KEY (`subject_id`) )ENGINE=MyISAM AUTO_INCREMENT=18 DEFAULT CHARSET=utf8"
                     % self.companyData_oneDay_fileName)
                 print self.companyData_oneDay_fileName + " is created successful"
@@ -363,30 +369,82 @@ class ZuoTi51:
 
     #  导入数据库
     def insert_data(self):
-        for url_id, info in self.subject_info.items():
-            id_list = url_id.split('-')
-            print id_list
-            id_c = id_list[0] + id_list[1] + id_list[2]+ id_list[3]
-            # print id_c
-            if id_list[3] != '0':  # 有section部分
-                for i in range(0, len(self.info_chapter)):
-                    for j in range(0, len(self.info_chapter[i]['code_list_section'])):
-                        id_cx = ""
-                        for k in range(0, len(self.info_chapter[i]['code_list_section'][j])):
-                            id_cx += str(self.info_chapter[i]['code_list_section'][j][k])
-                        if id_c == id_cx:
-                            print self.info_chapter[i]['bookid'][0]
-                            print self.info_chapter[i]['chapter'][0]
-                            print self.info_chapter[i]['section'][j]
-                            print id_cx
-                        # if id_list == self.info_chapter[i]['code_list_section'][j]:
-                            # print self.info_chapter[i]['code_list_section'][j]
-                            # print id_list
-                    # if str(id_c) ==
+        try:
+            conn = MySQLdb.connect(host=self.db_host, user=self.username, passwd=self.password, db=self.db_name,
+                                       port=self.db_port)
+            cur = conn.cursor()
+            cur.execute('set names \'utf8\'')
+            for url_id, info in self.subject_info.items():
+                insert_list = ['null'] *10
+                insert_list[0] = url_id
+                # print url_id
+                for k,sub_info in self.subject_info.items():
+                    if k == url_id:
+                        insert_list[5] = sub_info['type']
+                        insert_list[6] = sub_info['theme'].replace("&nbsp;","")
+                        insert_list[7] = ('').join(sub_info['chioce']).replace("&nbsp;","")
+                        insert_list[8] = sub_info['answer']
+                        insert_list[9] = sub_info['analysis'].replace("&nbsp;","")
+                        # print sub_info['type']
+                        # print sub_info['theme']
+                        # print sub_info['chioce']
+                        # print sub_info['answer']
+                        # print sub_info['analysis']
+                id_list = url_id.split('-')
+                # print id_list
+                id_c = id_list[0] + id_list[1] + id_list[2]+ id_list[3]
+                # print id_c
+                if id_list[3] != '0':  # 有section部分
+                    for i in range(0, len(self.info_chapter)):
+                        for j in range(0, len(self.info_chapter[i]['code_list_section'])):
+                            id_cx = ""
+                            for k in range(0, len(self.info_chapter[i]['code_list_section'][j])):
+                                id_cx += str(self.info_chapter[i]['code_list_section'][j][k])
+                            if id_c == id_cx:
+                                insert_list[1] = self.info_chapter[i]['bookid'][0]
+                                regex = ur"\s+"
+                                reobj = re.compile(regex)
+                                match_chapter = reobj.search(self.info_chapter[i]['chapter'][0])
+                                if match_chapter:
+                                    t = match_chapter.group(0)
+                                    insert_list[3] = self.info_chapter[i]['chapter'][0].replace(t,"")
+                                match_section = reobj.search(self.info_chapter[i]['section'][0])
+                                if match_section:
+                                    t = match_section.group(0)
+                                    insert_list[4] = self.info_chapter[i]['section'][j].replace(t,"")
+                else:  # 没有section部分
+                    for i in range(0, len(self.info_chapter)):
+                        for j in range(0, len(self.info_chapter[i]['code_list_chapter'])):
+                            id_cx = ""
+                            for k in range(0, len(self.info_chapter[i]['code_list_chapter'][j])):
+                                id_cx += str(self.info_chapter[i]['code_list_chapter'][j][k])
+                            if id_c == id_cx:
+                                insert_list[1] = self.info_chapter[i]['bookid'][0]
+                                regex = ur"\s+"
+                                reobj = re.compile(regex)
+                                match_chapter = reobj.search(self.info_chapter[i]['chapter'][0])
+                                if match_chapter:
+                                    t = match_chapter.group(0)
+                                    insert_list[3] = self.info_chapter[i]['chapter'][0].replace(t,"")
+                print "*******************"
+                insert_info = ""
+                for i in insert_list:
+                    # print i
+                    insert_info += '\'' + str(i) + '\'' + ','
+                insert_info = insert_info[0:len(insert_info) -1]
+                insert_sql = "insert into %s values(%s)" % (self.companyData_oneDay_fileName, insert_info)
+                print insert_sql
+                cur.execute(insert_sql)
+        except:
+            pass
+
+
+
 
 if __name__ == '__main__':
     source = ZuoTi51()
     source.data_process_chapter()
     source.get_url()
     source.get_data()
+    source.create_table()
     source.insert_data()
