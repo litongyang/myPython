@@ -176,13 +176,13 @@ import re
 
 
 # x = "    dsadas"
-r = ur"\s+"
-reobj = re.compile(r)
-m = reobj.search(x)
-if m:
-    t = m.group(0)
-    y = x.replace(t,"")
-    print y
-print x.replace(ur"\s+","")
-x = "dasd99"
-print x.replace("49","00")
+# r = ur"\s+"
+# reobj = re.compile(r)
+# m = reobj.search(x)
+# if m:
+#     t = m.group(0)
+#     y = x.replace(t,"")
+#     print y
+# print x.replace(ur"\s+","")
+# x = {A;}
+print len(x)
