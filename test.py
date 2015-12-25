@@ -185,4 +185,13 @@ import re
 #     print y
 # print x.replace(ur"\s+","")
 # x = {A;}
-print len(x)
+# url_id = "472-0-2-0-234"
+# url_id_temp = url_id.split('-')
+# x = ""
+# for i in url_id_temp:
+#     x += str("%04d" % int(i)) + "-"
+# print x[0: len(x)-1]
+book = [i for i in range(260)]
+print book
+# x[0]["q"] =1
+# print x[2]
