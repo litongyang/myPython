@@ -26,9 +26,9 @@ def str_add_marks(myStr, word):
 class ZuoTi51:
     def __init__(self):
         self.try_cnt = 3
-        self.book = [i for i in range(26)]  # id：0到620
+        # self.book = [i for i in range(26)]  # id：0到620
         # self.book = [194,226,231,230,199,409,410,411,412,413,482,483,484,485,486,487,488,489,502,589,539,505,506,590]
-        # self.book = [194,199]  # test
+        self.book = [199,194]  # test
         self.url_set = {}
         self.req_header = {'User-Agent': 'Mozilla/5.0 (Windows NT 6.3; WOW64; rv:42.0) Gecko/20100101 Firefox/43.0',
                            'Accept': 'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8',
@@ -54,169 +54,169 @@ class ZuoTi51:
 
     # 数据处理
     # noinspection PyAssignmentToLoopOrWithParameter
-    def data_process_chapter(self):
-        for bookid in self.book:
-            try_cnt = 3
-            while try_cnt > 0:
-                try:
-                    url_chapter_list = "http://www.51zuoti.com/chapter_list.php?book=%s" % bookid
-                    req_chapter_list = urllib2.Request(url_chapter_list, headers=self.req_header)
-                    resp_chapter_list= urllib2.urlopen(req_chapter_list, timeout=10)
-                    chapter_list = resp_chapter_list.read()
-                    words = ['index','href','total','did','finish','process','review','uiProvider','cls','leaf','children','true','false']
-                    temp = str_add_marks(chapter_list, words)
-                    data_json = eval(temp)
-                    if len(data_json) ==0:
-                        self.error_log.write(str("book%s is not exit"% bookid))
-                        self.error_log.write('\n')
-                    for i in range(0, len(data_json)):
-                        info_chapter = {
-                           "bookid": [],
-                           "part": [],
-                           "chapter": [],
-                           "section": [],
-                           "code_list_part": [],
-                           "code_list_chapter": [],
-                           "code_list_section": [],
-                           "chapter_subject_cnt": [],
-                           "subject_cnt": []
-                        }  # 一条信息
-                        if str(data_json[i]).count("children") <2:  # 2层
-                            code_list = [] *4
-                            regex_code = ur"\((.*?)\)"
-                            reobj_code = re.compile(regex_code)
-                            match_code = reobj_code.search(data_json[i]['href'])
-                            if match_code:
-                                code = match_code.group(1)
-                                code_list = code.split(',')
-                            if code_list[1] == '0':  # 没有part部分
-                                for kp,vp in data_json[i].items():
-                                    info_chapter['part'].append("null")
-                                    if kp == 'index':  # 第一层index
-                                        info_chapter['bookid'].append(bookid)
-                                        info_chapter['chapter'].append(vp)
-                                        info_chapter['code_list_chapter'].append(code_list)
-                                    if kp == 'total':
-                                        regex_cnt = ur"[0-9]*"
-                                        reobj_cnt = re.compile(regex_cnt)
-                                        match_cnt = reobj_cnt.search(vp)
-                                        if match_cnt:
-                                            chapter_subject_cnt = int(match_cnt.group(0))
-                                            info_chapter['chapter_subject_cnt'].append(chapter_subject_cnt)
-                                    elif kp == 'children':
-                                        for j in range(0, len(vp)):
-                                            for k1, v1 in vp[j].items():
-                                                if k1 == 'index':  # 第二层index
-                                                    info_chapter['section'].append(v1)
-                                                if k1 == 'href':
-                                                    regex_code_section = ur"\((.*?)\)"
-                                                    reobj_code_section = re.compile(regex_code_section)
-                                                    match_code_section = reobj_code_section.search(v1)
-                                                    if match_code_section:
-                                                        code = match_code_section.group(1)
-                                                        code_list_section = code.split(',')
-                                                        info_chapter['code_list_section'].append(code_list_section)
-                                                if k1 == 'total':
-                                                    regex_cnt = ur"[0-9]*"
-                                                    reobj_cnt = re.compile(regex_cnt)
-                                                    match_cnt = reobj_cnt.search(v1)
-                                                    if match_cnt:
-                                                        subject_cnt = int(match_cnt.group(0))
-                                                        info_chapter['subject_cnt'].append(subject_cnt)
-                            else:  # 有part部分
-                                for kp,vp in data_json[i].items():
-                                    if kp == 'index':  # 第一层index
-                                        info_chapter['bookid'].append(bookid)
-                                        info_chapter['part'].append(vp)
-                                        info_chapter['code_list_part'].append(code_list)
-                                    if kp == 'children':
-                                        for j in range(0, len(vp)):
-                                            for k1, v1 in vp[j].items():
-                                                if k1 == 'index':  # 第二层index
-                                                    info_chapter['chapter'].append(v1)
-                                                if k1 == 'href':
-                                                    regex_code_section = ur"\((.*?)\)"
-                                                    reobj_code_section = re.compile(regex_code_section)
-                                                    match_code_section = reobj_code_section.search(v1)
-                                                    if match_code_section:
-                                                        code = match_code_section.group(1)
-                                                        code_list_section = code.split(',')
-                                                        info_chapter['code_list_chapter'].append(code_list_section)
-                                                if k1 == 'total':
-                                                    # print v1
-                                                    regex_cnt = ur"[0-9]*"
-                                                    reobj_cnt = re.compile(regex_cnt)
-                                                    match_cnt = reobj_cnt.search(v1)
-                                                    if match_cnt:
-                                                        chapter_subject_cnt = int(match_cnt.group(0))
-                                                        info_chapter['chapter_subject_cnt'].append(chapter_subject_cnt)
-
-                        else:  # 有part部分
-                            for k,v in data_json[i].items():
-                                if k == 'index':  # 第一层index
+    def data_process_chapter(self, bookid):
+        # for bookid in self.book:
+        try_cnt = 3
+        while try_cnt > 0:
+            try:
+                url_chapter_list = "http://www.51zuoti.com/chapter_list.php?book=%s" % bookid
+                req_chapter_list = urllib2.Request(url_chapter_list, headers=self.req_header)
+                resp_chapter_list= urllib2.urlopen(req_chapter_list, timeout=10)
+                chapter_list = resp_chapter_list.read()
+                words = ['index','href','total','did','finish','process','review','uiProvider','cls','leaf','children','true','false']
+                temp = str_add_marks(chapter_list, words)
+                data_json = eval(temp)
+                if len(data_json) ==0:
+                    self.error_log.write(str("book%s is not exit"% bookid))
+                    self.error_log.write('\n')
+                for i in range(0, len(data_json)):
+                    info_chapter = {
+                       "bookid": [],
+                       "part": [],
+                       "chapter": [],
+                       "section": [],
+                       "code_list_part": [],
+                       "code_list_chapter": [],
+                       "code_list_section": [],
+                       "chapter_subject_cnt": [],
+                       "subject_cnt": []
+                    }  # 一条信息
+                    if str(data_json[i]).count("children") <2:  # 2层
+                        code_list = [] *4
+                        regex_code = ur"\((.*?)\)"
+                        reobj_code = re.compile(regex_code)
+                        match_code = reobj_code.search(data_json[i]['href'])
+                        if match_code:
+                            code = match_code.group(1)
+                            code_list = code.split(',')
+                        if code_list[1] == '0':  # 没有part部分
+                            for kp,vp in data_json[i].items():
+                                info_chapter['part'].append("null")
+                                if kp == 'index':  # 第一层index
                                     info_chapter['bookid'].append(bookid)
-                                    info_chapter['part'].append(v)
-                                if k == 'href':
-                                    regex_code = ur"\((.*?)\)"
-                                    reobj_code = re.compile(regex_code)
-                                    match_code = reobj_code.search(v)
-                                    if match_code:
-                                        code = match_code.group(1)
-                                        code_list = code.split(',')
-                                        info_chapter['code_list_part'].append(code_list)
-                                elif k == 'children':
-                                    for j in range(0, len(v)):
-                                        for k1, v1 in v[j].items():
+                                    info_chapter['chapter'].append(vp)
+                                    info_chapter['code_list_chapter'].append(code_list)
+                                if kp == 'total':
+                                    regex_cnt = ur"[0-9]*"
+                                    reobj_cnt = re.compile(regex_cnt)
+                                    match_cnt = reobj_cnt.search(vp)
+                                    if match_cnt:
+                                        chapter_subject_cnt = int(match_cnt.group(0))
+                                        info_chapter['chapter_subject_cnt'].append(chapter_subject_cnt)
+                                elif kp == 'children':
+                                    for j in range(0, len(vp)):
+                                        for k1, v1 in vp[j].items():
                                             if k1 == 'index':  # 第二层index
-                                                info_chapter['chapter'].append(v1)
+                                                info_chapter['section'].append(v1)
                                             if k1 == 'href':
-                                                regex_code_chapter = ur"\((.*?)\)"
-                                                reobj_code_chapter = re.compile(regex_code_chapter)
-                                                match_code_chapter = reobj_code_chapter.search(v1)
-                                                if match_code_chapter:
-                                                    code = match_code_chapter.group(1)
-                                                    code_list_chapter = code.split(',')
-                                                    info_chapter['code_list_chapter'].append(code_list_chapter)
+                                                regex_code_section = ur"\((.*?)\)"
+                                                reobj_code_section = re.compile(regex_code_section)
+                                                match_code_section = reobj_code_section.search(v1)
+                                                if match_code_section:
+                                                    code = match_code_section.group(1)
+                                                    code_list_section = code.split(',')
+                                                    info_chapter['code_list_section'].append(code_list_section)
                                             if k1 == 'total':
                                                 regex_cnt = ur"[0-9]*"
                                                 reobj_cnt = re.compile(regex_cnt)
                                                 match_cnt = reobj_cnt.search(v1)
                                                 if match_cnt:
                                                     subject_cnt = int(match_cnt.group(0))
-                                                    info_chapter['chapter_subject_cnt'].append(subject_cnt)
-                                            if k1 == 'children':
-                                                for j in range(0, len(v1)):
-                                                    for k2, v2 in v1[j].items():
-                                                        if k2 == 'index':  # 第三层index
-                                                            info_chapter['section'].append(v2)
-                                                        if k2 == 'href':
-                                                            regex_code_section = ur"\((.*?)\)"
-                                                            reobj_code_section = re.compile(regex_code_section)
-                                                            match_code_section = reobj_code_section.search(v2)
-                                                            if match_code_section:
-                                                                code = match_code_section.group(1)
-                                                                code_list_section = code.split(',')
-                                                                info_chapter['code_list_section'].append(code_list_section)
-                                                        if k2 == 'total':
-                                                            regex_cnt = ur"[0-9]*"
-                                                            reobj_cnt = re.compile(regex_cnt)
-                                                            match_cnt = reobj_cnt.search(v2)
-                                                            if match_cnt:
-                                                                subject_cnt = int(match_cnt.group(0))
-                                                                info_chapter['subject_cnt'].append(subject_cnt)
-                        # for k,v in info_chapter.items():
-                        #     # print k,v
-                        #     for i in range(0, len(v)):
-                        #         print k , v[i]
-                        # print "*****"
-                        self.info_chapter.append(info_chapter)
-                    break
-                except Exception,e:
-                    try_cnt -= 1
-                    error_info = bookid,try_cnt,Exception,":",e
-                    self.error_log.write(str(error_info))
-                    self.error_log.write('\n')
-                    print error_info
+                                                    info_chapter['subject_cnt'].append(subject_cnt)
+                        else:  # 有part部分
+                            for kp,vp in data_json[i].items():
+                                if kp == 'index':  # 第一层index
+                                    info_chapter['bookid'].append(bookid)
+                                    info_chapter['part'].append(vp)
+                                    info_chapter['code_list_part'].append(code_list)
+                                if kp == 'children':
+                                    for j in range(0, len(vp)):
+                                        for k1, v1 in vp[j].items():
+                                            if k1 == 'index':  # 第二层index
+                                                info_chapter['chapter'].append(v1)
+                                            if k1 == 'href':
+                                                regex_code_section = ur"\((.*?)\)"
+                                                reobj_code_section = re.compile(regex_code_section)
+                                                match_code_section = reobj_code_section.search(v1)
+                                                if match_code_section:
+                                                    code = match_code_section.group(1)
+                                                    code_list_section = code.split(',')
+                                                    info_chapter['code_list_chapter'].append(code_list_section)
+                                            if k1 == 'total':
+                                                # print v1
+                                                regex_cnt = ur"[0-9]*"
+                                                reobj_cnt = re.compile(regex_cnt)
+                                                match_cnt = reobj_cnt.search(v1)
+                                                if match_cnt:
+                                                    chapter_subject_cnt = int(match_cnt.group(0))
+                                                    info_chapter['chapter_subject_cnt'].append(chapter_subject_cnt)
+
+                    else:  # 有part部分
+                        for k,v in data_json[i].items():
+                            if k == 'index':  # 第一层index
+                                info_chapter['bookid'].append(bookid)
+                                info_chapter['part'].append(v)
+                            if k == 'href':
+                                regex_code = ur"\((.*?)\)"
+                                reobj_code = re.compile(regex_code)
+                                match_code = reobj_code.search(v)
+                                if match_code:
+                                    code = match_code.group(1)
+                                    code_list = code.split(',')
+                                    info_chapter['code_list_part'].append(code_list)
+                            elif k == 'children':
+                                for j in range(0, len(v)):
+                                    for k1, v1 in v[j].items():
+                                        if k1 == 'index':  # 第二层index
+                                            info_chapter['chapter'].append(v1)
+                                        if k1 == 'href':
+                                            regex_code_chapter = ur"\((.*?)\)"
+                                            reobj_code_chapter = re.compile(regex_code_chapter)
+                                            match_code_chapter = reobj_code_chapter.search(v1)
+                                            if match_code_chapter:
+                                                code = match_code_chapter.group(1)
+                                                code_list_chapter = code.split(',')
+                                                info_chapter['code_list_chapter'].append(code_list_chapter)
+                                        if k1 == 'total':
+                                            regex_cnt = ur"[0-9]*"
+                                            reobj_cnt = re.compile(regex_cnt)
+                                            match_cnt = reobj_cnt.search(v1)
+                                            if match_cnt:
+                                                subject_cnt = int(match_cnt.group(0))
+                                                info_chapter['chapter_subject_cnt'].append(subject_cnt)
+                                        if k1 == 'children':
+                                            for j in range(0, len(v1)):
+                                                for k2, v2 in v1[j].items():
+                                                    if k2 == 'index':  # 第三层index
+                                                        info_chapter['section'].append(v2)
+                                                    if k2 == 'href':
+                                                        regex_code_section = ur"\((.*?)\)"
+                                                        reobj_code_section = re.compile(regex_code_section)
+                                                        match_code_section = reobj_code_section.search(v2)
+                                                        if match_code_section:
+                                                            code = match_code_section.group(1)
+                                                            code_list_section = code.split(',')
+                                                            info_chapter['code_list_section'].append(code_list_section)
+                                                    if k2 == 'total':
+                                                        regex_cnt = ur"[0-9]*"
+                                                        reobj_cnt = re.compile(regex_cnt)
+                                                        match_cnt = reobj_cnt.search(v2)
+                                                        if match_cnt:
+                                                            subject_cnt = int(match_cnt.group(0))
+                                                            info_chapter['subject_cnt'].append(subject_cnt)
+                    # for k,v in info_chapter.items():
+                    #     # print k,v
+                    #     for i in range(0, len(v)):
+                    #         print k , v[i]
+                    # print "*****"
+                    self.info_chapter.append(info_chapter)
+                break
+            except Exception,e:
+                try_cnt -= 1
+                error_info = bookid,try_cnt,Exception,":",e
+                self.error_log.write(str(error_info))
+                self.error_log.write('\n')
+                print error_info
 
     # 获取所有url
     def get_url(self):
@@ -497,8 +497,12 @@ class ZuoTi51:
 
 if __name__ == '__main__':
     source = ZuoTi51()
-    source.data_process_chapter()
-    source.get_url()
-    source.get_data()
     source.create_table()
-    source.insert_data()
+    for bookid in source.book:
+        source.url_set = {}
+        source.info_chapter = []  # 章节信息
+        source.subject_info = {}  # 答案信息
+        source.data_process_chapter(bookid)
+        source.get_url()
+        source.get_data()
+        source.insert_data()

@@ -191,7 +191,13 @@ import re
 # for i in url_id_temp:
 #     x += str("%04d" % int(i)) + "-"
 # print x[0: len(x)-1]
-book = [i for i in range(260)]
-print book
+# book = [i for i in range(260)]
+# print book
 # x[0]["q"] =1
 # print x[2]
+fl = open("C:\\Users\\\Thinkpad\\Desktop\\312.txt", 'a')
+for line in open("C:\\Users\\\Thinkpad\\Desktop\\qyk.sql"):
+    linone = line.split()
+    print linone
+    fl.write(str(linone))
+    fl.write("\n")
