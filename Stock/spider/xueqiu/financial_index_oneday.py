@@ -2,7 +2,7 @@
 # -*- coding: utf-8 -*-
 
 # -----在雪球抓取A股股票当日财务指标数据,并找出存在的公司代码--
-#
+#  不定期要更换cookie
 # ------------------------------------------------------------
 
 import urllib2
@@ -11,6 +11,7 @@ import json
 import StringIO
 import gzip
 import MySQLdb
+import threading
 
 
 class XueQiu:
@@ -22,7 +23,7 @@ class XueQiu:
                            'Accept-Encoding': 'gzip, deflate',
                            'Accept-Language': 'zh-CN,zh;q=0.8,en-US;q=0.5,en;q=0.3',
                            'Connection': 'keep-alive',
-                           'Cookie': 's=vnw12f2ga9; __utma=1.117406079.1444787307.1448854251.1448867323.98; __utmz=1.1448854251.97.2.utmcsr=baidu|utmccn=(organic)|utmcmd=organic; Hm_lvt_1db88642e346389874251b5a1eded6e3=1448602155,1448792074,1448850399,1448854252; bid=a6f34af86ba79e86c2f9b2f0ef1b8e54_ifq4xlp9; Hm_lpvt_1db88642e346389874251b5a1eded6e3=1448867332; __utmc=1; last_account=lty369963%40sina.com; xq_a_token=077324eba92f407349bb2ae35e87af7eb6c71cb9; xq_r_token=ac9129a23277d00eb85f86889f2a27ab65173144; u=1062948460; xq_token_expire=Fri%20Dec%2025%202015%2015%3A08%3A17%20GMT%2B0800%20(CST); xq_is_login=1; xqat=077324eba92f407349bb2ae35e87af7eb6c71cb9; __utmb=1.2.10.1448867323; __utmt=1',
+                           'Cookie': 'Hm_lvt_1db88642e346389874251b5a1eded6e3=1450919388,1451008674,1451452629,1451701055; s=10hh12edmw; xq_a_token=a76c8ff2718de0ee5888263f70bb99c6273a6add; xq_r_token=1087f50e54dc71bae2c45ad9be5ab352edb63bb2; u=1062948460; xq_token_expire=Tue%20Jan%2019%202016%2015%3A15%3A48%20GMT%2B0800%20(CST); xq_is_login=1; __utma=1.676762656.1451027781.1451459879.1451701056.4; __utmz=1.1451027781.1.1.utmcsr=(direct)|utmccn=(direct)|utmcmd=(none); Hm_lpvt_1db88642e346389874251b5a1eded6e3=1451701055; __utmb=1.1.10.1451701056; __utmc=1; __utmt=1',
                            'Host': 'xueqiu.com'}
         self.company_info_onday = {}
         self.companyCode_nexistence = []  # 不存在公司
@@ -35,11 +36,21 @@ class XueQiu:
         self.password = '123'  # 密码
         self.companyData_oneDay_fileName = 'company_data_oneday'
 
-        self.error_log = open("C:\\Users\\\Thinkpad\\Desktop\\error_log.txt", 'w')
+        self.error_log = open("error_log.txt", 'w')
         self.try_cnt = 3  # 超时后尝试次数
-        # self.price = 0
-        # self.pe = 0
-        # self.pb = 0
+        self.threads = []  # 线程池
+        #  每个线程的起始点和终点
+        self.begin_threads1 = 0
+        self.end_threads1 = 2000
+        self.begin_threads2 = 2000
+        self.end_threads2 = 3000
+        self.begin_threads3 = 3000
+        self.end_threads3 = 600000
+        self.begin_threads4 = 600000
+        self.end_threads4 = 601500
+        self.begin_threads5 = 601500
+        self.end_threads5 = 603000
+
 
     # 获取所有url
     def get_url(self):
@@ -61,87 +72,114 @@ class XueQiu:
     # 获取每个以存在的上市公司的当日数据
     # 记录所有存在的公司
     # noinspection PyBroadException
-    def get_data(self):
+    def get_data(self, begin, end):
         for company_code, url in self.url_set.items():
-            # print "test:"+ company_code
-            while self.try_cnt > 0:
-                try:
-                    # if self.try_cnt > 1:
-                    req = urllib2.Request(url, headers=self.req_header)
-                    resp = urllib2.urlopen(req, timeout=10)
-                    html = resp.read()
-                    compressedstream = StringIO.StringIO(html)
-                    gziper = gzip.GzipFile(fileobj=compressedstream)
-                    jsondata = gziper.read()
-                    data = json.loads(jsondata)
-                    info_company = [-1] * 9
-                    for key1, value1 in data.items():
-                        for key2, value2 in value1.items():
-                            for key, value in value2.items():
-                                if key == 'tradedate':  # 交易日期
-                                    try:
-                                        info_company[0] = int(value)
-                                    except:
-                                        info_company[0] = -1
-                                        # info_company.append(int(value))
-                                if key == 'tclose':  # 收盘价
-                                    try:
-                                        info_company[1] = float(value)
-                                    except:
-                                        info_company[1] = float(-1)
-                                if key == 'pettm':
-                                    try:
-                                        info_company[2] = float(value)
-                                    except:
-                                        info_company[3] = float(-1)
-                                if key == 'pb':
-                                    try:
-                                        info_company[3] = float(value)
-                                    except:
-                                        info_company[3] = float(-1)
-                                if key == 'pcttm':  # 市销率
-                                    try:
-                                        info_company[4] = float(value)
-                                    except:
-                                        info_company[4] = float(-1)
-                                if key == 'dy':  # 股息率
-                                    try:
-                                        info_company[5] = float(value)
-                                    except:
-                                        info_company[5] = float(-1)
-                                if key == 'totmktcap':  # 总市值
-                                    try:
-                                        info_company[6] = float(value)
-                                    except:
-                                        info_company[6] = float(-1)
-                                if key == 'negotiablemv':  # 流通市值
-                                    try:
-                                        info_company[7] = float(value)
-                                    except:
-                                        info_company[7] = float(-1)
-                                if key == 'lclose':  # 前一日收盘价
-                                    try:
-                                        info_company[8] = float(value)
-                                    except:
-                                        info_company[8] = float(-1)
-                    self.companyCode_existence.append(company_code)  # 存在的公司
-                    self.company_info_onday[company_code] = info_company
-                    print company_code, self.company_info_onday[company_code]
-                    break
-                except socket.timeout,e:
-                    error_info = company_code,self.try_cnt,Exception,":",e
-                    print error_info
-                    self.error_log.write(str(error_info))
-                    self.error_log.write('\n')
-                    self.try_cnt -= 1
-                except AttributeError,atrr:
-                    error_info = company_code,Exception,":",atrr
-                    self.error_log.write(str(error_info))
-                    self.error_log.write('\n')
-                    self.companyCode_nexistence.append(company_code)
-                    print company_code + " " + "is not exit"
-                    break
-            self.try_cnt = 3
+            if begin < int(company_code) <= end:
+                while self.try_cnt > 0:
+                    try:
+                        # if self.try_cnt > 1:
+                        req = urllib2.Request(url, headers=self.req_header)
+                        resp = urllib2.urlopen(req, timeout=10)
+                        html = resp.read()
+                        compressedstream = StringIO.StringIO(html)
+                        gziper = gzip.GzipFile(fileobj=compressedstream)
+                        jsondata = gziper.read()
+                        data = json.loads(jsondata)
+                        info_company = [-1] * 9
+                        for key1, value1 in data.items():
+                            for key2, value2 in value1.items():
+                                for key, value in value2.items():
+                                    if key == 'tradedate':  # 交易日期
+                                        try:
+                                            info_company[0] = int(value)
+                                        except:
+                                            info_company[0] = -1
+                                            # info_company.append(int(value))
+                                    if key == 'tclose':  # 收盘价
+                                        try:
+                                            info_company[1] = float(value)
+                                        except:
+                                            info_company[1] = float(-1)
+                                    if key == 'pettm':
+                                        try:
+                                            info_company[2] = float(value)
+                                        except:
+                                            info_company[3] = float(-1)
+                                    if key == 'pb':
+                                        try:
+                                            info_company[3] = float(value)
+                                        except:
+                                            info_company[3] = float(-1)
+                                    if key == 'pcttm':  # 市销率
+                                        try:
+                                            info_company[4] = float(value)
+                                        except:
+                                            info_company[4] = float(-1)
+                                    if key == 'dy':  # 股息率
+                                        try:
+                                            info_company[5] = float(value)
+                                        except:
+                                            info_company[5] = float(-1)
+                                    if key == 'totmktcap':  # 总市值
+                                        try:
+                                            info_company[6] = float(value)
+                                        except:
+                                            info_company[6] = float(-1)
+                                    if key == 'negotiablemv':  # 流通市值
+                                        try:
+                                            info_company[7] = float(value)
+                                        except:
+                                            info_company[7] = float(-1)
+                                    if key == 'lclose':  # 前一日收盘价
+                                        try:
+                                            info_company[8] = float(value)
+                                        except:
+                                            info_company[8] = float(-1)
+                        self.companyCode_existence.append(company_code)  # 存在的公司
+                        self.company_info_onday[company_code] = info_company
+                        print company_code, self.company_info_onday[company_code]
+                        break
+                    except socket.timeout,e:
+                        error_info = company_code,self.try_cnt,Exception,":",e
+                        print error_info
+                        self.error_log.write(str(error_info))
+                        self.error_log.write('\n')
+                        self.try_cnt -= 1
+                    except AttributeError,atrr:
+                        error_info = company_code,Exception,":",atrr
+                        self.error_log.write(str(error_info))
+                        self.error_log.write('\n')
+                        self.companyCode_nexistence.append(company_code)
+                        print company_code + " " + "is not exit"
+                        break
+                    except Exception,e:
+                        error_info = company_code,self.try_cnt,Exception,":",e
+                        print error_info
+                        self.error_log.write(str(error_info))
+                        self.error_log.write('\n')
+                        self.try_cnt -= 1
+                self.try_cnt = 3
+
+    # 多线程并发执行
+    # noinspection PyShadowingNames
+    def threads_exe(self, fun):
+        try:
+            threads1 = threading.Thread(target=fun, args=(self.begin_threads1, self.end_threads1))
+            threads2 = threading.Thread(target=fun, args=(self.begin_threads2, self.end_threads2))
+            threads3 = threading.Thread(target=fun, args=(self.begin_threads3, self.end_threads3))
+            threads4 = threading.Thread(target=fun, args=(self.begin_threads4, self.end_threads4))
+            threads5 = threading.Thread(target=fun, args=(self.begin_threads5, self.end_threads5))
+            self.threads.append(threads1)
+            self.threads.append(threads2)
+            self.threads.append(threads3)
+            self.threads.append(threads4)
+            self.threads.append(threads5)
+            for t in self.threads:
+                t.start()
+            for t in self.threads:
+                t.join()
+        except Exception,e:
+            print Exception,":",e
 
     # 创建公司每日数据表
     def create_table(self):
@@ -203,6 +241,7 @@ class XueQiu:
 if __name__ == '__main__':
     source = XueQiu()
     source.get_url()
-    source.get_data()
+    # source.get_data()
+    source.threads_exe(source.get_data)
     source.create_table()
     source.insert_data()

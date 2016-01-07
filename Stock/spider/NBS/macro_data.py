@@ -29,7 +29,7 @@ class MacroData:
                            'Accept-Language': 'zh-CN,zh;q=0.8,en-US;q=0.5,en;q=0.3',
                            'Connection': 'keep-alive',
                            # 'Cookie': 'gscu_1771678062=480079816mgye972; acmrAutoLoginUser=""; acmrAutoSessionId=""; _gscs_1771678062=50141303hvyoqs19|pv:1; _gscbrs_1771678062=1; JSESSIONID=0B035D5C2CCA3A90F8CF8C2006E40973; u=2',
-                           'Cookie': '	_gscu_1771678062=480079816mgye972; _gscs_1771678062=50314679d7beon19|pv:1; _gscbrs_1771678062=1; JSESSIONID=E7FAF8B4A9E97C6548538BA5096FAA7C; u=5',
+                           'Cookie': '_gscu_1771678062=480079816mgye972; _gscs_1771678062=50314679d7beon19|pv:1; _gscbrs_1771678062=1; JSESSIONID=E7FAF8B4A9E97C6548538BA5096FAA7C; u=5',
                            'Host': 'data.stats.gov.cn'}
 
         self.db_name = 'STOCK_INFO_2014'  # 数据库名,如果与现有数据库冲突，可改为其他名字
