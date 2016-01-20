@@ -196,5 +196,13 @@ import re
 # x[0]["q"] =1
 # print x[2]
 
-a = "dsad"
-print a.split('#')
+from collections import Counter
+x = { 'apple': 1, 'banana': 2 }
+y = { 'banana': 10, 'pear': 11 }
+d = {key:value*2 for key,value in x.items()}
+print d
+# X,Y = Counter(x), Counter(y)
+# print X
+# z = dict(2*X+Y)
+# for k,v in z.items():
+#     print k,v

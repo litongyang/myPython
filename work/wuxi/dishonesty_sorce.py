@@ -4,7 +4,7 @@
 # ----失信得分-----
 
 
-class deshonestySorce:
+class DeshonestySorce:
     def __init__(self):
         self.id = []  # id
         self.common_reserve_funds_cnt = []  # 公积金欠缴月数
@@ -15,6 +15,19 @@ class deshonestySorce:
         self.penalty_gongshang = []  # 工商行政处罚失信信息
         self.penalty_jiaotong = []  # 交通行政处罚失信信息
         self.penalty_huanbao = []  # 环保行政处罚失信信息
+        self.penalty_guotu = []  # 国土行政处罚失信信息
+        self.penalty_weisheng = []  # 国土行政处罚失信信息
+        self.penalty_yuanlin = []  # 园林行政处罚失信信息
+        self.penalty_wujia = []  # 物价行政处罚失信信息
+        self.penalty_keji = []  # 科技行政处罚失信信息
+        self.penalty_jiaoyu = []  # 教育行政处罚失信信息
+        self.penalty_liangshi = []  # 粮食行政处罚失信信息
+        self.penalty_nongwei = []  # 农委行政处罚失信信息
+        self.penalty_minzheng = []  # 民政行政处罚失信信息
+        self.penalty_tongji = []  # 统计行政处罚失信信息
+        self.penalty_lvyou = []  # 旅游行政处罚失信信息
+
+        self.black_list_fayuan = []
 
         # 公积金欠缴月数
         self.common_reserve_funds = []
@@ -27,6 +40,13 @@ class deshonestySorce:
         # 行政处罚
         self.penalty = []  # 行政处罚
         self.penalty_sorce = {}  # 行政处罚分数
+
+        # 法院黑名单
+        self.black_list = []
+        self.black_list_score = {}
+        # 人行不良
+
+        # 违法企业
 
     # 获取数据
     def get_data(self):
@@ -41,6 +61,21 @@ class deshonestySorce:
             self.penalty_gongshang.append(linone[6])
             self.penalty_jiaotong.append(linone[7])
             self.penalty_huanbao.append(linone[8])
+            self.penalty_guotu.append(linone[9])
+            self.penalty_weisheng.append(linone[10])
+            self.penalty_yuanlin.append(linone[11])
+            self.penalty_wujia.append(linone[12])
+            self.penalty_keji.append(linone[13])
+            self.penalty_jiaoyu.append(linone[14])
+            self.penalty_liangshi.append(linone[15])
+            self.penalty_nongwei.append(linone[16])
+            self.penalty_minzheng.append(linone[17])
+            self.penalty_tongji.append(linone[18])
+            self.penalty_lvyou.append(linone[19])
+            self.black_list_fayuan.append(linone[20])
+        # for i in range(0,len(self.black_list_fayuan)):
+        #     if self.black_list_fayuan[i] != '0':
+        #         print self.black_list_fayuan[i]
 
 
     # data process
@@ -62,7 +97,22 @@ class deshonestySorce:
         self.penalty.append(self.penalty_gongshang)
         self.penalty.append(self.penalty_jiaotong)
         self.penalty.append(self.penalty_huanbao)
+        self.penalty.append(self.penalty_guotu)
+        self.penalty.append(self.penalty_weisheng)
+        self.penalty.append(self.penalty_yuanlin)
+        self.penalty.append(self.penalty_wujia)
+        self.penalty.append(self.penalty_keji)
+        self.penalty.append(self.penalty_jiaoyu)
+        self.penalty.append(self.penalty_liangshi)
+        self.penalty.append(self.penalty_nongwei)
+        self.penalty.append(self.penalty_minzheng)
+        self.penalty.append(self.penalty_tongji)
+        self.penalty.append(self.penalty_lvyou)
         self.penalty = map(list, zip(*self.penalty))
+
+        self.black_list.append(self.id)
+        self.black_list.append(self.black_list_fayuan)
+        self.black_list = map(list, zip(*self.black_list))
 
     # 计算公积金分数
     def compute_gongjijin_sorce(self):
@@ -107,11 +157,29 @@ class deshonestySorce:
                 print k,v
         print cnt
 
+    # 计算黑名单分数
+    # noinspection PyBroadException
+    def compute_black_list_sorce(self):
+        cnt = 0
+        for i in range(0, len(self.black_list)):
+            try:
+                self.black_list_score[str(self.black_list[i][0])] = int(self.black_list[i][1])
+            except:
+                self.black_list_score[str(self.black_list[i][0])] = 0
+
+        for k,v in self.black_list_score.items():
+            if v!=0:
+                cnt +=1
+            print k,v
+        print cnt
+
+
 
 if __name__ == '__main__':
-    deshonesty_sorce = deshonestySorce()
+    deshonesty_sorce = DeshonestySorce()
     deshonesty_sorce.get_data()
     deshonesty_sorce.process_data()
     deshonesty_sorce.compute_gongjijin_sorce()
     deshonesty_sorce.compute_qianshui_sorce()
     deshonesty_sorce.compute_penalty_sorce()
+    deshonesty_sorce.compute_black_list_sorce()

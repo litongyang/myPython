@@ -4,7 +4,7 @@
 # --- 表彰得分----
 
 
-class CreditSorce:
+class CiteScore:
     def __init__(self):
         self.ID = []
         self.cite_gongshang = []  # 工商表彰
@@ -23,7 +23,7 @@ class CreditSorce:
         self.cite_guojian = []
 
         self.cite = []
-        self.sorce_biaozhang = {}  # 表彰得分
+        self.score_biaozhang = {}  # 表彰得分
         self.fall_off_value = 0.8409  # 衰减值
 
     # 获取数据
@@ -59,20 +59,20 @@ class CreditSorce:
     def process_biaozhang_data(self):
         cnt = 0
         for i in range(0,len(self.cite)):
-            self.sorce_biaozhang[str(self.cite[i][0])] = 0
+            self.score_biaozhang[str(self.cite[i][0])] = 0
             for j in range(1, len(self.cite[i])):
-                sorce_one = 0
+                score_one = 0
                 Info_str = self.cite[i][j].split(',')
                 if self.cite[i][j] != 'null':  # and self.cite[i][0] == '09E93D3FA8F94002B67315219B332A3D':
                     for k in range(0, len(Info_str)):
                         try:
-                            sorce_one += pow(self.fall_off_value, (2015 - int(Info_str[k])))
+                            score_one += pow(self.fall_off_value, (2015 - int(Info_str[k])))
                         except:
-                            sorce_one += self.fall_off_value
+                            score_one += self.fall_off_value
                 else:
-                    sorce_one = 0
-                self.sorce_biaozhang[str(self.cite[i][0])] += sorce_one
-        for k,v in self.sorce_biaozhang.items():
+                    score_one = 0
+                self.score_biaozhang[str(self.cite[i][0])] += score_one
+        for k,v in self.score_biaozhang.items():
             if v !=0:
                 cnt +=1
                 print k,v
@@ -80,6 +80,6 @@ class CreditSorce:
 
 
 if __name__ == '__main__':
-    credit_sorce = CreditSorce()
-    credit_sorce.get_data()
-    credit_sorce.process_biaozhang_data()
+    credit_score = CiteScore()
+    credit_score.get_data()
+    credit_score.process_biaozhang_data()

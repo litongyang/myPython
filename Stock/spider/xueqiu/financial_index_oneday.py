@@ -23,7 +23,7 @@ class XueQiu:
                            'Accept-Encoding': 'gzip, deflate',
                            'Accept-Language': 'zh-CN,zh;q=0.8,en-US;q=0.5,en;q=0.3',
                            'Connection': 'keep-alive',
-                           'Cookie': 'Hm_lvt_1db88642e346389874251b5a1eded6e3=1450919388,1451008674,1451452629,1451701055; s=10hh12edmw; xq_a_token=a76c8ff2718de0ee5888263f70bb99c6273a6add; xq_r_token=1087f50e54dc71bae2c45ad9be5ab352edb63bb2; u=1062948460; xq_token_expire=Tue%20Jan%2019%202016%2015%3A15%3A48%20GMT%2B0800%20(CST); xq_is_login=1; __utma=1.676762656.1451027781.1451459879.1451701056.4; __utmz=1.1451027781.1.1.utmcsr=(direct)|utmccn=(direct)|utmcmd=(none); Hm_lpvt_1db88642e346389874251b5a1eded6e3=1451701055; __utmb=1.1.10.1451701056; __utmc=1; __utmt=1',
+                           'Cookie': '	Hm_lvt_1db88642e346389874251b5a1eded6e3=1452822156,1452836193,1453080203,1453254262; s=10hh12edmw; __utma=1.676762656.1451027781.1453192737.1453254262.45; __utmz=1.1451027781.1.1.utmcsr=(direct)|utmccn=(direct)|utmcmd=(none); bid=a6f34af86ba79e86c2f9b2f0ef1b8e54_iiwheq86; webp=0; xq_a_token=ba7db5c038ca496c874037d1b6755e28ed4a70cf; xq_r_token=c14a1f1d5761a94929409a3bbbdf221f94cdc464; u=1062948460; xq_token_expire=Sat%20Feb%2013%202016%2016%3A38%3A23%20GMT%2B0800%20(CST); xq_is_login=1; __utmb=1.5.10.1453254262; __utmc=1; Hm_lpvt_1db88642e346389874251b5a1eded6e3=1453254883; __utmt=1',
                            'Host': 'xueqiu.com'}
         self.company_info_onday = {}
         self.companyCode_nexistence = []  # 不存在公司
