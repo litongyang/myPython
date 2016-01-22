@@ -4,8 +4,9 @@
 # ----失信得分-----
 
 
-class DeshonestySorce:
+class DeshonestyScore:
     def __init__(self):
+        self.fall_off_value = 0.8409  # 衰减值
         self.id = []  # id
         self.common_reserve_funds_cnt = []  # 公积金欠缴月数
         self.owing_taxes_dishui = []  # 地税欠税记录
@@ -28,25 +29,32 @@ class DeshonestySorce:
         self.penalty_lvyou = []  # 旅游行政处罚失信信息
 
         self.black_list_fayuan = []
+        self.bad_loan_renhang = []
+        self.illegal_gongshang = []
 
         # 公积金欠缴月数
         self.common_reserve_funds = []
-        self.common_reserve_sorce = {}
+        self.common_reserve_score = {}
 
         # 欠税
         self.owing_taxes = []
-        self.owing_taxes_sorce = {}  # 欠税分数
+        self.owing_taxes_score = {}  # 欠税分数
 
         # 行政处罚
         self.penalty = []  # 行政处罚
-        self.penalty_sorce = {}  # 行政处罚分数
+        self.penalty_score = {}  # 行政处罚分数
 
         # 法院黑名单
         self.black_list = []
         self.black_list_score = {}
+
         # 人行不良
+        self.bad_loan = []
+        self.bad_loan_score = {}
 
         # 违法企业
+        self.illegal = []
+        self.illegal_score = {}
 
     # 获取数据
     def get_data(self):
@@ -73,10 +81,11 @@ class DeshonestySorce:
             self.penalty_tongji.append(linone[18])
             self.penalty_lvyou.append(linone[19])
             self.black_list_fayuan.append(linone[20])
-        # for i in range(0,len(self.black_list_fayuan)):
-        #     if self.black_list_fayuan[i] != '0':
-        #         print self.black_list_fayuan[i]
-
+            self.bad_loan_renhang.append(linone[21])
+            self.illegal_gongshang.append(linone[22])
+            # for i in range(0,len(self.black_list_fayuan)):
+            #     if self.black_list_fayuan[i] != '0':
+            #         print self.black_list_fayuan[i]
 
     # data process
     def process_data(self):
@@ -114,52 +123,59 @@ class DeshonestySorce:
         self.black_list.append(self.black_list_fayuan)
         self.black_list = map(list, zip(*self.black_list))
 
+        self.bad_loan.append(self.id)
+        self.bad_loan.append(self.bad_loan_renhang)
+        self.bad_loan = map(list, zip(*self.bad_loan))
+
+        self.illegal.append(self.id)
+        self.illegal.append(self.illegal_gongshang)
+        self.illegal = map(list, zip(*self.illegal))
+
     # 计算公积金分数
-    def compute_gongjijin_sorce(self):
+    def compute_gongjijin_score(self):
         cnt = 0
         for i in range(0, len(self.common_reserve_funds)):
-            self.common_reserve_sorce[str(self.common_reserve_funds[i][0])] = 0
-            for j in range(1,len(self.common_reserve_funds[i])):
-                sorce_one = int(self.common_reserve_funds[i][j])
-                self.common_reserve_sorce[str(self.common_reserve_funds[i][0])] += sorce_one
-        for k,v in self.common_reserve_sorce.items():
-            if v >0:
-                cnt +=1
-                print k,v
+            self.common_reserve_score[str(self.common_reserve_funds[i][0])] = 0
+            for j in range(1, len(self.common_reserve_funds[i])):
+                score_one = int(self.common_reserve_funds[i][j])
+                self.common_reserve_score[str(self.common_reserve_funds[i][0])] += score_one
+        for k, v in self.common_reserve_score.items():
+            if v > 0:
+                cnt += 1
+                print k, v
         print cnt
 
     # 计算欠税分数
-    def compute_qianshui_sorce(self):
+    def compute_qianshui_score(self):
         cnt = 0
         for i in range(0, len(self.owing_taxes)):
-            self.owing_taxes_sorce[str(self.owing_taxes[i][0])] = 0
-            for j in range(1,len(self.owing_taxes[i])):
-                sorce_one = int(self.owing_taxes[i][j])
-                self.owing_taxes_sorce[str(self.owing_taxes[i][0])] += sorce_one
-        for k,v in self.owing_taxes_sorce.items():
-            if v >0:
-                cnt +=1
-                print k,v
+            self.owing_taxes_score[str(self.owing_taxes[i][0])] = 0
+            for j in range(1, len(self.owing_taxes[i])):
+                score_one = int(self.owing_taxes[i][j])
+                self.owing_taxes_score[str(self.owing_taxes[i][0])] += score_one
+        for k, v in self.owing_taxes_score.items():
+            if v > 0:
+                cnt += 1
+                print k, v
         print cnt
 
-
     # 计算行政处罚分数
-    def compute_penalty_sorce(self):
+    def compute_penalty_score(self):
         cnt = 0
         for i in range(0, len(self.penalty)):
-            self.penalty_sorce[str(self.penalty[i][0])] = 0
-            for j in range(1,len(self.penalty[i])):
-                sorce_one = int(self.penalty[i][j])
-                self.penalty_sorce[str(self.penalty[i][0])] += sorce_one
-        for k,v in self.penalty_sorce.items():
-            if v >0:
-                cnt +=1
-                print k,v
+            self.penalty_score[str(self.penalty[i][0])] = 0
+            for j in range(1, len(self.penalty[i])):
+                score_one = int(self.penalty[i][j])
+                self.penalty_score[str(self.penalty[i][0])] += score_one
+        for k, v in self.penalty_score.items():
+            if v > 0:
+                cnt += 1
+                print k, v
         print cnt
 
     # 计算黑名单分数
     # noinspection PyBroadException
-    def compute_black_list_sorce(self):
+    def compute_black_list_score(self):
         cnt = 0
         for i in range(0, len(self.black_list)):
             try:
@@ -167,19 +183,65 @@ class DeshonestySorce:
             except:
                 self.black_list_score[str(self.black_list[i][0])] = 0
 
-        for k,v in self.black_list_score.items():
-            if v!=0:
-                cnt +=1
-            print k,v
+        for k, v in self.black_list_score.items():
+            if v != 0:
+                cnt += 1
+            print k, v
+        print cnt
+
+    # 计算不良贷款得分
+    def compute_bad_loan_score(self):
+        cnt = 0
+        for i in range(0, len(self.bad_loan)):
+            # self.bad_loan_score[str(self.bad_loan[i][0])] = 0
+            bad_year_str = self.bad_loan[i][1].split('#')
+            score_one = 0
+            for j in range(0, len(bad_year_str)):
+                if bad_year_str[j] != '0':
+                    try:
+                        score_one += pow(self.fall_off_value, (2015 - int(bad_year_str[j])))
+                    except:
+                        pass
+                else:
+                    score_one = 0
+            self.bad_loan_score[str(self.bad_loan[i][0])] = score_one
+        for k, v in self.bad_loan_score.items():
+            if v > 1:
+                cnt += 1
+            print k, v
         print cnt
 
 
+    # 计算企业违法得分
+    def compute_illegal_score(self):
+        cnt = 0
+        for i in range(0, len(self.illegal)):
+            illegal_year_str = self.illegal[i][1].split('#')
+            # print illegal_year_str
+            score_one = 0
+            for j in range(0, len(illegal_year_str)):
+                if illegal_year_str[j] != '0':
+                    try:
+                        score_one += pow(self.fall_off_value, (2015 - int(illegal_year_str[j])))
+                    except:
+                        pass
+                else:
+                    score_one = 0
+            self.illegal_score[str(self.illegal[i][0])] = score_one
+        for k, v in self.illegal_score.items():
+            if v > 0:
+                cnt += 1
+            print k, v
+        print cnt
+
 
 if __name__ == '__main__':
-    deshonesty_sorce = DeshonestySorce()
-    deshonesty_sorce.get_data()
-    deshonesty_sorce.process_data()
-    deshonesty_sorce.compute_gongjijin_sorce()
-    deshonesty_sorce.compute_qianshui_sorce()
-    deshonesty_sorce.compute_penalty_sorce()
-    deshonesty_sorce.compute_black_list_sorce()
+    deshonesty_score = DeshonestyScore()
+    deshonesty_score.get_data()
+    deshonesty_score.process_data()
+    deshonesty_score.compute_gongjijin_score()
+    deshonesty_score.compute_qianshui_score()
+    deshonesty_score.compute_penalty_score()
+    deshonesty_score.compute_black_list_score()
+    deshonesty_score.compute_bad_loan_score()
+    deshonesty_score.compute_illegal_score()
