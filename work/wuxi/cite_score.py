@@ -3,6 +3,8 @@
 
 # --- 表彰得分----
 
+import numpy
+
 
 class CiteScore:
     def __init__(self):
@@ -85,6 +87,7 @@ class CiteScore:
         #         print self.good_brand[i][1]
 
     # data process
+    # noinspection PyBroadException
     def compute_biaozhang_score(self):
         cnt = 0
         for i in range(0,len(self.cite)):
@@ -131,9 +134,49 @@ class CiteScore:
             print k,v
         print cnt
 
+    # 分数规约处理
+    def process_score(self, score_info):
+        id_list = []
+        score_list = []
+        for k,v in score_info.items():
+            id_list.append(k)
+            score_list.append(float(v))
+        mean_v = numpy.mean(score_list)
+        var_v = numpy.var(score_list)
+        # print mean_v
+        # print var_v
+        score_list = [(score_list[i]- mean_v) / var_v +1 for i in range(0, len(score_list))]
+        # for i in range(0, len(score_list)):
+        #     print score_list[i]
+        for i in range(0, len(id_list)):
+            score_info[id_list[i]] = score_list[i]
+        for k, v in score_info.items():
+            print k,':',v
+
+        # 查看分布
+    def view_du(self,score_info):
+        score_list = []
+        for k,v in score_info.items():
+            score_list.append(float(v))
+        max_v = max(score_list)
+        min_v = min(score_list)
+        mean_v = numpy.mean(score_list)
+        var_v = numpy.var(score_list)
+        print "max:",max_v
+        print "min:",min_v
+        print "mean:",mean_v
+        for k,v in score_info.items():
+            if score_info[k] == 1680.0:
+                print k
+
 
 if __name__ == '__main__':
     credit_score = CiteScore()
     credit_score.get_data()
     credit_score.compute_biaozhang_score()
-    # credit_score.compute_good_brand_score()
+    credit_score.compute_good_brand_score()
+
+    credit_score.view_du(credit_score.score_biaozhang)  # max:5.7 ,min:0,mean:0.0098
+    credit_score.view_du(credit_score.good_brand_score)  # max:13.69,min:0,mean:0.0016
+    # credit_score.process_score(credit_score.score_biaozhang)
+    # credit_score.process_score(credit_score.good_brand_score)

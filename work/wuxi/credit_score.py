@@ -70,6 +70,9 @@ class CreditScore:
         self.creditReal_class.compute_credit_score()
         self.creditReal_class.compute_certification_levels_score()
         self.creditReal_class.compute_brand_c_score()
+        self.creditReal_class.process_score(self.creditReal_class.brand_register_score)
+        self.creditReal_class.process_score(self.creditReal_class.credit_assess_score)
+        self.creditReal_class.process_score(self.creditReal_class.certification_levels_score)
 
         # print len(self.creditReal_class.brand_register_score)
         self.creditReal_class.brand_register_score = {key:float(value) * self.weight_brand_register for key,value in self.creditReal_class.brand_register_score.items()}

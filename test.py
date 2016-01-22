@@ -197,12 +197,15 @@ import re
 # print x[2]
 
 from collections import Counter
-x = { 'apple': 1, 'banana': 2 }
-y = { 'banana': 10, 'pear': 11 }
-d = {key:value*2 for key,value in x.items()}
-print d
+# x = { 'apple': 1, 'banana': 2 }
+# y = { 'banana': 10, 'pear': 11 }
+# d = {key:value*2 for key,value in x.items()}
+# print d
+
+x= (17.2273811016 - 1)*0.0598173825026 + 0.0293205376316
+print x
 # X,Y = Counter(x), Counter(y)
-# print X
-# z = dict(2*X+Y)
+# print X z = dict(2*X+Y)
+#
 # for k,v in z.items():
 #     print k,v

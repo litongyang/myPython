@@ -3,6 +3,7 @@
 
 # ------------ 非失信得分-----------
 
+import numpy
 
 class CreditRealScore:
     def __init__(self):
@@ -20,6 +21,21 @@ class CreditRealScore:
         self.credit_assess_zhijian_year = []
         self.credit_assess_dishui = []
         self.credit_assess_dishui_year = []
+        self.credit_assess_wujia = []
+        self.credit_assess_wujia_year = []
+        self.credit_assess_yuanlin = []
+        self.credit_assess_yuanlin_year = []
+        self.credit_assess_tongji = []
+        self.credit_assess_tongji_year = []
+        self.credit_assess_lvyou = []
+        self.credit_assess_lvyou_year = []
+        self.credit_assess_anjian = []
+        self.credit_assess_anjian_year = []
+        self.credit_assess_shangwu = []
+        self.credit_assess_shangwu_year = []
+        self.credit_assess_jianshe = []
+        self.credit_assess_jianshe_year = []
+
         self.certification_levels_gongshang = []
         self.brand_c_gongshang = []
 
@@ -52,8 +68,27 @@ class CreditRealScore:
             self.credit_assess_yaojian_year.append(linone[7])
             self.credit_assess_jiaotong.append(linone[8])
             self.credit_assess_jiaotong_year.append(linone[9])
-            self.certification_levels_gongshang.append(linone[26])
-            self.brand_c_gongshang.append(linone[27])
+            self.credit_assess_zhijian.append(linone[10])
+            self.credit_assess_zhijian_year.append(linone[11])
+            self.credit_assess_dishui.append(linone[12])
+            self.credit_assess_dishui_year.append(linone[13])
+            self.credit_assess_wujia.append(linone[14])
+            self.credit_assess_wujia_year.append(linone[15])
+            self.credit_assess_yuanlin.append(linone[16])
+            self.credit_assess_yuanlin_year.append(linone[17])
+            self.credit_assess_tongji.append(linone[18])
+            self.credit_assess_tongji_year.append(linone[19])
+            self.credit_assess_lvyou.append(linone[20])
+            self.credit_assess_lvyou_year.append(linone[21])
+            self.credit_assess_anjian.append(linone[22])
+            self.credit_assess_anjian_year.append(linone[23])
+            self.credit_assess_shangwu.append(linone[24])
+            self.credit_assess_shangwu_year.append(linone[25])
+            self.credit_assess_jianshe.append(linone[26])
+            self.credit_assess_jianshe_year.append(linone[27])
+
+            self.certification_levels_gongshang.append(linone[28])
+            self.brand_c_gongshang.append(linone[29])
         # for i in range(0, len(self.brand_c)):
         #     if  self.brand_c[i] != 'null':
         #         print self.brand_c[i]
@@ -72,6 +107,24 @@ class CreditRealScore:
         self.credit_assess.append(self.credit_assess_yaojian_year)
         self.credit_assess.append(self.credit_assess_jiaotong)
         self.credit_assess.append(self.credit_assess_jiaotong_year)
+        self.credit_assess.append(self.credit_assess_zhijian)
+        self.credit_assess.append(self.credit_assess_zhijian_year)
+        self.credit_assess.append(self.credit_assess_dishui)
+        self.credit_assess.append(self.credit_assess_dishui_year)
+        self.credit_assess.append(self.credit_assess_wujia)
+        self.credit_assess.append(self.credit_assess_wujia_year)
+        self.credit_assess.append(self.credit_assess_yuanlin)
+        self.credit_assess.append(self.credit_assess_yuanlin_year)
+        self.credit_assess.append(self.credit_assess_tongji)
+        self.credit_assess.append(self.credit_assess_tongji_year)
+        self.credit_assess.append(self.credit_assess_lvyou)
+        self.credit_assess.append(self.credit_assess_lvyou_year)
+        self.credit_assess.append(self.credit_assess_anjian)
+        self.credit_assess.append(self.credit_assess_anjian_year)
+        self.credit_assess.append(self.credit_assess_shangwu)
+        self.credit_assess.append(self.credit_assess_shangwu_year)
+        self.credit_assess.append(self.credit_assess_jianshe)
+        self.credit_assess.append(self.credit_assess_jianshe_year)
         self.credit_assess = map(list, zip(*self.credit_assess))
 
         self.certification_levels.append(self.id)
@@ -106,17 +159,17 @@ class CreditRealScore:
                         brand_score += 0
                     elif brand_str[k] == '0':
                         try:
-                            brand_score += pow(1, (2015- int(brand_year_str[k])))
+                            brand_score += pow(self.fall_off_value, (2015- int(brand_year_str[k])))
                         except:
                             brand_score += 1* self.fall_off_value
                     elif brand_str[k] == '市级':
                         try:
-                            brand_score += pow(2, (2015- int(brand_year_str[k])))
+                            brand_score += 2 * pow(self.fall_off_value, (2015- int(brand_year_str[k])))
                         except:
                             brand_score += 2* self.fall_off_value
                     elif brand_str[k] == '省级':
                         try:
-                            brand_score += pow(3, (2015- int(brand_year_str[k])))
+                            brand_score += 3 * pow(self.fall_off_value, (2015- int(brand_year_str[k])))
                         except:
                             brand_score += 3* self.fall_off_value
                     else:
@@ -142,32 +195,32 @@ class CreditRealScore:
                 for k in range(0, len(credit_str)):
                     if credit_str[k] == 'AAA':
                         try:
-                            credit_score += pow(6, (2015- int(credit_year_str[k])))
+                            credit_score += 6 * pow(self.fall_off_value, (2015- int(credit_year_str[k])))
                         except:
                             credit_score += 6* self.fall_off_value
                     elif credit_str[k] == 'AA':
                         try:
-                            credit_score += pow(5, (2015- int(credit_year_str[k])))
+                            credit_score += 5 * pow(self.fall_off_value, (2015- int(credit_year_str[k])))
                         except:
                             credit_score += 5* self.fall_off_value
                     elif credit_str[k] == 'A':
                         try:
-                            credit_score += pow(4, (2015- int(credit_year_str[k])))
+                            credit_score += 4 * pow(self.fall_off_value, (2015- int(credit_year_str[k])))
                         except:
-                            credit_score +=4* self.fall_off_value
+                            credit_score += 4* self.fall_off_value
                     elif credit_str[k] == 'B':
                         try:
-                            credit_score += pow(3, (2015- int(credit_year_str[k])))
+                            credit_score += 3 * pow(self.fall_off_value, (2015- int(credit_year_str[k])))
                         except:
                             credit_score += 3* self.fall_off_value
                     elif credit_str[k] == 'C':
                         try:
-                            credit_score += pow(2, (2015- int(credit_year_str[k])))
+                            credit_score += 2 * pow(self.fall_off_value, (2015- int(credit_year_str[k])))
                         except:
                             credit_score += 2* self.fall_off_value
                     elif credit_str[k] == 'D':
                         try:
-                            credit_score += pow(1, (2015- int(credit_year_str[k])))
+                            credit_score += pow(self.fall_off_value, (2015- int(credit_year_str[k])))
                         except:
                             credit_score += 1* self.fall_off_value
                     else:
@@ -201,7 +254,7 @@ class CreditRealScore:
     def compute_brand_c_score(self):
         cnt = 0
         for i in range(0,len(self.brand_c)):
-            print self.brand_c[i][0]
+            # print self.brand_c[i][0]
             try:
                 self.brand_c_score[str(self.brand_c[i][0])] = int(self.brand_c[i][1])
             except:
@@ -212,6 +265,26 @@ class CreditRealScore:
                 print k,v
         print cnt
 
+    # 分数规约处理
+    def process_score(self,score_info):
+        id_list = []
+        score_list = []
+        for k,v in score_info.items():
+            id_list.append(k)
+            score_list.append(float(v))
+        mean_v = numpy.mean(score_list)
+        var_v = numpy.var(score_list)
+        # print mean_v
+        # print var_v
+        score_list = [(score_list[i]- mean_v) / var_v +1 for i in range(0, len(score_list))]
+        # for i in range(0, len(score_list)):
+        #     print score_list[i]
+        for i in range(0, len(id_list)):
+            score_info[id_list[i]] = score_list[i]
+        for k, v in score_info.items():
+            print k,':',v
+
+
 
 if __name__ == '__main__':
     credit_real_score = CreditRealScore()
@@ -221,4 +294,6 @@ if __name__ == '__main__':
     credit_real_score.compute_credit_score()
     credit_real_score.compute_certification_levels_score()
     credit_real_score.compute_brand_c_score()
-
+    credit_real_score.process_score(credit_real_score.brand_register_score)
+    credit_real_score.process_score(credit_real_score.credit_assess_score)
+    credit_real_score.process_score(credit_real_score.certification_levels_score)

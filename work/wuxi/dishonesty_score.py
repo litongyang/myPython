@@ -2,6 +2,7 @@
 # -*- coding: utf-8 -*-
 
 # ----失信得分-----
+import numpy
 
 
 class DeshonestyScore:
@@ -163,9 +164,11 @@ class DeshonestyScore:
     def compute_penalty_score(self):
         cnt = 0
         for i in range(0, len(self.penalty)):
+            # if self.penalty[i][0] == '530188C5F0B045B789A4124A9269D4EB':
             self.penalty_score[str(self.penalty[i][0])] = 0
             for j in range(1, len(self.penalty[i])):
                 score_one = int(self.penalty[i][j])
+                # print score_one
                 self.penalty_score[str(self.penalty[i][0])] += score_one
         for k, v in self.penalty_score.items():
             if v > 0:
@@ -234,6 +237,45 @@ class DeshonestyScore:
             print k, v
         print cnt
 
+    # 分数规约处理
+    def process_score(self, score_info):
+        id_list = []
+        score_list = []
+        for k,v in score_info.items():
+            id_list.append(k)
+            score_list.append(float(v))
+        mean_v = numpy.mean(score_list)
+        var_v = numpy.var(score_list)
+        # print mean_v
+        # print var_v
+        score_list = [(score_list[i]- mean_v) / var_v +1 for i in range(0, len(score_list))]
+        # for i in range(0, len(score_list)):
+        #     print score_list[i]
+        for i in range(0, len(id_list)):
+            score_info[id_list[i]] = score_list[i]
+        for k, v in score_info.items():
+            # if k == '530188C5F0B045B789A4124A9269D4EB':
+            #     print mean_v
+            #     print var_v
+            print k,':',v
+
+    # 查看分布
+    def view_du(self,score_info):
+        score_list = []
+        for k,v in score_info.items():
+            score_list.append(float(v))
+        max_v = max(score_list)
+        min_v = min(score_list)
+        mean_v = numpy.mean(score_list)
+        var_v = numpy.var(score_list)
+        print "max:",max_v
+        print "min:",min_v
+        print "mean:",mean_v
+        for k,v in score_info.items():
+            if score_info[k] == 1680.0:
+                print k
+
+
 
 if __name__ == '__main__':
     deshonesty_score = DeshonestyScore()
@@ -245,3 +287,15 @@ if __name__ == '__main__':
     deshonesty_score.compute_black_list_score()
     deshonesty_score.compute_bad_loan_score()
     deshonesty_score.compute_illegal_score()
+
+    deshonesty_score.view_du(deshonesty_score.common_reserve_score)  # max:98,min:0
+    # deshonesty_score.view_du(deshonesty_score.owing_taxes_score)  # max:2,min:0
+    # deshonesty_score.view_du(deshonesty_score.penalty_score)  # max:7,min:0
+    # deshonesty_score.view_du(deshonesty_score.bad_loan_score)  # max:1.7,min:0
+    # deshonesty_score.view_du(deshonesty_score.illegal_score)  # max:1,min:0
+
+    # deshonesty_score.process_score(deshonesty_score.common_reserve_score)
+    # deshonesty_score.process_score(deshonesty_score.owing_taxes_score)
+    # deshonesty_score.process_score(deshonesty_score.penalty_score)
+    # deshonesty_score.process_score(deshonesty_score.black_list_score)
+
