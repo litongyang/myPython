@@ -7,6 +7,7 @@ import work.wuxi.base_score as base  # 基本信息
 import work.wuxi.cite_score as cite  # 表彰
 import work.wuxi.credit_real_score as credit_real  # 非失信
 import work.wuxi.dishonesty_score as dishonesty  # 失信
+import numpy
 import matplotlib.pylab as plt
 import seaborn as sns
 
@@ -98,9 +99,9 @@ class CreditScore:
         self.creditReal_class.compute_credit_score()
         self.creditReal_class.compute_certification_levels_score()
         self.creditReal_class.compute_brand_c_score()
-        self.creditReal_class.process_score(self.creditReal_class.brand_register_score)
-        self.creditReal_class.process_score(self.creditReal_class.credit_assess_score)
-        self.creditReal_class.process_score(self.creditReal_class.certification_levels_score)
+        # self.creditReal_class.process_score(self.creditReal_class.brand_register_score)
+        # self.creditReal_class.process_score(self.creditReal_class.credit_assess_score)
+        # self.creditReal_class.process_score(self.creditReal_class.certification_levels_score)
 
         # print len(self.creditReal_class.brand_register_score)
         self.creditReal_class.brand_register_score = {key: float(value) * self.weight_brand_register for key, value in
@@ -205,12 +206,26 @@ class CreditScore:
         data = []
         fl = open("C:\\Users\\\Thinkpad\\Desktop\\data_score.txt", 'a')
         for k,v in self.credit_score.items():
-            fl.write(str(v))
-            fl.write('\n')
-            data.append(v)
+            if float(v) <10:
+                fl.write(str(v))
+                fl.write('\n')
+                data.append(v)
 
         # sns.distplot(data, kde=True, color="#FF0000", rug=True, hist=True)
         # plt.show()
+
+    # 查看分布
+    def view_du(self,score_info):
+        score_list = []
+        for k,v in score_info.items():
+            score_list.append(float(v))
+        max_v = max(score_list)
+        min_v = min(score_list)
+        mean_v = numpy.mean(score_list)
+        var_v = numpy.var(score_list)
+        print "max:",max_v
+        print "min:",min_v
+        print "mean:",mean_v
 
 if __name__ == '__main__':
     credit_score = CreditScore()
@@ -220,3 +235,4 @@ if __name__ == '__main__':
     credit_score.compute_dishonesty_score()
     credit_score.compute_credit_score()
     credit_score.drawing()
+    credit_score.view_du(credit_score.credit_score)

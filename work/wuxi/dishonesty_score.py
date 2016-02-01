@@ -35,27 +35,27 @@ class DeshonestyScore:
 
         # 公积金欠缴月数
         self.common_reserve_funds = []
-        self.common_reserve_score = {}
+        self.common_reserve_score = {}  # max:98,min:0
 
         # 欠税
         self.owing_taxes = []
-        self.owing_taxes_score = {}  # 欠税分数
+        self.owing_taxes_score = {}  # 欠税分数(max:2,min:0)
 
         # 行政处罚
         self.penalty = []  # 行政处罚
-        self.penalty_score = {}  # 行政处罚分数
+        self.penalty_score = {}  # 行政处罚分数(max:7,min:0)
 
         # 法院黑名单
         self.black_list = []
-        self.black_list_score = {}
+        self.black_list_score = {}  # 黑名单得分(max:1,min:0)
 
         # 人行不良
         self.bad_loan = []
-        self.bad_loan_score = {}
+        self.bad_loan_score = {}  # 不良分数(max:1.7,min:0)
 
         # 违法企业
         self.illegal = []
-        self.illegal_score = {}
+        self.illegal_score = {}  # 违法得分(max:1,min:0)
 
     # 获取数据
     def get_data(self):
@@ -139,7 +139,7 @@ class DeshonestyScore:
             self.common_reserve_score[str(self.common_reserve_funds[i][0])] = 0
             for j in range(1, len(self.common_reserve_funds[i])):
                 score_one = int(self.common_reserve_funds[i][j])
-                self.common_reserve_score[str(self.common_reserve_funds[i][0])] += score_one
+                self.common_reserve_score[str(self.common_reserve_funds[i][0])] += float(score_one) /10
         for k, v in self.common_reserve_score.items():
             if v > 0:
                 cnt += 1
@@ -291,6 +291,7 @@ if __name__ == '__main__':
     deshonesty_score.view_du(deshonesty_score.common_reserve_score)  # max:98,min:0
     # deshonesty_score.view_du(deshonesty_score.owing_taxes_score)  # max:2,min:0
     # deshonesty_score.view_du(deshonesty_score.penalty_score)  # max:7,min:0
+    # deshonesty_score.view_du(deshonesty_score.black_list_score)  # max:1,min:0
     # deshonesty_score.view_du(deshonesty_score.bad_loan_score)  # max:1.7,min:0
     # deshonesty_score.view_du(deshonesty_score.illegal_score)  # max:1,min:0
 

@@ -41,19 +41,19 @@ class CreditRealScore:
 
         # 贯标
         self.brand_register = []
-        self.brand_register_score = {}
+        self.brand_register_score = {}  # 贯标得分(max:3.71192232386,min:0,mean:0.000971095630639)
 
         # 信用评定
         self.credit_assess = []
-        self.credit_assess_score = {}
+        self.credit_assess_score = {}  # 信用评定得分(max:35.39174091,min:0,mean:3.84882730988)
 
         # 工商认证等级
         self.certification_levels = []
-        self.certification_levels_score = {}
+        self.certification_levels_score = {}  # 工商认证等级分(max:5,min:0,mean:0.0480846212985)
 
         # C标
         self.brand_c = []
-        self.brand_c_score = {}
+        self.brand_c_score = {}  # c标得分(max:1,min:0,mean:0.000185573022985)
 
     # 获取数据
     def get_data(self):
@@ -284,6 +284,19 @@ class CreditRealScore:
         for k, v in score_info.items():
             print k,':',v
 
+    # 查看分布
+    def view_du(self,score_info):
+        score_list = []
+        for k,v in score_info.items():
+            score_list.append(float(v))
+        max_v = max(score_list)
+        min_v = min(score_list)
+        mean_v = numpy.mean(score_list)
+        var_v = numpy.var(score_list)
+        print "max:",max_v
+        print "min:",min_v
+        print "mean:",mean_v
+
 
 
 if __name__ == '__main__':
@@ -294,6 +307,15 @@ if __name__ == '__main__':
     credit_real_score.compute_credit_score()
     credit_real_score.compute_certification_levels_score()
     credit_real_score.compute_brand_c_score()
-    credit_real_score.process_score(credit_real_score.brand_register_score)
-    credit_real_score.process_score(credit_real_score.credit_assess_score)
-    credit_real_score.process_score(credit_real_score.certification_levels_score)
+
+    credit_real_score.view_du(credit_real_score.brand_register_score)
+    print "*************"
+    credit_real_score.view_du(credit_real_score.credit_assess_score)
+    print "*************"
+    credit_real_score.view_du(credit_real_score.certification_levels_score)
+    print "*************"
+    credit_real_score.view_du(credit_real_score.brand_c_score)
+
+    # credit_real_score.process_score(credit_real_score.brand_register_score)
+    # credit_real_score.process_score(credit_real_score.credit_assess_score)
+    # credit_real_score.process_score(credit_real_score.certification_levels_score)

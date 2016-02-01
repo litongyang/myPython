@@ -16,9 +16,9 @@ class BaseScore:
         self.cur_type = []  # 币种
 
         self.type_pro = []
-        self.type_score = {}  # 企业类型得分
+        self.type_score = {}  # 企业类型得分(max:3,min:0)
         self.capital = []
-        self.capital_score = {}  # 注册资本得分
+        self.capital_score = {}  # 注册资本得分(max:5,min:0)
 
     # 获取数据
     def get_data(self):
@@ -96,6 +96,6 @@ if __name__ == '__main__':
     base_score.get_data()
     base_score.process_data()
     base_score.compute_type_score()
-    # base_score.compute_register_capital_score()
-    # base_score.view_du(base_score.capital_score)
+    base_score.compute_register_capital_score()
+    base_score.view_du(base_score.type_score)
 

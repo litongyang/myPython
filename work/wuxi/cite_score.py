@@ -30,11 +30,11 @@ class CiteScore:
 
         # 表彰
         self.cite = []
-        self.score_biaozhang = {}  # 表彰得分
+        self.score_biaozhang = {}  # 表彰得分(max:5.7 ,min:0,mean:0.0098)
 
         #  驰名商标
         self.good_brand = []
-        self.good_brand_score = {}
+        self.good_brand_score = {}  # 驰名商标得分（max:13.69,min:0,mean:0.0016）
 
 
     # 获取数据
