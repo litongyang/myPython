@@ -201,10 +201,12 @@ from collections import Counter
 # y = { 'banana': 10, 'pear': 11 }
 # d = {key:value*2 for key,value in x.items()}
 # print d
-
-x= (17.2273811016 - 1)*0.0598173825026 + 0.0293205376316
-print x
-# X,Y = Counter(x), Counter(y)
+import matplotlib.pylab as plt
+import seaborn as sns
+data1 = [1,1,1,2,2,2,3,4,4,5,6,6,6]
+sns.distplot(data1, kde=True, color="#FF0000", rug=True, hist=True)
+plt.show()
+# X,Y = Counter(x), Counter(y )
 # print X z = dict(2*X+Y)
 #
 # for k,v in z.items():

@@ -153,7 +153,7 @@ class CiteScore:
         for k, v in score_info.items():
             print k,':',v
 
-        # 查看分布
+    # 查看分布
     def view_du(self,score_info):
         score_list = []
         for k,v in score_info.items():

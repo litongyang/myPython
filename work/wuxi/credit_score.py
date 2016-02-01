@@ -3,17 +3,22 @@
 
 # ------企业信用模型-------
 
+import work.wuxi.base_score as base  # 基本信息
 import work.wuxi.cite_score as cite  # 表彰
 import work.wuxi.credit_real_score as credit_real  # 非失信
 import work.wuxi.dishonesty_score as dishonesty  # 失信
-
+import matplotlib.pylab as plt
+import seaborn as sns
 
 
 class CreditScore:
     def __init__(self):
+        self.base_class = base.BaseScore()
         self.cite_class = cite.CiteScore()
         self.creditReal_class = credit_real.CreditRealScore()
         self.dishonesty_class = dishonesty.DeshonestyScore()
+        self.weight_type = 1  # 企业类型权重
+        self.weight_register_captail = 1  # 注册资本权重
         self.weight_cite = 1  # 表彰权重
         self.weight_good_brand = 1  # 驰名商标权重
         self.weight_brand_register = 1  # 贯标权重
@@ -23,20 +28,43 @@ class CreditScore:
         self.weight_gongjijin = 1  # 公积金权重
         self.weight_owe = 1  # 欠税权重
         self.weight_penalty = 1  # 行政处罚权重
-        self.weight_blackList= 1  # 黑名单权重
+        self.weight_blackList = 1  # 黑名单权重
         self.weight_bad_loan = 1  # 不良贷款权重
         self.weight_illegal = 1  # 企业违法权重
 
         self.weight_cite = 1  # 表彰权重
         self.weight_base = 1  # 基本信息权重
-        self.weight_credit_real = 1 # 非失信权重
+        self.weight_credit_real = 1  # 非失信权重
         self.weight_dishonesty = 1  # 失信权重
 
-
+        self.base_score = {}
         self.cite_score = {}
         self.credit_real_score = {}
         self.dishonesty_score = {}
         self.credit_score = {}
+
+    # 计算基本信息得分
+    def compute_base_score(self):
+        cnt = 0
+        self.base_class.get_data()
+        self.base_class.process_data()
+        self.base_class.compute_type_score()
+        self.base_class.compute_register_capital_score()
+        self.base_class.type_score = {key: float(value) * self.weight_type for key, value in
+                                      self.base_class.type_score.items()}
+        self.base_class.capital_score = {key: float(value) * self.weight_register_captail for key, value in
+                                         self.base_class.capital_score.items()}
+        for id, value in self.base_class.type_score.items():
+            score_one = value
+            if self.base_class.capital_score.has_key(id):
+                score_one += self.base_class.capital_score[id]
+            self.base_score[id] = score_one
+
+        for k, v in self.base_score.items():
+            if v != 0:
+                cnt += 1
+            print k, v
+        print cnt
 
     # 计算表彰得分
     def compute_cite_score(self):
@@ -45,20 +73,20 @@ class CreditScore:
         self.cite_class.compute_biaozhang_score()
         self.cite_class.compute_good_brand_score()
 
-        self.cite_class.score_biaozhang = {key:float(value) * self.weight_brand_register for key,value in self.cite_class.score_biaozhang.items()}
-        self.cite_class.good_brand_score = {key:float(value) * self.weight_good_brand for key,value in self.cite_class.good_brand_score.items()}
-        for id,value in self.cite_class.score_biaozhang.items():
+        self.cite_class.score_biaozhang = {key: float(value) * self.weight_brand_register for key, value in
+                                           self.cite_class.score_biaozhang.items()}
+        self.cite_class.good_brand_score = {key: float(value) * self.weight_good_brand for key, value in
+                                            self.cite_class.good_brand_score.items()}
+        for id, value in self.cite_class.score_biaozhang.items():
             score_one = value
             if self.cite_class.good_brand_score.has_key(id):
                 score_one += self.cite_class.good_brand_score[id]
             self.cite_score[id] = score_one
-        for k,v in self.cite_score.items():
-            if v !=0:
+        for k, v in self.cite_score.items():
+            if v != 0:
                 cnt += 1
-            print k,v
+            print k, v
         print cnt
-
-
 
     # 计算非失信得分
     # noinspection PyBroadException
@@ -75,14 +103,19 @@ class CreditScore:
         self.creditReal_class.process_score(self.creditReal_class.certification_levels_score)
 
         # print len(self.creditReal_class.brand_register_score)
-        self.creditReal_class.brand_register_score = {key:float(value) * self.weight_brand_register for key,value in self.creditReal_class.brand_register_score.items()}
-        self.creditReal_class.credit_assess_score = {key:float(value) * self.weight_credit for key,value in self.creditReal_class.credit_assess_score.items()}
-        self.creditReal_class.certification_levels_score = {key:float(value) * self.weight_certification_levels for key,value in self.creditReal_class.certification_levels_score.items()}
-        self.creditReal_class.brand_c_score = {key:float(value) * self.weight_brand_c for key,value in self.creditReal_class.brand_c_score.items()}
+        self.creditReal_class.brand_register_score = {key: float(value) * self.weight_brand_register for key, value in
+                                                      self.creditReal_class.brand_register_score.items()}
+        self.creditReal_class.credit_assess_score = {key: float(value) * self.weight_credit for key, value in
+                                                     self.creditReal_class.credit_assess_score.items()}
+        self.creditReal_class.certification_levels_score = {key: float(value) * self.weight_certification_levels for
+                                                            key, value in
+                                                            self.creditReal_class.certification_levels_score.items()}
+        self.creditReal_class.brand_c_score = {key: float(value) * self.weight_brand_c for key, value in
+                                               self.creditReal_class.brand_c_score.items()}
         # for k,v in self.creditReal_class.brand_register_score.items():
         #     if v != 0:
         #         print v
-        for id,value in self.creditReal_class.credit_assess_score.items():
+        for id, value in self.creditReal_class.credit_assess_score.items():
             score_one = value
             x = value
             # print score_one
@@ -99,10 +132,10 @@ class CreditScore:
             #     cnt +=1
             # print cnt
 
-        for k,v in self.credit_real_score.items():
-            if v   >0:
-                cnt +=1
-            print k,':',v
+        for k, v in self.credit_real_score.items():
+            if v > 0:
+                cnt += 1
+            print k, ':', v
         print cnt
 
     # 计算失信得分
@@ -117,12 +150,18 @@ class CreditScore:
         self.dishonesty_class.compute_bad_loan_score()
         self.dishonesty_class.compute_illegal_score()
         # print len(self.dishonesty_class.common_reserve_score)
-        self.dishonesty_class.common_reserve_score = {key:float(value) * self.weight_gongjijin for key,value in self.dishonesty_class.common_reserve_score.items()}
-        self.dishonesty_class.owing_taxes_score = {key:float(value) * self.weight_owe for key,value in self.dishonesty_class.owing_taxes_score.items()}
-        self.dishonesty_class.penalty_score = {key:float(value) * self.weight_penalty for key,value in self.dishonesty_class.penalty_score.items()}
-        self.dishonesty_class.black_list_score = {key:float(value) * self.weight_blackList for key,value in self.dishonesty_class.black_list_score.items()}
-        self.dishonesty_class.bad_loan_score = {key:float(value) * self.weight_bad_loan for key,value in self.dishonesty_class.bad_loan_score.items()}
-        self.dishonesty_class.illegal_score = {key:float(value) * self.weight_illegal for key,value in self.dishonesty_class.illegal_score.items()}
+        self.dishonesty_class.common_reserve_score = {key: float(value) * self.weight_gongjijin for key, value in
+                                                      self.dishonesty_class.common_reserve_score.items()}
+        self.dishonesty_class.owing_taxes_score = {key: float(value) * self.weight_owe for key, value in
+                                                   self.dishonesty_class.owing_taxes_score.items()}
+        self.dishonesty_class.penalty_score = {key: float(value) * self.weight_penalty for key, value in
+                                               self.dishonesty_class.penalty_score.items()}
+        self.dishonesty_class.black_list_score = {key: float(value) * self.weight_blackList for key, value in
+                                                  self.dishonesty_class.black_list_score.items()}
+        self.dishonesty_class.bad_loan_score = {key: float(value) * self.weight_bad_loan for key, value in
+                                                self.dishonesty_class.bad_loan_score.items()}
+        self.dishonesty_class.illegal_score = {key: float(value) * self.weight_illegal for key, value in
+                                               self.dishonesty_class.illegal_score.items()}
         for id, value in self.dishonesty_class.penalty_score.items():
             score_one = self.weight_penalty * value
             if self.dishonesty_class.common_reserve_score.has_key(id):
@@ -136,17 +175,19 @@ class CreditScore:
             if self.dishonesty_class.illegal_score.has_key(id):
                 score_one += self.weight_illegal * self.dishonesty_class.illegal_score[id]
             self.dishonesty_score[id] = score_one
-        for k,v in self.dishonesty_score.items():
-            if v !=0:
-                cnt +=1
-            print k,':',v
+        for k, v in self.dishonesty_score.items():
+            if v != 0:
+                cnt += 1
+            print k, ':', v
         print cnt
 
     # 计算企业的信用得分
     def compute_credit_score(self):
         cnt = 0
-        for id,value in self.credit_real_score.items():
-            score_one = value
+        for id, value in self.base_score.items():
+            score_one = self.weight_base * value
+            if self.credit_real_score.has_key(id):
+                score_one += self.weight_credit_real * self.credit_real_score[id]
             if self.dishonesty_score.has_key(id):
                 score_one += self.weight_dishonesty * self.dishonesty_score[id]
             if self.cite_score.has_key(id):
@@ -154,14 +195,28 @@ class CreditScore:
             if self.credit_score.has_key(id):
                 score_one += self.weight_credit * self.credit_score[id]
             self.credit_score[id] = score_one
-        for k,v in self.credit_score.items():
+        for k, v in self.credit_score.items():
             cnt += 1
-            print k,v
+            print k, v
         print cnt
+
+
+    def drawing(self):
+        data = []
+        fl = open("C:\\Users\\\Thinkpad\\Desktop\\data_score.txt", 'a')
+        for k,v in self.credit_score.items():
+            fl.write(str(v))
+            fl.write('\n')
+            data.append(v)
+
+        # sns.distplot(data, kde=True, color="#FF0000", rug=True, hist=True)
+        # plt.show()
 
 if __name__ == '__main__':
     credit_score = CreditScore()
+    credit_score.compute_base_score()
     credit_score.compute_cite_score()
     credit_score.compute_credit_real_score()
     credit_score.compute_dishonesty_score()
     credit_score.compute_credit_score()
+    credit_score.drawing()
