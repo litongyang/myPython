@@ -57,6 +57,7 @@ class XueQiuHk:
     # 获取所有url
     def get_url(self):
         for code in range(1, 9000):
+        # for code in range(1988, 1989):
             if 4100 < code < 6000:
                 continue
             else :
@@ -81,7 +82,7 @@ class XueQiuHk:
                         compressedstream = StringIO.StringIO(html)
                         gziper = gzip.GzipFile(fileobj=compressedstream)
                         html_data = gziper.read()
-                        info_company = [-1] * 9
+                        info_company = [-1] * 10
                         regex = ur"SNB.data.quote =(.*?);"
                         reobj = re.compile(regex)
                         match = reobj.search(html_data)
@@ -132,6 +133,12 @@ class XueQiuHk:
                                         info_company[8] = float(value.replace("万","")) * 10000
                                     else:
                                         info_company[8] = -1
+                                elif k == "issue_type":
+                                    try:
+                                        value = value.encode('utf8')
+                                        info_company[9] = value
+                                    except:
+                                        info_company[9] = '-'
                                 # elif k == "last_close":
                                 #     info_company[8] = value
                         else:
@@ -205,6 +212,7 @@ class XueQiuHk:
                     "ps DECIMAL(20,4),"
                     "dividend DECIMAL(20,4), "
                     "market_value DECIMAL(20,2), "
+                    "is_HK VARCHAR(20), "
                     "PRIMARY KEY (`datekey`,`company_code`) )ENGINE=MyISAM AUTO_INCREMENT=18 DEFAULT CHARSET=utf8"
                     % self.companyData_oneDay_fileName)
                 print self.companyData_oneDay_fileName + " is created successful"
@@ -229,7 +237,8 @@ class XueQiuHk:
                     insert_info = '\'' + str(info[0]) + '\'' + ',' + '\'' + code + '\'' + ','\
                                   + '\''+ str(info[2].encode('utf8')) + '\''+ ',' + '\'' + str(info[3]) + '\''+ ','\
                                   + '\'' + str(info[4]) + '\''+ ',' + '\'' + str(info[5]) + '\''+ ','\
-                                  + '\'' + str(info[6]) + '\''+ ',' + '\'' + str(info[7]) + '\''+ ','+ '\'' + str(info[8]) + '\''
+                                  + '\'' + str(info[6]) + '\''+ ',' + '\'' + str(info[7]) + '\''+ ','+ '\'' + str(info[8]) + '\''\
+                                  + ','+ '\'' + str(info[9]) + '\''
 
                     # print insert_info
                     insert_sql = "insert into %s values(%s)" % (self.companyData_oneDay_fileName, insert_info)
