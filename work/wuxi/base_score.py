@@ -42,7 +42,7 @@ class BaseScore:
         self.capital.append(self.cur_type)
         self.capital = map(list, zip(*self.capital))
 
-    # 计算注册资金分数
+    # 计算企业性质得分
     # noinspection PyBroadException
     def compute_type_score(self):
         for i in range(0, len(self.type_pro)):
