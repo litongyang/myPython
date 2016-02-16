@@ -57,7 +57,7 @@ class CreditRealScore:
 
     # 获取数据
     def get_data(self):
-        for line in open("C:\\Users\\\Thinkpad\\Desktop\\feishixin.txt"):
+        for line in open("C:\Users\Thinkpad\Desktop\wuxi-home\\feishixin.txt"):
             linone = line.split('\t')
             self.id.append(linone[0])
             self.brand_register_jingxinwei.append(linone[1])

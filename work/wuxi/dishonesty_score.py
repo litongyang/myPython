@@ -59,7 +59,7 @@ class DeshonestyScore:
 
     # 获取数据
     def get_data(self):
-        for line in open("C:\\Users\\\Thinkpad\\Desktop\\shixin.txt"):
+        for line in open("C:\Users\Thinkpad\Desktop\wuxi-home\\shixin.txt"):
             linone = line.split()
             self.id.append(linone[0])
             self.common_reserve_funds_cnt.append(linone[1])

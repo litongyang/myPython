@@ -22,16 +22,16 @@ class CreditScore:
         self.weight_register_captail = 1  # 注册资本权重
         self.weight_cite = 1  # 表彰权重
         self.weight_good_brand = 1  # 驰名商标权重
-        self.weight_brand_register = 1  # 贯标权重
-        self.weight_credit = 1  # 信用评定等级权重
-        self.weight_certification_levels = 1  # 工商认证等级权重
-        self.weight_brand_c = 1  # C标权重
-        self.weight_gongjijin = 1  # 公积金权重
-        self.weight_owe = 1  # 欠税权重
-        self.weight_penalty = 1  # 行政处罚权重
-        self.weight_blackList = 1  # 黑名单权重
-        self.weight_bad_loan = 1  # 不良贷款权重
-        self.weight_illegal = 1  # 企业违法权重
+        self.weight_brand_register = 0.1634  # 贯标权重
+        self.weight_credit = 0.3952  # 信用评定等级权重
+        self.weight_certification_levels = 0.2781  # 工商认证等级权重
+        self.weight_brand_c = 0.1634  # C标权重
+        self.weight_gongjijin = 0.0951  # 公积金权重
+        self.weight_owe = 0.0668  # 欠税权重
+        self.weight_penalty = 0.1235  # 行政处罚权重
+        self.weight_blackList = 0.1382  # 黑名单权重
+        self.weight_bad_loan = 0.2012  # 不良贷款权重
+        self.weight_illegal = 0.3083  # 企业违法权重
 
         self.weight_cite = 1  # 表彰权重
         self.weight_base = 1  # 基本信息权重

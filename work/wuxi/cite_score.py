@@ -39,7 +39,7 @@ class CiteScore:
 
     # 获取数据
     def get_data(self):
-        for line in open("C:\\Users\\\Thinkpad\\Desktop\\biaozhang.txt"):
+        for line in open("C:\Users\Thinkpad\Desktop\wuxi-home\\biaozhang.txt"):
             linone = line.split()
             self.ID.append(linone[0])
             self.cite_gongshang.append(linone[1])
