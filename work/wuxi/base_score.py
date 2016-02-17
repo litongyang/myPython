@@ -15,6 +15,12 @@ class BaseScore:
         self.registered_capital = []  # 注册资金
         self.cur_type = []  # 币种
 
+        # 区域代码
+        self.ID_area_code = []
+        self.area_code = []
+        self.area_info = {}
+
+
         self.type_pro = []
         self.type_score = {}  # 企业类型得分(max:3,min:0)
         self.capital = []
@@ -30,6 +36,13 @@ class BaseScore:
             self.type.append(linone[3])
             self.registered_capital.append(linone[4])
             self.cur_type.append(linone[5])
+        for line in open("C:\Users\Thinkpad\Desktop\wuxi-home\\area_code.txt"):
+            linone = line.split()
+            self.ID_area_code.append(linone[0])
+            self.area_code.append(linone[1])
+        for i in range(0, len(self.ID_area_code)):
+            self.area_info[self.ID_area_code[i]] = self.area_code[i]
+        # print self.area_code
 
     # data process
     def process_data(self):

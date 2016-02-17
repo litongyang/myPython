@@ -35,7 +35,7 @@ class DeshonestyScore:
 
         # 公积金欠缴月数
         self.common_reserve_funds = []
-        self.common_reserve_score = {}  # max:98,min:0
+        self.common_reserve_score = {}  # max:9.8,min:0,mean: 0.0152906868853
 
         # 欠税
         self.owing_taxes = []
@@ -288,7 +288,7 @@ if __name__ == '__main__':
     deshonesty_score.compute_bad_loan_score()
     deshonesty_score.compute_illegal_score()
 
-    deshonesty_score.view_du(deshonesty_score.common_reserve_score)  # max:98,min:0
+    deshonesty_score.view_du(deshonesty_score.common_reserve_score)  # max:9.8,min:0,mean: 0.0152906868853
     # deshonesty_score.view_du(deshonesty_score.owing_taxes_score)  # max:2,min:0
     # deshonesty_score.view_du(deshonesty_score.penalty_score)  # max:7,min:0
     # deshonesty_score.view_du(deshonesty_score.black_list_score)  # max:1,min:0

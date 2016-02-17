@@ -8,6 +8,7 @@ import work.wuxi.cite_score as cite  # 表彰
 import work.wuxi.credit_real_score as credit_real  # 非失信
 import work.wuxi.dishonesty_score as dishonesty  # 失信
 import numpy
+import math
 import matplotlib.pylab as plt
 import seaborn as sns
 
@@ -18,10 +19,10 @@ class CreditScore:
         self.cite_class = cite.CiteScore()
         self.creditReal_class = credit_real.CreditRealScore()
         self.dishonesty_class = dishonesty.DeshonestyScore()
-        self.weight_type = 1  # 企业类型权重
-        self.weight_register_captail = 1  # 注册资本权重
-        self.weight_cite = 1  # 表彰权重
-        self.weight_good_brand = 1  # 驰名商标权重
+        self.weight_type = 0.5  # 企业类型权重
+        self.weight_register_captail = 0.5  # 注册资本权重
+        self.weight_cite = 0.5  # 表彰权重
+        self.weight_good_brand = 0.5  # 驰名商标权重
         self.weight_brand_register = 0.1634  # 贯标权重
         self.weight_credit = 0.3952  # 信用评定等级权重
         self.weight_certification_levels = 0.2781  # 工商认证等级权重
@@ -34,9 +35,9 @@ class CreditScore:
         self.weight_illegal = 0.3083  # 企业违法权重
 
         self.weight_cite = 1  # 表彰权重
-        self.weight_base = 1  # 基本信息权重
+        self.weight_base = 2  # 基本信息权重
         self.weight_credit_real = 1  # 非失信权重
-        self.weight_dishonesty = 1  # 失信权重
+        self.weight_dishonesty = 5  # 失信权重
 
         self.base_score = {}
         self.cite_score = {}
@@ -186,16 +187,19 @@ class CreditScore:
     def compute_credit_score(self):
         cnt = 0
         for id, value in self.base_score.items():
-            score_one = self.weight_base * value
-            if self.credit_real_score.has_key(id):
-                score_one += self.weight_credit_real * self.credit_real_score[id]
-            if self.dishonesty_score.has_key(id):
-                score_one += self.weight_dishonesty * self.dishonesty_score[id]
-            if self.cite_score.has_key(id):
-                score_one += self.weight_cite * self.cite_score[id]
-            if self.credit_score.has_key(id):
-                score_one += self.weight_credit * self.credit_score[id]
-            self.credit_score[id] = score_one
+            try:
+                score_one = self.weight_base * value
+                if self.credit_real_score.has_key(id):
+                    score_one += self.weight_credit_real * self.credit_real_score[id]
+                if self.dishonesty_score.has_key(id):
+                    score_one -= self.weight_dishonesty * self.dishonesty_score[id]
+                if self.cite_score.has_key(id):
+                    score_one += self.weight_cite * self.cite_score[id]
+                # if self.credit_score.has_key(id):
+                #     score_one += self.weight_credit * self.credit_score[id]
+                self.credit_score[id] = score_one
+            except:
+                pass
         for k, v in self.credit_score.items():
             cnt += 1
             print k, v
@@ -204,7 +208,7 @@ class CreditScore:
 
     def drawing(self):
         data = []
-        fl = open("C:\\Users\\\Thinkpad\\Desktop\\data_score.txt", 'a')
+        fl = open("C:\\Users\\\Thinkpad\\Desktop\\data_score.txt", 'w')
         for k,v in self.credit_score.items():
             if float(v) <10:
                 fl.write(str(v))
@@ -218,7 +222,8 @@ class CreditScore:
     def view_du(self,score_info):
         score_list = []
         for k,v in score_info.items():
-            score_list.append(float(v))
+            if float(v) != 0.0:
+                score_list.append(float(v))
         max_v = max(score_list)
         min_v = min(score_list)
         mean_v = numpy.mean(score_list)
@@ -226,6 +231,7 @@ class CreditScore:
         print "max:",max_v
         print "min:",min_v
         print "mean:",mean_v
+        print "cnt:",len(score_list)
 
 if __name__ == '__main__':
     credit_score = CreditScore()
@@ -235,4 +241,18 @@ if __name__ == '__main__':
     credit_score.compute_dishonesty_score()
     credit_score.compute_credit_score()
     credit_score.drawing()
+    print "dishonesty_score:"
+    credit_score.view_du(credit_score.dishonesty_score)
+    print "#############"
+    print "base_score:"
+    credit_score.view_du(credit_score.base_score)
+    print "#############"
+    print "credit_real_score:"
+    credit_score.view_du(credit_score.credit_real_score)
+    print "#############"
+    print "cite_score:"
+    credit_score.view_du(credit_score.cite_score)
+    print "#############"
+    print "credit_score:"
     credit_score.view_du(credit_score.credit_score)
+    print "#############"
