@@ -201,13 +201,21 @@ from collections import Counter
 # y = { 'banana': 10, 'pear': 11 }
 # d = {key:value*2 for key,value in x.items()}
 # print d
-import matplotlib.pylab as plt
-import seaborn as sns
-data1 = [1,1,1,2,2,2,3,4,4,5,6,6,6]
-sns.distplot(data1, kde=True, color="#FF0000", rug=True, hist=True)
-plt.show()
+# import matplotlib.pylab as plt
+# import seaborn as sns
+# data1 = [1,1,1,2,2,2,3,4,4,5,6,6,6]
+# sns.distplot(data1, kde=True, color="#FF0000", rug=True, hist=True)
+# plt.show()
 # X,Y = Counter(x), Counter(y )
 # print X z = dict(2*X+Y)
 #
 # for k,v in z.items():
 #     print k,v
+
+from distutils.core import setup
+import py2exe
+x= 5
+if 0<x<=10:
+    print "lty"
+else:
+    print "wl"

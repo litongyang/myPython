@@ -14,6 +14,9 @@ class BaseScore:
         self.type = []  # 企业类型
         self.registered_capital = []  # 注册资金
         self.cur_type = []  # 币种
+        self.industry_code = []  # 行业代码
+
+        self.company_info = {}
 
         # 区域代码
         self.ID_area_code = []
@@ -28,21 +31,27 @@ class BaseScore:
 
     # 获取数据
     def get_data(self):
-        for line in open("C:\Users\Thinkpad\Desktop\wuxi-home\\base.txt"):
-            linone = line.split()
+        for line in open("C:\\Users\\Thinkpad\\Desktop\\wuxi-home\\base.txt"):
+            linone = line.split('\t')
             self.ID.append(linone[0])
             self.registered_code.append(linone[1])
             self.name.append(linone[2])
             self.type.append(linone[3])
             self.registered_capital.append(linone[4])
             self.cur_type.append(linone[5])
+            self.industry_code.append(linone[8])
         for line in open("C:\Users\Thinkpad\Desktop\wuxi-home\\area_code.txt"):
             linone = line.split()
             self.ID_area_code.append(linone[0])
             self.area_code.append(linone[1])
         for i in range(0, len(self.ID_area_code)):
             self.area_info[self.ID_area_code[i]] = self.area_code[i]
-        # print self.area_code
+        for i in range(0, len(self.ID)):
+            # print self.ID[i]
+            self.company_info[self.ID[i]] = []
+            self.company_info[self.ID[i]].append(self.type[i])
+            self.company_info[self.ID[i]].append(self.industry_code[i])
+
 
     # data process
     def process_data(self):

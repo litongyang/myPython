@@ -37,13 +37,15 @@ class CreditScore:
         self.weight_cite = 1  # 表彰权重
         self.weight_base = 2  # 基本信息权重
         self.weight_credit_real = 1  # 非失信权重
-        self.weight_dishonesty = 5  # 失信权重
+        self.weight_dishonesty = 2  # 失信权重
 
         self.base_score = {}
         self.cite_score = {}
         self.credit_real_score = {}
         self.dishonesty_score = {}
         self.credit_score = {}
+        self.credit_score_info = {}
+        self.credit_lable_info = {}
 
     # 计算基本信息得分
     def compute_base_score(self):
@@ -176,7 +178,7 @@ class CreditScore:
                 score_one += self.dishonesty_class.bad_loan_score[id]
             if self.dishonesty_class.illegal_score.has_key(id):
                 score_one += self.weight_illegal * self.dishonesty_class.illegal_score[id]
-            self.dishonesty_score[id] = score_one
+            self.dishonesty_score[id] = score_one * 6
         for k, v in self.dishonesty_score.items():
             if v != 0:
                 cnt += 1
@@ -188,32 +190,62 @@ class CreditScore:
         cnt = 0
         for id, value in self.base_score.items():
             try:
+                self.credit_score_info[id] = []
                 score_one = self.weight_base * value
+                self.credit_score_info[id].append(value)
                 if self.credit_real_score.has_key(id):
                     score_one += self.weight_credit_real * self.credit_real_score[id]
+                    self.credit_score_info[id].append(self.credit_real_score[id])
                 if self.dishonesty_score.has_key(id):
                     score_one -= self.weight_dishonesty * self.dishonesty_score[id]
+                    self.credit_score_info[id].append(self.dishonesty_score[id])
                 if self.cite_score.has_key(id):
                     score_one += self.weight_cite * self.cite_score[id]
+                    self.credit_score_info[id].append(self.cite_score[id])
                 # if self.credit_score.has_key(id):
                 #     score_one += self.weight_credit * self.credit_score[id]
                 self.credit_score[id] = score_one
+                self.credit_score_info[id].append(score_one)
             except:
                 pass
-        for k, v in self.credit_score.items():
+        for k, v in self.credit_score_info.items():
             cnt += 1
             print k, v
         print cnt
+
+    # 按信用分数将企业分类信息
+    def company_score_label(self):
+        for id,v in self.credit_score.items():
+            if float(v) >= 10 :
+                self.credit_lable_info[id] = 'A'
+            elif 5<= float(v) <10:
+                self.credit_lable_info[id] = 'B'
+            elif 3<= float(v) <5:
+                self.credit_lable_info[id] = 'C'
+            elif 0<= float(v) <3:
+                self.credit_lable_info[id] = 'D'
+            elif float(v) <0:
+                self.credit_lable_info[id] = 'E'
+        # for k,v in self.credit_lable_info.items():
+        #     print v
+        for id,v in self.credit_score_info.items():
+            if self.credit_lable_info.has_key(id):
+                self.credit_score_info[id].append(self.credit_lable_info[id])
+            else:
+                self.credit_score_info[id].append('null')
+
 
 
     def drawing(self):
         data = []
         fl = open("C:\\Users\\\Thinkpad\\Desktop\\data_score.txt", 'w')
         for k,v in self.credit_score.items():
-            if float(v) <10:
-                fl.write(str(v))
-                fl.write('\n')
-                data.append(v)
+            # if float(v) <10:
+            # fl.write(str(k))
+            # fl.write("\t")
+            fl.write(str(v))
+            fl.write('\n')
+            data.append(v)
 
         # sns.distplot(data, kde=True, color="#FF0000", rug=True, hist=True)
         # plt.show()
@@ -240,6 +272,7 @@ if __name__ == '__main__':
     credit_score.compute_credit_real_score()
     credit_score.compute_dishonesty_score()
     credit_score.compute_credit_score()
+    credit_score.company_score_label()
     credit_score.drawing()
     print "dishonesty_score:"
     credit_score.view_du(credit_score.dishonesty_score)
