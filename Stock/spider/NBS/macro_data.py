@@ -3,6 +3,8 @@
 
 # 宏观数据
 
+#  每次重跑，需要更改cookie，同时在网站时间模拟选择lastn 后再重跑程序
+
 import MySQLdb
 import urllib2
 import json
@@ -15,11 +17,11 @@ class MacroData:
         self.month_now = time.strftime('%m',time.localtime(time.time()))  # 当前月份
         self.year_now = time.strftime('%Y',time.localtime(time.time()))  # 当前年
         self.datekey= time.strftime('%Y%m%d',time.localtime(time.time()))  # 当日
-        self.month_count = 120
+        self.month_count = 122
         self.url_set = {}
         self.data_init_class = dataInit.DataInit()
 
-        self.monthNum = "LAST120"
+        self.monthNum = "LAST122"
         # self.endTime = "201512"
         self.ur_history = "http://data.stats.gov.cn/easyquery.htm?m=QueryData&dbcode=hgyd&rowcode=zb&colcode=sj&wds=[]&dfwds=[{%22wdcode%22%3A%22sj%22%2C%22valuecode%22%3A%222005%2C2015%22}]&k1=1449710776640"
         self.req_header = {'User-Agent': 'Mozilla/5.0 (Windows NT 6.3; WOW64; rv:42.0) Gecko/20100101 Firefox/42.0',
@@ -28,8 +30,7 @@ class MacroData:
                            'Accept-Encoding': 'gzip, deflate',
                            'Accept-Language': 'zh-CN,zh;q=0.8,en-US;q=0.5,en;q=0.3',
                            'Connection': 'keep-alive',
-                           # 'Cookie': 'gscu_1771678062=480079816mgye972; acmrAutoLoginUser=""; acmrAutoSessionId=""; _gscs_1771678062=50141303hvyoqs19|pv:1; _gscbrs_1771678062=1; JSESSIONID=0B035D5C2CCA3A90F8CF8C2006E40973; u=2',
-                           'Cookie': '_gscu_1771678062=480079816mgye972; _gscs_1771678062=50314679d7beon19|pv:1; _gscbrs_1771678062=1; JSESSIONID=E7FAF8B4A9E97C6548538BA5096FAA7C; u=5',
+                           'Cookie': '_gscu_1771678062=480079816mgye972; _gscs_1771678062=56456389uwkwln14|pv:2; _gscbrs_1771678062=1; JSESSIONID=B92FEC2F8D928606490B0A17077C252E; u=2; acmrAutoLoginUser=""; acmrAutoSessionId=""',
                            'Host': 'data.stats.gov.cn'}
 
         self.db_name = 'STOCK_INFO_2014'  # 数据库名,如果与现有数据库冲突，可改为其他名字
@@ -39,7 +40,7 @@ class MacroData:
         self.password = '123'  # 密码
         self.macro_info_fileName = 'log_macro_economic_information'  # 宏观数据表
 
-        self.error_log = open("C:\\Users\\\Thinkpad\\Desktop\\error_log.txt", 'w')
+        self.error_log = open("error_log_macro.txt", 'w')
 
     # 获取所以url
     def get_url(self):

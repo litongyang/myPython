@@ -285,8 +285,8 @@ if __name__ == '__main__':
     deshonesty_score.compute_qianshui_score()
     deshonesty_score.compute_penalty_score()
     deshonesty_score.compute_black_list_score()
-    deshonesty_score.compute_bad_loan_score()
-    deshonesty_score.compute_illegal_score()
+    # deshonesty_score.compute_bad_loan_score()
+    # deshonesty_score.compute_illegal_score()
 
     deshonesty_score.view_du(deshonesty_score.common_reserve_score)  # max:9.8,min:0,mean: 0.0152906868853
     # deshonesty_score.view_du(deshonesty_score.owing_taxes_score)  # max:2,min:0

@@ -13,6 +13,7 @@ import matplotlib.pylab as plt
 import seaborn as sns
 
 
+# noinspection PyBroadException
 class CreditScore:
     def __init__(self):
         self.base_class = base.BaseScore()
@@ -62,7 +63,7 @@ class CreditScore:
             score_one = value
             if self.base_class.capital_score.has_key(id):
                 score_one += self.base_class.capital_score[id]
-            self.base_score[id] = score_one
+            self.base_score[id] = score_one *2
 
         for k, v in self.base_score.items():
             if v != 0:
@@ -85,7 +86,7 @@ class CreditScore:
             score_one = value
             if self.cite_class.good_brand_score.has_key(id):
                 score_one += self.cite_class.good_brand_score[id]
-            self.cite_score[id] = score_one
+            self.cite_score[id] = score_one * 2
         for k, v in self.cite_score.items():
             if v != 0:
                 cnt += 1
@@ -121,7 +122,6 @@ class CreditScore:
         #         print v
         for id, value in self.creditReal_class.credit_assess_score.items():
             score_one = value
-            x = value
             # print score_one
             if self.creditReal_class.brand_register_score.has_key(id):
                 score_one += self.creditReal_class.brand_register_score[id]
@@ -129,7 +129,7 @@ class CreditScore:
                 score_one += self.creditReal_class.certification_levels_score[id]
             if self.creditReal_class.brand_c_score.has_key(id):
                 score_one += self.creditReal_class.brand_c_score[id]
-            self.credit_real_score[id] = score_one
+            self.credit_real_score[id] = score_one * 2
 
             # # 查看非信用的得分数量
             # if x != score_one:
@@ -178,7 +178,7 @@ class CreditScore:
                 score_one += self.dishonesty_class.bad_loan_score[id]
             if self.dishonesty_class.illegal_score.has_key(id):
                 score_one += self.weight_illegal * self.dishonesty_class.illegal_score[id]
-            self.dishonesty_score[id] = score_one * 6
+            self.dishonesty_score[id] = score_one * 6 *2
         for k, v in self.dishonesty_score.items():
             if v != 0:
                 cnt += 1
@@ -204,8 +204,8 @@ class CreditScore:
                     self.credit_score_info[id].append(self.cite_score[id])
                 # if self.credit_score.has_key(id):
                 #     score_one += self.weight_credit * self.credit_score[id]
-                self.credit_score[id] = score_one
-                self.credit_score_info[id].append(score_one)
+                self.credit_score[id] = 60 + score_one
+                self.credit_score_info[id].append(self.credit_score[id])
             except:
                 pass
         for k, v in self.credit_score_info.items():
@@ -216,15 +216,15 @@ class CreditScore:
     # 按信用分数将企业分类信息
     def company_score_label(self):
         for id,v in self.credit_score.items():
-            if float(v) >= 10 :
+            if float(v) >= 80 :
                 self.credit_lable_info[id] = 'A'
-            elif 5<= float(v) <10:
+            elif 70<= float(v) <80:
                 self.credit_lable_info[id] = 'B'
-            elif 3<= float(v) <5:
+            elif 66<= float(v) <70:
                 self.credit_lable_info[id] = 'C'
-            elif 0<= float(v) <3:
+            elif 60<= float(v) <66:
                 self.credit_lable_info[id] = 'D'
-            elif float(v) <0:
+            elif float(v) <60:
                 self.credit_lable_info[id] = 'E'
         # for k,v in self.credit_lable_info.items():
         #     print v
@@ -251,7 +251,8 @@ class CreditScore:
         # plt.show()
 
     # 查看分布
-    def view_du(self,score_info):
+    @staticmethod
+    def view_du(score_info):
         score_list = []
         for k,v in score_info.items():
             if float(v) != 0.0:
@@ -259,7 +260,7 @@ class CreditScore:
         max_v = max(score_list)
         min_v = min(score_list)
         mean_v = numpy.mean(score_list)
-        var_v = numpy.var(score_list)
+        # var_v = numpy.var(score_list)
         print "max:",max_v
         print "min:",min_v
         print "mean:",mean_v

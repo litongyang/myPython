@@ -4,6 +4,7 @@
 # -----基本信息得分-----
 
 import numpy
+import chardet
 
 
 class BaseScore:
@@ -35,7 +36,7 @@ class BaseScore:
             linone = line.split('\t')
             self.ID.append(linone[0])
             self.registered_code.append(linone[1])
-            self.name.append(linone[2])
+            self.name.append(linone[2].decode('gb2312', 'ignore').encode('utf-8'))
             self.type.append(linone[3])
             self.registered_capital.append(linone[4])
             self.cur_type.append(linone[5])
@@ -43,14 +44,25 @@ class BaseScore:
         for line in open("C:\Users\Thinkpad\Desktop\wuxi-home\\area_code.txt"):
             linone = line.split()
             self.ID_area_code.append(linone[0])
-            self.area_code.append(linone[1])
+            if linone[1] == '320202' or linone[1] == '320203' or linone[1] == '320204':
+                self.area_code.append('320215')
+            else:
+                self.area_code.append(linone[1])
         for i in range(0, len(self.ID_area_code)):
             self.area_info[self.ID_area_code[i]] = self.area_code[i]
         for i in range(0, len(self.ID)):
             # print self.ID[i]
             self.company_info[self.ID[i]] = []
+            # self.company_info[self.ID[i]].append(self.name[i])
             self.company_info[self.ID[i]].append(self.type[i])
             self.company_info[self.ID[i]].append(self.industry_code[i])
+        # print self.name[5]
+        # my_char= chardet.detect(self.name[1])
+        # bian_ma = my_char['encoding']
+        # print bian_ma
+        # content = self.name[1].decode(bian_ma, 'ignore').encode('utf-8')
+        # print content
+
 
 
     # data process

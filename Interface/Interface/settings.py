@@ -59,7 +59,7 @@ WSGI_APPLICATION = 'Interface.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.mysql', # Add 'postgresql_psycopg2', 'mysql', #'sqlite3' or 'oracle'.
+        'ENGINE': 'django.db.backends.mysql',  # Add 'postgresql_psycopg2', 'mysql', #'sqlite3' or 'oracle'.
         'NAME': 'myweb',                      # Or path to database file if #using sqlite3.
         # The following settings are not used with sqlite3:
         'USER': 'root',
@@ -89,9 +89,10 @@ USE_TZ = True
 STATIC_URL = '/static/'
 
 
-#template
+#  template
 TEMPLATE_DIRS = (
-    "/Users/litongyang/PycharmProjects/script_py/Interface/Interface_web/templates",
+    # "/Users/litongyang/PycharmProjects/script_py/Interface/Interface_web/templates",
+    "E:\\computer\\python\\project\\mypython\\Interface\\Interface_web\\templates",
 )
 
 
