@@ -171,10 +171,7 @@ class Statistics:
             fl.write(str(k))
             fl.write("\t")
             for i in range(0, len(v[0])):
-                try:
-                    fl.write(str(round(float(v[0][i]),2)))
-                except:
-                    fl.write('0')
+                fl.write(str(v[0][i]))
                 fl.write("\t")
             fl.write(str(v[1]))
             fl.write(str("\t"))
