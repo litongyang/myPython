@@ -1,0 +1,30 @@
+# __author__ = 'tongyang.li'# -*- coding: utf-8 -*-
+
+col_name_dict = [
+    "id",
+    "title",
+    "titleAll",
+    "productTypeLabel",
+    "expectedProfitRate",
+    "investCycle",
+    "investField",
+    "riskScore",
+    "risk",
+    "idea",
+    "lowestAmount",
+    "profitType",
+    "profitDesc_value",
+    "inShop",
+    "earlyBack",
+    "earlyTransfer",
+    # "extraFields_tips",
+    "investFieldDesc",
+    "channelNameShort",
+    "channelName",
+    "channelUrl",
+    "url",
+    "rawUrl",
+    "tag",
+    "haomai",
+    "breakEven"
+]
