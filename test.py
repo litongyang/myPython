@@ -13,6 +13,15 @@
 # match = re.match(r'\d{4}', x)
 # print match.group(0)
 
+import re
+s = 'http://finance.qq.com/a/20160726/012990.htm?stockcode=usJD&version=1#highlight=京东'
+regex_cnt = ur"us(.*?)&"
+reobj_cnt = re.compile(regex_cnt)
+match_cnt = reobj_cnt.search(s)
+if match_cnt:
+    subject_cnt = match_cnt.group(0)
+    print subject_cnt
+
 
 # from sklearn import linear_model
 # X = [[0., 0.], [1., 1.], [2., 2.], [3., 3.]]
@@ -219,15 +228,3 @@ from distutils.core import setup
 #     print "wl"
 
 
-import chardet
-
-try:
-    content = "新人红包"
-    my_char = chardet.detect(content)
-    print my_char
-    bian_ma = my_char['encoding']
-    content = content.decode(bian_ma, 'ignore').encode('ISO-8859-1')
-    print content
-    print content
-except Exception, e:
-    print Exception, e
