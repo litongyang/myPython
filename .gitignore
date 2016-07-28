@@ -2,3 +2,5 @@
 *.pyc
 .DS_Store
 __init__.pyc
+.idea/
+work/fenghuang_jr/spider/.gitignore
