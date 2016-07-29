@@ -45,12 +45,6 @@ class SpiderNewsSpider(scrapy.Spider):
                 if str(new_url) in str(url):
                     print url
 
-                    """ 抓取时间戳 """
-                    # time_stamp_tmp = time.time()
-                    # time_array = time.localtime(time_stamp_tmp)
-                    # time_satmp = time.strftime("%Y-%m-%d %H:%M:%S", time_array)
-                    # print time_satmp
-
                     """ 公司代码 """
                     regex_cnt = ur"us(.*?)&"
                     reobj_cnt = re.compile(regex_cnt)

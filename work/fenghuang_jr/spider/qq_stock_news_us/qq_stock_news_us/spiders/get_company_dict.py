@@ -16,10 +16,6 @@ class GetCompanyDict:
 
     """ 解析json获取公司字典 """
     def get_company_dict(self):
-        time_stamp_tmp = time.time()
-        time_array = time.localtime(time_stamp_tmp)
-        time_satmp = time.strftime("%Y-%m-%d %H:%M:%S", time_array)
-        print time_satmp
         company_code_list = json.load(self.company_code_file)
         for i in range(0, len(company_code_list)):
             for k, v in company_code_list[i].items():
@@ -38,6 +34,6 @@ class GetCompanyDict:
 
 if __name__ == '__main__':
     test = GetCompanyDict()
-    x= test.get_company_dict()
+    x = test.get_company_dict()
     # print x[1]
 
