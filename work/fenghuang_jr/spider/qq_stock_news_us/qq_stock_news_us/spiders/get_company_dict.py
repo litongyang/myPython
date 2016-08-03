@@ -45,7 +45,7 @@ class GetCompanyDict:
                     self.company_code_dict[symbol_tmp].append(hsymbol_tmp)
 
         for k, v in self.company_code_dict.items():
-            print k, v[0]
+            print k, v[1]
 
 
     """ 解析json获取公司字典 """
