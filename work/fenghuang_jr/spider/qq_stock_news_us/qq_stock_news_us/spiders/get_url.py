@@ -11,16 +11,27 @@ class GetUrl:
         self.news_url_list = []
         self.news_time_list = []
         self.news_time_url_dict = {}  # 新闻的url和发表时间的映射字典
-        self.company_news_url_head = 'http://news.gtimg.cn/bodynews.php?name=body_news&n=10&q=us'
+        self.company_news_url_head = 'http://news.gtimg.cn/bodynews.php?name=body_news&n=10&q='
         # self.company_news_url_tail = '.OQ#'
         self.company_news_url_list = []
 
-    """ 得到公司的新闻列表页 """
     def get_company_news_url(self):
+        """
+        得到公司的新闻列表页
+        :return:
+        """
         get_company_dict_class = get_company_dict.GetCompanyDict()
-        company_code_list = get_company_dict_class.get_company_dict()[1]
-        for i in range(0, len(company_code_list)):
-            url_tmp = self.company_news_url_head + company_code_list[i]
+        company_code_us_list = []
+        company_code_hk_list = []
+        for k, v in get_company_dict_class.get_code_name_hsymbol_dict().items():
+            company_code_us_list.append(k)
+            if v[1] != '':
+                company_code_hk_list.append(v[1])
+        for i in range(0, len(company_code_us_list)):  # 得到美股新闻url
+            url_tmp = self.company_news_url_head + 'us' + company_code_us_list[i]
+            self.company_news_url_list.append(url_tmp)
+        for i in range(0, len(company_code_hk_list)):  # 得到港股新闻url
+            url_tmp = self.company_news_url_head + 'hk' + company_code_hk_list[i]
             self.company_news_url_list.append(url_tmp)
         # for i in range(0, len(self.company_news_url_list)):
         #     print self.company_news_url_list[i]
@@ -65,7 +76,7 @@ class GetUrl:
 
 if __name__ == '__main__':
     test = GetUrl()
-    test.get_company_news_url()
-    x = test.get_news_url()
-    print len(x)
-    test.get_news_time_url_dict()
+    print test.get_company_news_url()
+    # x = test.get_news_url()
+    # print len(x)
+    # test.get_news_time_url_dict()
