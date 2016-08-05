@@ -8,6 +8,7 @@ import tushare as tus
 import time
 import numpy as np
 import pandas as pd
+import create_table.create_table as mysqldb
 
 
 class GetDataTradeHistroy:
@@ -17,6 +18,7 @@ class GetDataTradeHistroy:
         self.time_array = time.localtime(self.time_stamp_tmp)
         self.date = time.strftime("%Y-%m-%d", self.time_array)  # 当前日期
         self.company_code_list = []  # 公司代码list
+        self.mysqldb = mysqldb.CreateTable()
 
         self.db_name = 'test'  # 数据库名,如果与现有数据库冲突，可改为其他名字
         self.db_host = 'localhost'  # 主机名
@@ -24,9 +26,12 @@ class GetDataTradeHistroy:
         self.username = 'root'  # 用户名
         self.password = ''  # 密码
 
+
     def get_company_code(self):
         company_industry = tus.get_industry_classified()
         self.company_code_list = company_industry['code'].values
+        # self.company_code_list = ['600009']
+
         # x.to_json('test.json')
 
     def get_trade_data(self):
@@ -34,7 +39,7 @@ class GetDataTradeHistroy:
             try:
                 start_date = tus.get_stock_basics().ix[self.company_code_list[i]]['timeToMarket']  # 上市日期YYYYMMDD
                 start_date = str(start_date)[0:4] + '-' + str(start_date)[4:6] + '-' + str(start_date)[6:8]
-                company_trade_histroy = tus.get_h_data(self.company_code_list[i], autype='hfq', start=start_date, end=self.date)
+                company_trade_histroy = tus.get_h_data(self.company_code_list[i], autype='hfq', start='2016-08-03', end=self.date)
                 print self.company_code_list[i]
                 """ 获取日期 """
                 pydate_array = company_trade_histroy.index.to_pydatetime()
@@ -50,6 +55,19 @@ class GetDataTradeHistroy:
                 print company_trade_histroy['volume'].values
                 print company_trade_histroy['amount'].values
                 print "===================="
+
+                for j in range(0, len(date_series)):
+                    insert_sql = '\'' + str(self.company_code_list[i]) + '\'' + ','
+                    insert_sql += '\'' + str(date_series[j]) + '\'' + ','
+                    insert_sql += '\'' + str(company_trade_histroy['open'][j]) + '\'' + ','
+                    insert_sql += '\'' + str(company_trade_histroy['high'][j]) + '\'' + ','
+                    insert_sql += '\'' + str(company_trade_histroy['close'][j]) + '\'' + ','
+                    insert_sql += '\'' + str(company_trade_histroy['low'][j]) + '\'' + ','
+                    insert_sql += '\'' + str(company_trade_histroy['volume'][j]) + '\'' + ','
+                    insert_sql += '\'' + str(company_trade_histroy['amount'][j]) + '\'' + ','
+                    insert_sql = insert_sql[0:-1]  # 去除最后一个逗号
+                    self.mysqldb.insert_data(self.mysqldb.table_trade_history_data, insert_sql)
+                    print insert_sql
             except:
                 pass
         # print company_trade_histroy
