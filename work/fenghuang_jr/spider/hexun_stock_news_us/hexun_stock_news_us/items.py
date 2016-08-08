@@ -9,11 +9,5 @@ import scrapy
 from scrapy.item import Item, Field
 
 
-class SinaStockUrlUsItem(scrapy.Item):
-    news_url = Field()
-    news_title = Field()
-    news_time = Field()
-
-
-class SinaStockNewsUsItem(scrapy.Item):
-    news_html = Field()
+class HexunStockNewsUsItem(scrapy.Item):
+    html = Field()

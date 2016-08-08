@@ -28,7 +28,7 @@ class ZuoTi51:
         self.try_cnt = 3
         # self.book = [i for i in range(26)]  # id：0到620
         # self.book = [194,226,231,230,199,409,410,411,412,413,482,483,484,485,486,487,488,489,502,589,539,505,506,590]
-        self.book = [199,194]  # test
+        self.book = [199, 194]  # test
         self.url_set = {}
         self.req_header = {'User-Agent': 'Mozilla/5.0 (Windows NT 6.3; WOW64; rv:42.0) Gecko/20100101 Firefox/43.0',
                            'Accept': 'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8',

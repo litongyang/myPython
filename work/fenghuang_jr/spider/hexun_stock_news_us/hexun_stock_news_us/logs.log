@@ -1,0 +1,222 @@
+2016-08-08 16:04:01 [scrapy] INFO: Scrapy 1.2.0dev2 started (bot: hexun_stock_news_us)
+2016-08-08 16:04:01 [scrapy] INFO: Overridden settings: {'NEWSPIDER_MODULE': 'hexun_stock_news_us.spiders', 'SPIDER_MODULES': ['hexun_stock_news_us.spiders'], 'LOG_FILE': 'logs.log', 'BOT_NAME': 'hexun_stock_news_us'}
+2016-08-08 16:04:01 [scrapy] INFO: Enabled extensions:
+['scrapy.extensions.logstats.LogStats',
+ 'scrapy.extensions.telnet.TelnetConsole',
+ 'scrapy.extensions.corestats.CoreStats']
+2016-08-08 16:04:01 [scrapy] INFO: Enabled downloader middlewares:
+['hexun_stock_news_us.random_user_agent.RandomUserAgentMiddleware',
+ 'scrapy.downloadermiddlewares.httpauth.HttpAuthMiddleware',
+ 'scrapy.downloadermiddlewares.downloadtimeout.DownloadTimeoutMiddleware',
+ 'scrapy.downloadermiddlewares.defaultheaders.DefaultHeadersMiddleware',
+ 'scrapy.downloadermiddlewares.useragent.UserAgentMiddleware',
+ 'scrapy.downloadermiddlewares.retry.RetryMiddleware',
+ 'scrapy.downloadermiddlewares.redirect.MetaRefreshMiddleware',
+ 'scrapy.downloadermiddlewares.httpcompression.HttpCompressionMiddleware',
+ 'scrapy.downloadermiddlewares.redirect.RedirectMiddleware',
+ 'scrapy.downloadermiddlewares.cookies.CookiesMiddleware',
+ 'scrapy.downloadermiddlewares.chunked.ChunkedTransferMiddleware',
+ 'scrapy.downloadermiddlewares.stats.DownloaderStats']
+2016-08-08 16:04:01 [scrapy] INFO: Enabled spider middlewares:
+['scrapy.spidermiddlewares.httperror.HttpErrorMiddleware',
+ 'scrapy.spidermiddlewares.offsite.OffsiteMiddleware',
+ 'scrapy.spidermiddlewares.referer.RefererMiddleware',
+ 'scrapy.spidermiddlewares.urllength.UrlLengthMiddleware',
+ 'scrapy.spidermiddlewares.depth.DepthMiddleware']
+2016-08-08 16:04:01 [scrapy] INFO: Enabled item pipelines:
+[]
+2016-08-08 16:04:01 [scrapy] INFO: Spider opened
+2016-08-08 16:04:01 [scrapy] INFO: Crawled 0 pages (at 0 pages/min), scraped 0 items (at 0 items/min)
+2016-08-08 16:04:01 [scrapy] DEBUG: Telnet console listening on 127.0.0.1:6024
+2016-08-08 16:04:01 [scrapy] ERROR: Error downloading <GET http://stockdata.stock.hexun.com/us/news/CXDC.shtml>
+Traceback (most recent call last):
+  File "/Library/Python/2.7/site-packages/Twisted-15.2.1-py2.7-macosx-10.11-intel.egg/twisted/internet/defer.py", line 1128, in _inlineCallbacks
+    result = g.send(result)
+  File "/Library/Python/2.7/site-packages/Scrapy-1.2.0dev2-py2.7.egg/scrapy/core/downloader/middleware.py", line 37, in process_request
+    response = yield method(request=request, spider=spider)
+  File "/Library/Python/2.7/site-packages/Scrapy-1.2.0dev2-py2.7.egg/scrapy/downloadermiddlewares/stats.py", line 19, in process_request
+    reqlen = len(request_httprepr(request))
+  File "/Library/Python/2.7/site-packages/Scrapy-1.2.0dev2-py2.7.egg/scrapy/utils/request.py", line 83, in request_httprepr
+    s += request.headers.to_string() + b"\r\n"
+AttributeError: 'dict' object has no attribute 'to_string'
+2016-08-08 16:04:02 [scrapy] INFO: Closing spider (finished)
+2016-08-08 16:04:02 [scrapy] INFO: Dumping Scrapy stats:
+{'downloader/exception_count': 1,
+ 'downloader/exception_type_count/exceptions.AttributeError': 1,
+ 'downloader/request_count': 1,
+ 'downloader/request_method_count/GET': 1,
+ 'finish_reason': 'finished',
+ 'finish_time': datetime.datetime(2016, 8, 8, 8, 4, 2, 4383),
+ 'log_count/DEBUG': 1,
+ 'log_count/ERROR': 1,
+ 'log_count/INFO': 7,
+ 'scheduler/dequeued': 1,
+ 'scheduler/dequeued/memory': 1,
+ 'scheduler/enqueued': 1,
+ 'scheduler/enqueued/memory': 1,
+ 'start_time': datetime.datetime(2016, 8, 8, 8, 4, 1, 790205)}
+2016-08-08 16:04:02 [scrapy] INFO: Spider closed (finished)
+2016-08-08 16:04:36 [scrapy] INFO: Scrapy 1.2.0dev2 started (bot: hexun_stock_news_us)
+2016-08-08 16:04:36 [scrapy] INFO: Overridden settings: {'NEWSPIDER_MODULE': 'hexun_stock_news_us.spiders', 'SPIDER_MODULES': ['hexun_stock_news_us.spiders'], 'LOG_FILE': 'logs.log', 'BOT_NAME': 'hexun_stock_news_us'}
+2016-08-08 16:04:36 [scrapy] INFO: Enabled extensions:
+['scrapy.extensions.logstats.LogStats',
+ 'scrapy.extensions.telnet.TelnetConsole',
+ 'scrapy.extensions.corestats.CoreStats']
+2016-08-08 16:04:36 [scrapy] INFO: Enabled downloader middlewares:
+['hexun_stock_news_us.random_user_agent.RandomUserAgentMiddleware',
+ 'scrapy.downloadermiddlewares.httpauth.HttpAuthMiddleware',
+ 'scrapy.downloadermiddlewares.downloadtimeout.DownloadTimeoutMiddleware',
+ 'scrapy.downloadermiddlewares.defaultheaders.DefaultHeadersMiddleware',
+ 'scrapy.downloadermiddlewares.useragent.UserAgentMiddleware',
+ 'scrapy.downloadermiddlewares.retry.RetryMiddleware',
+ 'scrapy.downloadermiddlewares.redirect.MetaRefreshMiddleware',
+ 'scrapy.downloadermiddlewares.httpcompression.HttpCompressionMiddleware',
+ 'scrapy.downloadermiddlewares.redirect.RedirectMiddleware',
+ 'scrapy.downloadermiddlewares.cookies.CookiesMiddleware',
+ 'scrapy.downloadermiddlewares.chunked.ChunkedTransferMiddleware',
+ 'scrapy.downloadermiddlewares.stats.DownloaderStats']
+2016-08-08 16:04:36 [scrapy] INFO: Enabled spider middlewares:
+['scrapy.spidermiddlewares.httperror.HttpErrorMiddleware',
+ 'scrapy.spidermiddlewares.offsite.OffsiteMiddleware',
+ 'scrapy.spidermiddlewares.referer.RefererMiddleware',
+ 'scrapy.spidermiddlewares.urllength.UrlLengthMiddleware',
+ 'scrapy.spidermiddlewares.depth.DepthMiddleware']
+2016-08-08 16:04:36 [scrapy] INFO: Enabled item pipelines:
+[]
+2016-08-08 16:04:36 [scrapy] INFO: Spider opened
+2016-08-08 16:04:36 [scrapy] INFO: Crawled 0 pages (at 0 pages/min), scraped 0 items (at 0 items/min)
+2016-08-08 16:04:36 [scrapy] DEBUG: Telnet console listening on 127.0.0.1:6024
+2016-08-08 16:04:36 [scrapy] DEBUG: Crawled (200) <GET http://stockdata.stock.hexun.com/us/news/CXDC.shtml> (referer: None)
+2016-08-08 16:04:36 [scrapy] INFO: Closing spider (finished)
+2016-08-08 16:04:36 [scrapy] INFO: Dumping Scrapy stats:
+{'downloader/request_bytes': 301,
+ 'downloader/request_count': 1,
+ 'downloader/request_method_count/GET': 1,
+ 'downloader/response_bytes': 8563,
+ 'downloader/response_count': 1,
+ 'downloader/response_status_count/200': 1,
+ 'finish_reason': 'finished',
+ 'finish_time': datetime.datetime(2016, 8, 8, 8, 4, 36, 981966),
+ 'log_count/DEBUG': 2,
+ 'log_count/INFO': 7,
+ 'response_received_count': 1,
+ 'scheduler/dequeued': 1,
+ 'scheduler/dequeued/memory': 1,
+ 'scheduler/enqueued': 1,
+ 'scheduler/enqueued/memory': 1,
+ 'start_time': datetime.datetime(2016, 8, 8, 8, 4, 36, 659615)}
+2016-08-08 16:04:36 [scrapy] INFO: Spider closed (finished)
+2016-08-08 16:04:58 [scrapy] INFO: Scrapy 1.2.0dev2 started (bot: hexun_stock_news_us)
+2016-08-08 16:04:58 [scrapy] INFO: Overridden settings: {'NEWSPIDER_MODULE': 'hexun_stock_news_us.spiders', 'SPIDER_MODULES': ['hexun_stock_news_us.spiders'], 'LOG_FILE': 'logs.log', 'BOT_NAME': 'hexun_stock_news_us'}
+2016-08-08 16:04:58 [scrapy] INFO: Enabled extensions:
+['scrapy.extensions.logstats.LogStats',
+ 'scrapy.extensions.telnet.TelnetConsole',
+ 'scrapy.extensions.corestats.CoreStats']
+2016-08-08 16:04:58 [scrapy] INFO: Enabled downloader middlewares:
+['hexun_stock_news_us.random_user_agent.RandomUserAgentMiddleware',
+ 'scrapy.downloadermiddlewares.httpauth.HttpAuthMiddleware',
+ 'scrapy.downloadermiddlewares.downloadtimeout.DownloadTimeoutMiddleware',
+ 'scrapy.downloadermiddlewares.defaultheaders.DefaultHeadersMiddleware',
+ 'scrapy.downloadermiddlewares.useragent.UserAgentMiddleware',
+ 'scrapy.downloadermiddlewares.retry.RetryMiddleware',
+ 'scrapy.downloadermiddlewares.redirect.MetaRefreshMiddleware',
+ 'scrapy.downloadermiddlewares.httpcompression.HttpCompressionMiddleware',
+ 'scrapy.downloadermiddlewares.redirect.RedirectMiddleware',
+ 'scrapy.downloadermiddlewares.cookies.CookiesMiddleware',
+ 'scrapy.downloadermiddlewares.chunked.ChunkedTransferMiddleware',
+ 'scrapy.downloadermiddlewares.stats.DownloaderStats']
+2016-08-08 16:04:58 [scrapy] INFO: Enabled spider middlewares:
+['scrapy.spidermiddlewares.httperror.HttpErrorMiddleware',
+ 'scrapy.spidermiddlewares.offsite.OffsiteMiddleware',
+ 'scrapy.spidermiddlewares.referer.RefererMiddleware',
+ 'scrapy.spidermiddlewares.urllength.UrlLengthMiddleware',
+ 'scrapy.spidermiddlewares.depth.DepthMiddleware']
+2016-08-08 16:04:58 [scrapy] INFO: Enabled item pipelines:
+[]
+2016-08-08 16:04:58 [scrapy] INFO: Spider opened
+2016-08-08 16:04:59 [scrapy] INFO: Crawled 0 pages (at 0 pages/min), scraped 0 items (at 0 items/min)
+2016-08-08 16:04:59 [scrapy] DEBUG: Telnet console listening on 127.0.0.1:6024
+2016-08-08 16:04:59 [scrapy] DEBUG: Crawled (200) <GET http://stockdata.stock.hexun.com/us/news/CXDC.shtml> (referer: None)
+2016-08-08 16:04:59 [scrapy] DEBUG: Scraped from <200 http://stockdata.stock.hexun.com/us/news/CXDC.shtml>
+{}
+2016-08-08 16:04:59 [scrapy] INFO: Closing spider (finished)
+2016-08-08 16:04:59 [scrapy] INFO: Dumping Scrapy stats:
+{'downloader/request_bytes': 301,
+ 'downloader/request_count': 1,
+ 'downloader/request_method_count/GET': 1,
+ 'downloader/response_bytes': 8563,
+ 'downloader/response_count': 1,
+ 'downloader/response_status_count/200': 1,
+ 'finish_reason': 'finished',
+ 'finish_time': datetime.datetime(2016, 8, 8, 8, 4, 59, 293775),
+ 'item_scraped_count': 1,
+ 'log_count/DEBUG': 3,
+ 'log_count/INFO': 7,
+ 'response_received_count': 1,
+ 'scheduler/dequeued': 1,
+ 'scheduler/dequeued/memory': 1,
+ 'scheduler/enqueued': 1,
+ 'scheduler/enqueued/memory': 1,
+ 'start_time': datetime.datetime(2016, 8, 8, 8, 4, 59, 954)}
+2016-08-08 16:04:59 [scrapy] INFO: Spider closed (finished)
+2016-08-08 16:05:34 [scrapy] INFO: Scrapy 1.2.0dev2 started (bot: hexun_stock_news_us)
+2016-08-08 16:05:34 [scrapy] INFO: Overridden settings: {'NEWSPIDER_MODULE': 'hexun_stock_news_us.spiders', 'SPIDER_MODULES': ['hexun_stock_news_us.spiders'], 'LOG_FILE': 'logs.log', 'BOT_NAME': 'hexun_stock_news_us'}
+2016-08-08 16:05:35 [scrapy] INFO: Enabled extensions:
+['scrapy.extensions.logstats.LogStats',
+ 'scrapy.extensions.telnet.TelnetConsole',
+ 'scrapy.extensions.corestats.CoreStats']
+2016-08-08 16:05:35 [twisted] CRITICAL: Unhandled error in Deferred:
+2016-08-08 16:05:35 [twisted] CRITICAL: 
+2016-08-08 16:05:48 [scrapy] INFO: Scrapy 1.2.0dev2 started (bot: hexun_stock_news_us)
+2016-08-08 16:05:48 [scrapy] INFO: Overridden settings: {'NEWSPIDER_MODULE': 'hexun_stock_news_us.spiders', 'SPIDER_MODULES': ['hexun_stock_news_us.spiders'], 'LOG_FILE': 'logs.log', 'BOT_NAME': 'hexun_stock_news_us'}
+2016-08-08 16:05:48 [scrapy] INFO: Enabled extensions:
+['scrapy.extensions.logstats.LogStats',
+ 'scrapy.extensions.telnet.TelnetConsole',
+ 'scrapy.extensions.corestats.CoreStats']
+2016-08-08 16:05:48 [scrapy] INFO: Enabled downloader middlewares:
+['hexun_stock_news_us.random_user_agent.RandomUserAgentMiddleware',
+ 'scrapy.downloadermiddlewares.httpauth.HttpAuthMiddleware',
+ 'scrapy.downloadermiddlewares.downloadtimeout.DownloadTimeoutMiddleware',
+ 'scrapy.downloadermiddlewares.defaultheaders.DefaultHeadersMiddleware',
+ 'scrapy.downloadermiddlewares.useragent.UserAgentMiddleware',
+ 'scrapy.downloadermiddlewares.retry.RetryMiddleware',
+ 'scrapy.downloadermiddlewares.redirect.MetaRefreshMiddleware',
+ 'scrapy.downloadermiddlewares.httpcompression.HttpCompressionMiddleware',
+ 'scrapy.downloadermiddlewares.redirect.RedirectMiddleware',
+ 'scrapy.downloadermiddlewares.cookies.CookiesMiddleware',
+ 'scrapy.downloadermiddlewares.chunked.ChunkedTransferMiddleware',
+ 'scrapy.downloadermiddlewares.stats.DownloaderStats']
+2016-08-08 16:05:48 [scrapy] INFO: Enabled spider middlewares:
+['scrapy.spidermiddlewares.httperror.HttpErrorMiddleware',
+ 'scrapy.spidermiddlewares.offsite.OffsiteMiddleware',
+ 'scrapy.spidermiddlewares.referer.RefererMiddleware',
+ 'scrapy.spidermiddlewares.urllength.UrlLengthMiddleware',
+ 'scrapy.spidermiddlewares.depth.DepthMiddleware']
+2016-08-08 16:05:48 [scrapy] INFO: Enabled item pipelines:
+['hexun_stock_news_us.pipelines.HexunStockNewsUsPipeline']
+2016-08-08 16:05:48 [scrapy] INFO: Spider opened
+2016-08-08 16:05:48 [scrapy] INFO: Crawled 0 pages (at 0 pages/min), scraped 0 items (at 0 items/min)
+2016-08-08 16:05:48 [scrapy] DEBUG: Telnet console listening on 127.0.0.1:6024
+2016-08-08 16:05:48 [scrapy] DEBUG: Crawled (200) <GET http://stockdata.stock.hexun.com/us/news/CXDC.shtml> (referer: None)
+2016-08-08 16:05:48 [scrapy] DEBUG: Scraped from <200 http://stockdata.stock.hexun.com/us/news/CXDC.shtml>
+{}
+2016-08-08 16:05:48 [scrapy] INFO: Closing spider (finished)
+2016-08-08 16:05:48 [scrapy] INFO: Dumping Scrapy stats:
+{'downloader/request_bytes': 301,
+ 'downloader/request_count': 1,
+ 'downloader/request_method_count/GET': 1,
+ 'downloader/response_bytes': 8563,
+ 'downloader/response_count': 1,
+ 'downloader/response_status_count/200': 1,
+ 'finish_reason': 'finished',
+ 'finish_time': datetime.datetime(2016, 8, 8, 8, 5, 48, 911772),
+ 'item_scraped_count': 1,
+ 'log_count/DEBUG': 3,
+ 'log_count/INFO': 7,
+ 'response_received_count': 1,
+ 'scheduler/dequeued': 1,
+ 'scheduler/dequeued/memory': 1,
+ 'scheduler/enqueued': 1,
+ 'scheduler/enqueued/memory': 1,
+ 'start_time': datetime.datetime(2016, 8, 8, 8, 5, 48, 671089)}
+2016-08-08 16:05:48 [scrapy] INFO: Spider closed (finished)
