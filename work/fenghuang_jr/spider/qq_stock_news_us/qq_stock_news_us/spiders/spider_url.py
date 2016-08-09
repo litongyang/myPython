@@ -39,8 +39,8 @@ class SpiderUrlSpider(scrapy.Spider):
             company_code_dict = get_company_dict_class.get_code_name_hsymbol_dict()
             r = redis.Redis(host='127.0.0.1', port=6379, db=0)
             print "url", response.url
-            us_position = response.url.find('us')
             """ 从url中截取公司代码 """
+            us_position = response.url.find('us')
             company_code = ''
             if us_position >= 0:
                 company_code = response.url[int(us_position)+2:len(response.url)]
@@ -56,6 +56,8 @@ class SpiderUrlSpider(scrapy.Spider):
             """ 从redis获取公司上一次最近爬取的发布时间 """
             company_news_lately_time_key = str('spider_url_lately_time_') + str(company_code)
             last_time = r.get(str(company_news_lately_time_key))
+            if last_time is None:
+                last_time = ''
             company_news_lately_time = ''  # 公司相关新闻最近的抓取的发布时间
             item = QqStockNewsUsUrlItem()
             load_data = response.body_as_unicode()
@@ -68,7 +70,7 @@ class SpiderUrlSpider(scrapy.Spider):
             # print load_data[0]
             for i in range(0, len(load_data)):
                 """ 抓取的最新新闻的发布时间要大于上一次时间,否则剩余的url过滤掉 """
-                if str(load_data[i][0]) < str(r.get(last_time)):
+                if str(load_data[i][0]) < str(last_time):
                     news_time_list.append(load_data[i][0])
                     news_url_list.append(load_data[i][2])
                 else:

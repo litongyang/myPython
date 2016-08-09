@@ -10,7 +10,7 @@ from scrapy.item import Item, Field
 
 
 class QqStockNewsUsUrlItem(scrapy.Item):  # 新闻url的item
-    company_code = Field()  # 新闻所属公司名
+    company_code = Field()  # 新闻所属公司代码
     news_time = Field()  # 新闻的发布时间
     news_title = Field()  # 新闻标题
     news_url = Field()  # 新闻的url
