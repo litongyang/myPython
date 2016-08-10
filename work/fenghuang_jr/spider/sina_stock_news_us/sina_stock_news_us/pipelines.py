@@ -13,19 +13,19 @@ import json
 
 class SinaStockNewsUsPipelineJson(object):
     def __init__(self):
-        self.file_url = codecs.open('url.json', 'w', encoding='utf-8')
-        self.file_news = codecs.open('news.json', 'w', encoding='utf-8')
+        self.news_url = codecs.open('news_url.json', 'w', encoding='utf-8')
+        self.news_content = codecs.open('news_content.json', 'w', encoding='utf-8')
 
     def process_item(self, item, spider):
         if isinstance(spider, SpiderUrlSpider):
             line = json.dumps(dict(item), ensure_ascii=False) + "\n"
-            self.file_url.write(line)
+            self.news_url.write(line)
             return item
         if isinstance(spider, SpiderNewsSpider):
             line = json.dumps(dict(item), ensure_ascii=False) + "\n"
-            self.file_news.write(line)
+            self.news_content.write(line)
             return item
 
     def spider_closed(self):
-        self.file_url.close()
-        self.file_news.close()
+        self.news_url.close()
+        self.news_content.close()
