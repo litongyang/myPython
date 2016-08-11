@@ -4,6 +4,7 @@ import sys
 import os
 import redis
 import get_company_dict
+from get_url import *
 parent_path = os.path.dirname(sys.path[0])
 if parent_path not in sys.path:
     sys.path.append(parent_path)
@@ -20,14 +21,15 @@ class SpiderUrlSpider(scrapy.Spider):
     name = "spider_url"
     allowed_domains = ["spider_url.com"]
     # start_urls = ['http://stockdata.stock.hexun.com/us/Nlist.aspx?code=JD&p=2']
-    start_urls = ['http://stockdata.stock.hexun.com/us/news/CXDC.shtml',
-                  'http://stockdata.stock.hexun.com/us/news/JD.shtml',
-                  'http://hkdata.stock.hexun.com/company/news/00941.shtml'
-                  ]
-    # start_urls = ['http://hkdata.stock.hexun.com/company/news/00941.shtml']
+    # start_urls = ['http://stockdata.stock.hexun.com/us/news/CXDC.shtml',
+    #               'http://stockdata.stock.hexun.com/us/news/JD.shtml',
+    #               'http://hkdata.stock.hexun.com/company/news/00941.shtml'
+    #               ]
+    start_urls = GetUrl().get_company_news_url()
 
     def parse(self, response):
         try:
+            print response.url
             r = redis.Redis(host='127.0.0.1', port=6379, db=0)
             news_title_list = []
             news_time_list = []
@@ -57,12 +59,14 @@ class SpiderUrlSpider(scrapy.Spider):
                         item['news_title'] = title_url_us_nodes[i].text
                         item['news_url'] = title_url_us_nodes[i].attrib['href']
                         item['news_time'] = time_us_nodes[i].text
+                        print item['news_title']
                         news_title_list.append(title_url_us_nodes[i].text)
+                        yield item
                     else:
                         break
                 if len(news_title_list) > 0:
                     company_news_lately_title = news_title_list[0]
-                    r.set(str(company_news_lately_title_key), str(company_news_lately_title))
+                    # r.set(str(company_news_lately_title_key), str(company_news_lately_title))
 
             else:  # 港股资讯
                 hk_position_hk = response.url.find('company/news/')
@@ -90,13 +94,14 @@ class SpiderUrlSpider(scrapy.Spider):
                             item['news_title'] = title_url_hk_nodes[i].text
                             item['news_url'] = title_url_hk_nodes[i].attrib['href']
                             item['news_time'] = time_list[i]
-                            print item['news_url']
+                            print item['news_title']
                             news_time_list.append(time_list[i])
+                            yield item
                         else:
                             break
                     if len(news_time_list) > 0:
                         company_news_lately_time = news_time_list[0]
-                        r.set(str(company_news_lately_time_key), str(company_news_lately_time))
+                        # r.set(str(company_news_lately_time_key), str(company_news_lately_time))
 
         except Exception, e:
             error_info = Exception, e
