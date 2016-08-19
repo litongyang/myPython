@@ -27,7 +27,7 @@ class SpiderUrlSpider(scrapy.Spider):
             r = redis.Redis(host='127.0.0.1', port=6379, db=0)
             news_time_list = []
             # company_news_lately_time = ''  # 公司相关新闻最近的抓取的发布时间
-            item = WangyiStockNewsUsItem()
+            item = WangyiStockUrlUsItem()
             data_html = response.body_as_unicode()
             root = etree.HTML(data_html)
             """ 获取公司字典 """

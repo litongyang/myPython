@@ -46,13 +46,18 @@ class StartFund:
             # # 判断全量还是增量并执行相关代码
             if str(self.read_conf.get_options('cycle_all', 'content')) == "all":
                 # 从mysql数据源获得基础数据
+                self.start_data_input.input_tb_user_fun(self.is_success)
+                self.start_data_input.input_tb_fund_record_fun(self.is_success)
+                self.start_data_input.input_tb_loanrequest_privilege_fun(self.is_success)
+                self.start_data_input.input_tb_loan_fun(self.is_success)
                 self.start_data_input.input_tb_invite_reward_trace_fun(self.is_success)
                 self.start_data_input.input_tb_invest_fun(self.is_success)
                 self.start_data_input.input_invest_desc_trans(self.is_success)
-                self.start_data_input.input_invest_trans(self.is_success)
+                # self.start_data_input.input_invest_trans(self.is_success)
                 self.start_data_input.input_invest_one_trans(self.is_success)
 
                 # 获得fund的结果数据
+                self.start_invest_parallel.get_crm_invest_status(self.is_success)
                 # self.start_invest_parallel.get_crm_desc_json_new(self.is_success)
                 self.start_invest_parallel.crm_end_invest(self.is_success)
                 self.start_invest_parallel.crm_end_invest_logger(self.is_success)

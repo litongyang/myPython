@@ -15,6 +15,7 @@ import work.fenghuang_jr.crm.crm_beta.base_method.push_schedule_result_method as
 class StartInvestParallel:
     def __init__(self):
         self.invest_parallel_sql_path = "../query_sql/invest/invest_parallel.sql"
+        self.crm_invest_status_sql_path = "../query_sql/invest/invest_trans.sql"
         self.crm_end_invest_sql_path = "../query_sql/invest/crm_end_invest.sql"
         self.crm_end_invest_logger_sql_path = "../query_sql/invest/crm_end_invest_logger.sql"
         self.crm_error_sql_path = "../query_sql/crm_error.sql"
@@ -45,6 +46,18 @@ class StartInvestParallel:
     #         self.logger.error(error_info)
 
     # 调用合并及最后程序 内部生成文件不做内部处理
+
+    def get_crm_invest_status(self, is_success):
+        logger = logging.getLogger('crm.start_coupon.get_crm_invest_status')
+        fun_name = (lambda: sys._getframe(1).f_code.co_name)()
+        self.invoke_schedule.invoke_level_fun(3, str(fun_name), (str(fun_name) + " is starting !"))
+        try:
+            os_v = hive_command_method.hive_command("-f", self.crm_invest_status_sql_path)
+            push_schedule_result_method.push_schedule_result(os_v, 3, is_success, fun_name)
+        except Exception, e:
+            push_schedule_result_method.push_schedule_exception((Exception, e), 3, is_success, fun_name)
+            hive_command_method.hive_command("-f", self.crm_error_sql_path)
+
     def crm_end_invest(self, is_success):
         logger = logging.getLogger('crm.start_invest.crm_end_invest')
         fun_name = (lambda: sys._getframe(1).f_code.co_name)()

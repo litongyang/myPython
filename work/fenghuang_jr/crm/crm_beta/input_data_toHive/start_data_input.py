@@ -26,6 +26,57 @@ class StartDataInput:
         self.read_conf = read_conf.ReadConf()
         self.invoke_schedule = invoke_schedule.InvokeSchedule()
 
+    def input_tb_user_fun(self, is_success):
+        logger = logging.getLogger('crm.input_data_hive.input_tb_user_fun')
+        fun_name = (lambda: sys._getframe(1).f_code.co_name)()
+        self.invoke_schedule.invoke_level_fun(2, str(fun_name), (str(fun_name) + " is starting !"))
+        try:
+            host = self.read_conf.get_options("sqoop_params_tb_user", "host")
+            username = self.read_conf.get_options("sqoop_params_tb_user", "username")
+            password = self.read_conf.get_options("sqoop_params_tb_user", "password")
+            table = self.read_conf.get_options("sqoop_params_tb_user", "table")
+            table_name = self.read_conf.get_options("sqoop_params_tb_user", "table_name")
+            target_dir = self.read_conf.get_options("sqoop_params_tb_user", "target_dir")
+            hive_table = self.read_conf.get_options("sqoop_params_tb_user", "hive_table")
+            os_v = self.sqoop_function.sqoop_table(host, username, password, table, table_name, target_dir, hive_table)
+            push_schedule_result_method.push_schedule_result(os_v, 2, is_success, fun_name)
+        except Exception, e:
+            push_schedule_result_method.push_schedule_exception((Exception, e), 2, is_success, fun_name)
+
+    def input_tb_loanrequest_privilege_fun(self, is_success):
+        logger = logging.getLogger('crm.input_data_hive.input_tb_loanrequest_privilege_fun')
+        fun_name = (lambda: sys._getframe(1).f_code.co_name)()
+        self.invoke_schedule.invoke_level_fun(2, str(fun_name), (str(fun_name) + " is starting !"))
+        try:
+            host = self.read_conf.get_options("sqoop_params_tb_loanrequest_privilege", "host")
+            username = self.read_conf.get_options("sqoop_params_tb_loanrequest_privilege", "username")
+            password = self.read_conf.get_options("sqoop_params_tb_loanrequest_privilege", "password")
+            table = self.read_conf.get_options("sqoop_params_tb_loanrequest_privilege", "table")
+            table_name = self.read_conf.get_options("sqoop_params_tb_loanrequest_privilege", "table_name")
+            target_dir = self.read_conf.get_options("sqoop_params_tb_loanrequest_privilege", "target_dir")
+            hive_table = self.read_conf.get_options("sqoop_params_tb_loanrequest_privilege", "hive_table")
+            os_v = self.sqoop_function.sqoop_table(host, username, password, table, table_name, target_dir, hive_table)
+            push_schedule_result_method.push_schedule_result(os_v, 2, is_success, fun_name)
+        except Exception, e:
+            push_schedule_result_method.push_schedule_exception((Exception, e), 2, is_success, fun_name)
+
+    def input_tb_loan_fun(self, is_success):
+        logger = logging.getLogger('crm.input_data_hive.input_tb_loan_fun')
+        fun_name = (lambda: sys._getframe(1).f_code.co_name)()
+        self.invoke_schedule.invoke_level_fun(2, str(fun_name), (str(fun_name) + " is starting !"))
+        try:
+            host = self.read_conf.get_options("sqoop_params_tb_loan", "host")
+            username = self.read_conf.get_options("sqoop_params_tb_loan", "username")
+            password = self.read_conf.get_options("sqoop_params_tb_loan", "password")
+            table = self.read_conf.get_options("sqoop_params_tb_loan", "table")
+            table_name = self.read_conf.get_options("sqoop_params_tb_loan", "table_name")
+            target_dir = self.read_conf.get_options("sqoop_params_tb_loan", "target_dir")
+            hive_table = self.read_conf.get_options("sqoop_params_tb_loan", "hive_table")
+            os_v = self.sqoop_function.sqoop_table(host, username, password, table, table_name, target_dir, hive_table)
+            push_schedule_result_method.push_schedule_result(os_v, 2, is_success, fun_name)
+        except Exception, e:
+            push_schedule_result_method.push_schedule_exception((Exception, e), 2, is_success, fun_name)
+
     def input_tb_coupon_record_fun(self, is_success):
         logger = logging.getLogger('crm.input_data_hive.input_tb_counpon_record_fun')
         fun_name = (lambda: sys._getframe(1).f_code.co_name)()

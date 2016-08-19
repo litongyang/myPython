@@ -9,7 +9,7 @@ import scrapy
 from scrapy.item import Item, Field
 
 
-class WangyiStockNewsUsItem(scrapy.Item):
+class WangyiStockUrlUsItem(scrapy.Item):
     company_code = Field()  # 新闻所属公司代码
     news_time = Field()  # 新闻的发布时间
     news_title = Field()  # 新闻标题

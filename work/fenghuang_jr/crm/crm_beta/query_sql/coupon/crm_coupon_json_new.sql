@@ -44,7 +44,7 @@ from (
 SELECT
     u.user_id as user_id,
     count(c.id) as all_count,
-    sum(c.invest_amount) as all_amount,
+    sum(c.invest_amounts) as all_amount,
     ((case when sum(c.register_used) is null then 0 else sum(c.register_used) end)+(case when sum(c.points_used) is null then 0 else sum(c.points_used) end)+( case when sum(c.rebate_used) is null then 0 else sum(c.rebate_used) end)
     +(case when sum(c.weekend_used) is null then 0 else sum(c.weekend_used) end)+(case when sum(c.newyear_used) is null then 0 else sum(c.newyear_used) end)+(case when sum(c.turnplate_used) is null then 0 else sum(c.turnplate_used) end))
     as all_use_count,
@@ -75,7 +75,7 @@ FROM
                         i.amount
                 ELSE
                         i.ORIGINALAMOUNT
-                END AS invest_amount
+                END AS invest_amounts
                 FROM
                         tb_coupon_record_crm r
                 LEFT JOIN tb_invest i ON r.ENTITYID = i.ID where r.tag <> 'other'

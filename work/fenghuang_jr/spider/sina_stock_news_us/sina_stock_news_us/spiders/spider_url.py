@@ -41,7 +41,7 @@ class SpiderUrlSpider(scrapy.Spider):
             if us_position >= 0:  # 美股资讯
                 us_position_tail = response.url.find('&type=1')
                 company_code = response.url[int(us_position) + 7:us_position_tail]
-                company_news_lately_time_key = str('hexun_spider_url_lately_time_') + str(company_code)
+                company_news_lately_time_key = str('sina_spider_url_lately_time_') + str(company_code)
                 last_time = r.get(str(company_news_lately_time_key))
                 if last_time is None:
                     last_time = ''
@@ -74,7 +74,7 @@ class SpiderUrlSpider(scrapy.Spider):
                         if v[1] == company_code_hk:
                             company_code = k
                     """ 从redis获取公司上一次最近爬取的发布时间 """
-                    company_news_lately_time_key = str('hexun_spider_url_lately_time_') + str(company_code)
+                    company_news_lately_time_key = str('sina_spider_url_lately_time_') + str(company_code)
                     last_time = r.get(str(company_news_lately_time_key))
                     if last_time is None:
                         last_time = ''

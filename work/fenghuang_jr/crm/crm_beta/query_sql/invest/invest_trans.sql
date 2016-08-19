@@ -1,3 +1,5 @@
+use crm_v2;
+insert overwrite table crm_invest_status
 select
 	user_id,
 	all_count,
@@ -41,12 +43,15 @@ from
 		(if(sum(case when i.CREDITASSIGNID is null then (case when i.ORIGINALAMOUNT is null then i.amount else i.ORIGINALAMOUNT end) else 0 end) is not null, sum(case when i.CREDITASSIGNID is null then (case when i.ORIGINALAMOUNT is null then i.amount else i.ORIGINALAMOUNT end) else 0 end),0) + if(re.debt_swap_amount is not null,re.debt_swap_amount,0)) as all_amount,
 		 sum(case when i.CREDITASSIGNID is null then (case when i.ORIGINALAMOUNT is null then i.amount else i.ORIGINALAMOUNT end) else 0 end) as no_debt_swap_amount,
 		 re.debt_swap_amount as debt_swap_amount,
-		DATE_FORMAT(min(case when i.CREDITASSIGNID is null then i.SUBMITTIME else '3000-01-01' end),'%Y-%m-%d') AS first_time,
-		DATE_FORMAT(max( case when i.CREDITASSIGNID is null then i.SUBMITTIME else '0' end),'%Y-%m-%d') AS lastest_time,
+		substr(min(case when i.CREDITASSIGNID is null then i.SUBMITTIME else '3000-01-01' end),1,10) AS first_time,
+		substr(max(case when i.CREDITASSIGNID is null then i.SUBMITTIME else '3000-01-01' end),1,10) AS lastest_time,
+		-- DATE_FORMAT(min(case when i.CREDITASSIGNID is null then i.SUBMITTIME else '3000-01-01' end),'%Y-%m-%d') AS first_time,
+		-- DATE_FORMAT(max( case when i.CREDITASSIGNID is null then i.SUBMITTIME else '0' end),'%Y-%m-%d') AS lastest_time,
 		max(case when i.CREDITASSIGNID is null then (case when i.ORIGINALAMOUNT is null then i.amount else i.ORIGINALAMOUNT end) else 0 end)  AS brushstroke_amount_max,
 		min(case when i.CREDITASSIGNID is null then (case when i.ORIGINALAMOUNT is null then i.amount else i.ORIGINALAMOUNT end) else null end) AS brushstroke_amount_min,
 		case when new.USERID is NULL then 0 else 1 end as is_new_user,
-		DATE_FORMAT(new.submit_time,'%Y-%m-%d') as new_user_submit_time,
+		substr(new.submit_time,1,10)as new_user_submit_time,
+		-- DATE_FORMAT(new.submit_time,'%Y-%m-%d') as new_user_submit_time,
 		case when new.amount is not null then new.amount else 0 end as new_user_amount,
 	    sum(case when i.CREDITASSIGNID is null then (case when i.ORIGINALAMOUNT is null then i.amount else i.ORIGINALAMOUNT end) else 0 end) - case when new.amount is null then 0 else new.amount end as no_new_user_amount,
 		sum(case when i.SOURCE = 'WEB' then 1 else 0 end) as pc_invest_cnt,
@@ -118,6 +123,5 @@ from
 		'TURNOUT'
 	)
 	GROUP BY
-		i.USERID
+		i.USERID,re.debt_swap_amount,new.USERID,new.amount, new.new_days,new.first_new_title,new.submit_time
 )t
-where \$CONDITIONS

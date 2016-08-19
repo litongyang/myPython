@@ -27,7 +27,8 @@ class SpiderNewsSpider(scrapy.Spider):
     allowed_domains = ["spider_news.com"]
     start_urls = [
         # 'http://money.163.com/16/0809/15/BU1M77D500254TI5.html',
-        'http://money.163.com/12/0306/21/7RUN6QDD00254Q6L.html'
+        # 'http://money.163.com/12/0306/21/7RUN6QDD00254Q6L.html'
+        'http://money.163.com/13/0327/04/8QURSQQ100253B0H.html'
     ]
     # start_urls = GetUrl().get_news_url()
 
@@ -61,12 +62,15 @@ class SpiderNewsSpider(scrapy.Spider):
             """ 新闻创建时间 """
             time_template1 = root.xpath('//div[@class="post_time_source"]')
             time_template2 = root.xpath('//span[@class="info" and @style="display:block;"]')
+            time_template3 = root.xpath('//span[@class="left"]')
             if len(time_template1) > 0:
                 time_nodes = time_template1
             elif len(time_template2) > 0:
                 time_nodes = time_template2
+            elif len(time_template3) > 0:
+                time_nodes = time_template3
             # time_nodes = root.xpath('//div[@class="post_time_source"]')
-            news_time = time_nodes[0].text.replace('来源:', '').replace('\n', '')
+            news_time = str(time_nodes[0].text).replace('来源:', '').replace('\n', '')
             print news_time
             """ 新闻内容的html """
             sel = Selector(text=html, type="html")
