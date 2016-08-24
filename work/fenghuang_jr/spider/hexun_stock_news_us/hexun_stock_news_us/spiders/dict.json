@@ -1,0 +1,3206 @@
+{
+
+    "data": [
+        {
+            "id": 2,
+            "symbol": "SINA",
+            "name": "新浪",
+            "hsymbol": ""
+        },
+        {
+            "id": 3,
+            "symbol": "SOHU",
+            "name": "搜狐",
+            "hsymbol": ""
+        },
+        {
+            "id": 4,
+            "symbol": "BIDU",
+            "name": "百度",
+            "hsymbol": ""
+        },
+        {
+            "id": 5,
+            "symbol": "NCTY",
+            "name": "第九城市",
+            "hsymbol": ""
+        },
+        {
+            "id": 6,
+            "symbol": "NTES",
+            "name": "网易",
+            "hsymbol": ""
+        },
+        {
+            "id": 7,
+            "symbol": "KZ",
+            "name": "空中网",
+            "hsymbol": ""
+        },
+        {
+            "id": 8,
+            "symbol": "CTRP",
+            "name": "携程网",
+            "hsymbol": ""
+        },
+        {
+            "id": 9,
+            "symbol": "JOBS",
+            "name": "前程无忧",
+            "hsymbol": ""
+        },
+        {
+            "id": 10,
+            "symbol": "LONG",
+            "name": "艺龙",
+            "hsymbol": ""
+        },
+        {
+            "id": 11,
+            "symbol": "JRJC",
+            "name": "金融界",
+            "hsymbol": ""
+        },
+        {
+            "id": 12,
+            "symbol": "CNTF",
+            "name": "泰克飞石",
+            "hsymbol": ""
+        },
+        {
+            "id": 13,
+            "symbol": "SMI",
+            "name": "中芯国际",
+            "hsymbol": "00981"
+        },
+        {
+            "id": 14,
+            "symbol": "UTSI",
+            "name": "UT斯达康",
+            "hsymbol": ""
+        },
+        {
+            "id": 15,
+            "symbol": "ACTS",
+            "name": "炬力",
+            "hsymbol": ""
+        },
+        {
+            "id": 16,
+            "symbol": "EDU",
+            "name": "新东方",
+            "hsymbol": ""
+        },
+        {
+            "id": 17,
+            "symbol": "VISN",
+            "name": "华视传媒",
+            "hsymbol": ""
+        },
+        {
+            "id": 18,
+            "symbol": "EJ",
+            "name": "易居中国",
+            "hsymbol": ""
+        },
+        {
+            "id": 19,
+            "symbol": "AMCN",
+            "name": "航美传媒",
+            "hsymbol": ""
+        },
+        {
+            "id": 20,
+            "symbol": "ACH",
+            "name": "中国铝业",
+            "hsymbol": "02600"
+        },
+        {
+            "id": 21,
+            "symbol": "CYD",
+            "name": "玉柴国际",
+            "hsymbol": ""
+        },
+        {
+            "id": 22,
+            "symbol": "CEO",
+            "name": "中海油",
+            "hsymbol": "00883"
+        },
+        {
+            "id": 23,
+            "symbol": "CHL",
+            "name": "中移动",
+            "hsymbol": "00941"
+        },
+        {
+            "id": 24,
+            "symbol": "GSH",
+            "name": "广深铁路",
+            "hsymbol": "00525"
+        },
+        {
+            "id": 25,
+            "symbol": "LFC",
+            "name": "中国人寿",
+            "hsymbol": "02628"
+        },
+        {
+            "id": 26,
+            "symbol": "SORL",
+            "name": "瑞立集团",
+            "hsymbol": ""
+        },
+        {
+            "id": 27,
+            "symbol": "SNP",
+            "name": "中石化",
+            "hsymbol": "00386"
+        },
+        {
+            "id": 28,
+            "symbol": "CHA",
+            "name": "中国电信",
+            "hsymbol": "00728"
+        },
+        {
+            "id": 29,
+            "symbol": "SHI",
+            "name": "上石化",
+            "hsymbol": ""
+        },
+        {
+            "id": 30,
+            "symbol": "YZC",
+            "name": "兖州煤业",
+            "hsymbol": "01171"
+        },
+        {
+            "id": 31,
+            "symbol": "CEA",
+            "name": "东方航空",
+            "hsymbol": "00670"
+        },
+        {
+            "id": 32,
+            "symbol": "EFUT",
+            "name": "富基旋风",
+            "hsymbol": ""
+        },
+        {
+            "id": 33,
+            "symbol": "HNP",
+            "name": "华能电力",
+            "hsymbol": ""
+        },
+        {
+            "id": 34,
+            "symbol": "JST",
+            "name": "海南金盘",
+            "hsymbol": ""
+        },
+        {
+            "id": 35,
+            "symbol": "ZNH",
+            "name": "南方航空",
+            "hsymbol": "01055"
+        },
+        {
+            "id": 36,
+            "symbol": "NPD",
+            "name": "深圳海王",
+            "hsymbol": ""
+        },
+        {
+            "id": 37,
+            "symbol": "CSIQ",
+            "name": "阿特斯",
+            "hsymbol": ""
+        },
+        {
+            "id": 38,
+            "symbol": "CBAK",
+            "name": "比克电池",
+            "hsymbol": ""
+        },
+        {
+            "id": 39,
+            "symbol": "CHNR",
+            "name": "中国天然",
+            "hsymbol": ""
+        },
+        {
+            "id": 40,
+            "symbol": "NDAC",
+            "name": "新龙亚洲",
+            "hsymbol": ""
+        },
+        {
+            "id": 41,
+            "symbol": "FFHL",
+            "name": "富维薄膜",
+            "hsymbol": ""
+        },
+        {
+            "id": 42,
+            "symbol": "CAAS",
+            "name": "中汽系统",
+            "hsymbol": ""
+        },
+        {
+            "id": 43,
+            "symbol": "NTE",
+            "name": "南太电子",
+            "hsymbol": ""
+        },
+        {
+            "id": 44,
+            "symbol": "DL",
+            "name": "正保教育",
+            "hsymbol": ""
+        },
+        {
+            "id": 45,
+            "symbol": "NED",
+            "name": "诺亚舟",
+            "hsymbol": ""
+        },
+        {
+            "id": 46,
+            "symbol": "XIN",
+            "name": "鑫苑置业",
+            "hsymbol": ""
+        },
+        {
+            "id": 47,
+            "symbol": "STV",
+            "name": "永新视博",
+            "hsymbol": ""
+        },
+        {
+            "id": 48,
+            "symbol": "ATV",
+            "name": "橡果国际",
+            "hsymbol": ""
+        },
+        {
+            "id": 49,
+            "symbol": "GRO",
+            "name": "中冠农业",
+            "hsymbol": ""
+        },
+        {
+            "id": 50,
+            "symbol": "GSI",
+            "name": "通用钢铁",
+            "hsymbol": ""
+        },
+        {
+            "id": 51,
+            "symbol": "SOL",
+            "name": "昱辉阳光",
+            "hsymbol": ""
+        },
+        {
+            "id": 52,
+            "symbol": "TSL",
+            "name": "天合光能",
+            "hsymbol": ""
+        },
+        {
+            "id": 53,
+            "symbol": "WH",
+            "name": "WSP控股",
+            "hsymbol": ""
+        },
+        {
+            "id": 54,
+            "symbol": "YGE",
+            "name": "英利",
+            "hsymbol": ""
+        },
+        {
+            "id": 55,
+            "symbol": "CSUN",
+            "name": "中电光伏",
+            "hsymbol": ""
+        },
+        {
+            "id": 56,
+            "symbol": "CISG",
+            "name": "泛华保险",
+            "hsymbol": ""
+        },
+        {
+            "id": 57,
+            "symbol": "HIMX",
+            "name": "奇景光电",
+            "hsymbol": ""
+        },
+        {
+            "id": 58,
+            "symbol": "JASO",
+            "name": "晶澳太阳",
+            "hsymbol": ""
+        },
+        {
+            "id": 59,
+            "symbol": "OIIM",
+            "name": "凹凸科技",
+            "hsymbol": "00457"
+        },
+        {
+            "id": 60,
+            "symbol": "SIMO",
+            "name": "慧荣科技",
+            "hsymbol": ""
+        },
+        {
+            "id": 61,
+            "symbol": "HSOL",
+            "name": "韩华新能",
+            "hsymbol": ""
+        },
+        {
+            "id": 62,
+            "symbol": "CHU",
+            "name": "中国联通",
+            "hsymbol": "00941"
+        },
+        {
+            "id": 63,
+            "symbol": "PTR",
+            "name": "中石油",
+            "hsymbol": "00857"
+        },
+        {
+            "id": 64,
+            "symbol": "ASX",
+            "name": "日月光半",
+            "hsymbol": ""
+        },
+        {
+            "id": 65,
+            "symbol": "AUO",
+            "name": "友达光电",
+            "hsymbol": ""
+        },
+        {
+            "id": 66,
+            "symbol": "TSM",
+            "name": "台积电",
+            "hsymbol": ""
+        },
+        {
+            "id": 67,
+            "symbol": "UMC",
+            "name": "联电",
+            "hsymbol": ""
+        },
+        {
+            "id": 68,
+            "symbol": "SPIL",
+            "name": "矽品",
+            "hsymbol": ""
+        },
+        {
+            "id": 69,
+            "symbol": "GIGM",
+            "name": "和信超媒",
+            "hsymbol": ""
+        },
+        {
+            "id": 70,
+            "symbol": "CYOU",
+            "name": "畅游",
+            "hsymbol": ""
+        },
+        {
+            "id": 71,
+            "symbol": "CTC",
+            "name": "21世纪不",
+            "hsymbol": ""
+        },
+        {
+            "id": 72,
+            "symbol": "HTHT",
+            "name": "华住酒店",
+            "hsymbol": ""
+        },
+        {
+            "id": 73,
+            "symbol": "CHT",
+            "name": "中华电信",
+            "hsymbol": ""
+        },
+        {
+            "id": 74,
+            "symbol": "SYUT",
+            "name": "圣元国际",
+            "hsymbol": ""
+        },
+        {
+            "id": 75,
+            "symbol": "KUTV",
+            "name": "酷6网",
+            "hsymbol": ""
+        },
+        {
+            "id": 76,
+            "symbol": "CCGM",
+            "name": "联游网络",
+            "hsymbol": ""
+        },
+        {
+            "id": 77,
+            "symbol": "SFUN",
+            "name": "搜房网",
+            "hsymbol": ""
+        },
+        {
+            "id": 78,
+            "symbol": "DYNP",
+            "name": "多元印刷",
+            "hsymbol": ""
+        },
+        {
+            "id": 79,
+            "symbol": "CCSC",
+            "name": "乡村基",
+            "hsymbol": ""
+        },
+        {
+            "id": 80,
+            "symbol": "MY",
+            "name": "明阳风电",
+            "hsymbol": ""
+        },
+        {
+            "id": 81,
+            "symbol": "CCIH",
+            "name": "蓝汛",
+            "hsymbol": ""
+        },
+        {
+            "id": 82,
+            "symbol": "XRS",
+            "name": "好未来",
+            "hsymbol": ""
+        },
+        {
+            "id": 83,
+            "symbol": "XUE",
+            "name": "学大教育",
+            "hsymbol": ""
+        },
+        {
+            "id": 84,
+            "symbol": "GAGA",
+            "name": "利农国际",
+            "hsymbol": ""
+        },
+        {
+            "id": 85,
+            "symbol": "NOAH",
+            "name": "诺亚财富",
+            "hsymbol": ""
+        },
+        {
+            "id": 86,
+            "symbol": "BITA",
+            "name": "易车网",
+            "hsymbol": ""
+        },
+        {
+            "id": 87,
+            "symbol": "XNY",
+            "name": "希尼亚",
+            "hsymbol": ""
+        },
+        {
+            "id": 88,
+            "symbol": "KNDI",
+            "name": "康迪车业",
+            "hsymbol": ""
+        },
+        {
+            "id": 89,
+            "symbol": "CHOP",
+            "name": "河南鸽瑞",
+            "hsymbol": ""
+        },
+        {
+            "id": 90,
+            "symbol": "EDS",
+            "name": "喜得龙",
+            "hsymbol": "00977"
+        },
+        {
+            "id": 91,
+            "symbol": "CNET",
+            "name": "中网在线",
+            "hsymbol": ""
+        },
+        {
+            "id": 92,
+            "symbol": "ATAI",
+            "name": "ATA公司",
+            "hsymbol": ""
+        },
+        {
+            "id": 93,
+            "symbol": "THTI",
+            "name": "巨元瀚洋",
+            "hsymbol": ""
+        },
+        {
+            "id": 94,
+            "symbol": "LIWA",
+            "name": "利华国际",
+            "hsymbol": ""
+        },
+        {
+            "id": 95,
+            "symbol": "OINK",
+            "name": "丰泽农牧",
+            "hsymbol": ""
+        },
+        {
+            "id": 96,
+            "symbol": "YUII",
+            "name": "山东昱合",
+            "hsymbol": ""
+        },
+        {
+            "id": 97,
+            "symbol": "CHLN",
+            "name": "中华地产",
+            "hsymbol": ""
+        },
+        {
+            "id": 98,
+            "symbol": "TXIC",
+            "name": "同心国际",
+            "hsymbol": ""
+        },
+        {
+            "id": 99,
+            "symbol": "JKS",
+            "name": "晶科能源",
+            "hsymbol": ""
+        },
+        {
+            "id": 100,
+            "symbol": "HEAT",
+            "name": "太宇机电",
+            "hsymbol": ""
+        },
+        {
+            "id": 101,
+            "symbol": "RINO",
+            "name": "绿诺科技",
+            "hsymbol": ""
+        },
+        {
+            "id": 102,
+            "symbol": "SUTR",
+            "name": "森特集团",
+            "hsymbol": ""
+        },
+        {
+            "id": 103,
+            "symbol": "DQ",
+            "name": "大全新能",
+            "hsymbol": ""
+        },
+        {
+            "id": 104,
+            "symbol": "CRTP",
+            "name": "瑞达电源",
+            "hsymbol": ""
+        },
+        {
+            "id": 105,
+            "symbol": "SEED",
+            "name": "奥瑞金种",
+            "hsymbol": ""
+        },
+        {
+            "id": 106,
+            "symbol": "CHBT",
+            "name": "中国生物",
+            "hsymbol": ""
+        },
+        {
+            "id": 107,
+            "symbol": "HGSH",
+            "name": "汉广厦房",
+            "hsymbol": ""
+        },
+        {
+            "id": 108,
+            "symbol": "BEST",
+            "name": "赛诺国际",
+            "hsymbol": ""
+        },
+        {
+            "id": 109,
+            "symbol": "MOBI",
+            "name": "斯凯",
+            "hsymbol": ""
+        },
+        {
+            "id": 110,
+            "symbol": "DANG",
+            "name": "当当",
+            "hsymbol": ""
+        },
+        {
+            "id": 111,
+            "symbol": "LAS",
+            "name": "联拓",
+            "hsymbol": ""
+        },
+        {
+            "id": 112,
+            "symbol": "WATG",
+            "name": "万得汽车",
+            "hsymbol": ""
+        },
+        {
+            "id": 113,
+            "symbol": "CNYD",
+            "name": "易达控股",
+            "hsymbol": ""
+        },
+        {
+            "id": 114,
+            "symbol": "CCME",
+            "name": "中国高速",
+            "hsymbol": ""
+        },
+        {
+            "id": 115,
+            "symbol": "FUQI",
+            "name": "福麒国际",
+            "hsymbol": ""
+        },
+        {
+            "id": 116,
+            "symbol": "GSOL",
+            "name": "环球资源",
+            "hsymbol": ""
+        },
+        {
+            "id": 117,
+            "symbol": "GURE",
+            "name": "海湾资源",
+            "hsymbol": ""
+        },
+        {
+            "id": 118,
+            "symbol": "CADC",
+            "name": "新奥混凝",
+            "hsymbol": ""
+        },
+        {
+            "id": 119,
+            "symbol": "CAST",
+            "name": "双威教育",
+            "hsymbol": ""
+        },
+        {
+            "id": 120,
+            "symbol": "JFC",
+            "name": "JF中国基",
+            "hsymbol": ""
+        },
+        {
+            "id": 121,
+            "symbol": "WUHN",
+            "name": "武汉通用",
+            "hsymbol": ""
+        },
+        {
+            "id": 122,
+            "symbol": "FEED",
+            "name": "艾格菲国",
+            "hsymbol": ""
+        },
+        {
+            "id": 123,
+            "symbol": "CO",
+            "name": "中国脐带",
+            "hsymbol": ""
+        },
+        {
+            "id": 124,
+            "symbol": "ABAT",
+            "name": "中强能源",
+            "hsymbol": ""
+        },
+        {
+            "id": 125,
+            "symbol": "GPRC",
+            "name": "冠威塑料",
+            "hsymbol": ""
+        },
+        {
+            "id": 126,
+            "symbol": "RCON",
+            "name": "研控科技",
+            "hsymbol": ""
+        },
+        {
+            "id": 127,
+            "symbol": "HOLI",
+            "name": "和利时自",
+            "hsymbol": ""
+        },
+        {
+            "id": 128,
+            "symbol": "KONE",
+            "name": "联合信息",
+            "hsymbol": ""
+        },
+        {
+            "id": 129,
+            "symbol": "SPU",
+            "name": "天人果汁",
+            "hsymbol": ""
+        },
+        {
+            "id": 130,
+            "symbol": "CIIC",
+            "name": "中国基础",
+            "hsymbol": ""
+        },
+        {
+            "id": 131,
+            "symbol": "AMCF",
+            "name": "星源燃料",
+            "hsymbol": ""
+        },
+        {
+            "id": 132,
+            "symbol": "CPHI",
+            "name": "中国医药",
+            "hsymbol": ""
+        },
+        {
+            "id": 133,
+            "symbol": "APWR",
+            "name": "高科能源",
+            "hsymbol": ""
+        },
+        {
+            "id": 134,
+            "symbol": "CREG",
+            "name": "盈丰科技",
+            "hsymbol": ""
+        },
+        {
+            "id": 135,
+            "symbol": "SINO",
+            "name": "中环球船",
+            "hsymbol": ""
+        },
+        {
+            "id": 136,
+            "symbol": "JGBO",
+            "name": "江波制药",
+            "hsymbol": ""
+        },
+        {
+            "id": 137,
+            "symbol": "CHNG",
+            "name": "西蓝公司",
+            "hsymbol": ""
+        },
+        {
+            "id": 138,
+            "symbol": "CPSL",
+            "name": "中国精密",
+            "hsymbol": ""
+        },
+        {
+            "id": 139,
+            "symbol": "SCOK",
+            "name": "泓利煤焦",
+            "hsymbol": ""
+        },
+        {
+            "id": 140,
+            "symbol": "SCEI",
+            "name": "中国清洁",
+            "hsymbol": ""
+        },
+        {
+            "id": 141,
+            "symbol": "CLNT",
+            "name": "中国风能",
+            "hsymbol": ""
+        },
+        {
+            "id": 142,
+            "symbol": "CHIO",
+            "name": "智远天下",
+            "hsymbol": ""
+        },
+        {
+            "id": 143,
+            "symbol": "CXDC",
+            "name": "鑫达集团",
+            "hsymbol": ""
+        },
+        {
+            "id": 144,
+            "symbol": "CJJD",
+            "name": "九洲大药",
+            "hsymbol": ""
+        },
+        {
+            "id": 145,
+            "symbol": "CELM",
+            "name": "岳鹏成电",
+            "hsymbol": ""
+        },
+        {
+            "id": 146,
+            "symbol": "TPI",
+            "name": "天银制药",
+            "hsymbol": ""
+        },
+        {
+            "id": 147,
+            "symbol": "CCM",
+            "name": "泰和诚医",
+            "hsymbol": ""
+        },
+        {
+            "id": 148,
+            "symbol": "SBAY",
+            "name": "数百亿",
+            "hsymbol": ""
+        },
+        {
+            "id": 149,
+            "symbol": "ALN",
+            "name": "绿润集团",
+            "hsymbol": ""
+        },
+        {
+            "id": 150,
+            "symbol": "CDII",
+            "name": "华达产业",
+            "hsymbol": ""
+        },
+        {
+            "id": 151,
+            "symbol": "BSPM",
+            "name": "奥星制药",
+            "hsymbol": ""
+        },
+        {
+            "id": 152,
+            "symbol": "CALI",
+            "name": "中国汽车",
+            "hsymbol": ""
+        },
+        {
+            "id": 153,
+            "symbol": "SKBI",
+            "name": "天星生物",
+            "hsymbol": ""
+        },
+        {
+            "id": 154,
+            "symbol": "DHRM",
+            "name": "德海尔医",
+            "hsymbol": ""
+        },
+        {
+            "id": 155,
+            "symbol": "CHGS",
+            "name": "耕生矿物",
+            "hsymbol": ""
+        },
+        {
+            "id": 156,
+            "symbol": "SVA",
+            "name": "科兴生物",
+            "hsymbol": ""
+        },
+        {
+            "id": 157,
+            "symbol": "CGA",
+            "name": "中国绿色",
+            "hsymbol": ""
+        },
+        {
+            "id": 158,
+            "symbol": "VALV",
+            "name": "圣恺工业",
+            "hsymbol": ""
+        },
+        {
+            "id": 159,
+            "symbol": "NOEC",
+            "name": "新东方能",
+            "hsymbol": ""
+        },
+        {
+            "id": 160,
+            "symbol": "BORN",
+            "name": "博润",
+            "hsymbol": ""
+        },
+        {
+            "id": 161,
+            "symbol": "ONP",
+            "name": "东方纸业",
+            "hsymbol": ""
+        },
+        {
+            "id": 162,
+            "symbol": "CHRM",
+            "name": "昌荣传播",
+            "hsymbol": ""
+        },
+        {
+            "id": 163,
+            "symbol": "OSN",
+            "name": "奥盛创新",
+            "hsymbol": ""
+        },
+        {
+            "id": 164,
+            "symbol": "ZA",
+            "name": "左岸",
+            "hsymbol": ""
+        },
+        {
+            "id": 165,
+            "symbol": "VNET",
+            "name": "世纪互联",
+            "hsymbol": ""
+        },
+        {
+            "id": 166,
+            "symbol": "RENN",
+            "name": "人人公司",
+            "hsymbol": ""
+        },
+        {
+            "id": 167,
+            "symbol": "NQ",
+            "name": "网秦",
+            "hsymbol": ""
+        },
+        {
+            "id": 168,
+            "symbol": "FENG",
+            "name": "凤凰新媒",
+            "hsymbol": "02008"
+        },
+        {
+            "id": 169,
+            "symbol": "ZX",
+            "name": "正兴集团",
+            "hsymbol": ""
+        },
+        {
+            "id": 170,
+            "symbol": "TAOM",
+            "name": "淘米",
+            "hsymbol": ""
+        },
+        {
+            "id": 171,
+            "symbol": "CNIT",
+            "name": "中国信息",
+            "hsymbol": "08178"
+        },
+        {
+            "id": 172,
+            "symbol": "VIPS",
+            "name": "唯品会",
+            "hsymbol": ""
+        },
+        {
+            "id": 173,
+            "symbol": "YY",
+            "name": "欢聚时代",
+            "hsymbol": ""
+        },
+        {
+            "id": 174,
+            "symbol": "DSWL",
+            "name": "德卫",
+            "hsymbol": ""
+        },
+        {
+            "id": 175,
+            "symbol": "APWC",
+            "name": "亚太电线",
+            "hsymbol": ""
+        },
+        {
+            "id": 176,
+            "symbol": "AAAE",
+            "name": "AAA能源",
+            "hsymbol": ""
+        },
+        {
+            "id": 177,
+            "symbol": "IMOS",
+            "name": "南茂科技",
+            "hsymbol": ""
+        },
+        {
+            "id": 178,
+            "symbol": "AACAY",
+            "name": "瑞声",
+            "hsymbol": "02018"
+        },
+        {
+            "id": 179,
+            "symbol": "ACGBY",
+            "name": "中国农行",
+            "hsymbol": ""
+        },
+        {
+            "id": 180,
+            "symbol": "AGVO",
+            "name": "宝生集团",
+            "hsymbol": ""
+        },
+        {
+            "id": 181,
+            "symbol": "AHCHY",
+            "name": "安徽海螺",
+            "hsymbol": "00914"
+        },
+        {
+            "id": 182,
+            "symbol": "AIDA",
+            "name": "爱大制药",
+            "hsymbol": ""
+        },
+        {
+            "id": 183,
+            "symbol": "AICAF",
+            "name": "中国国航",
+            "hsymbol": "00753"
+        },
+        {
+            "id": 184,
+            "symbol": "AIVI",
+            "name": "泛蓝国际",
+            "hsymbol": ""
+        },
+        {
+            "id": 185,
+            "symbol": "AKRK",
+            "name": "亚洲软木",
+            "hsymbol": ""
+        },
+        {
+            "id": 186,
+            "symbol": "ALMMF",
+            "name": "中铝公司",
+            "hsymbol": ""
+        },
+        {
+            "id": 187,
+            "symbol": "ANGGY",
+            "name": "鞍钢",
+            "hsymbol": "00347"
+        },
+        {
+            "id": 188,
+            "symbol": "AMVGF",
+            "name": "澳科控股",
+            "hsymbol": "02300"
+        },
+        {
+            "id": 189,
+            "symbol": "CMFO",
+            "name": "华宝明祥",
+            "hsymbol": ""
+        },
+        {
+            "id": 190,
+            "symbol": "CPGI",
+            "name": "胜达包装",
+            "hsymbol": ""
+        },
+        {
+            "id": 191,
+            "symbol": "AMCG",
+            "name": "爱美柯",
+            "hsymbol": ""
+        },
+        {
+            "id": 192,
+            "symbol": "AMGY",
+            "name": "美国金属",
+            "hsymbol": ""
+        },
+        {
+            "id": 193,
+            "symbol": "HPJ",
+            "name": "豪鹏国际",
+            "hsymbol": ""
+        },
+        {
+            "id": 194,
+            "symbol": "LEDS",
+            "name": "旭明光电",
+            "hsymbol": ""
+        },
+        {
+            "id": 195,
+            "symbol": "ARTB",
+            "name": "艺术精品",
+            "hsymbol": ""
+        },
+        {
+            "id": 196,
+            "symbol": "BACHY",
+            "name": "中国银行",
+            "hsymbol": "03988"
+        },
+        {
+            "id": 197,
+            "symbol": "BCAUY",
+            "name": "华晨中国",
+            "hsymbol": ""
+        },
+        {
+            "id": 198,
+            "symbol": "BCHM",
+            "name": "北京世纪",
+            "hsymbol": ""
+        },
+        {
+            "id": 199,
+            "symbol": "BCMXY",
+            "name": "交通银行",
+            "hsymbol": "00328"
+        },
+        {
+            "id": 200,
+            "symbol": "BDEV",
+            "name": "中国企发",
+            "hsymbol": ""
+        },
+        {
+            "id": 201,
+            "symbol": "BNSO",
+            "name": "恒异电子",
+            "hsymbol": ""
+        },
+        {
+            "id": 202,
+            "symbol": "EVK",
+            "name": "华瑞服装",
+            "hsymbol": ""
+        },
+        {
+            "id": 203,
+            "symbol": "NEWN",
+            "name": "新能源系",
+            "hsymbol": ""
+        },
+        {
+            "id": 204,
+            "symbol": "CNR",
+            "name": "中国新城",
+            "hsymbol": ""
+        },
+        {
+            "id": 205,
+            "symbol": "BEER",
+            "name": "清源啤酒",
+            "hsymbol": ""
+        },
+        {
+            "id": 206,
+            "symbol": "EGT",
+            "name": "亚洲娱乐",
+            "hsymbol": ""
+        },
+        {
+            "id": 207,
+            "symbol": "BEIJF",
+            "name": "北辰实业",
+            "hsymbol": "00588"
+        },
+        {
+            "id": 208,
+            "symbol": "BELLY",
+            "name": "百丽",
+            "hsymbol": "01880"
+        },
+        {
+            "id": 209,
+            "symbol": "BFAR",
+            "name": "亚洲生物",
+            "hsymbol": ""
+        },
+        {
+            "id": 210,
+            "symbol": "BJCHF",
+            "name": "首都国际",
+            "hsymbol": ""
+        },
+        {
+            "id": 211,
+            "symbol": "BHKLY",
+            "name": "中银香港",
+            "hsymbol": "02388"
+        },
+        {
+            "id": 212,
+            "symbol": "BJINY",
+            "name": "北京控股",
+            "hsymbol": "00392"
+        },
+        {
+            "id": 213,
+            "symbol": "BKEAY",
+            "name": "东亚银行",
+            "hsymbol": "00023"
+        },
+        {
+            "id": 214,
+            "symbol": "SGOC",
+            "name": "上为",
+            "hsymbol": ""
+        },
+        {
+            "id": 215,
+            "symbol": "CLWT",
+            "name": "欧陆科仪",
+            "hsymbol": ""
+        },
+        {
+            "id": 216,
+            "symbol": "BOTRF",
+            "name": "汉科环境",
+            "hsymbol": ""
+        },
+        {
+            "id": 217,
+            "symbol": "BOTX",
+            "name": "邦泰",
+            "hsymbol": ""
+        },
+        {
+            "id": 218,
+            "symbol": "GAI",
+            "name": "全球科技",
+            "hsymbol": ""
+        },
+        {
+            "id": 219,
+            "symbol": "BSDGY",
+            "name": "波司登",
+            "hsymbol": "03998"
+        },
+        {
+            "id": 220,
+            "symbol": "BSHG",
+            "name": "百隆东方",
+            "hsymbol": ""
+        },
+        {
+            "id": 221,
+            "symbol": "IDI",
+            "name": "晶立",
+            "hsymbol": ""
+        },
+        {
+            "id": 222,
+            "symbol": "BYDDF",
+            "name": "比亚迪",
+            "hsymbol": "01211"
+        },
+        {
+            "id": 223,
+            "symbol": "CABLF",
+            "name": "中国Cab",
+            "hsymbol": ""
+        },
+        {
+            "id": 224,
+            "symbol": "CAGM",
+            "name": "绿色材料",
+            "hsymbol": ""
+        },
+        {
+            "id": 225,
+            "symbol": "HIHO",
+            "name": "公路控股",
+            "hsymbol": ""
+        },
+        {
+            "id": 226,
+            "symbol": "QKLS",
+            "name": "庆客隆",
+            "hsymbol": ""
+        },
+        {
+            "id": 227,
+            "symbol": "NFEC",
+            "name": "能发伟业",
+            "hsymbol": ""
+        },
+        {
+            "id": 228,
+            "symbol": "MPEL",
+            "name": "新濠博亚",
+            "hsymbol": "06883"
+        },
+        {
+            "id": 229,
+            "symbol": "KGJI",
+            "name": "金凰珠宝",
+            "hsymbol": ""
+        },
+        {
+            "id": 230,
+            "symbol": "CAOVY",
+            "name": "中国海外",
+            "hsymbol": "00688"
+        },
+        {
+            "id": 231,
+            "symbol": "CARCY",
+            "name": "华润水泥",
+            "hsymbol": "01313"
+        },
+        {
+            "id": 232,
+            "symbol": "CASDY",
+            "name": "中国中材",
+            "hsymbol": ""
+        },
+        {
+            "id": 233,
+            "symbol": "CBEH",
+            "name": "中国综合",
+            "hsymbol": ""
+        },
+        {
+            "id": 234,
+            "symbol": "CBGH",
+            "name": "中国溢佰",
+            "hsymbol": ""
+        },
+        {
+            "id": 235,
+            "symbol": "CBLUY",
+            "name": "中海石油",
+            "hsymbol": "03983"
+        },
+        {
+            "id": 236,
+            "symbol": "CBUMY",
+            "name": "中国建材",
+            "hsymbol": "03323"
+        },
+        {
+            "id": 237,
+            "symbol": "CBRAF",
+            "name": "CBR酿造",
+            "hsymbol": ""
+        },
+        {
+            "id": 238,
+            "symbol": "SSW",
+            "name": "西斯班",
+            "hsymbol": ""
+        },
+        {
+            "id": 239,
+            "symbol": "CCCGY",
+            "name": "中交股份",
+            "hsymbol": ""
+        },
+        {
+            "id": 240,
+            "symbol": "JMHLY",
+            "name": "怡和控股",
+            "hsymbol": ""
+        },
+        {
+            "id": 241,
+            "symbol": "CBPO",
+            "name": "泰邦生物",
+            "hsymbol": ""
+        },
+        {
+            "id": 242,
+            "symbol": "XHFNF",
+            "name": "新华财经",
+            "hsymbol": ""
+        },
+        {
+            "id": 243,
+            "symbol": "HGHN",
+            "name": "泰科铁塔",
+            "hsymbol": ""
+        },
+        {
+            "id": 244,
+            "symbol": "JPAK",
+            "name": "青岛人印",
+            "hsymbol": ""
+        },
+        {
+            "id": 245,
+            "symbol": "KEYP",
+            "name": "科元石化",
+            "hsymbol": ""
+        },
+        {
+            "id": 246,
+            "symbol": "HGKGY",
+            "name": "电能实业",
+            "hsymbol": "00006"
+        },
+        {
+            "id": 247,
+            "symbol": "HHGM",
+            "name": "惠恒医疗",
+            "hsymbol": ""
+        },
+        {
+            "id": 248,
+            "symbol": "KMSWF",
+            "name": "信星鞋业",
+            "hsymbol": ""
+        },
+        {
+            "id": 249,
+            "symbol": "HIGR",
+            "name": "百丰电子",
+            "hsymbol": ""
+        },
+        {
+            "id": 250,
+            "symbol": "XNFHF",
+            "name": "三八妇乐",
+            "hsymbol": ""
+        },
+        {
+            "id": 251,
+            "symbol": "HIIDY",
+            "name": "恒鼎实业",
+            "hsymbol": "01393"
+        },
+        {
+            "id": 252,
+            "symbol": "XNGSY",
+            "name": "新奥能源",
+            "hsymbol": "02688"
+        },
+        {
+            "id": 253,
+            "symbol": "XSELY",
+            "name": "新华悦动",
+            "hsymbol": ""
+        },
+        {
+            "id": 254,
+            "symbol": "XYIGF",
+            "name": "信义玻璃",
+            "hsymbol": "00868"
+        },
+        {
+            "id": 255,
+            "symbol": "HKAEY",
+            "name": "港机工程",
+            "hsymbol": ""
+        },
+        {
+            "id": 256,
+            "symbol": "YINGY",
+            "name": "盈德气体",
+            "hsymbol": "02168"
+        },
+        {
+            "id": 257,
+            "symbol": "JADA",
+            "name": "佘太翠玉",
+            "hsymbol": ""
+        },
+        {
+            "id": 258,
+            "symbol": "YYINE",
+            "name": "亚亿国际",
+            "hsymbol": ""
+        },
+        {
+            "id": 259,
+            "symbol": "KRYPY",
+            "name": "嘉里建设",
+            "hsymbol": "00683"
+        },
+        {
+            "id": 260,
+            "symbol": "YIPCF",
+            "name": "叶氏化工",
+            "hsymbol": "00408"
+        },
+        {
+            "id": 261,
+            "symbol": "ZHAOF",
+            "name": "招金矿业",
+            "hsymbol": "01818"
+        },
+        {
+            "id": 262,
+            "symbol": "PPCCY",
+            "name": "中国人财",
+            "hsymbol": ""
+        },
+        {
+            "id": 263,
+            "symbol": "HKXCF",
+            "name": "港交所",
+            "hsymbol": ""
+        },
+        {
+            "id": 264,
+            "symbol": "PSGP",
+            "name": "美商百胜",
+            "hsymbol": ""
+        },
+        {
+            "id": 265,
+            "symbol": "JELCY",
+            "name": "德昌电机",
+            "hsymbol": "00179"
+        },
+        {
+            "id": 266,
+            "symbol": "QING",
+            "name": "红冠鞋业",
+            "hsymbol": ""
+        },
+        {
+            "id": 267,
+            "symbol": "RDBO",
+            "name": "乳多宝",
+            "hsymbol": ""
+        },
+        {
+            "id": 268,
+            "symbol": "RNFU",
+            "name": "荣福水产",
+            "hsymbol": ""
+        },
+        {
+            "id": 269,
+            "symbol": "KURU",
+            "name": "昆仑生物",
+            "hsymbol": ""
+        },
+        {
+            "id": 270,
+            "symbol": "RNHEF",
+            "name": "人和商业",
+            "hsymbol": "01387"
+        },
+        {
+            "id": 271,
+            "symbol": "KWHAY",
+            "name": "嘉华国际",
+            "hsymbol": "00173"
+        },
+        {
+            "id": 272,
+            "symbol": "SEXHF",
+            "name": "成渝高速",
+            "hsymbol": "00107"
+        },
+        {
+            "id": 273,
+            "symbol": "JEXYY",
+            "name": "江苏宁沪",
+            "hsymbol": "00177"
+        },
+        {
+            "id": 274,
+            "symbol": "JEXYF",
+            "name": "江苏宁沪",
+            "hsymbol": "00177"
+        },
+        {
+            "id": 275,
+            "symbol": "SGHIY",
+            "name": "上海实业",
+            "hsymbol": "00363"
+        },
+        {
+            "id": 276,
+            "symbol": "SHALY",
+            "name": "香格里拉",
+            "hsymbol": "00069"
+        },
+        {
+            "id": 277,
+            "symbol": "JIXAY",
+            "name": "江铜集团",
+            "hsymbol": ""
+        },
+        {
+            "id": 278,
+            "symbol": "LEGE",
+            "name": "乐君传媒",
+            "hsymbol": ""
+        },
+        {
+            "id": 279,
+            "symbol": "SHANF",
+            "name": "墨龙石油",
+            "hsymbol": ""
+        },
+        {
+            "id": 280,
+            "symbol": "SHGXY",
+            "name": "神冠控股",
+            "hsymbol": "00829"
+        },
+        {
+            "id": 282,
+            "symbol": "LKHLY",
+            "name": "龙工控股",
+            "hsymbol": ""
+        },
+        {
+            "id": 283,
+            "symbol": "SHTDF",
+            "name": "国药",
+            "hsymbol": "01099"
+        },
+        {
+            "id": 284,
+            "symbol": "SHTGY",
+            "name": "信得",
+            "hsymbol": ""
+        },
+        {
+            "id": 285,
+            "symbol": "TRUHY",
+            "name": "信利国际",
+            "hsymbol": "00732"
+        },
+        {
+            "id": 286,
+            "symbol": "TSGTF",
+            "name": "青岛啤酒",
+            "hsymbol": "00168"
+        },
+        {
+            "id": 287,
+            "symbol": "TSYHY",
+            "name": "中国航信",
+            "hsymbol": ""
+        },
+        {
+            "id": 288,
+            "symbol": "TTNDY",
+            "name": "创科实业",
+            "hsymbol": "00669"
+        },
+        {
+            "id": 289,
+            "symbol": "XNWU",
+            "name": "玄武集团",
+            "hsymbol": ""
+        },
+        {
+            "id": 290,
+            "symbol": "LMPMY",
+            "name": "理文造纸",
+            "hsymbol": "02314"
+        },
+        {
+            "id": 291,
+            "symbol": "LTUS",
+            "name": "莲花制药",
+            "hsymbol": ""
+        },
+        {
+            "id": 292,
+            "symbol": "MAANF",
+            "name": "马鞍山钢",
+            "hsymbol": "00323"
+        },
+        {
+            "id": 293,
+            "symbol": "MAORF",
+            "name": "文化东方",
+            "hsymbol": ""
+        },
+        {
+            "id": 294,
+            "symbol": "MLLUY",
+            "name": "冶金科工",
+            "hsymbol": ""
+        },
+        {
+            "id": 295,
+            "symbol": "NANI",
+            "name": "新逻辑动",
+            "hsymbol": ""
+        },
+        {
+            "id": 296,
+            "symbol": "TVBCY",
+            "name": "无线电视",
+            "hsymbol": ""
+        },
+        {
+            "id": 297,
+            "symbol": "CEVIY",
+            "name": "光大控股",
+            "hsymbol": "00165"
+        },
+        {
+            "id": 298,
+            "symbol": "TXNM",
+            "name": "天鑫矿业",
+            "hsymbol": ""
+        },
+        {
+            "id": 299,
+            "symbol": "NIVS",
+            "name": "纳伟仕视",
+            "hsymbol": ""
+        },
+        {
+            "id": 300,
+            "symbol": "UOLI",
+            "name": "优按网络",
+            "hsymbol": ""
+        },
+        {
+            "id": 301,
+            "symbol": "CHME",
+            "name": "康采恩",
+            "hsymbol": ""
+        },
+        {
+            "id": 302,
+            "symbol": "NOBGF",
+            "name": "来宝集团",
+            "hsymbol": ""
+        },
+        {
+            "id": 303,
+            "symbol": "CCCL",
+            "name": "中国陶瓷",
+            "hsymbol": ""
+        },
+        {
+            "id": 304,
+            "symbol": "WGHGY",
+            "name": "永亨银行",
+            "hsymbol": "00302"
+        },
+        {
+            "id": 305,
+            "symbol": "SLUXY",
+            "name": "罗欣药业",
+            "hsymbol": "08058"
+        },
+        {
+            "id": 306,
+            "symbol": "VTSYF",
+            "name": "维他奶",
+            "hsymbol": ""
+        },
+        {
+            "id": 307,
+            "symbol": "NWRLY",
+            "name": "新世界百",
+            "hsymbol": "00825"
+        },
+        {
+            "id": 308,
+            "symbol": "SLVA",
+            "name": "银燕木业",
+            "hsymbol": ""
+        },
+        {
+            "id": 309,
+            "symbol": "SNAS",
+            "name": "中建担保",
+            "hsymbol": ""
+        },
+        {
+            "id": 310,
+            "symbol": "SNFRY",
+            "name": "中化化肥",
+            "hsymbol": "00297"
+        },
+        {
+            "id": 311,
+            "symbol": "SNLAY",
+            "name": "信和置业",
+            "hsymbol": "00083"
+        },
+        {
+            "id": 312,
+            "symbol": "OPEI",
+            "name": "东方石油",
+            "hsymbol": ""
+        },
+        {
+            "id": 313,
+            "symbol": "UIBGF",
+            "name": "联合经纪",
+            "hsymbol": ""
+        },
+        {
+            "id": 314,
+            "symbol": "WGLD",
+            "name": "三金国际",
+            "hsymbol": ""
+        },
+        {
+            "id": 315,
+            "symbol": "HKXCY",
+            "name": "港交所",
+            "hsymbol": ""
+        },
+        {
+            "id": 316,
+            "symbol": "HLDCY",
+            "name": "恒基兆业",
+            "hsymbol": ""
+        },
+        {
+            "id": 317,
+            "symbol": "HLDVF",
+            "name": "恒基兆业",
+            "hsymbol": ""
+        },
+        {
+            "id": 318,
+            "symbol": "HLPPY",
+            "name": "恒隆地产",
+            "hsymbol": "00101"
+        },
+        {
+            "id": 319,
+            "symbol": "HMCTF",
+            "name": "美兰股份",
+            "hsymbol": ""
+        },
+        {
+            "id": 320,
+            "symbol": "HNLGF",
+            "name": "恒隆集团",
+            "hsymbol": "00010"
+        },
+        {
+            "id": 321,
+            "symbol": "HNLGY",
+            "name": "恒隆集团",
+            "hsymbol": ""
+        },
+        {
+            "id": 322,
+            "symbol": "HOKCY",
+            "name": "煤气公司",
+            "hsymbol": ""
+        },
+        {
+            "id": 323,
+            "symbol": "CHCC",
+            "name": "嘉周化工",
+            "hsymbol": ""
+        },
+        {
+            "id": 324,
+            "symbol": "HOWWY",
+            "name": "合和实业",
+            "hsymbol": "00054"
+        },
+        {
+            "id": 325,
+            "symbol": "CHCG",
+            "name": "中国3C集",
+            "hsymbol": ""
+        },
+        {
+            "id": 326,
+            "symbol": "SRRY",
+            "name": "盛棵再生",
+            "hsymbol": ""
+        },
+        {
+            "id": 327,
+            "symbol": "CHDA",
+            "name": "中国数字",
+            "hsymbol": ""
+        },
+        {
+            "id": 328,
+            "symbol": "STTFY",
+            "name": "数码通",
+            "hsymbol": "00315"
+        },
+        {
+            "id": 329,
+            "symbol": "HQGE",
+            "name": "环球教育",
+            "hsymbol": ""
+        },
+        {
+            "id": 330,
+            "symbol": "HRELF",
+            "name": "海尔",
+            "hsymbol": "01169"
+        },
+        {
+            "id": 331,
+            "symbol": "SUHJY",
+            "name": "新鸿基",
+            "hsymbol": "00016"
+        },
+        {
+            "id": 332,
+            "symbol": "CHDP",
+            "name": "M&H石油",
+            "hsymbol": ""
+        },
+        {
+            "id": 333,
+            "symbol": "CHEUY",
+            "name": "长实",
+            "hsymbol": ""
+        },
+        {
+            "id": 334,
+            "symbol": "HRELY",
+            "name": "海尔",
+            "hsymbol": "01169"
+        },
+        {
+            "id": 335,
+            "symbol": "SWRAY",
+            "name": "太古",
+            "hsymbol": "00019"
+        },
+        {
+            "id": 336,
+            "symbol": "SYUP",
+            "name": "玉同药业",
+            "hsymbol": ""
+        },
+        {
+            "id": 337,
+            "symbol": "HSNGY",
+            "name": "恒生银行",
+            "hsymbol": "00011"
+        },
+        {
+            "id": 338,
+            "symbol": "HSYT",
+            "name": "家庭系统",
+            "hsymbol": ""
+        },
+        {
+            "id": 339,
+            "symbol": "HTCMY",
+            "name": "日立建机",
+            "hsymbol": ""
+        },
+        {
+            "id": 340,
+            "symbol": "HUABF",
+            "name": "华宝国际",
+            "hsymbol": "00336"
+        },
+        {
+            "id": 341,
+            "symbol": "SOUG",
+            "name": "搜三百",
+            "hsymbol": ""
+        },
+        {
+            "id": 342,
+            "symbol": "HUIHY",
+            "name": "华宝国际",
+            "hsymbol": "00336"
+        },
+        {
+            "id": 343,
+            "symbol": "HUIY",
+            "name": "惠影科技",
+            "hsymbol": ""
+        },
+        {
+            "id": 344,
+            "symbol": "HYSNY",
+            "name": "希慎兴业",
+            "hsymbol": "00014"
+        },
+        {
+            "id": 345,
+            "symbol": "IDCBF",
+            "name": "工商银行",
+            "hsymbol": "01398"
+        },
+        {
+            "id": 346,
+            "symbol": "IDCBY",
+            "name": "工商银行",
+            "hsymbol": "01398"
+        },
+        {
+            "id": 347,
+            "symbol": "IDCX",
+            "name": "华北园艺",
+            "hsymbol": ""
+        },
+        {
+            "id": 348,
+            "symbol": "IICN",
+            "name": "情报系统",
+            "hsymbol": ""
+        },
+        {
+            "id": 349,
+            "symbol": "IINHY",
+            "name": "意马",
+            "hsymbol": "00585"
+        },
+        {
+            "id": 350,
+            "symbol": "ZOOM",
+            "name": "注目科技",
+            "hsymbol": ""
+        },
+        {
+            "id": 351,
+            "symbol": "IKTSY",
+            "name": "天祥集团",
+            "hsymbol": ""
+        },
+        {
+            "id": 352,
+            "symbol": "TSGTY",
+            "name": "青岛啤酒",
+            "hsymbol": "00168"
+        },
+        {
+            "id": 353,
+            "symbol": "XYIGY",
+            "name": "信义玻璃",
+            "hsymbol": "00868"
+        },
+        {
+            "id": 354,
+            "symbol": "CHPN",
+            "name": "中国多肽",
+            "hsymbol": ""
+        },
+        {
+            "id": 355,
+            "symbol": "CHPXY",
+            "name": "中国太保",
+            "hsymbol": "02601"
+        },
+        {
+            "id": 356,
+            "symbol": "CHWTF",
+            "name": "中国无线",
+            "hsymbol": ""
+        },
+        {
+            "id": 357,
+            "symbol": "CHHE",
+            "name": "健康产业",
+            "hsymbol": ""
+        },
+        {
+            "id": 358,
+            "symbol": "CHSY",
+            "name": "康哲药业",
+            "hsymbol": "00867"
+        },
+        {
+            "id": 359,
+            "symbol": "CICHY",
+            "name": "中国建设",
+            "hsymbol": ""
+        },
+        {
+            "id": 360,
+            "symbol": "ZHDM",
+            "name": "中汇道明",
+            "hsymbol": ""
+        },
+        {
+            "id": 361,
+            "symbol": "ZHEXF",
+            "name": "沪杭甬高",
+            "hsymbol": ""
+        },
+        {
+            "id": 362,
+            "symbol": "CITAY",
+            "name": "中海集装",
+            "hsymbol": ""
+        },
+        {
+            "id": 363,
+            "symbol": "ZHYLF",
+            "name": "兆恒水电",
+            "hsymbol": ""
+        },
+        {
+            "id": 364,
+            "symbol": "CICOY",
+            "name": "中国远洋",
+            "hsymbol": "01919"
+        },
+        {
+            "id": 365,
+            "symbol": "CIDHY",
+            "name": "中粮",
+            "hsymbol": ""
+        },
+        {
+            "id": 366,
+            "symbol": "CHSTY",
+            "name": "中国传动",
+            "hsymbol": ""
+        },
+        {
+            "id": 367,
+            "symbol": "CIVN",
+            "name": "协同教学",
+            "hsymbol": ""
+        },
+        {
+            "id": 368,
+            "symbol": "CIFHY",
+            "name": "中渔集团",
+            "hsymbol": ""
+        },
+        {
+            "id": 369,
+            "symbol": "CIHD",
+            "name": "常达国际",
+            "hsymbol": ""
+        },
+        {
+            "id": 370,
+            "symbol": "CIHKY",
+            "name": "招商银行",
+            "hsymbol": "03968"
+        },
+        {
+            "id": 371,
+            "symbol": "ZIJMF",
+            "name": "紫金矿业",
+            "hsymbol": "02899"
+        },
+        {
+            "id": 372,
+            "symbol": "CHOR",
+            "name": "中国有机",
+            "hsymbol": ""
+        },
+        {
+            "id": 373,
+            "symbol": "ZLIOY",
+            "name": "中联重科",
+            "hsymbol": "01157"
+        },
+        {
+            "id": 374,
+            "symbol": "ZTCOF",
+            "name": "中兴通讯",
+            "hsymbol": "00763"
+        },
+        {
+            "id": 375,
+            "symbol": "CHLBF",
+            "name": "中国卫生",
+            "hsymbol": ""
+        },
+        {
+            "id": 376,
+            "symbol": "CIWT",
+            "name": "中国工业",
+            "hsymbol": ""
+        },
+        {
+            "id": 377,
+            "symbol": "ZYCI",
+            "name": "紫阳陶瓷",
+            "hsymbol": ""
+        },
+        {
+            "id": 378,
+            "symbol": "TAAI",
+            "name": "古今通宝",
+            "hsymbol": ""
+        },
+        {
+            "id": 379,
+            "symbol": "TCEHY",
+            "name": "腾讯",
+            "hsymbol": "00700"
+        },
+        {
+            "id": 380,
+            "symbol": "TCEPY",
+            "name": "创业环保",
+            "hsymbol": "01065"
+        },
+        {
+            "id": 381,
+            "symbol": "TCYMF",
+            "name": "康师傅",
+            "hsymbol": "00322"
+        },
+        {
+            "id": 382,
+            "symbol": "CKGT",
+            "name": "康太仙人",
+            "hsymbol": ""
+        },
+        {
+            "id": 383,
+            "symbol": "SHWGY",
+            "name": "山东威高",
+            "hsymbol": ""
+        },
+        {
+            "id": 384,
+            "symbol": "SHZNY",
+            "name": "深圳高速",
+            "hsymbol": "00548"
+        },
+        {
+            "id": 385,
+            "symbol": "SIMTF",
+            "name": "晨讯科技",
+            "hsymbol": "02000"
+        },
+        {
+            "id": 386,
+            "symbol": "CKUN",
+            "name": "圣火药业",
+            "hsymbol": ""
+        },
+        {
+            "id": 387,
+            "symbol": "OROVY",
+            "name": "东方海外",
+            "hsymbol": "00316"
+        },
+        {
+            "id": 388,
+            "symbol": "TCYMY",
+            "name": "康师傅",
+            "hsymbol": "00322"
+        },
+        {
+            "id": 389,
+            "symbol": "SIELY",
+            "name": "上海电气",
+            "hsymbol": "02727"
+        },
+        {
+            "id": 390,
+            "symbol": "TCTZF",
+            "name": "腾讯",
+            "hsymbol": "02943"
+        },
+        {
+            "id": 391,
+            "symbol": "SIOLY",
+            "name": "远洋地产",
+            "hsymbol": ""
+        },
+        {
+            "id": 392,
+            "symbol": "TRUHF",
+            "name": "信利国际",
+            "hsymbol": "00732"
+        },
+        {
+            "id": 393,
+            "symbol": "ORSX",
+            "name": "奥盛技术",
+            "hsymbol": ""
+        },
+        {
+            "id": 394,
+            "symbol": "PBEP",
+            "name": "太平洋宝",
+            "hsymbol": ""
+        },
+        {
+            "id": 395,
+            "symbol": "CHNC",
+            "name": "中基建",
+            "hsymbol": ""
+        },
+        {
+            "id": 396,
+            "symbol": "SWRBY",
+            "name": "太古",
+            "hsymbol": "00087"
+        },
+        {
+            "id": 397,
+            "symbol": "PIAIF",
+            "name": "平安保险",
+            "hsymbol": ""
+        },
+        {
+            "id": 398,
+            "symbol": "PKSGY",
+            "name": "百盛商业",
+            "hsymbol": ""
+        },
+        {
+            "id": 399,
+            "symbol": "KSTV",
+            "name": "坤伦文化",
+            "hsymbol": ""
+        },
+        {
+            "id": 400,
+            "symbol": "WOSSF",
+            "name": "奥思集团",
+            "hsymbol": "01161"
+        },
+        {
+            "id": 401,
+            "symbol": "WTFS",
+            "name": "信德燃喷",
+            "hsymbol": ""
+        },
+        {
+            "id": 402,
+            "symbol": "WUMSF",
+            "name": "北京物美",
+            "hsymbol": ""
+        },
+        {
+            "id": 403,
+            "symbol": "WSYS",
+            "name": "韦斯特加",
+            "hsymbol": ""
+        },
+        {
+            "id": 404,
+            "symbol": "WWNTF",
+            "name": "旺旺中国",
+            "hsymbol": ""
+        },
+        {
+            "id": 405,
+            "symbol": "WYNMF",
+            "name": "永利澳门",
+            "hsymbol": "01128"
+        },
+        {
+            "id": 406,
+            "symbol": "ZHEXY",
+            "name": "沪杭甬高",
+            "hsymbol": ""
+        },
+        {
+            "id": 407,
+            "symbol": "ZIJMY",
+            "name": "紫金矿业",
+            "hsymbol": "02899"
+        },
+        {
+            "id": 408,
+            "symbol": "ZTCOY",
+            "name": "中兴通讯",
+            "hsymbol": "00763"
+        },
+        {
+            "id": 409,
+            "symbol": "WUMSY",
+            "name": "北京物美",
+            "hsymbol": ""
+        },
+        {
+            "id": 410,
+            "symbol": "WWNTY",
+            "name": "旺旺中国",
+            "hsymbol": ""
+        },
+        {
+            "id": 411,
+            "symbol": "NOBGY",
+            "name": "来宝集团",
+            "hsymbol": ""
+        },
+        {
+            "id": 412,
+            "symbol": "CLPXY",
+            "name": "龙源电力",
+            "hsymbol": "00916"
+        },
+        {
+            "id": 413,
+            "symbol": "WYNMY",
+            "name": "永利澳门",
+            "hsymbol": "01128"
+        },
+        {
+            "id": 414,
+            "symbol": "MNOIY",
+            "name": "文化东方",
+            "hsymbol": ""
+        },
+        {
+            "id": 415,
+            "symbol": "CMAKY",
+            "name": "民生银行",
+            "hsymbol": "01988"
+        },
+        {
+            "id": 416,
+            "symbol": "CMNW",
+            "name": "中国M161",
+            "hsymbol": ""
+        },
+        {
+            "id": 417,
+            "symbol": "PNGAY",
+            "name": "平安保险",
+            "hsymbol": ""
+        },
+        {
+            "id": 418,
+            "symbol": "CNER",
+            "name": "中国新能",
+            "hsymbol": ""
+        },
+        {
+            "id": 419,
+            "symbol": "CPDV",
+            "name": "中房发展",
+            "hsymbol": ""
+        },
+        {
+            "id": 420,
+            "symbol": "CPKPF",
+            "name": "卜蜂国际",
+            "hsymbol": "00043"
+        },
+        {
+            "id": 421,
+            "symbol": "CPCAY",
+            "name": "国泰航空",
+            "hsymbol": "00293"
+        },
+        {
+            "id": 422,
+            "symbol": "CRHKY",
+            "name": "华润",
+            "hsymbol": ""
+        },
+        {
+            "id": 423,
+            "symbol": "CRHO",
+            "name": "呈辉置业",
+            "hsymbol": ""
+        },
+        {
+            "id": 424,
+            "symbol": "CRUI",
+            "name": "瑞泰国际",
+            "hsymbol": ""
+        },
+        {
+            "id": 425,
+            "symbol": "CRJI",
+            "name": "润基水泥",
+            "hsymbol": ""
+        },
+        {
+            "id": 426,
+            "symbol": "CHOLF",
+            "name": "中海油服",
+            "hsymbol": ""
+        },
+        {
+            "id": 427,
+            "symbol": "CHOLY",
+            "name": "中海油服",
+            "hsymbol": ""
+        },
+        {
+            "id": 428,
+            "symbol": "CRWOY",
+            "name": "中国中铁",
+            "hsymbol": "00390"
+        },
+        {
+            "id": 429,
+            "symbol": "CSDXY",
+            "name": "中海发展",
+            "hsymbol": "01138"
+        },
+        {
+            "id": 430,
+            "symbol": "CSEHY",
+            "name": "源畅光电",
+            "hsymbol": ""
+        },
+        {
+            "id": 431,
+            "symbol": "CSGJ",
+            "name": "双吉水泥",
+            "hsymbol": ""
+        },
+        {
+            "id": 432,
+            "symbol": "CSKD",
+            "name": "兴天下",
+            "hsymbol": ""
+        },
+        {
+            "id": 433,
+            "symbol": "CSGH",
+            "name": "大连新阳",
+            "hsymbol": ""
+        },
+        {
+            "id": 434,
+            "symbol": "CSNH",
+            "name": "曹普工艺",
+            "hsymbol": ""
+        },
+        {
+            "id": 435,
+            "symbol": "CCGY",
+            "name": "福建中德",
+            "hsymbol": ""
+        },
+        {
+            "id": 436,
+            "symbol": "CSOL",
+            "name": "德利国际",
+            "hsymbol": ""
+        },
+        {
+            "id": 437,
+            "symbol": "CSRGY",
+            "name": "中国南车",
+            "hsymbol": ""
+        },
+        {
+            "id": 438,
+            "symbol": "CSUAY",
+            "name": "中国神华",
+            "hsymbol": "01088"
+        },
+        {
+            "id": 439,
+            "symbol": "CSWG",
+            "name": "森宇国际",
+            "hsymbol": ""
+        },
+        {
+            "id": 440,
+            "symbol": "CTEK",
+            "name": "新兴佳",
+            "hsymbol": ""
+        },
+        {
+            "id": 441,
+            "symbol": "CSWYY",
+            "name": "神威药业",
+            "hsymbol": "02877"
+        },
+        {
+            "id": 442,
+            "symbol": "CTHL",
+            "name": "中拖",
+            "hsymbol": ""
+        },
+        {
+            "id": 443,
+            "symbol": "CTPCY",
+            "name": "中信泰富",
+            "hsymbol": ""
+        },
+        {
+            "id": 444,
+            "symbol": "HUAZ",
+            "name": "华野燃气",
+            "hsymbol": ""
+        },
+        {
+            "id": 445,
+            "symbol": "CTVZ",
+            "name": "中国旅游",
+            "hsymbol": ""
+        },
+        {
+            "id": 446,
+            "symbol": "CPKPY",
+            "name": "卜蜂国际",
+            "hsymbol": "00043"
+        },
+        {
+            "id": 447,
+            "symbol": "CCOZY",
+            "name": "中煤能源",
+            "hsymbol": "01898"
+        },
+        {
+            "id": 448,
+            "symbol": "CCOZF",
+            "name": "中煤能源",
+            "hsymbol": "01898"
+        },
+        {
+            "id": 449,
+            "symbol": "CDBH",
+            "name": "中国生物",
+            "hsymbol": ""
+        },
+        {
+            "id": 450,
+            "symbol": "CDBT",
+            "name": "甘肃大圣",
+            "hsymbol": ""
+        },
+        {
+            "id": 451,
+            "symbol": "CDGXF",
+            "name": "中国动向",
+            "hsymbol": "03818"
+        },
+        {
+            "id": 452,
+            "symbol": "CDSG",
+            "name": "东升伟业",
+            "hsymbol": ""
+        },
+        {
+            "id": 453,
+            "symbol": "BACHF",
+            "name": "中国银行",
+            "hsymbol": "03988"
+        },
+        {
+            "id": 454,
+            "symbol": "AIRYY",
+            "name": "中国国航",
+            "hsymbol": "00753"
+        },
+        {
+            "id": 455,
+            "symbol": "BCAUF",
+            "name": "华晨中国",
+            "hsymbol": ""
+        },
+        {
+            "id": 456,
+            "symbol": "BKEAF",
+            "name": "东亚银行",
+            "hsymbol": "00023"
+        },
+        {
+            "id": 457,
+            "symbol": "CICHF",
+            "name": "中国建设",
+            "hsymbol": ""
+        },
+        {
+            "id": 458,
+            "symbol": "DPNEY",
+            "name": "达芙妮集",
+            "hsymbol": ""
+        },
+        {
+            "id": 459,
+            "symbol": "DRCR",
+            "name": "徳爱尔羊",
+            "hsymbol": ""
+        },
+        {
+            "id": 460,
+            "symbol": "BYDDY",
+            "name": "比亚迪",
+            "hsymbol": "01211"
+        },
+        {
+            "id": 461,
+            "symbol": "DUKS",
+            "name": "太阳禽业",
+            "hsymbol": ""
+        },
+        {
+            "id": 462,
+            "symbol": "EAST",
+            "name": "东方安防",
+            "hsymbol": ""
+        },
+        {
+            "id": 463,
+            "symbol": "EESC",
+            "name": "亿丰环境",
+            "hsymbol": ""
+        },
+        {
+            "id": 464,
+            "symbol": "EKONY",
+            "name": "e-KONG集",
+            "hsymbol": ""
+        },
+        {
+            "id": 465,
+            "symbol": "ENHD",
+            "name": "大连础明",
+            "hsymbol": ""
+        },
+        {
+            "id": 466,
+            "symbol": "DXIN",
+            "name": "东信生物",
+            "hsymbol": ""
+        },
+        {
+            "id": 467,
+            "symbol": "ESPGY",
+            "name": "思捷环球",
+            "hsymbol": "00330"
+        },
+        {
+            "id": 468,
+            "symbol": "FEPU",
+            "name": "飞鹰塑胶",
+            "hsymbol": ""
+        },
+        {
+            "id": 469,
+            "symbol": "FLMS",
+            "name": "FLM矿业",
+            "hsymbol": ""
+        },
+        {
+            "id": 470,
+            "symbol": "FIRRY",
+            "name": "第一拖拉",
+            "hsymbol": "00038"
+        },
+        {
+            "id": 471,
+            "symbol": "FXCNY",
+            "name": "富士康控",
+            "hsymbol": ""
+        },
+        {
+            "id": 472,
+            "symbol": "FPAFF",
+            "name": "第一太平",
+            "hsymbol": "00142"
+        },
+        {
+            "id": 473,
+            "symbol": "GGDVY",
+            "name": "粤海投资",
+            "hsymbol": "00270"
+        },
+        {
+            "id": 474,
+            "symbol": "GIGNF",
+            "name": "云顶新加",
+            "hsymbol": ""
+        },
+        {
+            "id": 475,
+            "symbol": "GIGNY",
+            "name": "云顶新加",
+            "hsymbol": ""
+        },
+        {
+            "id": 476,
+            "symbol": "GMDTF",
+            "name": "金卫医疗",
+            "hsymbol": "00481"
+        },
+        {
+            "id": 477,
+            "symbol": "GHII",
+            "name": "金马国际",
+            "hsymbol": ""
+        },
+        {
+            "id": 478,
+            "symbol": "GOEG",
+            "name": "金象玻璃",
+            "hsymbol": ""
+        },
+        {
+            "id": 479,
+            "symbol": "GPHG",
+            "name": "环球医药",
+            "hsymbol": ""
+        },
+        {
+            "id": 480,
+            "symbol": "GWLLY",
+            "name": "长城汽车",
+            "hsymbol": "02333"
+        },
+        {
+            "id": 481,
+            "symbol": "GXYEF",
+            "name": "银河娱乐",
+            "hsymbol": "00027"
+        },
+        {
+            "id": 482,
+            "symbol": "GTVI",
+            "name": "中威盛世",
+            "hsymbol": ""
+        },
+        {
+            "id": 483,
+            "symbol": "GXYEY",
+            "name": "银河娱乐",
+            "hsymbol": "00027"
+        },
+        {
+            "id": 484,
+            "symbol": "GZPHY",
+            "name": "广州药业",
+            "hsymbol": ""
+        },
+        {
+            "id": 485,
+            "symbol": "HDVTY",
+            "name": "恒基兆业",
+            "hsymbol": ""
+        },
+        {
+            "id": 486,
+            "symbol": "HEGIF",
+            "name": "恒安国际",
+            "hsymbol": "01044"
+        },
+        {
+            "id": 487,
+            "symbol": "GZUHY",
+            "name": "广州富力",
+            "hsymbol": ""
+        },
+        {
+            "id": 488,
+            "symbol": "HEGIY",
+            "name": "恒安国际",
+            "hsymbol": "01044"
+        },
+        {
+            "id": 489,
+            "symbol": "FPAFY",
+            "name": "第一太平",
+            "hsymbol": "00142"
+        },
+        {
+            "id": 490,
+            "symbol": "CVPH",
+            "name": "维特奥健",
+            "hsymbol": ""
+        },
+        {
+            "id": 491,
+            "symbol": "CWPWF",
+            "name": "中国风电",
+            "hsymbol": ""
+        },
+        {
+            "id": 492,
+            "symbol": "CWYCY",
+            "name": "中国铁建",
+            "hsymbol": "01186"
+        },
+        {
+            "id": 493,
+            "symbol": "CYDI",
+            "name": "超英生物",
+            "hsymbol": ""
+        },
+        {
+            "id": 494,
+            "symbol": "CYIG",
+            "name": "永春堂",
+            "hsymbol": ""
+        },
+        {
+            "id": 495,
+            "symbol": "DCRD",
+            "name": "东莞饰纸",
+            "hsymbol": ""
+        },
+        {
+            "id": 496,
+            "symbol": "DFEL",
+            "name": "三俊电池",
+            "hsymbol": ""
+        },
+        {
+            "id": 497,
+            "symbol": "CYHM",
+            "name": "海逸风传",
+            "hsymbol": ""
+        },
+        {
+            "id": 498,
+            "symbol": "DGDH",
+            "name": "大东南",
+            "hsymbol": ""
+        },
+        {
+            "id": 499,
+            "symbol": "DGWIY",
+            "name": "多元环球",
+            "hsymbol": ""
+        },
+        {
+            "id": 500,
+            "symbol": "DFIHY",
+            "name": "牛奶国际",
+            "hsymbol": ""
+        },
+        {
+            "id": 501,
+            "symbol": "DION",
+            "name": "百花洲实",
+            "hsymbol": ""
+        },
+        {
+            "id": 502,
+            "symbol": "DIPGY",
+            "name": "大唐发电",
+            "hsymbol": "00991"
+        },
+        {
+            "id": 503,
+            "symbol": "DNFGF",
+            "name": "东风汽车",
+            "hsymbol": ""
+        },
+        {
+            "id": 504,
+            "symbol": "DKSP",
+            "name": "东科药业",
+            "hsymbol": ""
+        },
+        {
+            "id": 505,
+            "symbol": "DNGH",
+            "name": "东盛医药",
+            "hsymbol": ""
+        },
+        {
+            "id": 506,
+            "symbol": "DPNEF",
+            "name": "达芙妮集",
+            "hsymbol": ""
+        },
+        {
+            "id": 507,
+            "symbol": "DNFGY",
+            "name": "东风汽车",
+            "hsymbol": ""
+        },
+        {
+            "id": 508,
+            "symbol": "CCCR",
+            "name": "鲈乡小贷",
+            "hsymbol": ""
+        },
+        {
+            "id": 509,
+            "symbol": "LITB",
+            "name": "兰亭集势",
+            "hsymbol": ""
+        },
+        {
+            "id": 510,
+            "symbol": "WUBA",
+            "name": "58同城",
+            "hsymbol": ""
+        },
+        {
+            "id": 511,
+            "symbol": "QUNR",
+            "name": "去哪儿",
+            "hsymbol": ""
+        },
+        {
+            "id": 512,
+            "symbol": "ATHM",
+            "name": "汽车之家",
+            "hsymbol": ""
+        },
+        {
+            "id": 513,
+            "symbol": "WBAI",
+            "name": "500彩票",
+            "hsymbol": ""
+        },
+        {
+            "id": 514,
+            "symbol": "AMC",
+            "name": "AMC院线",
+            "hsymbol": ""
+        },
+        {
+            "id": 515,
+            "symbol": "WB",
+            "name": "微博",
+            "hsymbol": ""
+        },
+        {
+            "id": 516,
+            "symbol": "TEDU",
+            "name": "达内科技",
+            "hsymbol": ""
+        },
+        {
+            "id": 517,
+            "symbol": "KANG",
+            "name": "爱康国宾",
+            "hsymbol": ""
+        },
+        {
+            "id": 518,
+            "symbol": "LEJU",
+            "name": "乐居",
+            "hsymbol": ""
+        },
+        {
+            "id": 519,
+            "symbol": "JD",
+            "name": "京东",
+            "hsymbol": ""
+        },
+        {
+            "id": 520,
+            "symbol": "TOUR",
+            "name": "途牛",
+            "hsymbol": ""
+        },
+        {
+            "id": 521,
+            "symbol": "CMCM",
+            "name": "猎豹移动",
+            "hsymbol": ""
+        },
+        {
+            "id": 522,
+            "symbol": "GOAS",
+            "name": "祥天控股",
+            "hsymbol": ""
+        },
+        {
+            "id": 523,
+            "symbol": "JMEI",
+            "name": "聚美优品",
+            "hsymbol": ""
+        },
+        {
+            "id": 524,
+            "symbol": "XNET",
+            "name": "迅雷",
+            "hsymbol": ""
+        },
+        {
+            "id": 525,
+            "symbol": "ZPIN",
+            "name": "智联招聘",
+            "hsymbol": ""
+        },
+        {
+            "id": 526,
+            "symbol": "SKYS",
+            "name": "天华阳光",
+            "hsymbol": ""
+        },
+        {
+            "id": 527,
+            "symbol": "BABA",
+            "name": "阿里巴巴",
+            "hsymbol": ""
+        },
+        {
+            "id": 528,
+            "symbol": "EHIC",
+            "name": "一嗨租车",
+            "hsymbol": ""
+        },
+        {
+            "id": 529,
+            "symbol": "MOMO",
+            "name": "陌陌",
+            "hsymbol": ""
+        },
+        {
+            "id": 530,
+            "symbol": "WOWO",
+            "name": "窝窝团",
+            "hsymbol": ""
+        },
+        {
+            "id": 531,
+            "symbol": "YRD",
+            "name": "宜人贷",
+            "hsymbol": ""
+        },
+        {
+            "id": 532,
+            "symbol": "JP",
+            "name": "钜派",
+            "hsymbol": ""
+        },
+        {
+            "id": 533,
+            "symbol": "COE",
+            "name": "无忧英语",
+            "hsymbol": ""
+        },
+        {
+            "id": 534,
+            "symbol": "YIN",
+            "name": "银科控股",
+            "hsymbol": ""
+        },
+        {
+            "id": 535,
+            "symbol": "SHKLY",
+            "name": "重汽",
+            "hsymbol": ""
+        }
+    ],
+    "error": null,
+    "success": true
+
+}

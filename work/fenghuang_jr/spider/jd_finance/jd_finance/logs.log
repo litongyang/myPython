@@ -1,0 +1,682 @@
+2016-08-23 19:17:12 [scrapy] INFO: Scrapy 1.2.0dev2 started (bot: jd_finance)
+2016-08-23 19:17:12 [scrapy] INFO: Overridden settings: {'NEWSPIDER_MODULE': 'jd_finance.spiders', 'BOT_NAME': 'jd_finance', 'ROBOTSTXT_OBEY': True, 'SPIDER_MODULES': ['jd_finance.spiders'], 'LOG_ENABLED': False, 'LOG_FILE': 'logs.log'}
+2016-08-23 19:17:28 [scrapy] INFO: Scrapy 1.2.0dev2 started (bot: jd_finance)
+2016-08-23 19:17:28 [scrapy] INFO: Overridden settings: {'NEWSPIDER_MODULE': 'jd_finance.spiders', 'BOT_NAME': 'jd_finance', 'ROBOTSTXT_OBEY': True, 'SPIDER_MODULES': ['jd_finance.spiders'], 'LOG_ENABLED': False, 'LOG_FILE': 'logs.log'}
+2016-08-23 19:17:37 [scrapy] INFO: Scrapy 1.2.0dev2 started (bot: jd_finance)
+2016-08-23 19:17:37 [scrapy] INFO: Overridden settings: {'NEWSPIDER_MODULE': 'jd_finance.spiders', 'ROBOTSTXT_OBEY': True, 'SPIDER_MODULES': ['jd_finance.spiders'], 'LOG_FILE': 'logs.log', 'BOT_NAME': 'jd_finance'}
+2016-08-23 19:17:43 [scrapy] INFO: Scrapy 1.2.0dev2 started (bot: jd_finance)
+2016-08-23 19:17:43 [scrapy] INFO: Overridden settings: {'NEWSPIDER_MODULE': 'jd_finance.spiders', 'ROBOTSTXT_OBEY': True, 'SPIDER_MODULES': ['jd_finance.spiders'], 'LOG_FILE': 'logs.log', 'BOT_NAME': 'jd_finance'}
+2016-08-23 19:17:43 [scrapy] INFO: Enabled extensions:
+['scrapy.extensions.logstats.LogStats',
+ 'scrapy.extensions.telnet.TelnetConsole',
+ 'scrapy.extensions.corestats.CoreStats']
+2016-08-23 19:17:43 [scrapy] INFO: Enabled downloader middlewares:
+['scrapy.downloadermiddlewares.robotstxt.RobotsTxtMiddleware',
+ 'scrapy.downloadermiddlewares.httpauth.HttpAuthMiddleware',
+ 'scrapy.downloadermiddlewares.downloadtimeout.DownloadTimeoutMiddleware',
+ 'scrapy.downloadermiddlewares.defaultheaders.DefaultHeadersMiddleware',
+ 'scrapy.downloadermiddlewares.useragent.UserAgentMiddleware',
+ 'scrapy.downloadermiddlewares.retry.RetryMiddleware',
+ 'scrapy.downloadermiddlewares.redirect.MetaRefreshMiddleware',
+ 'scrapy.downloadermiddlewares.httpcompression.HttpCompressionMiddleware',
+ 'scrapy.downloadermiddlewares.redirect.RedirectMiddleware',
+ 'scrapy.downloadermiddlewares.cookies.CookiesMiddleware',
+ 'scrapy.downloadermiddlewares.chunked.ChunkedTransferMiddleware',
+ 'scrapy.downloadermiddlewares.stats.DownloaderStats']
+2016-08-23 19:17:43 [scrapy] INFO: Enabled spider middlewares:
+['scrapy.spidermiddlewares.httperror.HttpErrorMiddleware',
+ 'scrapy.spidermiddlewares.offsite.OffsiteMiddleware',
+ 'scrapy.spidermiddlewares.referer.RefererMiddleware',
+ 'scrapy.spidermiddlewares.urllength.UrlLengthMiddleware',
+ 'scrapy.spidermiddlewares.depth.DepthMiddleware']
+2016-08-23 19:17:43 [scrapy] INFO: Enabled item pipelines:
+[]
+2016-08-23 19:17:43 [scrapy] INFO: Spider opened
+2016-08-23 19:17:43 [scrapy] INFO: Crawled 0 pages (at 0 pages/min), scraped 0 items (at 0 items/min)
+2016-08-23 19:17:43 [scrapy] DEBUG: Telnet console listening on 127.0.0.1:6023
+2016-08-23 19:17:44 [scrapy] DEBUG: Crawled (404) <GET http://dq.jd.com/robots.txt> (referer: None)
+2016-08-23 19:17:44 [scrapy] DEBUG: Crawled (200) <GET http://dq.jd.com/getItemPage.action?pageIndex=1> (referer: None)
+2016-08-23 19:17:44 [scrapy] INFO: Closing spider (finished)
+2016-08-23 19:17:44 [scrapy] INFO: Dumping Scrapy stats:
+{'downloader/request_bytes': 462,
+ 'downloader/request_count': 2,
+ 'downloader/request_method_count/GET': 2,
+ 'downloader/response_bytes': 8009,
+ 'downloader/response_count': 2,
+ 'downloader/response_status_count/200': 1,
+ 'downloader/response_status_count/404': 1,
+ 'finish_reason': 'finished',
+ 'finish_time': datetime.datetime(2016, 8, 23, 11, 17, 44, 314529),
+ 'log_count/DEBUG': 3,
+ 'log_count/INFO': 7,
+ 'response_received_count': 2,
+ 'scheduler/dequeued': 1,
+ 'scheduler/dequeued/memory': 1,
+ 'scheduler/enqueued': 1,
+ 'scheduler/enqueued/memory': 1,
+ 'start_time': datetime.datetime(2016, 8, 23, 11, 17, 43, 995836)}
+2016-08-23 19:17:44 [scrapy] INFO: Spider closed (finished)
+2016-08-23 19:18:41 [scrapy] INFO: Scrapy 1.2.0dev2 started (bot: jd_finance)
+2016-08-23 19:18:41 [scrapy] INFO: Overridden settings: {'NEWSPIDER_MODULE': 'jd_finance.spiders', 'ROBOTSTXT_OBEY': True, 'SPIDER_MODULES': ['jd_finance.spiders'], 'LOG_FILE': 'logs.log', 'BOT_NAME': 'jd_finance'}
+2016-08-23 19:18:41 [scrapy] INFO: Enabled extensions:
+['scrapy.extensions.logstats.LogStats',
+ 'scrapy.extensions.telnet.TelnetConsole',
+ 'scrapy.extensions.corestats.CoreStats']
+2016-08-23 19:18:41 [scrapy] INFO: Enabled downloader middlewares:
+['scrapy.downloadermiddlewares.robotstxt.RobotsTxtMiddleware',
+ 'scrapy.downloadermiddlewares.httpauth.HttpAuthMiddleware',
+ 'scrapy.downloadermiddlewares.downloadtimeout.DownloadTimeoutMiddleware',
+ 'scrapy.downloadermiddlewares.defaultheaders.DefaultHeadersMiddleware',
+ 'scrapy.downloadermiddlewares.useragent.UserAgentMiddleware',
+ 'scrapy.downloadermiddlewares.retry.RetryMiddleware',
+ 'scrapy.downloadermiddlewares.redirect.MetaRefreshMiddleware',
+ 'scrapy.downloadermiddlewares.httpcompression.HttpCompressionMiddleware',
+ 'scrapy.downloadermiddlewares.redirect.RedirectMiddleware',
+ 'scrapy.downloadermiddlewares.cookies.CookiesMiddleware',
+ 'scrapy.downloadermiddlewares.chunked.ChunkedTransferMiddleware',
+ 'scrapy.downloadermiddlewares.stats.DownloaderStats']
+2016-08-23 19:18:41 [scrapy] INFO: Enabled spider middlewares:
+['scrapy.spidermiddlewares.httperror.HttpErrorMiddleware',
+ 'scrapy.spidermiddlewares.offsite.OffsiteMiddleware',
+ 'scrapy.spidermiddlewares.referer.RefererMiddleware',
+ 'scrapy.spidermiddlewares.urllength.UrlLengthMiddleware',
+ 'scrapy.spidermiddlewares.depth.DepthMiddleware']
+2016-08-23 19:18:41 [scrapy] INFO: Enabled item pipelines:
+[]
+2016-08-23 19:18:41 [scrapy] INFO: Spider opened
+2016-08-23 19:18:41 [scrapy] INFO: Crawled 0 pages (at 0 pages/min), scraped 0 items (at 0 items/min)
+2016-08-23 19:18:41 [scrapy] DEBUG: Telnet console listening on 127.0.0.1:6023
+2016-08-23 19:18:41 [scrapy] DEBUG: Crawled (404) <GET http://dq.jd.com/robots.txt> (referer: None)
+2016-08-23 19:18:41 [scrapy] DEBUG: Crawled (200) <GET http://dq.jd.com/getItemPage.action?pageIndex=1> (referer: None)
+2016-08-23 19:18:41 [scrapy] INFO: Closing spider (finished)
+2016-08-23 19:18:41 [scrapy] INFO: Dumping Scrapy stats:
+{'downloader/request_bytes': 462,
+ 'downloader/request_count': 2,
+ 'downloader/request_method_count/GET': 2,
+ 'downloader/response_bytes': 8007,
+ 'downloader/response_count': 2,
+ 'downloader/response_status_count/200': 1,
+ 'downloader/response_status_count/404': 1,
+ 'finish_reason': 'finished',
+ 'finish_time': datetime.datetime(2016, 8, 23, 11, 18, 41, 677645),
+ 'log_count/DEBUG': 3,
+ 'log_count/INFO': 7,
+ 'response_received_count': 2,
+ 'scheduler/dequeued': 1,
+ 'scheduler/dequeued/memory': 1,
+ 'scheduler/enqueued': 1,
+ 'scheduler/enqueued/memory': 1,
+ 'start_time': datetime.datetime(2016, 8, 23, 11, 18, 41, 460359)}
+2016-08-23 19:18:41 [scrapy] INFO: Spider closed (finished)
+2016-08-23 19:19:33 [scrapy] INFO: Scrapy 1.2.0dev2 started (bot: jd_finance)
+2016-08-23 19:19:33 [scrapy] INFO: Overridden settings: {'NEWSPIDER_MODULE': 'jd_finance.spiders', 'ROBOTSTXT_OBEY': True, 'SPIDER_MODULES': ['jd_finance.spiders'], 'LOG_FILE': 'logs.log', 'BOT_NAME': 'jd_finance'}
+2016-08-23 19:19:33 [scrapy] INFO: Enabled extensions:
+['scrapy.extensions.logstats.LogStats',
+ 'scrapy.extensions.telnet.TelnetConsole',
+ 'scrapy.extensions.corestats.CoreStats']
+2016-08-23 19:19:33 [scrapy] INFO: Enabled downloader middlewares:
+['scrapy.downloadermiddlewares.robotstxt.RobotsTxtMiddleware',
+ 'scrapy.downloadermiddlewares.httpauth.HttpAuthMiddleware',
+ 'scrapy.downloadermiddlewares.downloadtimeout.DownloadTimeoutMiddleware',
+ 'scrapy.downloadermiddlewares.defaultheaders.DefaultHeadersMiddleware',
+ 'scrapy.downloadermiddlewares.useragent.UserAgentMiddleware',
+ 'scrapy.downloadermiddlewares.retry.RetryMiddleware',
+ 'scrapy.downloadermiddlewares.redirect.MetaRefreshMiddleware',
+ 'scrapy.downloadermiddlewares.httpcompression.HttpCompressionMiddleware',
+ 'scrapy.downloadermiddlewares.redirect.RedirectMiddleware',
+ 'scrapy.downloadermiddlewares.cookies.CookiesMiddleware',
+ 'scrapy.downloadermiddlewares.chunked.ChunkedTransferMiddleware',
+ 'scrapy.downloadermiddlewares.stats.DownloaderStats']
+2016-08-23 19:19:33 [scrapy] INFO: Enabled spider middlewares:
+['scrapy.spidermiddlewares.httperror.HttpErrorMiddleware',
+ 'scrapy.spidermiddlewares.offsite.OffsiteMiddleware',
+ 'scrapy.spidermiddlewares.referer.RefererMiddleware',
+ 'scrapy.spidermiddlewares.urllength.UrlLengthMiddleware',
+ 'scrapy.spidermiddlewares.depth.DepthMiddleware']
+2016-08-23 19:19:33 [scrapy] INFO: Enabled item pipelines:
+[]
+2016-08-23 19:19:33 [scrapy] INFO: Spider opened
+2016-08-23 19:19:33 [scrapy] INFO: Crawled 0 pages (at 0 pages/min), scraped 0 items (at 0 items/min)
+2016-08-23 19:19:33 [scrapy] DEBUG: Telnet console listening on 127.0.0.1:6023
+2016-08-23 19:19:33 [scrapy] DEBUG: Crawled (404) <GET http://dq.jd.com/robots.txt> (referer: None)
+2016-08-23 19:19:34 [scrapy] DEBUG: Crawled (200) <GET http://dq.jd.com/getItemPage.action?pageIndex=1> (referer: None)
+2016-08-23 19:19:34 [scrapy] INFO: Closing spider (finished)
+2016-08-23 19:19:34 [scrapy] INFO: Dumping Scrapy stats:
+{'downloader/request_bytes': 462,
+ 'downloader/request_count': 2,
+ 'downloader/request_method_count/GET': 2,
+ 'downloader/response_bytes': 8009,
+ 'downloader/response_count': 2,
+ 'downloader/response_status_count/200': 1,
+ 'downloader/response_status_count/404': 1,
+ 'finish_reason': 'finished',
+ 'finish_time': datetime.datetime(2016, 8, 23, 11, 19, 34, 116077),
+ 'log_count/DEBUG': 3,
+ 'log_count/INFO': 7,
+ 'response_received_count': 2,
+ 'scheduler/dequeued': 1,
+ 'scheduler/dequeued/memory': 1,
+ 'scheduler/enqueued': 1,
+ 'scheduler/enqueued/memory': 1,
+ 'start_time': datetime.datetime(2016, 8, 23, 11, 19, 33, 878083)}
+2016-08-23 19:19:34 [scrapy] INFO: Spider closed (finished)
+2016-08-23 19:20:04 [scrapy] INFO: Scrapy 1.2.0dev2 started (bot: jd_finance)
+2016-08-23 19:20:04 [scrapy] INFO: Overridden settings: {'NEWSPIDER_MODULE': 'jd_finance.spiders', 'ROBOTSTXT_OBEY': True, 'SPIDER_MODULES': ['jd_finance.spiders'], 'LOG_FILE': 'logs.log', 'BOT_NAME': 'jd_finance'}
+2016-08-23 19:20:04 [scrapy] INFO: Enabled extensions:
+['scrapy.extensions.logstats.LogStats',
+ 'scrapy.extensions.telnet.TelnetConsole',
+ 'scrapy.extensions.corestats.CoreStats']
+2016-08-23 19:20:04 [scrapy] INFO: Enabled downloader middlewares:
+['scrapy.downloadermiddlewares.robotstxt.RobotsTxtMiddleware',
+ 'scrapy.downloadermiddlewares.httpauth.HttpAuthMiddleware',
+ 'scrapy.downloadermiddlewares.downloadtimeout.DownloadTimeoutMiddleware',
+ 'scrapy.downloadermiddlewares.defaultheaders.DefaultHeadersMiddleware',
+ 'scrapy.downloadermiddlewares.useragent.UserAgentMiddleware',
+ 'scrapy.downloadermiddlewares.retry.RetryMiddleware',
+ 'scrapy.downloadermiddlewares.redirect.MetaRefreshMiddleware',
+ 'scrapy.downloadermiddlewares.httpcompression.HttpCompressionMiddleware',
+ 'scrapy.downloadermiddlewares.redirect.RedirectMiddleware',
+ 'scrapy.downloadermiddlewares.cookies.CookiesMiddleware',
+ 'scrapy.downloadermiddlewares.chunked.ChunkedTransferMiddleware',
+ 'scrapy.downloadermiddlewares.stats.DownloaderStats']
+2016-08-23 19:20:04 [scrapy] INFO: Enabled spider middlewares:
+['scrapy.spidermiddlewares.httperror.HttpErrorMiddleware',
+ 'scrapy.spidermiddlewares.offsite.OffsiteMiddleware',
+ 'scrapy.spidermiddlewares.referer.RefererMiddleware',
+ 'scrapy.spidermiddlewares.urllength.UrlLengthMiddleware',
+ 'scrapy.spidermiddlewares.depth.DepthMiddleware']
+2016-08-23 19:20:04 [scrapy] INFO: Enabled item pipelines:
+[]
+2016-08-23 19:20:04 [scrapy] INFO: Spider opened
+2016-08-23 19:20:04 [scrapy] INFO: Crawled 0 pages (at 0 pages/min), scraped 0 items (at 0 items/min)
+2016-08-23 19:20:04 [scrapy] DEBUG: Telnet console listening on 127.0.0.1:6023
+2016-08-23 19:20:04 [scrapy] DEBUG: Crawled (404) <GET http://dq.jd.com/robots.txt> (referer: None)
+2016-08-23 19:20:04 [scrapy] DEBUG: Crawled (200) <GET http://dq.jd.com/getItemPage.action?pageIndex=1> (referer: None)
+2016-08-23 19:20:04 [scrapy] INFO: Closing spider (finished)
+2016-08-23 19:20:04 [scrapy] INFO: Dumping Scrapy stats:
+{'downloader/request_bytes': 462,
+ 'downloader/request_count': 2,
+ 'downloader/request_method_count/GET': 2,
+ 'downloader/response_bytes': 8009,
+ 'downloader/response_count': 2,
+ 'downloader/response_status_count/200': 1,
+ 'downloader/response_status_count/404': 1,
+ 'finish_reason': 'finished',
+ 'finish_time': datetime.datetime(2016, 8, 23, 11, 20, 4, 708422),
+ 'log_count/DEBUG': 3,
+ 'log_count/INFO': 7,
+ 'response_received_count': 2,
+ 'scheduler/dequeued': 1,
+ 'scheduler/dequeued/memory': 1,
+ 'scheduler/enqueued': 1,
+ 'scheduler/enqueued/memory': 1,
+ 'start_time': datetime.datetime(2016, 8, 23, 11, 20, 4, 480362)}
+2016-08-23 19:20:04 [scrapy] INFO: Spider closed (finished)
+2016-08-23 19:20:46 [scrapy] INFO: Scrapy 1.2.0dev2 started (bot: jd_finance)
+2016-08-23 19:20:46 [scrapy] INFO: Overridden settings: {'NEWSPIDER_MODULE': 'jd_finance.spiders', 'ROBOTSTXT_OBEY': True, 'SPIDER_MODULES': ['jd_finance.spiders'], 'LOG_FILE': 'logs.log', 'BOT_NAME': 'jd_finance'}
+2016-08-23 19:20:46 [scrapy] INFO: Enabled extensions:
+['scrapy.extensions.logstats.LogStats',
+ 'scrapy.extensions.telnet.TelnetConsole',
+ 'scrapy.extensions.corestats.CoreStats']
+2016-08-23 19:20:46 [scrapy] INFO: Enabled downloader middlewares:
+['scrapy.downloadermiddlewares.robotstxt.RobotsTxtMiddleware',
+ 'scrapy.downloadermiddlewares.httpauth.HttpAuthMiddleware',
+ 'scrapy.downloadermiddlewares.downloadtimeout.DownloadTimeoutMiddleware',
+ 'scrapy.downloadermiddlewares.defaultheaders.DefaultHeadersMiddleware',
+ 'scrapy.downloadermiddlewares.useragent.UserAgentMiddleware',
+ 'scrapy.downloadermiddlewares.retry.RetryMiddleware',
+ 'scrapy.downloadermiddlewares.redirect.MetaRefreshMiddleware',
+ 'scrapy.downloadermiddlewares.httpcompression.HttpCompressionMiddleware',
+ 'scrapy.downloadermiddlewares.redirect.RedirectMiddleware',
+ 'scrapy.downloadermiddlewares.cookies.CookiesMiddleware',
+ 'scrapy.downloadermiddlewares.chunked.ChunkedTransferMiddleware',
+ 'scrapy.downloadermiddlewares.stats.DownloaderStats']
+2016-08-23 19:20:46 [scrapy] INFO: Enabled spider middlewares:
+['scrapy.spidermiddlewares.httperror.HttpErrorMiddleware',
+ 'scrapy.spidermiddlewares.offsite.OffsiteMiddleware',
+ 'scrapy.spidermiddlewares.referer.RefererMiddleware',
+ 'scrapy.spidermiddlewares.urllength.UrlLengthMiddleware',
+ 'scrapy.spidermiddlewares.depth.DepthMiddleware']
+2016-08-23 19:20:46 [scrapy] INFO: Enabled item pipelines:
+[]
+2016-08-23 19:20:46 [scrapy] INFO: Spider opened
+2016-08-23 19:20:46 [scrapy] INFO: Crawled 0 pages (at 0 pages/min), scraped 0 items (at 0 items/min)
+2016-08-23 19:20:46 [scrapy] DEBUG: Telnet console listening on 127.0.0.1:6023
+2016-08-23 19:20:46 [scrapy] DEBUG: Crawled (404) <GET http://dq.jd.com/robots.txt> (referer: None)
+2016-08-23 19:20:46 [scrapy] DEBUG: Crawled (200) <GET http://dq.jd.com/getItemPage.action?pageIndex=1> (referer: None)
+2016-08-23 19:20:46 [scrapy] INFO: Closing spider (finished)
+2016-08-23 19:20:46 [scrapy] INFO: Dumping Scrapy stats:
+{'downloader/request_bytes': 462,
+ 'downloader/request_count': 2,
+ 'downloader/request_method_count/GET': 2,
+ 'downloader/response_bytes': 8009,
+ 'downloader/response_count': 2,
+ 'downloader/response_status_count/200': 1,
+ 'downloader/response_status_count/404': 1,
+ 'finish_reason': 'finished',
+ 'finish_time': datetime.datetime(2016, 8, 23, 11, 20, 46, 636809),
+ 'log_count/DEBUG': 3,
+ 'log_count/INFO': 7,
+ 'response_received_count': 2,
+ 'scheduler/dequeued': 1,
+ 'scheduler/dequeued/memory': 1,
+ 'scheduler/enqueued': 1,
+ 'scheduler/enqueued/memory': 1,
+ 'start_time': datetime.datetime(2016, 8, 23, 11, 20, 46, 427372)}
+2016-08-23 19:20:46 [scrapy] INFO: Spider closed (finished)
+2016-08-23 19:21:49 [scrapy] INFO: Scrapy 1.2.0dev2 started (bot: jd_finance)
+2016-08-23 19:21:49 [scrapy] INFO: Overridden settings: {'NEWSPIDER_MODULE': 'jd_finance.spiders', 'ROBOTSTXT_OBEY': True, 'SPIDER_MODULES': ['jd_finance.spiders'], 'LOG_FILE': 'logs.log', 'BOT_NAME': 'jd_finance'}
+2016-08-23 19:21:49 [scrapy] INFO: Enabled extensions:
+['scrapy.extensions.logstats.LogStats',
+ 'scrapy.extensions.telnet.TelnetConsole',
+ 'scrapy.extensions.corestats.CoreStats']
+2016-08-23 19:21:49 [scrapy] INFO: Enabled downloader middlewares:
+['scrapy.downloadermiddlewares.robotstxt.RobotsTxtMiddleware',
+ 'scrapy.downloadermiddlewares.httpauth.HttpAuthMiddleware',
+ 'scrapy.downloadermiddlewares.downloadtimeout.DownloadTimeoutMiddleware',
+ 'scrapy.downloadermiddlewares.defaultheaders.DefaultHeadersMiddleware',
+ 'scrapy.downloadermiddlewares.useragent.UserAgentMiddleware',
+ 'scrapy.downloadermiddlewares.retry.RetryMiddleware',
+ 'scrapy.downloadermiddlewares.redirect.MetaRefreshMiddleware',
+ 'scrapy.downloadermiddlewares.httpcompression.HttpCompressionMiddleware',
+ 'scrapy.downloadermiddlewares.redirect.RedirectMiddleware',
+ 'scrapy.downloadermiddlewares.cookies.CookiesMiddleware',
+ 'scrapy.downloadermiddlewares.chunked.ChunkedTransferMiddleware',
+ 'scrapy.downloadermiddlewares.stats.DownloaderStats']
+2016-08-23 19:21:49 [scrapy] INFO: Enabled spider middlewares:
+['scrapy.spidermiddlewares.httperror.HttpErrorMiddleware',
+ 'scrapy.spidermiddlewares.offsite.OffsiteMiddleware',
+ 'scrapy.spidermiddlewares.referer.RefererMiddleware',
+ 'scrapy.spidermiddlewares.urllength.UrlLengthMiddleware',
+ 'scrapy.spidermiddlewares.depth.DepthMiddleware']
+2016-08-23 19:21:49 [scrapy] INFO: Enabled item pipelines:
+[]
+2016-08-23 19:21:49 [scrapy] INFO: Spider opened
+2016-08-23 19:21:49 [scrapy] INFO: Crawled 0 pages (at 0 pages/min), scraped 0 items (at 0 items/min)
+2016-08-23 19:21:49 [scrapy] DEBUG: Telnet console listening on 127.0.0.1:6023
+2016-08-23 19:21:49 [scrapy] DEBUG: Crawled (404) <GET http://dq.jd.com/robots.txt> (referer: None)
+2016-08-23 19:21:49 [scrapy] DEBUG: Crawled (200) <GET http://dq.jd.com/getItemPage.action?pageIndex=1> (referer: None)
+2016-08-23 19:21:49 [scrapy] INFO: Closing spider (finished)
+2016-08-23 19:21:49 [scrapy] INFO: Dumping Scrapy stats:
+{'downloader/request_bytes': 462,
+ 'downloader/request_count': 2,
+ 'downloader/request_method_count/GET': 2,
+ 'downloader/response_bytes': 8009,
+ 'downloader/response_count': 2,
+ 'downloader/response_status_count/200': 1,
+ 'downloader/response_status_count/404': 1,
+ 'finish_reason': 'finished',
+ 'finish_time': datetime.datetime(2016, 8, 23, 11, 21, 49, 597239),
+ 'log_count/DEBUG': 3,
+ 'log_count/INFO': 7,
+ 'response_received_count': 2,
+ 'scheduler/dequeued': 1,
+ 'scheduler/dequeued/memory': 1,
+ 'scheduler/enqueued': 1,
+ 'scheduler/enqueued/memory': 1,
+ 'start_time': datetime.datetime(2016, 8, 23, 11, 21, 49, 385530)}
+2016-08-23 19:21:49 [scrapy] INFO: Spider closed (finished)
+2016-08-23 19:22:02 [scrapy] INFO: Scrapy 1.2.0dev2 started (bot: jd_finance)
+2016-08-23 19:22:02 [scrapy] INFO: Overridden settings: {'NEWSPIDER_MODULE': 'jd_finance.spiders', 'ROBOTSTXT_OBEY': True, 'SPIDER_MODULES': ['jd_finance.spiders'], 'LOG_FILE': 'logs.log', 'BOT_NAME': 'jd_finance'}
+2016-08-23 19:22:02 [scrapy] INFO: Enabled extensions:
+['scrapy.extensions.logstats.LogStats',
+ 'scrapy.extensions.telnet.TelnetConsole',
+ 'scrapy.extensions.corestats.CoreStats']
+2016-08-23 19:22:02 [scrapy] INFO: Enabled downloader middlewares:
+['scrapy.downloadermiddlewares.robotstxt.RobotsTxtMiddleware',
+ 'scrapy.downloadermiddlewares.httpauth.HttpAuthMiddleware',
+ 'scrapy.downloadermiddlewares.downloadtimeout.DownloadTimeoutMiddleware',
+ 'scrapy.downloadermiddlewares.defaultheaders.DefaultHeadersMiddleware',
+ 'scrapy.downloadermiddlewares.useragent.UserAgentMiddleware',
+ 'scrapy.downloadermiddlewares.retry.RetryMiddleware',
+ 'scrapy.downloadermiddlewares.redirect.MetaRefreshMiddleware',
+ 'scrapy.downloadermiddlewares.httpcompression.HttpCompressionMiddleware',
+ 'scrapy.downloadermiddlewares.redirect.RedirectMiddleware',
+ 'scrapy.downloadermiddlewares.cookies.CookiesMiddleware',
+ 'scrapy.downloadermiddlewares.chunked.ChunkedTransferMiddleware',
+ 'scrapy.downloadermiddlewares.stats.DownloaderStats']
+2016-08-23 19:22:02 [scrapy] INFO: Enabled spider middlewares:
+['scrapy.spidermiddlewares.httperror.HttpErrorMiddleware',
+ 'scrapy.spidermiddlewares.offsite.OffsiteMiddleware',
+ 'scrapy.spidermiddlewares.referer.RefererMiddleware',
+ 'scrapy.spidermiddlewares.urllength.UrlLengthMiddleware',
+ 'scrapy.spidermiddlewares.depth.DepthMiddleware']
+2016-08-23 19:22:02 [scrapy] INFO: Enabled item pipelines:
+[]
+2016-08-23 19:22:02 [scrapy] INFO: Spider opened
+2016-08-23 19:22:02 [scrapy] INFO: Crawled 0 pages (at 0 pages/min), scraped 0 items (at 0 items/min)
+2016-08-23 19:22:02 [scrapy] DEBUG: Telnet console listening on 127.0.0.1:6023
+2016-08-23 19:22:02 [scrapy] DEBUG: Crawled (404) <GET http://dq.jd.com/robots.txt> (referer: None)
+2016-08-23 19:22:02 [scrapy] DEBUG: Crawled (200) <GET http://dq.jd.com/getItemPage.action?pageIndex=1> (referer: None)
+2016-08-23 19:22:02 [scrapy] INFO: Closing spider (finished)
+2016-08-23 19:22:02 [scrapy] INFO: Dumping Scrapy stats:
+{'downloader/request_bytes': 462,
+ 'downloader/request_count': 2,
+ 'downloader/request_method_count/GET': 2,
+ 'downloader/response_bytes': 8009,
+ 'downloader/response_count': 2,
+ 'downloader/response_status_count/200': 1,
+ 'downloader/response_status_count/404': 1,
+ 'finish_reason': 'finished',
+ 'finish_time': datetime.datetime(2016, 8, 23, 11, 22, 2, 604243),
+ 'log_count/DEBUG': 3,
+ 'log_count/INFO': 7,
+ 'response_received_count': 2,
+ 'scheduler/dequeued': 1,
+ 'scheduler/dequeued/memory': 1,
+ 'scheduler/enqueued': 1,
+ 'scheduler/enqueued/memory': 1,
+ 'start_time': datetime.datetime(2016, 8, 23, 11, 22, 2, 389028)}
+2016-08-23 19:22:02 [scrapy] INFO: Spider closed (finished)
+2016-08-23 19:22:16 [scrapy] INFO: Scrapy 1.2.0dev2 started (bot: jd_finance)
+2016-08-23 19:22:16 [scrapy] INFO: Overridden settings: {'NEWSPIDER_MODULE': 'jd_finance.spiders', 'ROBOTSTXT_OBEY': True, 'SPIDER_MODULES': ['jd_finance.spiders'], 'LOG_FILE': 'logs.log', 'BOT_NAME': 'jd_finance'}
+2016-08-23 19:22:16 [scrapy] INFO: Enabled extensions:
+['scrapy.extensions.logstats.LogStats',
+ 'scrapy.extensions.telnet.TelnetConsole',
+ 'scrapy.extensions.corestats.CoreStats']
+2016-08-23 19:22:16 [scrapy] INFO: Enabled downloader middlewares:
+['scrapy.downloadermiddlewares.robotstxt.RobotsTxtMiddleware',
+ 'scrapy.downloadermiddlewares.httpauth.HttpAuthMiddleware',
+ 'scrapy.downloadermiddlewares.downloadtimeout.DownloadTimeoutMiddleware',
+ 'scrapy.downloadermiddlewares.defaultheaders.DefaultHeadersMiddleware',
+ 'scrapy.downloadermiddlewares.useragent.UserAgentMiddleware',
+ 'scrapy.downloadermiddlewares.retry.RetryMiddleware',
+ 'scrapy.downloadermiddlewares.redirect.MetaRefreshMiddleware',
+ 'scrapy.downloadermiddlewares.httpcompression.HttpCompressionMiddleware',
+ 'scrapy.downloadermiddlewares.redirect.RedirectMiddleware',
+ 'scrapy.downloadermiddlewares.cookies.CookiesMiddleware',
+ 'scrapy.downloadermiddlewares.chunked.ChunkedTransferMiddleware',
+ 'scrapy.downloadermiddlewares.stats.DownloaderStats']
+2016-08-23 19:22:16 [scrapy] INFO: Enabled spider middlewares:
+['scrapy.spidermiddlewares.httperror.HttpErrorMiddleware',
+ 'scrapy.spidermiddlewares.offsite.OffsiteMiddleware',
+ 'scrapy.spidermiddlewares.referer.RefererMiddleware',
+ 'scrapy.spidermiddlewares.urllength.UrlLengthMiddleware',
+ 'scrapy.spidermiddlewares.depth.DepthMiddleware']
+2016-08-23 19:22:16 [scrapy] INFO: Enabled item pipelines:
+[]
+2016-08-23 19:22:16 [scrapy] INFO: Spider opened
+2016-08-23 19:22:16 [scrapy] INFO: Crawled 0 pages (at 0 pages/min), scraped 0 items (at 0 items/min)
+2016-08-23 19:22:16 [scrapy] DEBUG: Telnet console listening on 127.0.0.1:6023
+2016-08-23 19:22:16 [scrapy] DEBUG: Crawled (404) <GET http://dq.jd.com/robots.txt> (referer: None)
+2016-08-23 19:22:16 [scrapy] DEBUG: Crawled (200) <GET http://dq.jd.com/getItemPage.action?pageIndex=1> (referer: None)
+2016-08-23 19:22:16 [scrapy] INFO: Closing spider (finished)
+2016-08-23 19:22:16 [scrapy] INFO: Dumping Scrapy stats:
+{'downloader/request_bytes': 462,
+ 'downloader/request_count': 2,
+ 'downloader/request_method_count/GET': 2,
+ 'downloader/response_bytes': 8009,
+ 'downloader/response_count': 2,
+ 'downloader/response_status_count/200': 1,
+ 'downloader/response_status_count/404': 1,
+ 'finish_reason': 'finished',
+ 'finish_time': datetime.datetime(2016, 8, 23, 11, 22, 16, 462923),
+ 'log_count/DEBUG': 3,
+ 'log_count/INFO': 7,
+ 'response_received_count': 2,
+ 'scheduler/dequeued': 1,
+ 'scheduler/dequeued/memory': 1,
+ 'scheduler/enqueued': 1,
+ 'scheduler/enqueued/memory': 1,
+ 'start_time': datetime.datetime(2016, 8, 23, 11, 22, 16, 199670)}
+2016-08-23 19:22:16 [scrapy] INFO: Spider closed (finished)
+2016-08-23 19:24:22 [scrapy] INFO: Scrapy 1.2.0dev2 started (bot: jd_finance)
+2016-08-23 19:24:22 [scrapy] INFO: Overridden settings: {'NEWSPIDER_MODULE': 'jd_finance.spiders', 'ROBOTSTXT_OBEY': True, 'SPIDER_MODULES': ['jd_finance.spiders'], 'LOG_FILE': 'logs.log', 'BOT_NAME': 'jd_finance'}
+2016-08-23 19:24:22 [scrapy] INFO: Enabled extensions:
+['scrapy.extensions.logstats.LogStats',
+ 'scrapy.extensions.telnet.TelnetConsole',
+ 'scrapy.extensions.corestats.CoreStats']
+2016-08-23 19:24:22 [scrapy] INFO: Enabled downloader middlewares:
+['scrapy.downloadermiddlewares.robotstxt.RobotsTxtMiddleware',
+ 'scrapy.downloadermiddlewares.httpauth.HttpAuthMiddleware',
+ 'scrapy.downloadermiddlewares.downloadtimeout.DownloadTimeoutMiddleware',
+ 'scrapy.downloadermiddlewares.defaultheaders.DefaultHeadersMiddleware',
+ 'scrapy.downloadermiddlewares.useragent.UserAgentMiddleware',
+ 'scrapy.downloadermiddlewares.retry.RetryMiddleware',
+ 'scrapy.downloadermiddlewares.redirect.MetaRefreshMiddleware',
+ 'scrapy.downloadermiddlewares.httpcompression.HttpCompressionMiddleware',
+ 'scrapy.downloadermiddlewares.redirect.RedirectMiddleware',
+ 'scrapy.downloadermiddlewares.cookies.CookiesMiddleware',
+ 'scrapy.downloadermiddlewares.chunked.ChunkedTransferMiddleware',
+ 'scrapy.downloadermiddlewares.stats.DownloaderStats']
+2016-08-23 19:24:22 [scrapy] INFO: Enabled spider middlewares:
+['scrapy.spidermiddlewares.httperror.HttpErrorMiddleware',
+ 'scrapy.spidermiddlewares.offsite.OffsiteMiddleware',
+ 'scrapy.spidermiddlewares.referer.RefererMiddleware',
+ 'scrapy.spidermiddlewares.urllength.UrlLengthMiddleware',
+ 'scrapy.spidermiddlewares.depth.DepthMiddleware']
+2016-08-23 19:24:22 [scrapy] INFO: Enabled item pipelines:
+[]
+2016-08-23 19:24:22 [scrapy] INFO: Spider opened
+2016-08-23 19:24:22 [scrapy] INFO: Crawled 0 pages (at 0 pages/min), scraped 0 items (at 0 items/min)
+2016-08-23 19:24:22 [scrapy] DEBUG: Telnet console listening on 127.0.0.1:6023
+2016-08-23 19:24:22 [scrapy] DEBUG: Crawled (404) <GET http://dq.jd.com/robots.txt> (referer: None)
+2016-08-23 19:24:22 [scrapy] DEBUG: Crawled (200) <GET http://dq.jd.com/getItemPage.action?pageIndex=1> (referer: None)
+2016-08-23 19:24:22 [scrapy] INFO: Closing spider (finished)
+2016-08-23 19:24:22 [scrapy] INFO: Dumping Scrapy stats:
+{'downloader/request_bytes': 462,
+ 'downloader/request_count': 2,
+ 'downloader/request_method_count/GET': 2,
+ 'downloader/response_bytes': 8009,
+ 'downloader/response_count': 2,
+ 'downloader/response_status_count/200': 1,
+ 'downloader/response_status_count/404': 1,
+ 'finish_reason': 'finished',
+ 'finish_time': datetime.datetime(2016, 8, 23, 11, 24, 22, 503068),
+ 'log_count/DEBUG': 3,
+ 'log_count/INFO': 7,
+ 'response_received_count': 2,
+ 'scheduler/dequeued': 1,
+ 'scheduler/dequeued/memory': 1,
+ 'scheduler/enqueued': 1,
+ 'scheduler/enqueued/memory': 1,
+ 'start_time': datetime.datetime(2016, 8, 23, 11, 24, 22, 306007)}
+2016-08-23 19:24:22 [scrapy] INFO: Spider closed (finished)
+2016-08-23 19:25:18 [scrapy] INFO: Scrapy 1.2.0dev2 started (bot: jd_finance)
+2016-08-23 19:25:18 [scrapy] INFO: Overridden settings: {'NEWSPIDER_MODULE': 'jd_finance.spiders', 'ROBOTSTXT_OBEY': True, 'SPIDER_MODULES': ['jd_finance.spiders'], 'LOG_FILE': 'logs.log', 'BOT_NAME': 'jd_finance'}
+2016-08-23 19:25:18 [scrapy] INFO: Enabled extensions:
+['scrapy.extensions.logstats.LogStats',
+ 'scrapy.extensions.telnet.TelnetConsole',
+ 'scrapy.extensions.corestats.CoreStats']
+2016-08-23 19:25:18 [scrapy] INFO: Enabled downloader middlewares:
+['scrapy.downloadermiddlewares.robotstxt.RobotsTxtMiddleware',
+ 'scrapy.downloadermiddlewares.httpauth.HttpAuthMiddleware',
+ 'scrapy.downloadermiddlewares.downloadtimeout.DownloadTimeoutMiddleware',
+ 'scrapy.downloadermiddlewares.defaultheaders.DefaultHeadersMiddleware',
+ 'scrapy.downloadermiddlewares.useragent.UserAgentMiddleware',
+ 'scrapy.downloadermiddlewares.retry.RetryMiddleware',
+ 'scrapy.downloadermiddlewares.redirect.MetaRefreshMiddleware',
+ 'scrapy.downloadermiddlewares.httpcompression.HttpCompressionMiddleware',
+ 'scrapy.downloadermiddlewares.redirect.RedirectMiddleware',
+ 'scrapy.downloadermiddlewares.cookies.CookiesMiddleware',
+ 'scrapy.downloadermiddlewares.chunked.ChunkedTransferMiddleware',
+ 'scrapy.downloadermiddlewares.stats.DownloaderStats']
+2016-08-23 19:25:18 [scrapy] INFO: Enabled spider middlewares:
+['scrapy.spidermiddlewares.httperror.HttpErrorMiddleware',
+ 'scrapy.spidermiddlewares.offsite.OffsiteMiddleware',
+ 'scrapy.spidermiddlewares.referer.RefererMiddleware',
+ 'scrapy.spidermiddlewares.urllength.UrlLengthMiddleware',
+ 'scrapy.spidermiddlewares.depth.DepthMiddleware']
+2016-08-23 19:25:18 [scrapy] INFO: Enabled item pipelines:
+[]
+2016-08-23 19:25:18 [scrapy] INFO: Spider opened
+2016-08-23 19:25:18 [scrapy] INFO: Crawled 0 pages (at 0 pages/min), scraped 0 items (at 0 items/min)
+2016-08-23 19:25:18 [scrapy] DEBUG: Telnet console listening on 127.0.0.1:6023
+2016-08-23 19:25:18 [scrapy] DEBUG: Crawled (404) <GET http://dq.jd.com/robots.txt> (referer: None)
+2016-08-23 19:25:18 [scrapy] DEBUG: Crawled (200) <GET http://dq.jd.com/getItemPage.action?pageIndex=1> (referer: None)
+2016-08-23 19:25:19 [scrapy] INFO: Closing spider (finished)
+2016-08-23 19:25:19 [scrapy] INFO: Dumping Scrapy stats:
+{'downloader/request_bytes': 462,
+ 'downloader/request_count': 2,
+ 'downloader/request_method_count/GET': 2,
+ 'downloader/response_bytes': 8009,
+ 'downloader/response_count': 2,
+ 'downloader/response_status_count/200': 1,
+ 'downloader/response_status_count/404': 1,
+ 'finish_reason': 'finished',
+ 'finish_time': datetime.datetime(2016, 8, 23, 11, 25, 19, 74917),
+ 'log_count/DEBUG': 3,
+ 'log_count/INFO': 7,
+ 'response_received_count': 2,
+ 'scheduler/dequeued': 1,
+ 'scheduler/dequeued/memory': 1,
+ 'scheduler/enqueued': 1,
+ 'scheduler/enqueued/memory': 1,
+ 'start_time': datetime.datetime(2016, 8, 23, 11, 25, 18, 850645)}
+2016-08-23 19:25:19 [scrapy] INFO: Spider closed (finished)
+2016-08-23 19:27:03 [scrapy] INFO: Scrapy 1.2.0dev2 started (bot: jd_finance)
+2016-08-23 19:27:03 [scrapy] INFO: Overridden settings: {'NEWSPIDER_MODULE': 'jd_finance.spiders', 'ROBOTSTXT_OBEY': True, 'SPIDER_MODULES': ['jd_finance.spiders'], 'LOG_FILE': 'logs.log', 'BOT_NAME': 'jd_finance'}
+2016-08-23 19:27:03 [scrapy] INFO: Enabled extensions:
+['scrapy.extensions.logstats.LogStats',
+ 'scrapy.extensions.telnet.TelnetConsole',
+ 'scrapy.extensions.corestats.CoreStats']
+2016-08-23 19:27:03 [scrapy] INFO: Enabled downloader middlewares:
+['scrapy.downloadermiddlewares.robotstxt.RobotsTxtMiddleware',
+ 'scrapy.downloadermiddlewares.httpauth.HttpAuthMiddleware',
+ 'scrapy.downloadermiddlewares.downloadtimeout.DownloadTimeoutMiddleware',
+ 'scrapy.downloadermiddlewares.defaultheaders.DefaultHeadersMiddleware',
+ 'scrapy.downloadermiddlewares.useragent.UserAgentMiddleware',
+ 'scrapy.downloadermiddlewares.retry.RetryMiddleware',
+ 'scrapy.downloadermiddlewares.redirect.MetaRefreshMiddleware',
+ 'scrapy.downloadermiddlewares.httpcompression.HttpCompressionMiddleware',
+ 'scrapy.downloadermiddlewares.redirect.RedirectMiddleware',
+ 'scrapy.downloadermiddlewares.cookies.CookiesMiddleware',
+ 'scrapy.downloadermiddlewares.chunked.ChunkedTransferMiddleware',
+ 'scrapy.downloadermiddlewares.stats.DownloaderStats']
+2016-08-23 19:27:03 [scrapy] INFO: Enabled spider middlewares:
+['scrapy.spidermiddlewares.httperror.HttpErrorMiddleware',
+ 'scrapy.spidermiddlewares.offsite.OffsiteMiddleware',
+ 'scrapy.spidermiddlewares.referer.RefererMiddleware',
+ 'scrapy.spidermiddlewares.urllength.UrlLengthMiddleware',
+ 'scrapy.spidermiddlewares.depth.DepthMiddleware']
+2016-08-23 19:27:03 [scrapy] INFO: Enabled item pipelines:
+[]
+2016-08-23 19:27:03 [scrapy] INFO: Spider opened
+2016-08-23 19:27:03 [scrapy] INFO: Crawled 0 pages (at 0 pages/min), scraped 0 items (at 0 items/min)
+2016-08-23 19:27:03 [scrapy] DEBUG: Telnet console listening on 127.0.0.1:6023
+2016-08-23 19:27:03 [scrapy] DEBUG: Crawled (404) <GET http://dq.jd.com/robots.txt> (referer: None)
+2016-08-23 19:27:03 [scrapy] DEBUG: Crawled (200) <GET http://dq.jd.com/getItemPage.action?pageIndex=1> (referer: None)
+2016-08-23 19:27:04 [scrapy] INFO: Closing spider (finished)
+2016-08-23 19:27:04 [scrapy] INFO: Dumping Scrapy stats:
+{'downloader/request_bytes': 462,
+ 'downloader/request_count': 2,
+ 'downloader/request_method_count/GET': 2,
+ 'downloader/response_bytes': 8009,
+ 'downloader/response_count': 2,
+ 'downloader/response_status_count/200': 1,
+ 'downloader/response_status_count/404': 1,
+ 'finish_reason': 'finished',
+ 'finish_time': datetime.datetime(2016, 8, 23, 11, 27, 4, 103213),
+ 'log_count/DEBUG': 3,
+ 'log_count/INFO': 7,
+ 'response_received_count': 2,
+ 'scheduler/dequeued': 1,
+ 'scheduler/dequeued/memory': 1,
+ 'scheduler/enqueued': 1,
+ 'scheduler/enqueued/memory': 1,
+ 'start_time': datetime.datetime(2016, 8, 23, 11, 27, 3, 889486)}
+2016-08-23 19:27:04 [scrapy] INFO: Spider closed (finished)
+2016-08-23 19:28:24 [scrapy] INFO: Scrapy 1.2.0dev2 started (bot: jd_finance)
+2016-08-23 19:28:24 [scrapy] INFO: Overridden settings: {'NEWSPIDER_MODULE': 'jd_finance.spiders', 'ROBOTSTXT_OBEY': True, 'SPIDER_MODULES': ['jd_finance.spiders'], 'LOG_FILE': 'logs.log', 'BOT_NAME': 'jd_finance'}
+2016-08-23 19:28:24 [scrapy] INFO: Enabled extensions:
+['scrapy.extensions.logstats.LogStats',
+ 'scrapy.extensions.telnet.TelnetConsole',
+ 'scrapy.extensions.corestats.CoreStats']
+2016-08-23 19:28:24 [scrapy] INFO: Enabled downloader middlewares:
+['scrapy.downloadermiddlewares.robotstxt.RobotsTxtMiddleware',
+ 'scrapy.downloadermiddlewares.httpauth.HttpAuthMiddleware',
+ 'scrapy.downloadermiddlewares.downloadtimeout.DownloadTimeoutMiddleware',
+ 'scrapy.downloadermiddlewares.defaultheaders.DefaultHeadersMiddleware',
+ 'scrapy.downloadermiddlewares.useragent.UserAgentMiddleware',
+ 'scrapy.downloadermiddlewares.retry.RetryMiddleware',
+ 'scrapy.downloadermiddlewares.redirect.MetaRefreshMiddleware',
+ 'scrapy.downloadermiddlewares.httpcompression.HttpCompressionMiddleware',
+ 'scrapy.downloadermiddlewares.redirect.RedirectMiddleware',
+ 'scrapy.downloadermiddlewares.cookies.CookiesMiddleware',
+ 'scrapy.downloadermiddlewares.chunked.ChunkedTransferMiddleware',
+ 'scrapy.downloadermiddlewares.stats.DownloaderStats']
+2016-08-23 19:28:24 [scrapy] INFO: Enabled spider middlewares:
+['scrapy.spidermiddlewares.httperror.HttpErrorMiddleware',
+ 'scrapy.spidermiddlewares.offsite.OffsiteMiddleware',
+ 'scrapy.spidermiddlewares.referer.RefererMiddleware',
+ 'scrapy.spidermiddlewares.urllength.UrlLengthMiddleware',
+ 'scrapy.spidermiddlewares.depth.DepthMiddleware']
+2016-08-23 19:28:24 [scrapy] INFO: Enabled item pipelines:
+[]
+2016-08-23 19:28:24 [scrapy] INFO: Spider opened
+2016-08-23 19:28:24 [scrapy] INFO: Crawled 0 pages (at 0 pages/min), scraped 0 items (at 0 items/min)
+2016-08-23 19:28:24 [scrapy] DEBUG: Telnet console listening on 127.0.0.1:6023
+2016-08-23 19:28:24 [scrapy] DEBUG: Crawled (404) <GET http://dq.jd.com/robots.txt> (referer: None)
+2016-08-23 19:28:25 [scrapy] DEBUG: Crawled (200) <GET http://dq.jd.com/getItemPage.action?pageIndex=1> (referer: None)
+2016-08-23 19:28:25 [scrapy] INFO: Closing spider (finished)
+2016-08-23 19:28:25 [scrapy] INFO: Dumping Scrapy stats:
+{'downloader/request_bytes': 462,
+ 'downloader/request_count': 2,
+ 'downloader/request_method_count/GET': 2,
+ 'downloader/response_bytes': 8010,
+ 'downloader/response_count': 2,
+ 'downloader/response_status_count/200': 1,
+ 'downloader/response_status_count/404': 1,
+ 'finish_reason': 'finished',
+ 'finish_time': datetime.datetime(2016, 8, 23, 11, 28, 25, 184755),
+ 'log_count/DEBUG': 3,
+ 'log_count/INFO': 7,
+ 'response_received_count': 2,
+ 'scheduler/dequeued': 1,
+ 'scheduler/dequeued/memory': 1,
+ 'scheduler/enqueued': 1,
+ 'scheduler/enqueued/memory': 1,
+ 'start_time': datetime.datetime(2016, 8, 23, 11, 28, 24, 838991)}
+2016-08-23 19:28:25 [scrapy] INFO: Spider closed (finished)
+2016-08-23 19:29:05 [scrapy] INFO: Scrapy 1.2.0dev2 started (bot: jd_finance)
+2016-08-23 19:29:05 [scrapy] INFO: Overridden settings: {'NEWSPIDER_MODULE': 'jd_finance.spiders', 'ROBOTSTXT_OBEY': True, 'SPIDER_MODULES': ['jd_finance.spiders'], 'LOG_FILE': 'logs.log', 'BOT_NAME': 'jd_finance'}
+2016-08-23 19:29:06 [scrapy] INFO: Enabled extensions:
+['scrapy.extensions.logstats.LogStats',
+ 'scrapy.extensions.telnet.TelnetConsole',
+ 'scrapy.extensions.corestats.CoreStats']
+2016-08-23 19:29:06 [scrapy] INFO: Enabled downloader middlewares:
+['scrapy.downloadermiddlewares.robotstxt.RobotsTxtMiddleware',
+ 'scrapy.downloadermiddlewares.httpauth.HttpAuthMiddleware',
+ 'scrapy.downloadermiddlewares.downloadtimeout.DownloadTimeoutMiddleware',
+ 'scrapy.downloadermiddlewares.defaultheaders.DefaultHeadersMiddleware',
+ 'scrapy.downloadermiddlewares.useragent.UserAgentMiddleware',
+ 'scrapy.downloadermiddlewares.retry.RetryMiddleware',
+ 'scrapy.downloadermiddlewares.redirect.MetaRefreshMiddleware',
+ 'scrapy.downloadermiddlewares.httpcompression.HttpCompressionMiddleware',
+ 'scrapy.downloadermiddlewares.redirect.RedirectMiddleware',
+ 'scrapy.downloadermiddlewares.cookies.CookiesMiddleware',
+ 'scrapy.downloadermiddlewares.chunked.ChunkedTransferMiddleware',
+ 'scrapy.downloadermiddlewares.stats.DownloaderStats']
+2016-08-23 19:29:06 [scrapy] INFO: Enabled spider middlewares:
+['scrapy.spidermiddlewares.httperror.HttpErrorMiddleware',
+ 'scrapy.spidermiddlewares.offsite.OffsiteMiddleware',
+ 'scrapy.spidermiddlewares.referer.RefererMiddleware',
+ 'scrapy.spidermiddlewares.urllength.UrlLengthMiddleware',
+ 'scrapy.spidermiddlewares.depth.DepthMiddleware']
+2016-08-23 19:29:06 [scrapy] INFO: Enabled item pipelines:
+[]
+2016-08-23 19:29:06 [scrapy] INFO: Spider opened
+2016-08-23 19:29:06 [scrapy] INFO: Crawled 0 pages (at 0 pages/min), scraped 0 items (at 0 items/min)
+2016-08-23 19:29:06 [scrapy] DEBUG: Telnet console listening on 127.0.0.1:6023
+2016-08-23 19:29:06 [scrapy] DEBUG: Crawled (404) <GET http://dq.jd.com/robots.txt> (referer: None)
+2016-08-23 19:29:06 [scrapy] DEBUG: Crawled (200) <GET http://dq.jd.com/getItemPage.action?pageIndex=1> (referer: None)
+2016-08-23 19:29:06 [scrapy] INFO: Closing spider (finished)
+2016-08-23 19:29:06 [scrapy] INFO: Dumping Scrapy stats:
+{'downloader/request_bytes': 462,
+ 'downloader/request_count': 2,
+ 'downloader/request_method_count/GET': 2,
+ 'downloader/response_bytes': 8010,
+ 'downloader/response_count': 2,
+ 'downloader/response_status_count/200': 1,
+ 'downloader/response_status_count/404': 1,
+ 'finish_reason': 'finished',
+ 'finish_time': datetime.datetime(2016, 8, 23, 11, 29, 6, 257768),
+ 'log_count/DEBUG': 3,
+ 'log_count/INFO': 7,
+ 'response_received_count': 2,
+ 'scheduler/dequeued': 1,
+ 'scheduler/dequeued/memory': 1,
+ 'scheduler/enqueued': 1,
+ 'scheduler/enqueued/memory': 1,
+ 'start_time': datetime.datetime(2016, 8, 23, 11, 29, 6, 63012)}
+2016-08-23 19:29:06 [scrapy] INFO: Spider closed (finished)
