@@ -11,6 +11,7 @@ class SpiderUrlSpider(scrapy.Spider):
     allowed_domains = ["spider_url.com"]
     start_urls = [
         'http://dq.jd.com/getItemPage.action?pageIndex=1',
+        'http://dq.jd.com/getItemPage.action?pageIndex=2',
     ]
 
     def parse(self, response):
@@ -38,6 +39,32 @@ class SpiderUrlSpider(scrapy.Spider):
                                     elif key == 'insuranceCode':  # 担保方ID
                                         print value
                                     elif key == 'insuranceName':  # 担保方名称
+                                        print value
+                                    elif key == 'insuranceType':  # 保险类型ID
+                                        print value
+                                    elif key == 'insuranceTypeName':  # 保险类型名称
+                                        print value
+                                    elif key == 'minAmount':  # 最低投资金额
+                                        print value
+                                    elif key == 'maxAmount':  # 最高投资金额
+                                        print value
+                                    elif key == 'maxNum':  # 最多购买数量
+                                        print value
+                                    elif key == 'period':  # 期限
+                                        print value
+                                    elif key == 'saleBeginDate':  # 售卖开始时间
+                                        print value
+                                    elif key == 'saleEndDate':  # 售卖截止时间
+                                        print value
+                                    elif key == 'historyBenefit':  # 收益率
+                                        print value
+                                    elif key == 'refundFeeIntro':  # 退款说明
+                                        print value
+                                    elif key == 'isSupportPartRefund':  # 是否支持持有期之前退款
+                                        print value
+                                    elif key == 'isSupportInsAppend':  # 是否支持持有期期间退款
+                                        print value
+                                    elif key == 'itemStatus':  # 标的状态
                                         print value
                                 print "======"
         except Exception, e:

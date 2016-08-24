@@ -1,0 +1,64 @@
+2016-08-24 11:54:15 [scrapy] INFO: Scrapy 1.2.0dev2 started (bot: hexun_stock_news_us)
+2016-08-24 11:54:15 [scrapy] INFO: Overridden settings: {'NEWSPIDER_MODULE': 'hexun_stock_news_us.spiders', 'SPIDER_MODULES': ['hexun_stock_news_us.spiders'], 'LOG_FILE': 'logs.log', 'BOT_NAME': 'hexun_stock_news_us'}
+2016-08-24 11:54:15 [scrapy] INFO: Enabled extensions:
+['scrapy.extensions.logstats.LogStats',
+ 'scrapy.extensions.telnet.TelnetConsole',
+ 'scrapy.extensions.corestats.CoreStats']
+2016-08-24 11:54:15 [scrapy] INFO: Enabled downloader middlewares:
+['hexun_stock_news_us.random_user_agent.RandomUserAgentMiddleware',
+ 'scrapy.downloadermiddlewares.httpauth.HttpAuthMiddleware',
+ 'scrapy.downloadermiddlewares.downloadtimeout.DownloadTimeoutMiddleware',
+ 'scrapy.downloadermiddlewares.defaultheaders.DefaultHeadersMiddleware',
+ 'scrapy.downloadermiddlewares.useragent.UserAgentMiddleware',
+ 'scrapy.downloadermiddlewares.retry.RetryMiddleware',
+ 'scrapy.downloadermiddlewares.redirect.MetaRefreshMiddleware',
+ 'scrapy.downloadermiddlewares.httpcompression.HttpCompressionMiddleware',
+ 'scrapy.downloadermiddlewares.redirect.RedirectMiddleware',
+ 'scrapy.downloadermiddlewares.cookies.CookiesMiddleware',
+ 'scrapy.downloadermiddlewares.chunked.ChunkedTransferMiddleware',
+ 'scrapy.downloadermiddlewares.stats.DownloaderStats']
+2016-08-24 11:54:15 [scrapy] INFO: Enabled spider middlewares:
+['scrapy.spidermiddlewares.httperror.HttpErrorMiddleware',
+ 'scrapy.spidermiddlewares.offsite.OffsiteMiddleware',
+ 'scrapy.spidermiddlewares.referer.RefererMiddleware',
+ 'scrapy.spidermiddlewares.urllength.UrlLengthMiddleware',
+ 'scrapy.spidermiddlewares.depth.DepthMiddleware']
+2016-08-24 11:54:15 [scrapy] INFO: Enabled item pipelines:
+['hexun_stock_news_us.pipelines.HexunStockNewsUsPipeline']
+2016-08-24 11:54:15 [scrapy] INFO: Spider opened
+2016-08-24 11:54:15 [scrapy] INFO: Crawled 0 pages (at 0 pages/min), scraped 0 items (at 0 items/min)
+2016-08-24 11:54:15 [scrapy] DEBUG: Telnet console listening on 127.0.0.1:6023
+2016-08-24 11:54:15 [scrapy] DEBUG: Crawled (200) <GET http://bschool.hexun.com/2016-08-16/185530227.html> (referer: None)
+2016-08-24 11:54:15 [scrapy] DEBUG: Scraped from <200 http://bschool.hexun.com/2016-08-16/185530227.html>
+{'abstract': '',
+ 'author': '',
+ 'company_code': '',
+ 'company_code_other': '',
+ 'company_name': '',
+ 'content_html': '<p style="FONT-FAMILY: KAITI_GB2312">\xc2\xa0\xc2\xa0\xc2\xa0 \xe6\x9c\xac\xe6\x96\x87\xe9\xa6\x96\xe5\x8f\x91\xe4\xba\x8e\xe5\xbe\xae\xe4\xbf\xa1\xe5\x85\xac\xe4\xbc\x97\xe5\x8f\xb7\xef\xbc\x9a\xe4\xb8\xad\xe5\xa4\x96<a href="http://bschool.hexun.com/management/" target="_blank">\xe7\xae\xa1\xe7\x90\x86</a>\xe6\x9d\x82\xe5\xbf\x97\xe3\x80\x82\xe6\x96\x87\xe7\xab\xa0\xe5\x86\x85\xe5\xae\xb9\xe5\xb1\x9e\xe4\xbd\x9c\xe8\x80\x85\xe4\xb8\xaa\xe4\xba\xba\xe8\xa7\x82\xe7\x82\xb9\xef\xbc\x8c\xe4\xb8\x8d\xe4\xbb\xa3\xe8\xa1\xa8\xe5\x92\x8c\xe8\xae\xaf\xe7\xbd\x91\xe7\xab\x8b\xe5\x9c\xba\xe3\x80\x82\xe6\x8a\x95\xe8\xb5\x84\xe8\x80\x85\xe6\x8d\xae\xe6\xad\xa4\xe6\x93\x8d\xe4\xbd\x9c\xef\xbc\x8c\xe9\xa3\x8e\xe9\x99\xa9\xe8\xaf\xb7\xe8\x87\xaa\xe6\x8b\x85\xe3\x80\x82<br></p><p></p><p></p><p></p><p></p><p></p><p></p><p></p><p></p><p></p><p></p><p></p><p></p><p></p><p></p><p></p><p></p><p></p><p></p><p></p><p></p><p></p><p></p><p></p><p></p><p></p><p></p><p></p><p></p><p></p><p></p><p></p><p></p><p></p><p></p><p></p><p></p><p></p><p></p><p></p><p></p><p></p><p></p><p></p><p></p><p></p><p>\xc2\xa0\xc2\xa0\xc2\xa0 \xe6\x96\x87\xe7\xab\xa0\xe6\x9d\xa5\xe6\xba\x90\xef\xbc\x9a\xe5\xbe\xae\xe4\xbf\xa1\xe5\x85\xac\xe4\xbc\x97\xe5\x8f\xb7\xe4\xb8\xad\xe5\xa4\x96\xe7\xae\xa1\xe7\x90\x86\xe6\x9d\x82\xe5\xbf\x97<br></p>',
+ 'crawl_time': '2016-08-24 11:54:15',
+ 'issue_time': '',
+ 'news_time': '2016-08-16 08:23:24',
+ 'news_title': u'\u5415\u5fd7\u548c\uff1a\u4e2d\u897f\u5408\u74a7\u6210\u5c3175\u5e74\u7ba1\u7406\u4f20\u5947 ',
+ 'news_url': 'http://bschool.hexun.com/2016-08-16/185530227.html',
+ 'source_name': u'\u548c\u8baf\u540d\u5bb6'}
+2016-08-24 11:54:15 [scrapy] INFO: Closing spider (finished)
+2016-08-24 11:54:15 [scrapy] INFO: Dumping Scrapy stats:
+{'downloader/request_bytes': 300,
+ 'downloader/request_count': 1,
+ 'downloader/request_method_count/GET': 1,
+ 'downloader/response_bytes': 11304,
+ 'downloader/response_count': 1,
+ 'downloader/response_status_count/200': 1,
+ 'finish_reason': 'finished',
+ 'finish_time': datetime.datetime(2016, 8, 24, 3, 54, 15, 727963),
+ 'item_scraped_count': 1,
+ 'log_count/DEBUG': 3,
+ 'log_count/INFO': 7,
+ 'response_received_count': 1,
+ 'scheduler/dequeued': 1,
+ 'scheduler/dequeued/memory': 1,
+ 'scheduler/enqueued': 1,
+ 'scheduler/enqueued/memory': 1,
+ 'start_time': datetime.datetime(2016, 8, 24, 3, 54, 15, 523830)}
+2016-08-24 11:54:15 [scrapy] INFO: Spider closed (finished)

@@ -28,7 +28,8 @@ class SpiderNewsSpider(scrapy.Spider):
                     # 'http://finance.sina.com.cn/stock/s/2016-06-20/doc-ifxtfrrf0653412.shtml',
                     # 'http://finance.sina.com.cn/stock/hkstock/ggscyd/2016-08-08/doc-ifxutfpc4736724.shtml',
                     # 'http://finance.sina.com.cn/world/20131202/154217501832.shtml',
-                    'http://finance.yahoo.com/news/ehi-car-services-report-first-120000802.html'
+                    # 'http://finance.yahoo.com/news/ehi-car-services-report-first-120000802.html',
+                    'http://tech.sina.com.cn/i/2016-06-08/doc-ifxszkzy4964474.shtml',
                   ]
     # start_urls = GetUrl().get_news_url()
 
@@ -56,6 +57,7 @@ class SpiderNewsSpider(scrapy.Spider):
             source_template2 = root.xpath('//span[@data-sudaclick="media_name"]/a')
             source_template3 = root.xpath('//span[@id="media_name"]/a')
             source_template4 = root.xpath('//span[@class="time-source"]')
+            source_template4_1 = root.xpath('//span[@class="source"]/a')
             source_template5 = root.xpath('//span[@id="media_name"]')
             if len(source_template1) != 0:
                 nodes_source = source_template1
@@ -64,7 +66,10 @@ class SpiderNewsSpider(scrapy.Spider):
             elif len(source_template3) != 0:
                 nodes_source = source_template3
             elif len(source_template4) != 0:
-                nodes_source = source_template4
+                if len(source_template4_1) != 0:
+                    nodes_source = source_template4_1
+                else:
+                    nodes_source = source_template4
             elif len(source_template5) != 0:
                 nodes_source = source_template5
             source_name = nodes_source[0].text
