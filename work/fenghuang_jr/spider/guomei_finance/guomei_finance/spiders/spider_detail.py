@@ -2,10 +2,15 @@
 import scrapy
 import redis
 import json
+import time
 from guomei_finance.items import *
 
 
 class SpiderDetailSpider(scrapy.Spider):
+    def __init__(self):
+        self.time_stamp_tmp = time.time()
+        self.time_array = time.localtime(self.time_stamp_tmp)
+        self.date = time.strftime("%Y-%m-%d", self.time_array)
     name = "guomei_finance_spider_detail"
     allowed_domains = ["spider_detail.com"]
     start_urls = [
@@ -45,7 +50,7 @@ class SpiderDetailSpider(scrapy.Spider):
                                             if k3 == 'stepAmount':
                                                 print v3  # 每笔投资单位金额
                             elif k1 == 'timeOpen':  # 开标时间
-                                print v1
+                                print time.strftime("%Y-%m-%d", time.localtime(int(v1)/1000))
                             elif k1 == 'timeFinished':  # 关标时间
                                 print v1
                             elif k1 == 'bidNumber':  # 投资人数

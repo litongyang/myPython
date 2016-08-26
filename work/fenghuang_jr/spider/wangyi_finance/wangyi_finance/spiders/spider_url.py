@@ -1,14 +1,11 @@
 # -*- coding: utf-8 -*-
 import scrapy
 import sys
+import re
 import os
 from lxml import etree
 import redis
 from wangyi_finance.items import *
-parent_path = os.path.dirname(sys.path[0])
-if parent_path not in sys.path:
-    sys.path.append(parent_path)
-reload(sys)
 sys.setdefaultencoding('utf-8')
 
 
