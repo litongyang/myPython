@@ -23,7 +23,11 @@ class GetCompanyDict:
         得到一个字典:
         {'code':['name','hsymbol']}
         """
-        data = urllib2.urlopen(self.company_code_dict_url, timeout=10).read()
+        # data = urllib2.urlopen(self.company_code_dict_url, timeout=10).read()
+        data_json = open('dict.json', 'r')
+        data = ''
+        for line in data_json:
+            data += line
         data_dict = json.loads(data)
         for k, v in data_dict.items():
             if k == str('data'):

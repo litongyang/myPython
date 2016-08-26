@@ -29,8 +29,8 @@ class SpiderNewsSpider(scrapy.Spider):
     allowed_domains = ["spider_news.com"]
     # start_urls = ["http://finance.qq.com/a/20160719/008840.htm?stockcode=usSOHU&version=1#highlight=%E6%90%9C%E7%8B%90"]
     # start_urls = ["http://finance.qq.com/a/20160714/040261.htm#highlight=京东"]
-    start_urls = ["http://finance.qq.com/a/20160726/037202.htm?stockcode=usBIDU&version=1#highlight=百度"]
-    # start_urls = get_url_class.GetUrl().get_news_url()
+    # start_urls = ["http://finance.qq.com/a/20160726/037202.htm?stockcode=usBIDU&version=1#highlight=百度"]
+    start_urls = get_url_class.GetUrl().get_news_url()
 
     def parse(self, response):
         try:

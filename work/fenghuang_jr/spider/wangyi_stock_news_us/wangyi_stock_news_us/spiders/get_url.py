@@ -7,7 +7,7 @@ import get_company_dict
 
 class GetUrl:
     def __init__(self):
-        self.news_url_file = open('news_url1.json', 'r')
+        # self.news_url_file = open('news_url1.json', 'r')
         self.news_url_list = []
         self.news_time_list = []
         self.news_time_url_dict = {}  # 新闻的url和发表时间的映射字典
