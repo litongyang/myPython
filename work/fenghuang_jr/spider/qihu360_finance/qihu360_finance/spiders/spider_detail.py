@@ -26,6 +26,7 @@ class SpiderDetailSpider(scrapy.Spider):
             item = Qihu360FinanceDetailItem()
             data_html = response.body_as_unicode()
             root = etree.HTML(data_html)
+            title_nodes = root.xpath('//h3/text()')
             ratio_days_method_noeds = root.xpath('//div[@class="rgl-top"]/ul/li/div')
             open_date_template1 = root.xpath('//div[@class="rgl-date rgb-date-2"]/ul/li[@class="sp1"]/p/text()[2]')
             open_date_template2 = root.xpath('//div[@class="rgl-date rgb-date-1"]/ul/li[@class="sp1"]/p/text()[2]')
@@ -84,6 +85,8 @@ class SpiderDetailSpider(scrapy.Spider):
                 start_amount_info_node = ['null']
             open_date = open_date_nodes[0][0:10].replace('/', '').replace('-', '')
             today = self.date.replace('-', '')
+            print open_date  # 开标时间
+            print title_nodes[0]  # 产品名称
             print ratio_days_method_noeds[0].text.replace(' ', '').replace('\n', '')  # 预期年化收益率
             print ratio_days_method_noeds[1].text.replace(' ', '')  # 期限
             print ratio_days_method_noeds[2].text.replace(' ', '')  # 收益方式
@@ -94,6 +97,17 @@ class SpiderDetailSpider(scrapy.Spider):
             print total_node[0]  # 总的募集金额
             print start_amount_info_node[0]  # 起投金额信息
             print "================="
+            item['url'] = open_date  # 产品详情url
+            item['title'] = title_nodes[0]  # 产品标题
+            item['ratio'] = ratio_days_method_noeds[0].text.replace(' ', '').replace('\n', '')  # 预期收益率
+            item['days'] = ratio_days_method_noeds[1].text.replace(' ', '')  # 期限
+            item['repay_method'] = ratio_days_method_noeds[2].text.replace(' ', '')  # 收益方式
+            item['start_date'] = interest_start_nodes[0]  # 起息日期
+            item['end_date'] = interest_end_nodes[0]  # 到期日期
+            item['profit_date'] = profit_date_nodes[0]  # 发放日
+            item['available'] = remainder_node[0]  # 当前可投资金额
+            item['amount'] = total_node[0]  # 募集金额
+            item['min_amount_info'] = start_amount_info_node[0]  # 起投金额信息
 
         except Exception, e:
             error_info = Exception, e
