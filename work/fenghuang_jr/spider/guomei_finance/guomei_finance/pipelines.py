@@ -38,48 +38,48 @@ class GuomeiFinancePipeline(object):
         return cls(dbpool)
 
     def process_item(self, item, spider):
-        # if isinstance(spider, SpiderDetailSpider):
-        #     line = json.dumps(dict(item), ensure_ascii=False) + "\n"
-        #     self.detail.write(line)
-        #     return item
-        try:
-            if isinstance(spider, SpiderDetailSpider):
-                # query = self.dbpool.runInteraction(self._conditional_insert_guomei_bid_info, item)
-                # query.addErrback(self.handle_error)
-                return item
-
-        except Exception, e:
-            error_info = "process_item: ", Exception, e
-            print error_info
-
-    def _conditional_insert_guomei_bid_info(self, cur, item):
-        try:
-            insert_sql = ''
-            insert_sql += '\'' + str(item['id']) + '\'' + ','
-            insert_sql += '\'' + str(item['title']) + '\'' + ','
-            insert_sql += '\'' + str(item['repay_method']) + '\'' + ','
-            insert_sql += '\'' + str(item['amount']) + '\'' + ','
-            insert_sql += '\'' + str(item['rate']) + '\'' + ','
-            insert_sql += '\'' + str(item['days']) + '\'' + ','
-            insert_sql += '\'' + str(item['min_amount']) + '\'' + ','
-            insert_sql += '\'' + str(item['max_amount']) + '\'' + ','
-            insert_sql += '\'' + str(item['step_amount']) + '\'' + ','
-            insert_sql += '\'' + str(item['time_open']) + '\'' + ','
-            insert_sql += '\'' + str(item['date_open']) + '\'' + ','
-            insert_sql += '\'' + str(item['time_finished']) + '\'' + ','
-            insert_sql += '\'' + str(item['bid_number']) + '\'' + ','
-            insert_sql += '\'' + str(item['invest_amount']) + '\'' + ','
-            insert_sql += '\'' + str(item['status']) + '\'' + ','
-            insert_sql += '\'' + str(item['invest_percent']) + '\'' + ','
-            insert_sql += '\'' + str(item['available']) + '\'' + ','
-            insert_sql += '\'' + str(self.date) + '\'' + ','
-            insert_sql = insert_sql[0:-1]  # 去除最后一个逗号
-            # print insert_sql
-            cur.execute("insert into guomei_bid_info values(%s)" % insert_sql)
-        except Exception, e:
-            error_info = "_conditional_insert_archives: ", Exception, e
-            print error_info
-
-    @staticmethod
-    def handle_error(e):
-        log.err(e)
+        if isinstance(spider, SpiderDetailSpider):
+            line = json.dumps(dict(item), ensure_ascii=False) + "\n"
+            self.detail.write(line)
+            return item
+    #     try:
+    #         if isinstance(spider, SpiderDetailSpider):
+    #             # query = self.dbpool.runInteraction(self._conditional_insert_guomei_bid_info, item)
+    #             # query.addErrback(self.handle_error)
+    #             return item
+    #
+    #     except Exception, e:
+    #         error_info = "process_item: ", Exception, e
+    #         print error_info
+    #
+    # def _conditional_insert_guomei_bid_info(self, cur, item):
+    #     try:
+    #         insert_sql = ''
+    #         insert_sql += '\'' + str(item['id']) + '\'' + ','
+    #         insert_sql += '\'' + str(item['title']) + '\'' + ','
+    #         insert_sql += '\'' + str(item['repay_method']) + '\'' + ','
+    #         insert_sql += '\'' + str(item['amount']) + '\'' + ','
+    #         insert_sql += '\'' + str(item['rate']) + '\'' + ','
+    #         insert_sql += '\'' + str(item['days']) + '\'' + ','
+    #         insert_sql += '\'' + str(item['min_amount']) + '\'' + ','
+    #         insert_sql += '\'' + str(item['max_amount']) + '\'' + ','
+    #         insert_sql += '\'' + str(item['step_amount']) + '\'' + ','
+    #         insert_sql += '\'' + str(item['time_open']) + '\'' + ','
+    #         insert_sql += '\'' + str(item['date_open']) + '\'' + ','
+    #         insert_sql += '\'' + str(item['time_finished']) + '\'' + ','
+    #         insert_sql += '\'' + str(item['bid_number']) + '\'' + ','
+    #         insert_sql += '\'' + str(item['invest_amount']) + '\'' + ','
+    #         insert_sql += '\'' + str(item['status']) + '\'' + ','
+    #         insert_sql += '\'' + str(item['invest_percent']) + '\'' + ','
+    #         insert_sql += '\'' + str(item['available']) + '\'' + ','
+    #         insert_sql += '\'' + str(self.date) + '\'' + ','
+    #         insert_sql = insert_sql[0:-1]  # 去除最后一个逗号
+    #         # print insert_sql
+    #         cur.execute("insert into guomei_bid_info values(%s)" % insert_sql)
+    #     except Exception, e:
+    #         error_info = "_conditional_insert_archives: ", Exception, e
+    #         print error_info
+    #
+    # @staticmethod
+    # def handle_error(e):
+    #     log.err(e)

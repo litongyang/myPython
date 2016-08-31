@@ -28,7 +28,7 @@ class SpiderNewsSpider(scrapy.Spider):
     start_urls = [
         # 'http://money.163.com/16/0809/15/BU1M77D500254TI5.html',
         # 'http://money.163.com/12/0306/21/7RUN6QDD00254Q6L.html'
-        'http://money.163.com/12/0710/10/861U8LLH002524SO.html'
+        'http://money.163.com/15/0410/02/AMQCJLR800253B0H.html'
     ]
     # start_urls = GetUrl().get_news_url()
 
@@ -52,6 +52,7 @@ class SpiderNewsSpider(scrapy.Spider):
             source_template3 = root.xpath('//span[@class="info" and @style="display:block;"]/a')
             source_template4 = root.xpath('//div[@class="ep-time-soure cDGray"]/a')
             source_template5 = root.xpath('//span[@style="float:left;"]/a')
+            source_template6 = root.xpath('//span[@class="info"]/a')
             if len(source_template1) > 0:
                 nodes_source = source_template1
             elif len(source_template2) > 0:
@@ -62,6 +63,8 @@ class SpiderNewsSpider(scrapy.Spider):
                 nodes_source = source_template4
             elif len(source_template5) > 0:
                 nodes_source = source_template5
+            elif len(source_template6) > 0:
+                nodes_source = source_template6
             # nodes_source = root.xpath('//div[@class="post_time_source"]/a')
             source_name = nodes_source[0].text
             print source_name
@@ -71,6 +74,7 @@ class SpiderNewsSpider(scrapy.Spider):
             time_template3 = root.xpath('//span[@class="left"]')
             time_template3_1 = root.xpath('//div[@class="ep-time-soure cDGray"]')
             time_template3_2 = root.xpath('//span[@style="float:left;"]')
+            time_template3_3 = root.xpath('//span[@class="info"]')
             if len(time_template1) > 0:
                 time_nodes = time_template1
             elif len(time_template2) > 0:
@@ -80,6 +84,8 @@ class SpiderNewsSpider(scrapy.Spider):
                     time_nodes = time_template3_1
                 elif len(time_template3_2) > 0:
                     time_nodes = time_template3_2
+                elif len(time_template3_3) > 0:
+                    time_nodes = time_template3_3
                 else:
                     time_nodes = time_template3
             # time_nodes = root.xpath('//div[@class="post_time_source"]')
@@ -89,15 +95,21 @@ class SpiderNewsSpider(scrapy.Spider):
             sel = Selector(text=html, type="html")
             nodes_sel_template1 = sel.xpath('//div[@class="post_body"]/div/p')
             nodes_sel_template2 = sel.xpath('//div[@id="endText"]/p')
+            nodes_sel_template3 = sel.xpath('//div[@class="p_detail"]/p')
+            nodes_sel_template4 = sel.xpath('//div[@class="Custom_UnionStyle"]/p')
             if len(nodes_sel_template1) > 0:
                 nodes_sel = nodes_sel_template1
-            if len(nodes_sel_template2) > 0:
+            elif len(nodes_sel_template2) > 0:
                 nodes_sel = nodes_sel_template2
+            elif len(nodes_sel_template3) > 0:
+                nodes_sel = nodes_sel_template3
+            elif len(nodes_sel_template4) > 0:
+                nodes_sel = nodes_sel_template4
             context = nodes_sel.extract()  # 获取新闻内容的整段html:list结构
             content_html = ''  # 将新闻html拼接成整段html
             for i in range(0, len(context)):
                 content_html += str(context[i])
-            # print content_html
+            print content_html
             item['company_code'] = ''
             item['company_code_other'] = ''
             item['company_name'] = ''

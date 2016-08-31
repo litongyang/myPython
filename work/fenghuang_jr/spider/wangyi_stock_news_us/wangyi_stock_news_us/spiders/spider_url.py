@@ -20,7 +20,8 @@ class SpiderUrlSpider(scrapy.Spider):
     # start_urls = ['http://quotes.money.163.com/usstock/JD_news.html?page=0',
     #               'http://quotes.money.163.com/hkstock/00323.html'
     #               ]
-    start_urls = GetUrl().get_company_news_url()
+    start_urls = ['http://quotes.money.163.com/usstock/MOBI_news.html?page=0']
+    # start_urls = GetUrl().get_company_news_url()
 
     def parse(self, response):
         try:
@@ -52,6 +53,10 @@ class SpiderUrlSpider(scrapy.Spider):
                         item['news_url'] = title_url_us_nodes[i].attrib['href']
                         item['news_time'] = time_us_nodes[i].text
                         news_time_list.append(time_us_nodes[i].text)
+                        # print item['company_code']
+                        # print item['news_title']
+                        # print item['news_time']
+                        # print item['news_url']
                         yield item
                     else:
                         break

@@ -21,6 +21,8 @@ NEWSPIDER_MODULE = 'guomei_finance.spiders'
 # Obey robots.txt rules
 ROBOTSTXT_OBEY = True
 
+
+
 # Configure maximum concurrent requests performed by Scrapy (default: 16)
 #CONCURRENT_REQUESTS = 32
 
@@ -66,6 +68,12 @@ ROBOTSTXT_OBEY = True
 # See http://scrapy.readthedocs.org/en/latest/topics/item-pipeline.html
 ITEM_PIPELINES = {
    'guomei_finance.pipelines.GuomeiFinancePipeline': 300,
+}
+DOWNLOAD_HANDLERS_BASE = {
+    'file': 'scrapy.core.downloader.handlers.file.FileDownloadHandler',
+    'http': 'scrapy.core.downloader.handlers.http.HttpDownloadHandler',
+    'https': 'scrapy.core.downloader.handlers.http.HttpDownloadHandler',
+    's3': 'scrapy.core.downloader.handlers.s3.S3DownloadHandler',
 }
 
 # Enable and configure the AutoThrottle extension (disabled by default)

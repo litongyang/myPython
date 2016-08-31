@@ -14,6 +14,7 @@ reload(sys)
 sys.setdefaultencoding('utf-8')
 
 
+# noinspection PyBroadException
 class SpiderDetailSpider(scrapy.Spider):
     def __init__(self):
         self.time_stamp_tmp = time.time()
@@ -22,7 +23,7 @@ class SpiderDetailSpider(scrapy.Spider):
     name = "guomei_finance_spider_detail"
     allowed_domains = ["spider_detail.com"]
     start_urls = [
-        'https://www.gomefinance.com.cn/api/v2/loans/getLoanWithPage?&pageSize=100&status=SCHEDULED&minDuration=0&maxDuration=100&currentPage=1',
+        'https://www.gomefinance.com.cn/api/v2/loans/getLoanWithPage?&pageSize=200&status=SCHEDULED&minDuration=0&maxDuration=100&currentPage=1',
     ]
 
     def parse(self, response):
@@ -75,10 +76,16 @@ class SpiderDetailSpider(scrapy.Spider):
                                             if k3 == 'stepAmount':
                                                 step_amount = v3  # 每笔投资单位金额
                             elif k1 == 'timeOpen':  # 开标时间
-                                time_open = v1
-                                date_open = time.strftime("%Y-%m-%d", time.localtime(int(v1)/1000))
+                                try:
+                                    time_open = time.strftime("%Y-%m-%d %H:%M:%S", time.localtime(int(v1)/1000))
+                                    date_open = time.strftime("%Y-%m-%d", time.localtime(int(v1)/1000))
+                                except:
+                                    pass
                             elif k1 == 'timeFinished':  # 关标时间
-                                time_finished = v1
+                                try:
+                                    time_finished = time.strftime("%Y-%m-%d %H:%M:%S", time.localtime(int(v1)/1000))
+                                except:
+                                    pass
                             elif k1 == 'bidNumber':  # 投资人数
                                 bid_number = v1
                             elif k1 == 'bidAmount':  # 投资金额

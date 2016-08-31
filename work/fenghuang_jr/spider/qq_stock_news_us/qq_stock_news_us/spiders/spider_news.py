@@ -30,7 +30,8 @@ class SpiderNewsSpider(scrapy.Spider):
     # start_urls = ["http://finance.qq.com/a/20160719/008840.htm?stockcode=usSOHU&version=1#highlight=%E6%90%9C%E7%8B%90"]
     # start_urls = ["http://finance.qq.com/a/20160714/040261.htm#highlight=京东"]
     # start_urls = ["http://finance.qq.com/a/20160726/037202.htm?stockcode=usBIDU&version=1#highlight=百度"]
-    start_urls = get_url_class.GetUrl().get_news_url()
+    start_urls = ["http://finance.qq.com/a/20110803/005357.htm?stockcode=usSPIL&version=1"]
+    # start_urls = get_url_class.GetUrl().get_news_url()
 
     def parse(self, response):
         try:
@@ -124,12 +125,18 @@ class SpiderNewsSpider(scrapy.Spider):
                         pass
 
                     """ 新闻内容的html """
+                    content_html = ''  # 将新闻html拼接成整段html
                     sel = Selector(text=html, type="html")
                     nodes_sel = sel.xpath("//p[@style='TEXT-INDENT: 2em']")
-                    context = nodes_sel.extract()  # 获取新闻内容的整段html:list结构
-                    content_html = ''  # 将新闻html拼接成整段html
-                    for i in range(0, len(context)):
-                        content_html += str(context[i])
+                    nodes_sel_template1 = sel.xpath(
+                        '//div[@id="Cnt-Main-Article-QQ"]')
+                    if len(nodes_sel) > 0:
+                        context = nodes_sel.extract()  # 获取新闻内容的整段html:list结构
+                        content_html = ''
+                        for i in range(0, len(context)):
+                            content_html += str(context[i])
+                    elif len(nodes_sel_template1) > 0:
+                        content_html = nodes_sel_template1.extract()
                     item['company_code'] = company_code
                     item['company_code_other'] = ''
                     item['company_name'] = company_name
