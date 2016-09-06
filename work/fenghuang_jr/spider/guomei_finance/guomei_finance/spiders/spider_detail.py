@@ -19,7 +19,7 @@ class SpiderDetailSpider(scrapy.Spider):
     def __init__(self):
         self.time_stamp_tmp = time.time()
         self.time_array = time.localtime(self.time_stamp_tmp)
-        self.date = time.strftime("%Y-%m-%d", self.time_array)
+        self.time_satmp = time.strftime("%Y-%m-%d %H:%M:%S", self.time_array)
     name = "guomei_finance_spider_detail"
     allowed_domains = ["spider_detail.com"]
     start_urls = [

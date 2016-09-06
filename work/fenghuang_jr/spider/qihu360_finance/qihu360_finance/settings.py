@@ -19,7 +19,13 @@ NEWSPIDER_MODULE = 'qihu360_finance.spiders'
 #USER_AGENT = 'qihu360_finance (+http://www.yourdomain.com)'
 
 # Obey robots.txt rules
-ROBOTSTXT_OBEY = True
+ROBOTSTXT_OBEY = False
+DOWNLOAD_HANDLERS_BASE = {
+    'file': 'scrapy.core.downloader.handlers.file.FileDownloadHandler',
+    'http': 'scrapy.core.downloader.handlers.http.HttpDownloadHandler',
+    'https': 'scrapy.core.downloader.handlers.http.HttpDownloadHandler',
+    's3': 'scrapy.core.downloader.handlers.s3.S3DownloadHandler',
+}
 
 # Configure maximum concurrent requests performed by Scrapy (default: 16)
 #CONCURRENT_REQUESTS = 32
@@ -64,9 +70,9 @@ ROBOTSTXT_OBEY = True
 
 # Configure item pipelines
 # See http://scrapy.readthedocs.org/en/latest/topics/item-pipeline.html
-#ITEM_PIPELINES = {
-#    'qihu360_finance.pipelines.SomePipeline': 300,
-#}
+ITEM_PIPELINES = {
+   'qihu360_finance.pipelines.Qihu360FinancePipeline': 300,
+}
 
 # Enable and configure the AutoThrottle extension (disabled by default)
 # See http://doc.scrapy.org/en/latest/topics/autothrottle.html

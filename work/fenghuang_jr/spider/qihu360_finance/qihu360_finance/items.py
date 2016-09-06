@@ -17,6 +17,7 @@ class Qihu360FinanceUrlItem(scrapy.Item):
 class Qihu360FinanceDetailItem(scrapy.Item):
     url = Field()  # 产品详情url
     title = Field()  # 产品标题
+    open_date = Field()  # 开标日期
     ratio = Field()  # 预期收益率
     days = Field()  # 期限
     repay_method = Field()  # 收益方式
@@ -26,4 +27,5 @@ class Qihu360FinanceDetailItem(scrapy.Item):
     available = Field()  # 当前可投资金额
     amount = Field()  # 募集金额
     min_amount_info = Field()  # 起投金额信息
+    ts = Field()  # 爬取时间
 

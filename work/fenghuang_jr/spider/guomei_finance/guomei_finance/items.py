@@ -27,3 +27,4 @@ class GuomeiFinanceDetailItem(scrapy.Item):
     status = Field()  # 标的状态
     invest_percent = Field()  # 当前进度
     available = Field()  # 当前可投资金额
+    ts = Field()  # 爬取时间

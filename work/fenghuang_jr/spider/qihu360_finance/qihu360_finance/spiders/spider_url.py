@@ -21,6 +21,7 @@ class SpiderUrlSpider(scrapy.Spider):
             name_noeds = root.xpath('//td[@colspan="4"]/div/div/span')  # 产品名称node
             # transfer_info_noeds = root.xpath('//td[@colspan="4"]/div/div/i')  # 转让信息node
             url_status_noeds = root.xpath('//div[@class="listTop"]/a')  # 产品状态node
+            print len(url_status_noeds)
             print 'https://www.nicaifu.com' + url_status_noeds[0].attrib['href']
             print url_status_noeds[0].text
             print name_noeds[0].text
