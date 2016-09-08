@@ -219,6 +219,7 @@
 
 import numpy as np
 
+
 class Locally_Weighted_Linear_Regression():
     """Iterative version of Locally Weighted Linear Regression """
 
@@ -250,15 +251,15 @@ class Locally_Weighted_Linear_Regression():
             print "tau should be greater than 0."
             return [],[]
 
-        for x in X_est: #for every sample in X_est
-            #calculate weights that depend on the particular vector x
-            weights =  np.exp((-(X - x)*(X - x)).sum(axis = 1)/(2 * tau**2))
-            W = np.diag(weights) #diagonal matrix with weights
+        for x in X_est: # for every sample in X_est
+            # calculate weights that depend on the particular vector x
+            weights = np.exp((-(X - x)*(X - x)).sum(axis=1)/(2 * tau**2))
+            W = np.diag(weights)  # diagonal matrix with weights
             x_W = np.dot(X.T, W)
             A = np.dot(x_W, X)
             b = np.dot(x_W, y)
-            thetas.append(np.linalg.lstsq(A,b)[0])# calculate thetas for given x with: A^-1 * b
-            estimation.append(np.dot(x, thetas[-1])) # calculate estimation for given x and thetas
+            thetas.append(np.linalg.lstsq(A,b)[0])  # calculate thetas for given x with: A^-1 * b
+            estimation.append(np.dot(x, thetas[-1]))  # calculate estimation for given x and thetas
 
         return thetas, estimation
 
@@ -271,18 +272,24 @@ if __name__ == '__main__':
     from sklearn import datasets
 
     import matplotlib.pyplot as plt
-    iris = datasets.load_iris() #Load data
-    print iris.data
-    X,y = datasets.load_iris() #iris.data()
-    # y = iris.target()
+    iris = datasets.load_iris()  # Load data
+    # print iris.data
+    # X = iris.data[:, 0:1]
+    # y = iris.target
+    # X = np.array(iris.data())
+    # print X
+    # X= iris.data[:, 0:1]
+    print type(X)
+    y = iris.target
+    y = np.random.uniform(4, 4.5,size=150)
+    print len(y)
 
     lwlr = Locally_Weighted_Linear_Regression()
     taus = [1, 10, 25]
-    plt.scatter(X[:,1], y) #Plot train data
-
-    color = ["r","g", "b"]
+    plt.scatter(X, y)  # Plot train data
+    color = ["r", "g", "b"]
     for i, tau in enumerate(taus):
-        thetas, estimation = lwlr.fit(X, y, X, tau = tau)
-        plt.plot(X[:,1] ,estimation, c = color[i]) #Plot prediction
+        thetas, estimation = lwlr.fit(X, y, X, tau=tau)
+        plt.plot(X, estimation, c=color[i])  # Plot prediction
 
     plt.show()

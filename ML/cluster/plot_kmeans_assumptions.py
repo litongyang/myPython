@@ -42,6 +42,7 @@ n_features = 2
 random_state = 170
 X, y = make_blobs(n_samples=n_samples, n_features=n_features, random_state=random_state)
 print X
+print type(X)
 print y
 # Incorrect number of clusters
 y_pred = KMeans(n_clusters=3, random_state=random_state).fit_predict(X)
