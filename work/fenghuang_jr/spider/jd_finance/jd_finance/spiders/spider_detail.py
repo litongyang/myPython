@@ -22,50 +22,7 @@ class SpiderUrlSpider(scrapy.Spider):
         try:
             item = JdFinanceDetailItem()
             json_data = json.loads(response.body_as_unicode()[1:len(response.body_as_unicode())-1])
-            # print json_data
-            # "itemTypeName":"月月盈",
-            # "totalAmount":"500000000",
-            # "canBuyAmount":"439184000",
-            # "nextOpenDate":"2016-10-06",
-            # "itemExtends":[
-            #
-            #               ],
-            # "itemType":3,
-            # "id":37049,
-            # "skuId":"11003000107",
-            # "itemCode":"gzgqjyzx809625",
-            # "itemName":"京穗月月盈44号理财计划",
-            # "merchantId":"11003",
-            # "merchantName":"广州金融资产交易中心有限公司",
-            # "assetCode":"1100320160902001",
-            # "assetName":"京穗月月盈44号理财计划",
-            # "skuType":"305",
-            # "bizType":"1",
-            # "amount":1000,
-            # "minAmount":1000,
-            # "maxAmount":300000,
-            # "waterLevelLine":0,
-            # "saleBeginDate":"2016-09-04 23:30:00",
-            # "saleEndDate":"2016-09-05 23:30:00",
-            # "beginDate":"2016-09-06 00:00:00",
-            # "endDate":"2019-09-06 00:00:00",
-            # "benefit":4.5,
-            # "periodType":"年",
-            # "periodValue":"3",
-            #
-            # "itemStatus":2,
-            # "createTime":"2016-09-02 18:13:45",
-            # "updateTime":"2016-09-03 22:31:42",
-            # "operator":"lxyll",
-            # "label":"可预约赎回",
-            # "repaymentType":"1",
-            # "interestType":"2",
-            # "bookRedemption":"1",
-            # "bookRedemptionRule":"{"}",
-            # "versionId":3
-
             for k, v in json_data.items():
-
                 if k == 'items':
                     for k1, v1 in v.items():
                         if k1 == 'values':
@@ -181,7 +138,10 @@ class SpiderUrlSpider(scrapy.Spider):
                                 item['version_id'] = version_id
                                 yield item
 
-
+        except Exception, e:
+            error_info = Exception, e
+            print error_info
+            ###########################  JD金融定投代码  ##########################################
             # json_data = json.loads(response.body_as_unicode())
 
 
@@ -276,6 +236,4 @@ class SpiderUrlSpider(scrapy.Spider):
             #                     item['is_support_ins_append'] = is_support_ins_append
             #                     item['status'] = status
             #                     yield item
-        except Exception, e:
-            error_info = Exception, e
-            print error_info
+
