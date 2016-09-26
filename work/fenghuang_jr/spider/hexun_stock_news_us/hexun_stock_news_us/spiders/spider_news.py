@@ -25,7 +25,7 @@ class SpiderNewsSpider(scrapy.Spider):
     # start_urls = ['http://news.hexun.com/2016-08-09/185412895.html',
     #               'http://bschool.hexun.com/2016-08-09/185410268.html'
     #               ]
-    start_urls = ['http://stock.hexun.com/2015-08-19/178456338.html']
+    start_urls = ['http://bank.hexun.com/2015-11-18/180636164.html']
     # start_urls = GetUrl().get_news_url()
 
     def parse(self, response):

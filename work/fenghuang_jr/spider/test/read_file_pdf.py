@@ -35,4 +35,4 @@ def pdfparser(data):
 
 
 if __name__ == '__main__':
-    pdfparser("test.pdf")
+    pdfparser("1.pdf")

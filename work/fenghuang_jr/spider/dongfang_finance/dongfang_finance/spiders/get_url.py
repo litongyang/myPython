@@ -29,8 +29,8 @@ class GetUrl:
         for i in range(1, self.research_page_len):
             url = str(self.research_url_head) + str(i) + str(self.research_url_tail)
             self.research_url_list.append(url)
-        # for i in self.research_url_list:
-        #     print i
+        for i in self.research_url_list:
+            print i
         return self.research_url_list
 
 if __name__ == '__main__':

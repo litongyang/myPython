@@ -1,3 +1,5 @@
+use crm_v2
+insert overwrite table activity_contact_awards
 SELECT
     activity_contact_awards.*
 FROM

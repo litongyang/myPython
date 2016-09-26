@@ -278,14 +278,17 @@ if __name__ == '__main__':
     # y = iris.target
     # X = np.array(iris.data())
     # print X
-    # X= iris.data[:, 0:1]
+    X= iris.data[:, 0:1]
+    # print X
+    X = np.array([[0],[1],[2],[3]])
     print type(X)
-    y = iris.target
-    y = np.random.uniform(4, 4.5,size=150)
+    # y = iris.target
+    # y = np.random.uniform(4, 4.5,size=150)
+    y = np.array([0,1,4,7])
     print len(y)
 
     lwlr = Locally_Weighted_Linear_Regression()
-    taus = [1, 10, 25]
+    taus = [1, 0.01, 25]
     plt.scatter(X, y)  # Plot train data
     color = ["r", "g", "b"]
     for i, tau in enumerate(taus):

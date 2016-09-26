@@ -15,10 +15,21 @@ logger = logging.getLogger('start.start_activity_parallel')
 
 class StartActivityParallel:
     def __init__(self):
+        self.crm_activity_contact_awards_sql_path = "../query_sql/activity/crm_activity_contact_awards.sql"
         self.crm_end_activity_statistics_sql_path = "../query_sql/activity/crm_end_activity_statistics.sql"
         self.crm_end_activity_logger_sql_path = "../query_sql/activity/crm_end_activity_logger.sql"
         self.crm_error_sql_path = "../query_sql/crm_error.sql"
         self.invoke_schedule = invoke_schedule.InvokeSchedule()
+
+    def get_activity_contact_awards_data(self, is_success):
+        fun_name = (lambda: sys._getframe(1).f_code.co_name)()
+        self.invoke_schedule.invoke_level_fun(3, str(fun_name), (str(fun_name) + " is starting !"))
+        try:
+            os_v = hive_command_method.hive_command("-f", self.crm_activity_contact_awards_sql_path)
+            push_schedule_result_method.push_schedule_result(os_v, 3, is_success, fun_name)
+        except Exception, e:
+            push_schedule_result_method.push_schedule_exception((Exception, e), 3, is_success, fun_name)
+            hive_command_method.hive_command("-f", self.crm_error_sql_path)
 
     def get_activity_statistics_data(self, is_success):
         logger = logging.getLogger('crm.start_coupon.get_coupon_statistics_data')

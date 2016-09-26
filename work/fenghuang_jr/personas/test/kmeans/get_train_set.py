@@ -51,7 +51,6 @@ for i in range(0, len(age)):
     fi.write(str(total_points[i]))
     fi.write('\t')
     fi.write(str(y_pred[i]))
-    fi.write('\t')
     # for v in X[i]:
     #     fi.write(str(v))
     #     fi.write('\t')

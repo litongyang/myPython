@@ -272,6 +272,27 @@ class StartDataInput:
         except Exception, e:
             push_schedule_result_method.push_schedule_exception((Exception, e), 2, is_success, fun_name)
 
+    def input_activity_contact_awards_test(self, is_success):
+        # logger = logging.getLogger('crm.input_data_hive.input_activity_contact_awards')
+        fun_name = (lambda: sys._getframe(1).f_code.co_name)()
+        self.invoke_schedule.invoke_level_fun(2, str(fun_name), (str(fun_name) + " is starting !"))
+        try:
+            host = self.read_conf.get_options("sqoop_params_activity_contact_awards", "host")
+            username = self.read_conf.get_options("sqoop_params_activity_contact_awards", "username")
+            password = self.read_conf.get_options("sqoop_params_activity_contact_awards", "password")
+            # table_name = self.read_conf.get_options("sqoop_params_activity_contact_awards", "table_name")
+            target_dir = self.read_conf.get_options("sqoop_params_activity_contact_awards", "target_dir")
+            hive_table = self.read_conf.get_options("sqoop_params_activity_contact_awards", "hive_table")
+            print hive_table
+            for i in range(0, 16):
+                table = 'activity_contact_awards_' + str(i)
+                table_name = 'activity_contact_awards_' + str(i)
+                print table
+                os_v = self.sqoop_function.sqoop_table(host, username, password, table, table_name, target_dir, hive_table)
+                push_schedule_result_method.push_schedule_result(os_v, 2, is_success, fun_name)
+        except Exception, e:
+            push_schedule_result_method.push_schedule_exception((Exception, e), 2, is_success, fun_name)
+
     def input_crm_contacts_cstm(self, is_success):
         fun_name = (lambda: sys._getframe(1).f_code.co_name)()
         self.invoke_schedule.invoke_level_fun(2, str(fun_name), (str(fun_name) + " is starting !"))
@@ -322,4 +343,5 @@ class StartDataInput:
 
 if __name__ == '__main__':
     test = StartDataInput()
+    test.input_activity_contact_awards_test(1)
     # test.input_tb_counpon_record_fun()

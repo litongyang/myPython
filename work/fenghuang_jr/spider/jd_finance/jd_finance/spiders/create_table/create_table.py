@@ -18,7 +18,7 @@ class CreateTable:
         self.db_port = 3306  # 端口号
         self.username = 'root'  # 用户名
         self.password = '123'  # 密码
-        self.table_name = 'jd_bid_info'
+        self.table_name = 'jd_bid_info_tmp'
         self.conn = MySQLdb.connect(host=self.db_host, user=self.username, passwd=self.password, db=self.db_name,
                                     port=self.db_port)
         self.cur = self.conn.cursor()
@@ -58,8 +58,9 @@ class CreateTable:
                 "repayment_type int(2) comment '偿还类型',"
                 "interest_type int(2) comment '利息类型',"
                 "version_id int(8) comment '版本id',"
+                "dt varchar(20) comment '爬取日期',"
                 "ts varchar(20) comment '爬取时间',"
-                "PRIMARY KEY (`id`) )ENGINE=MyISAM AUTO_INCREMENT=18 DEFAULT CHARSET=utf8"
+                "PRIMARY KEY (`id`,`dt`) )ENGINE=MyISAM AUTO_INCREMENT=18 DEFAULT CHARSET=utf8"
                 % self.table_name)
         except Exception, e:
             print Exception, e

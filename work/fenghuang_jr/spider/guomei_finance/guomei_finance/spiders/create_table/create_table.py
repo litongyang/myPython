@@ -18,7 +18,7 @@ class CreateTable:
         self.db_port = 3306  # 端口号
         self.username = 'root'  # 用户名
         self.password = '123'  # 密码
-        self.table_name = 'guomei_bid_info'
+        self.table_name = 'guomei_bid_info_tmp'
         self.conn = MySQLdb.connect(host=self.db_host, user=self.username, passwd=self.password, db=self.db_name,
                                     port=self.db_port)
         self.cur = self.conn.cursor()
@@ -50,6 +50,7 @@ class CreateTable:
                 "available double comment '当前可投资金额',"
                 "cooperative_name varchar(100) comment '合作机构名称',"
                 "detail_url varchar(500) comment '公司详情页url',"
+                "dt varchar(20) comment '爬取日期',"
                 "ts varchar(20) comment '爬取时间',"
                 "PRIMARY KEY (`id`) )ENGINE=MyISAM AUTO_INCREMENT=18 DEFAULT CHARSET=utf8"
                 % self.table_name)
