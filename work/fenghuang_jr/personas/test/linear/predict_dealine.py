@@ -1,8 +1,8 @@
 # __author__ = 'lty'
 # -*- coding: utf-8 -*-
-"""
-预测下一次投资的利率是多少
-"""
+
+# __author__ = 'lty'
+# -*- coding: utf-8 -*-
 
 import matplotlib.pyplot as plt
 import numpy as np
@@ -13,8 +13,8 @@ from sklearn.linear_model import LinearRegression
 
 class LinearTest:
     def __init__(self):
-        self.fl = open('train.txt', 'r')
-        self.fw = open('result.txt', 'wr')
+        self.fl = open('train_dealine.txt', 'r')
+        self.fw = open('predict_dealine_result.txt', 'wr')
         self.userid_list = []
         self.rate_list = []
         self.rate_pre_list = []
@@ -26,7 +26,7 @@ class LinearTest:
             rate_tmp = line_one[1].split(',')
             rate_list_noe = []
             for i in rate_tmp:
-                rate_list_noe.append(float(i)/100)
+                rate_list_noe.append(int(i))
             self.rate_list.append(rate_list_noe)
         print self.rate_list
 
@@ -37,14 +37,14 @@ class LinearTest:
         x_train = [[i] for i in range(0, len(rate_list_noe))]
         print x_train
 
-        clf = Pipeline([('poly', PolynomialFeatures(degree=5)), ('linear', LinearRegression(fit_intercept=False))])
+        clf = Pipeline([('poly', PolynomialFeatures(degree=4)), ('linear', LinearRegression(fit_intercept=False))])
         clf.fit(x_train, y_train)
         # 参数
         print('Coefficients: \n', clf.named_steps['linear'].coef_)
 
         # 均方误差
         # print("Residual sum of squares: %.2f" % np.mean((clf.predict(9) - y) ** 2))
-        print clf.predict(x_pre)  # 预测值
+        print clf.predict(3)  # 预测值
         self.rate_pre_list.append(str(clf.predict(x_pre)))
 
         # Plot outputs
@@ -68,4 +68,3 @@ if __name__ == '__main__':
     for i in range(0, len(test.rate_list)):
         test.ml_regression(test.rate_list[i])
     test.get_result()
-    # test.ml_regression()
