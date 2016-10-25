@@ -1,6 +1,0 @@
-last_logindate_t:2016-03-16
-coupon:{u'accept_user_id': None, u'all_amount': None, u'send_user_id': None, u'weekend_used': 0, u'weekend_count': 0, u'newyear_used': 0, u'all_use_count': 0, u'avg_amount': None, u'turnplate_count': 0, u'points_used': 0, u'register_count': 2, u'accept': 0, u'turnplate_used': 0, u'all_count': 2, u'rebate_used': 0, u'send': 0, u'points_count': 0, u'newyear_count': 0, u'logger': [{u'submit_time': None, u'created_time_int': 20160316, u'coupon_id': u'9523ce8e-51d8-4e4a-a710-038a739c51e3', u'invest_id': None, u'amount': None, u'tag': u'register', u'is_used': 0, u'created_time': u'2016-03-16', u'submit_time_int': None, u'coupon_name': u'\u65b0\u4eba\u7ea2\u5305'}, {u'submit_time': None, u'created_time_int': 20160316, u'coupon_id': u'47f1efaa-a01b-4124-a941-a337d4c9fee2', u'invest_id': None, u'amount': None, u'tag': u'register', u'is_used': 0, u'created_time': u'2016-03-16', u'submit_time_int': None, u'coupon_name': u'\u65b0\u4eba\u7ea2\u5305'}], u'register_used': 0, u'rebate_count': 0}
-register_date_t:2016-03-16
-available_points:10
-is_permanent:0
-referral_id:None

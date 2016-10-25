@@ -1,1 +1,0 @@
-(<type 'exceptions.Exception'>, ': ', TypeError("cannot concatenate 'str' and 'NoneType' objects",))
