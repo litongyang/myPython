@@ -1,30 +1,12 @@
 # __author__ = 'lty'
 # -*- coding: utf-8 -*-
-
+"""
+协同过滤算法:基于pearson公式
+"""
 from math import sqrt
-fp = open("/Users/litongyang/Desktop/train_data/train_user_relation.txt", "r")
-# fp = open("uid_score_bid", "r")
-
-users = {}
-
-for line in fp:
-    # lines = line.strip().split(',')
-    lines = line.strip().split()
-    if lines[0] not in users:
-        users[lines[0]] = {}
-    # users[lines[0]][lines[2]] = float(lines[1])
-    key = ''
-    for i in range(1, len(lines)-1):
-        key += str(lines[i]) + '-'
-    key = key[:len(key)-1]
-    users[lines[0]][key] = int(lines[len(lines)-1])
-# for k, v in users.items():
-#     print k, v
 
 
-# ----------------新增代码段END----------------------
-
-class recommender:
+class Cf:
     # data：数据集，这里指users
     # k：表示得出最相近的k的近邻
     # metric：表示使用计算相似度的方法
@@ -132,29 +114,3 @@ class recommender:
         recommendations.sort(key=lambda artistTuple: artistTuple[1], reverse=True)
 
         return recommendations[:self.n], nearest
-
-
-def adjustrecommend(id):
-    bid_list = []
-    r = recommender(users)
-    k, nearuser = r.recommend("%s" % id)
-    for i in range(len(k)):
-        bid_list.append(k[i][0])
-    return bid_list, nearuser[:15]  # bid_list购买的产品，nearuser[:15]最近邻的15个用户
-
-
-# bookid_list, near_list = adjustrecommend("xiaosmile")
-# bid_list, near_list = adjustrecommend("44C4E84F-8B1C-4CB3-8FD5-CBE7274F37FB")
-bid_list, near_list = adjustrecommend("EC3037B7-8845-43E5-A1D7-0CADDF448F34")
-print ("bid_list:", bid_list)
-print ("near_user_list:", near_list)
-print "=========="
-print users['EC3037B7-8845-43E5-A1D7-0CADDF448F34']
-print "*********"
-for i in range(0, len(near_list)):
-    if near_list[i][0] in users:
-        print near_list[i][0], users[near_list[i][0]]
-
-
-
-

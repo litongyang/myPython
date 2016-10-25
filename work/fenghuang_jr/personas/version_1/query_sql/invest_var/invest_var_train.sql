@@ -1,5 +1,5 @@
 use crm_v2;
-insert overwrite local directory '/data/ml/tongyang/test/data/invset_var'
+insert overwrite local directory '/data/ml/tongyang/test/data/invest_var'
 select
  inv.USERID as user_id,
  stddev(lo.rate)

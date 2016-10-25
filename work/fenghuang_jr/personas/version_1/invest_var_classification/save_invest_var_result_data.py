@@ -15,6 +15,8 @@ class SaveInvestVarResultData:
             os_v = hive_command_method.hive_command('-f', self.input_invest_var_result_sql_path)
             if os_v == 0:
                 is_success.append(1)
+            else:
+                is_success.append(0)
         except Exception, e:
             print Exception, e
             is_success.append(0)

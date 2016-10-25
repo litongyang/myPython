@@ -14,7 +14,7 @@ import personas.version_1.base_method.read_conf as read_conf
 class InvestVarModelTraining:
     def __init__(self):
         self.fr = open(read_conf.ReadConf().get_options("path_invest_var", "user_invest_var_train_path"), 'r')
-        self.fw = open(read_conf.ReadConf().get_options("input_invest_var_result_sql_path"), 'wr')
+        self.fw = open(read_conf.ReadConf().get_options("input_invest_var_result_data_path"), 'wr')
         self.user_id = []
         self.var_list = []  # 方差list
         self.train_set = []  # 训练级
