@@ -39,7 +39,7 @@ class GetDataTradeHistroy:
             try:
                 start_date = tus.get_stock_basics().ix[self.company_code_list[i]]['timeToMarket']  # 上市日期YYYYMMDD
                 start_date = str(start_date)[0:4] + '-' + str(start_date)[4:6] + '-' + str(start_date)[6:8]
-                company_trade_histroy = tus.get_h_data(self.company_code_list[i], autype='hfq', start='2016-08-03', end=self.date)
+                company_trade_histroy = tus.get_h_data(self.company_code_list[i], autype=None, start='2016-09-30', end=self.date)
                 print self.company_code_list[i]
                 """ 获取日期 """
                 pydate_array = company_trade_histroy.index.to_pydatetime()

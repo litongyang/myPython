@@ -1,0 +1,7 @@
+2016-06-12 11:10:01,305 - crm.start_invest_repay_logger - INFO - start............
+2016-06-12 11:10:01,423 - crm.base_method.hive_command - ERROR - run hive command is failed !
+2016-06-12 11:10:01,424 - crm.base_method.drop_table - ERROR - drop_table is failed !
+2016-06-12 11:10:01,611 - crm.base_method.sqoop_all - ERROR - sqoop invest_repay_logger is failed!
+2016-06-12 11:10:01,611 - crm.base_method.push_schedule_result - ERROR - run function of input_invest_repay_logger is failed !
+2016-06-12 11:10:01,851 - crm.base_method.hive_command - ERROR - run hive command is failed !
+2016-06-12 11:10:01,851 - crm.base_method.push_schedule_result - ERROR - run function of get_crm_desc_json_new is failed !

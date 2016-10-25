@@ -1,0 +1,11 @@
+2016-05-10 11:18:04,693 - crm.start_points - INFO - start............
+2016-05-10 11:18:04,969 - crm.base_method.hive_command - ERROR - run hive command is failed !
+2016-05-10 11:18:04,969 - crm.base_method.drop_table - ERROR - drop_table is failed !
+2016-05-10 11:18:05,410 - crm.base_method.sqoop_all - ERROR - sqoop crm_points_statistics is failed!
+2016-05-10 11:18:05,410 - crm.base_method.push_schedule_result - ERROR - run function of input_crm_points_statistics_fun is failed !
+2016-05-10 11:18:05,851 - crm.base_method.hive_command - ERROR - run hive command is failed !
+2016-05-10 11:18:05,851 - crm.base_method.push_schedule_result - ERROR - run function of get_points_statistics_data is failed !
+2016-05-10 11:18:06,292 - crm.base_method.implement_es - ERROR - file of /data/ml/tongyang/data/points/points_statistics is not exist!
+2016-05-10 11:18:06,292 - crm.base_method.push_schedule_exception - ERROR - (<type 'exceptions.Exception'>, TypeError("'NoneType' object is not iterable",))--------->>run  function of implement_es_pointsException !
+2016-05-10 11:18:06,529 - crm.base_method.hive_command - ERROR - run hive command is failed !
+2016-05-10 11:18:06,530 - crm.start_points - INFO -  value of is_success is [0, 0, 0, 0] :

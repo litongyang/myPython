@@ -12,7 +12,7 @@ class CreateTable:
         self.db_port = 3306  # 端口号
         self.username = 'root'  # 用户名
         self.password = '123'  # 密码
-        self.table_trade_history_data = 'trade_history_data_cn'
+        self.table_trade_history_data = 'trade_history_data_no'
         self.conn = MySQLdb.connect(host=self.db_host, user=self.username, passwd=self.password, db=self.db_name,
                                     port=self.db_port)
         self.cur = self.conn.cursor()

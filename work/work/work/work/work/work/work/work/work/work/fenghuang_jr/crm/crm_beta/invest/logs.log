@@ -1,0 +1,23 @@
+2016-06-12 11:05:10,204 - crm.start_invest - INFO - start............
+2016-06-12 11:05:10,276 - crm.base_method.hive_command - ERROR - run hive command is failed !
+2016-06-12 11:05:10,276 - crm.base_method.drop_table - ERROR - drop_table is failed !
+2016-06-12 11:05:10,338 - crm.base_method.sqoop_table - ERROR - sqoop crm_tb_invite_reward_trace is failed!
+2016-06-12 11:05:10,338 - crm.base_method.push_schedule_result - ERROR - run function of input_tb_invite_reward_trace_fun is failed !
+2016-06-12 11:05:10,394 - crm.base_method.sqoop_table - ERROR - sqoop tb_invest is failed!
+2016-06-12 11:05:10,394 - crm.base_method.push_schedule_result - ERROR - run function of input_tb_invest_fun is failed !
+2016-06-12 11:05:10,451 - crm.base_method.sqoop_all - ERROR - sqoop crm_crm_invest_desc_status is failed!
+2016-06-12 11:05:10,451 - crm.base_method.push_schedule_result - ERROR - run function of input_invest_desc_trans is failed !
+2016-06-12 11:05:10,507 - crm.base_method.sqoop_all - ERROR - sqoop crm_invest_status is failed!
+2016-06-12 11:05:10,507 - crm.base_method.push_schedule_result - ERROR - run function of input_invest_trans is failed !
+2016-06-12 11:05:10,559 - crm.base_method.sqoop_all - ERROR - sqoop crm_invest_one_status is failed!
+2016-06-12 11:05:10,559 - crm.base_method.push_schedule_result - ERROR - run function of input_invest_one_trans is failed !
+2016-06-12 11:05:10,615 - crm.base_method.hive_command - ERROR - run hive command is failed !
+2016-06-12 11:05:10,615 - crm.base_method.push_schedule_result - ERROR - run function of get_crm_desc_json_new is failed !
+2016-06-12 11:05:10,668 - crm.base_method.hive_command - ERROR - run hive command is failed !
+2016-06-12 11:05:10,668 - crm.base_method.push_schedule_result - ERROR - run function of crm_end_invest is failed !
+2016-06-12 11:05:10,719 - crm.base_method.hive_command - ERROR - run hive command is failed !
+2016-06-12 11:05:10,719 - crm.base_method.push_schedule_result - ERROR - run function of crm_end_invest_logger is failed !
+2016-06-12 11:05:10,769 - crm.base_method.implement_es - ERROR - file of /data/ml/tongyang/data/invest/invest_statistics is not exist!
+2016-06-12 11:05:10,769 - crm.base_method.push_schedule_exception - ERROR - (<type 'exceptions.Exception'>, TypeError("'NoneType' object is not iterable",))--------->>run  function of implement_es_investException !
+2016-06-12 11:05:10,832 - crm.base_method.hive_command - ERROR - run hive command is failed !
+2016-06-12 11:05:10,834 - crm.start_invest - INFO -  value of is_success is [0, 0, 0, 0, 0, 0, 0, 0, 0, 0] :

@@ -13,10 +13,13 @@ for line in fp:
     if lines[0] not in users:
         users[lines[0]] = {}
     # users[lines[0]][lines[2]] = float(lines[1])
-    users[lines[0]][lines[1]] = int(lines[2])
-for k, v in users.items():
-    if k == 'EB5A2727-0123-417D-A23D-C07852F245A8':
-        print k, v
+    key = ''
+    for i in range(1, len(lines)-1):
+        key += str(lines[i]) + '-'
+    key = key[:len(key)-1]
+    users[lines[0]][key] = int(lines[len(lines)-1])
+# for k, v in users.items():
+#     print k, v
 
 
 # ----------------新增代码段END----------------------
@@ -25,7 +28,7 @@ class recommender:
     # data：数据集，这里指users
     # k：表示得出最相近的k的近邻
     # metric：表示使用计算相似度的方法
-    # n：表示推荐book的个数
+    # n：表示推荐产品的个数
     def __init__(self, data, k=3, metric='pearson', n=12):
 
         self.k = k
@@ -103,7 +106,7 @@ class recommender:
         if totalDistance == 0.0:
             totalDistance = 1.0
 
-        # 将与user最相近的k个人中user没有看过的书推荐给user，并且这里又做了一个分数的计算排名
+        # 将与user最相近的k个人中user没有买过的商品荐给user，并且这里又做了一个分数的计算排名
         for i in range(self.k):
 
             # 第i个人的与user的相似度，转换到[0,1]之间
@@ -112,7 +115,7 @@ class recommender:
             # 第i个人的name
             name = nearest[i][0]
 
-            # 第i个用户看过的书和相应的打分
+            # 第i个用户买过的产品和相应的打分
             neighborRatings = self.data[name]
 
             for artist in neighborRatings:
@@ -136,14 +139,14 @@ def adjustrecommend(id):
     r = recommender(users)
     k, nearuser = r.recommend("%s" % id)
     for i in range(len(k)):
-        bookid_list.append(k[i][0])
-    return bookid_list, nearuser[:15]  # bookid_list推荐书籍的id，nearuser[:15]最近邻的15个用户
+        bid_list.append(k[i][0])
+    return bid_list, nearuser[:15]  # bid_list购买的产品，nearuser[:15]最近邻的15个用户
 
 
 # bookid_list, near_list = adjustrecommend("xiaosmile")
 # bid_list, near_list = adjustrecommend("44C4E84F-8B1C-4CB3-8FD5-CBE7274F37FB")
 bid_list, near_list = adjustrecommend("EC3037B7-8845-43E5-A1D7-0CADDF448F34")
-print ("bookid_list:", bid_list)
+print ("bid_list:", bid_list)
 print ("near_user_list:", near_list)
 print "=========="
 print users['EC3037B7-8845-43E5-A1D7-0CADDF448F34']
