@@ -13,7 +13,7 @@ from sklearn.linear_model import LinearRegression
 
 class LinearTest:
     def __init__(self):
-        self.fl = open('train_dealine.txt', 'r')
+        self.fl = open('train.txt', 'r')
         self.fw = open('predict_dealine_result.txt', 'wr')
         self.userid_list = []
         self.rate_list = []
@@ -28,7 +28,7 @@ class LinearTest:
             for i in rate_tmp:
                 rate_list_noe.append(int(i))
             self.rate_list.append(rate_list_noe)
-        print self.rate_list
+        # print self.rate_list
 
     def ml_regression(self, rate_list_noe):
         y_train = [[rate_list_noe[i]] for i in range(0, len(rate_list_noe))]
@@ -37,13 +37,13 @@ class LinearTest:
         x_train = [[i] for i in range(0, len(rate_list_noe))]
         print x_train
 
-        clf = Pipeline([('poly', PolynomialFeatures(degree=4)), ('linear', LinearRegression(fit_intercept=False))])
+        clf = Pipeline([('poly', PolynomialFeatures(degree=8)), ('linear', LinearRegression(fit_intercept=False))])
         clf.fit(x_train, y_train)
         # 参数
         print('Coefficients: \n', clf.named_steps['linear'].coef_)
-
+        print clf.predict(x_train)
         # 均方误差
-        # print("Residual sum of squares: %.2f" % np.mean((clf.predict(9) - y) ** 2))
+        print("Residual sum of squares: %.2f" % np.mean((clf.predict(x_train) - y_train) ** 2))
         print clf.predict(3)  # 预测值
         self.rate_pre_list.append(str(clf.predict(x_pre)))
 
@@ -67,4 +67,5 @@ if __name__ == '__main__':
     test.get_train_data()
     for i in range(0, len(test.rate_list)):
         test.ml_regression(test.rate_list[i])
+        print "============"
     test.get_result()
