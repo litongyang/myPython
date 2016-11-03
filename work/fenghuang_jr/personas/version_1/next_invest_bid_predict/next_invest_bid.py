@@ -21,7 +21,8 @@ class NextInvestBid:
 
         """ 模型训练 """
         self.model_training.get_train_data(self.is_success)
-        self.model_training.next_invest_predit_model_training(self.is_success)
+        self.model_training.next_invest_deadline_predit_model_training(self.is_success)
+        self.model_training.next_invest_rate_predit_model_training(self.is_success)
 
         """ 将训练好的数据存入hive表 """
         flag = 1
