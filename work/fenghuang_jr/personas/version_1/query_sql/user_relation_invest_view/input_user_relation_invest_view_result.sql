@@ -1,2 +1,3 @@
-use crm_v2_test;
-load data local inpath '/data/ml/tongyang/test/model_data/user_relation_invest_view/result.txt' into table user_relation_invest_veiw_label;
+use app;
+load data local inpath '/root/personas_fengjr/model_data/user_relation_invest_view/bid_result.txt' overwrite into table personas_user_relation_invest_view_bid_label_full partition(dt='${dt}');
+load data local inpath '/root/personas_fengjr/model_data/user_relation_invest_view/user_result.txt' overwrite  into table personas_user_relation_invest_view_user_label_full partition(dt='${dt}');

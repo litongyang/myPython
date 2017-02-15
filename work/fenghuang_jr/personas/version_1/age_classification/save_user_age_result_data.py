@@ -1,25 +1,36 @@
 # __author__ = 'lty'
 # -*- coding: utf-8 -*-
 
+import datetime
+import logging
+import logging.config
 import sys
-sys.path.append("/data/ml/tongyang/test")
+sys.path.append("/root/personas_fengjr")
 import personas.version_1.base_method.hive_command_method as hive_command_method
 import personas.version_1.base_method.read_conf as read_conf
 
 
 class SaveUserAgeResultData:
     def __init__(self):
+        self.yesterday = datetime.date.today() - datetime.timedelta(days=1)
         self.input_invest_var_result_sql_path = read_conf.ReadConf().get_options("path_user_age", "input_user_age_result_sql_path")
 
     def get_result_data(self, is_success):
+        logging.config.fileConfig('../logger.conf')
+        logger = logging.getLogger('personas.get_result_data')
         try:
-            os_v = hive_command_method.hive_command('-f', self.input_invest_var_result_sql_path)
+            param = '-d' + ' ' + 'dt=' + '\'' + str(self.yesterday) + '\'' + ' ' + '-f'
+            os_v = hive_command_method.hive_command(str(param), self.input_invest_var_result_sql_path)
             if os_v == 0:
                 is_success.append(1)
+                logger.info("get_result_data is successed !")
             else:
                 is_success.append(0)
+                logger.error("get_result_data is failed !")
         except Exception, e:
-            print Exception, e
+            exception = Exception, e
+            error_info = str(exception) + "--------->>" + "get_result_data is Exception !"
+            logger.error(error_info)
             is_success.append(0)
 
 if __name__ == '__main__':

@@ -1,6 +1,7 @@
 # __author__ = 'tongyang.li'
 # -*- coding: utf-8 -*-
 
+import os
 import logging
 import logging.config
 import ConfigParser
@@ -18,7 +19,8 @@ class ReadConf:
     def get_options(self, section_name, var_name):
         try:
             self.cf.read(self.conf_name)
-            return self.cf.get(section_name, var_name)
+            file_path = self.cf.get(section_name, var_name)
+            return file_path
         except Exception, e:
             exception = Exception, e
             error_info = str(exception) + "--------->>" + "get options of crm_conf: %s %s is failed !" % (section_name, var_name)
@@ -35,5 +37,5 @@ class ReadConf:
 
 if __name__ == '__main__':
     test = ReadConf()
-    test.get_options("is_all", "is_overdue_days")
-    test.set_options("cycle_all", "content", "2")
+    test.get_options("f", "test", "test")
+    # test.set_options("cycle_all", "content", "2")

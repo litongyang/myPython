@@ -1,2 +1,2 @@
-use crm_v2_test;
-load data local inpath '/data/ml/tongyang/test/model_data/next_invest_bid/result.txt' into table next_invest_bid_label;
+use app;
+load data local inpath '/root/personas_fengjr/model_data/next_invest_bid/rate_result.txt' overwrite into table personas_next_invest_bid_label_full partition(dt='${dt}');

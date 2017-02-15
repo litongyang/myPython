@@ -5,7 +5,10 @@
 """
 
 import sys
-sys.path.append("/data/ml/tongyang/test/")
+sys.path.append("/root/personas_fengjr")
+import datetime
+import logging
+import logging.config
 import numpy as np
 from sklearn.cluster import KMeans
 import personas.version_1.base_method.read_conf as read_conf
@@ -13,8 +16,7 @@ import personas.version_1.base_method.read_conf as read_conf
 
 class InvestVarModelTraining:
     def __init__(self):
-        self.fr = open(read_conf.ReadConf().get_options("path_invest_var", "user_invest_var_train_path"), 'r')
-        self.fw = open(read_conf.ReadConf().get_options("input_invest_var_result_data_path", "input_invest_var_result_data_path"), 'wr')
+        self.fw = open(read_conf.ReadConf().get_options("path_invest_var", "input_invest_var_result_data_path"), 'wr')
         self.user_id = []
         self.var_list = []  # 方差list
         self.train_set = []  # 训练集
@@ -22,19 +24,25 @@ class InvestVarModelTraining:
         self.pre_result_classification_list = []  # 预测分类结果list
 
     def get_train_data(self, is_success):
+        logger = logging.getLogger('personas.get_train_data')
         try:
-            for line in self.fr:
-                line_one = line.split('\x01')
+            fr = open(read_conf.ReadConf().get_options("path_invest_var", "user_invest_var_train_path"), 'r')
+            for line in fr:
+                line_one = line.split('\t')
                 self.user_id.append(line_one[0])
                 self.var_list.append(float(line_one[1]))
                 tmp = [0, float(line_one[1])]
                 self.train_set.append(tmp)
             is_success.append(1)
+            logger.info("get_train_data is successed !")
         except Exception, e:
-            print Exception, e
+            exception = Exception, e
+            error_info = str(exception) + "--------->>" + "get_train_data is Exception !"
+            logger.error(error_info)
             is_success.append(0)
 
     def kmeans_var(self, is_success):
+        logger = logging.getLogger('personas.kmeans_var')
         try:
             train_data = np.array(self.train_set)
             # print train_data[:, 1]
@@ -42,11 +50,15 @@ class InvestVarModelTraining:
             y_pre = KMeans(n_clusters=3, random_state=random_state).fit_predict(train_data)
             self.pre_result_list = np.ndarray.tolist(y_pre)
             is_success.append(1)
+            logger.info("kmeans_var is successed !")
         except Exception, e:
-            print Exception, e
+            exception = Exception, e
+            error_info = str(exception) + "--------->>" + "kmeans_var is Exception !"
+            logger.error(error_info)
             is_success.append(0)
 
     def get_classification_result(self, is_success):
+        logger = logging.getLogger('personas.get_classification_result')
         try:
             value_0 = ''  # 聚类等于0的值
             value_1 = ''  # 聚类等于1的值
@@ -74,11 +86,15 @@ class InvestVarModelTraining:
             for i in range(0, len(self.pre_result_list)):
                 self.pre_result_classification_list.append(classification[self.pre_result_list[i]])
             is_success.append(1)
+            logger.info("get_classification_result is successed !")
         except Exception, e:
-            print Exception, e
+            exception = Exception, e
+            error_info = str(exception) + "--------->>" + "get_classification_result is Exception !"
+            logger.error(error_info)
             is_success.append(0)
 
     def get_result(self, is_success):
+        logger = logging.getLogger('personas.get_result')
         try:
             for i in range(0, len(self.user_id)):
                 self.fw.write(self.user_id[i])
@@ -90,8 +106,11 @@ class InvestVarModelTraining:
                 self.fw.write(str(self.pre_result_classification_list[i]))
                 self.fw.write('\n')
             is_success.append(1)
+            logger.info("get_result is successed !")
         except Exception, e:
-            print Exception, e
+            exception = Exception, e
+            error_info = str(exception) + "--------->>" + "get_result is Exception !"
+            logger.error(error_info)
             is_success.append(0)
 
 

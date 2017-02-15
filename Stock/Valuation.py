@@ -50,7 +50,7 @@ class VALUATION():
         self.share_value = 0  # 每股价值
         self.cost_pre = 0
 
-        self.db_name = 'STOCK_INFO_2015'  # 数据库名,如果与现有数据库冲突，可改为其他名字
+        self.db_name = 'stcok_info_2015'  # 数据库名,如果与现有数据库冲突，可改为其他名字
         self.db_host = 'localhost'  # 主机名
         self.db_port = 3306  # 端口号
         self.username = 'root'  # 用户名
@@ -74,6 +74,7 @@ class VALUATION():
         try:
             conn = MySQLdb.connect(host=self.db_host, user=self.username, passwd=self.password, db=self.db_name,
                                    port=self.db_port)
+
             cur = conn.cursor()
             cur.execute('set names \'utf8\'')
             '''
@@ -387,7 +388,8 @@ class VALUATION():
         print "%s of share_value: %f" % (self.Company_code, self.share_value)
 
     def write_txt_fun(self):
-        fl = open("C:\\Users\\tongyang.li\\Desktop\\Valuation1.txt", 'a')
+        #fl = open("C:\\Users\\tongyang.li\\Desktop\\Valuation1.txt", 'a')
+        fl = open("/Users/litongyang/Desktop/Valuation1.txt", 'a')
         if self.share_value > 0:
             fl.write(str("%06d" % self.Company_code))
             fl.write('\t')
@@ -395,7 +397,8 @@ class VALUATION():
             fl.write("\n")
 
     def write_log_fun(self):
-        fl = open("C:\\Users\\tongyang.li\\Desktop\\log1.txt", 'a')
+        # fl = open("C:\\Users\\tongyang.li\\Desktop\\log1.txt", 'a')
+        fl = open("/Users/litongyang/Desktop/log1.txt", 'a')
         if self.share_value > 0:
             fl.write(str("%06d" % self.Company_code))
             fl.write('\n')

@@ -1,21 +1,19 @@
-use crm_v2;
-insert overwrite local directory '/data/ml/tongyang/test/data/invest_var'
+set hive.exec.compress.output=false;
+insert overwrite local directory '/root/personas_fengjr/data/invest_var' row format delimited fields terminated by '\t'
 select
- inv.USERID as user_id,
- stddev(lo.rate)
+  user_id,
+  stddev(loan_rate_ori) as rate_var
 from
-TB_LOANREQUEST_PRIVILEGE AS lp,
-TB_LOAN AS lo,
-TB_INVEST AS inv
-WHERE
-    lo.REQUEST_ID = lp.REQUEST_ID
-    AND lo.ID = inv.LOANID
-    AND inv.STATUS IN (
-    'FROZEN',
-    'FINISHED',
-    'SETTLED',
-    'CLEARED',
-    'OVERDUE',
-    'BREACH',
-    'TURNOUT')
-group by  inv.USERID
+  dwi.dwi_ordr_invest_full
+where
+  dt = '${dt}'
+  and invest_status in(
+      'FROZEN',
+      'FINISHED',
+      'SETTLED',
+      'CLEARED',
+      'OVERDUE',
+      'BREACH'
+  )
+group by
+  user_id

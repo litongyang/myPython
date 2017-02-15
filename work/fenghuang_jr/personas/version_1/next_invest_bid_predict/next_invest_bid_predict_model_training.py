@@ -5,7 +5,9 @@
 """
 
 import sys
-sys.path.append("/data/ml/tongyang/test/")
+sys.path.append("/root/personas_fengjr/")
+import logging
+import logging.config
 import numpy as np
 from sklearn.pipeline import Pipeline
 from sklearn.preprocessing import PolynomialFeatures
@@ -15,7 +17,6 @@ import personas.version_1.base_method.read_conf as read_conf
 
 class NextInvestBitPredictModelTraining:
     def __init__(self):
-        self.fr = open(read_conf.ReadConf().get_options("path_next_invest_bid", "next_invest_ratio_train_path"), 'r')
         # self.fr = open("train.txt", 'r')  # 本地测试
         self.fw_1 = open(read_conf.ReadConf().get_options("path_next_invest_bid", "next_invest_deadline_result_data_path"), 'wr')
         self.fw = open(read_conf.ReadConf().get_options("path_next_invest_bid", "next_invest_ratio_result_data_path"), 'wr')
@@ -27,9 +28,11 @@ class NextInvestBitPredictModelTraining:
         # self.is_success = []  # 本地测试
 
     def get_train_data(self, is_success):
+        logger = logging.getLogger('personas.get_train_data')
         try:
-            for line in self.fr:
-                line_one = line.split('\x01')
+            fr = open(read_conf.ReadConf().get_options("path_next_invest_bid", "next_invest_ratio_train_path"), 'r')
+            for line in fr:
+                line_one = line.split('\t')
                 # line_one = line.split('\t')  # 本地测试
                 self.user_id_list.append(line_one[0])
                 deadline_tmp = line_one[1].split(',')
@@ -43,12 +46,16 @@ class NextInvestBitPredictModelTraining:
                 self.deadline_list.append(deadline_list_one)
                 self.rate_list.append(rate_list_noe)
             is_success.append(1)
+            logger.info("get_train_data is successed !")
         except Exception, e:
-            print Exception, e
+            exception = Exception, e
+            error_info = str(exception) + "--------->>" + "get_train_data is Exception !"
+            logger.error(error_info)
             is_success.append(0)
 
-    """ 预测下一次投资的利率 """
+    """ 预测下一次投资的期限 """
     def next_invest_deadline_predit_model_training(self, is_success):
+        logger = logging.getLogger('personas.next_invest_deadline_predit_model_training')
         try:
             for i in range(0, len(self.deadline_list)):
                 y_train = [[self.deadline_list[i][j]] for j in range(0, len(self.deadline_list[i]))]
@@ -64,27 +71,32 @@ class NextInvestBitPredictModelTraining:
                 # print clf.predict(x_train)
                 # 均方误差
                 mean_error = np.mean((clf_1.predict(x_train) - y_train) ** 2)
-                print("Residual sum of squares: %.2f" % mean_error)
-                next_rate_pre = float(clf_1.predict(x_pre))
-                if mean_error > 15 or next_rate_pre > 3 * self.rate_list[i][
-                            len(self.rate_list[i]) - 1] or next_rate_pre < self.rate_list[i][
-                            len(self.rate_list[i]) - 1] / 3:
-                    next_rate = np.mean(self.rate_list[i])
+                # print("Residual sum of squares: %.2f" % mean_error)
+                next_deadline_pre = float(clf_1.predict(x_pre))
+                if mean_error > 15 or next_deadline_pre > 3 * self.deadline_list[i][
+                            len(self.deadline_list[i]) - 1] or next_deadline_pre < self.rate_list[i][
+                            len(self.deadline_list[i]) - 1] / 3:
+                    next_deadline = np.mean(self.deadline_list[i])
                 else:
-                    next_rate = round(float(clf_1.predict(x_pre)), 2)
+                    next_deadline = round(float(clf_1.predict(x_pre)), 2)
                 # print self.rate_pre_list
                 # print "=============="
                 self.fw_1.write(str(self.user_id_list[i]))
                 self.fw_1.write('\t')
-                self.fw_1.write(str(next_rate))
+                self.fw_1.write(str(next_deadline))
                 self.fw_1.write('\n')
+            is_success.append(1)
+            logger.info("next_invest_deadline_predit_model_training is successed !")
         except Exception, e:
-            print Exception, e
+            exception = Exception, e
+            error_info = str(exception) + "--------->>" + "next_invest_deadline_predit_model_training is Exception !"
+            logger.error(error_info)
             is_success.append(0)
         self.fw_1.close()
 
     """ 预测下一次投资的利率 """
     def next_invest_rate_predit_model_training(self, is_success):
+        logger = logging.getLogger('personas.next_invest_rate_predit_model_training')
         try:
             for i in range(0, len(self.rate_list)):
                 y_train = [[self.rate_list[i][j]] for j in range(0, len(self.rate_list[i]))]
@@ -99,10 +111,10 @@ class NextInvestBitPredictModelTraining:
                 # print clf.predict(x_train)
                 # 均方误差
                 mean_error = np.mean((clf.predict(x_train) - y_train) ** 2)
-                print("Residual sum of squares: %.2f" % mean_error)
+                # print("Residual sum of squares: %.2f" % mean_error)
                 next_rate_pre = float(clf.predict(x_pre))
                 if mean_error > 15 or next_rate_pre > 3 * self.rate_list[i][len(self.rate_list[i])-1] or next_rate_pre < self.rate_list[i][len(self.rate_list[i])-1]/3:
-                    next_rate = np.mean(self.rate_list[i])
+                    next_rate = round(float(np.mean(self.rate_list[i])), 2)
                 else:
                     next_rate = round(float(clf.predict(x_pre)), 2)
                 # print self.rate_pre_list
@@ -111,9 +123,12 @@ class NextInvestBitPredictModelTraining:
                 self.fw.write('\t')
                 self.fw.write(str(next_rate))
                 self.fw.write('\n')
-
+            is_success.append(1)
+            logger.info("next_invest_rate_predit_model_training is successed !")
         except Exception, e:
-            print Exception, e
+            exception = Exception, e
+            error_info = str(exception) + "--------->>" + "next_invest_rate_predit_model_training is Exception !"
+            logger.error(error_info)
             is_success.append(0)
         self.fw.close()
 

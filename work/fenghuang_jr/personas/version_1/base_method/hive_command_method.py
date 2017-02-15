@@ -10,15 +10,12 @@ import os
 def hive_command(params, content):
     logger = logging.getLogger('personas.base_method.hive_command')
     try:
-        hive_home = "$HIVE_HOME/bin/hive"
+        os.system("kinit -k -t  /data/key/hdfs.keytab hdfs@hadoop_edw")
+        hive_home = "hive"
         command_content = hive_home + " " + params + " " + content
         # print command_content
-        # os.system(command_content)
+        os_v1 = os.system("set hive.exec.compress.output=false")
         os_v = os.system(command_content)
-        if os_v == 0:
-            logger.info("run hive command is successed !")
-        else:
-            logger.error("run hive command is failed !")
         return os_v
     except Exception, e:
         exception = Exception, e

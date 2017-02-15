@@ -61,7 +61,7 @@ class Cf:
 
     def computeNearestNeighbor(self, username):
         distances = []
-        print username
+        # print username
         for instance in self.data:
             if instance != username:
                 """ 不同用户feature间的距离计算 """
@@ -77,12 +77,11 @@ class Cf:
         recommendations = {}
         # 计算出user与所有其他用户的相似度，返回一个list
         nearest = self.computeNearestNeighbor(user)
-        # print nearest
-
         userRatings = self.data[user]
         #         print userRatings
         totalDistance = 0.0
         # 得住最近的k个近邻的总距离
+        # for i in range(self.k):
         for i in range(self.k):
             totalDistance += nearest[i][1]
         if totalDistance == 0.0:

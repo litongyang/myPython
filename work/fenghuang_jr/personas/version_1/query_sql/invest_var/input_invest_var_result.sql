@@ -1,2 +1,2 @@
-use crm_v2_test;
-load data local inpath '/data/ml/tongyang/test/model_data/invest_var/result.txt' into table user_invest_var_label;
+use app;
+load data local inpath '/root/personas_fengjr/model_data/invest_var/result.txt' overwrite into table personas_user_invest_var_label_full partition(dt='${dt}');

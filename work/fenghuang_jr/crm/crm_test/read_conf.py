@@ -14,6 +14,7 @@ class ReadConf:
         self.is_overdue_days = ""
 
     def get_options(self, section_name, var_name):
+        # type: (object, object) -> object
         try:
             self.cf.read(self.conf_name)
             return self.cf.get(section_name, var_name)
