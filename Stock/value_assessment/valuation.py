@@ -4,9 +4,9 @@
 
 class Valuation:
     def __init__(self):
-        self.profit_pre = 2  # 每股收益
-        self.bonus_rate = 0.8  # 分红占利润的比值
-        self.growth_rate_avg = 1.2  # 平均每年增长率
+        self.profit_pre = 0.35  # 每股收益
+        self.bonus_rate = 0.5  # 分红占利润的比值
+        self.growth_rate_avg = 1.5  # 平均每年增长率
         self.years_5 = 5  # 持有年限
         self.multiple_5 = 2  # 持有5年收益的倍数
         self.profit_pre_5 = 0  # 5年后公司的每股收益

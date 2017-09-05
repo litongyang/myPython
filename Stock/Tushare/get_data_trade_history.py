@@ -35,20 +35,25 @@ class GetDataTradeHistroy:
         self.password = ''  # 密码
 
     def get_company_code(self):
-        company_data = tus.get_stock_basics()
-        for index, row in company_data.iterrows():
-            self.company_code_list.append(str(index))
-        print len(self.company_code_list)
+        company_data = tus.get_today_all()
+        for code in company_data['code'].values:
+            self.company_code_list.append(str(code))
+        # company_data = tus.get_stock_basics()
+        # for index, row in company_data.iterrows():
+        #     self.company_code_list.append(str(index))
+        # print len(self.company_code_list)
 
     def get_trade_data(self):
+        self.company_code_list = ['600009']
         for i in range(0, len(self.company_code_list)):
             try:
                 # for i in range(2000, 2017):
                 #     print str(i) + '-' + '01-01'
                 #     print str(i) + '-' + '12-31'
-                start_date = tus.get_stock_basics().ix[self.company_code_list[i]]['timeToMarket']  # 上市日期YYYYMMDD
-                start_date = str(start_date)[0:4] + '-' + str(start_date)[4:6] + '-' + str(start_date)[6:8]
-                company_trade_histroy = tus.get_k_data(self.company_code_list[i], autype='hfq', start='2016-12-22', end='2016-12-22')
+                # start_date = tus.get_stock_basics().ix[self.company_code_list[i]]['timeToMarket']  # 上市日期YYYYMMDD
+                # start_date = str(start_date)[0:4] + '-' + str(start_date)[4:6] + '-' + str(start_date)[6:8]
+                # company_trade_histroy = tus.get_k_data(code='600016', start='2016-12-22')
+                company_trade_histroy = tus.get_h_data(code='600622', autype='hfq', start='2017-02-13', end='2017-03-16')
                 print self.company_code_list[i]
                 # """ 获取日期 """
                 # pydate_array = company_trade_histroy.index.to_pydatetime()
@@ -57,7 +62,9 @@ class GetDataTradeHistroy:
                 # print date_series
 
                 """ 获取参数 """
-                print company_trade_histroy['date'].values
+                # print company_trade_histroy
+                # print company_trade_histroy.values
+                # print company_trade_histroy['date'].values
                 print company_trade_histroy['open'].values
                 print company_trade_histroy['close'].values
                 print company_trade_histroy['high'].values
@@ -87,5 +94,5 @@ class GetDataTradeHistroy:
 
 if __name__ == '__main__':
     test = GetDataTradeHistroy()
-    test.get_company_code()
-    # test.get_trade_data()
+    # test.get_company_code()
+    test.get_trade_data()
