@@ -1,0 +1,1 @@
+load data local inpath '/root/intelligence_info/finance/result/finance/result.txt' overwrite into table app.app_intelligence_info_finance_price_full partition(dt='${dt}');
